@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>潔美淨清潔社 | 基隆・台北・新北 居家・社區・裝潢・店面清潔</title>
+<meta name="description" content="潔美淨清潔社－基隆在地，服務新竹以北。居家清潔、裝潢細清、入住退租、定期打掃。估多少收多少，不現場加價。電話 0988-145-875">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════
+   RESET & BASE
+═══════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: #FAFAF7;
+  color: #1A2332;
+  overflow-x: hidden;
+  padding-top: 56px;
+  padding-bottom: 64px;
+  min-height: 100vh;
+}
+:root {
+  --sky: #4FC3F7;
+  --blue: #0288D1;
+  --mint: #80CBC4;
+  --cream: #FAFAF7;
+  --warm: #FFF8F0;
+  --ink: #1A2332;
+  --mid: #4A5568;
+  --soft: #718096;
+  --green: #06C755;
+  --accent: #FFB347;
+  --sh: 0 4px 20px rgba(26,35,50,0.09);
+  --r: 14px;
+}
+
+/* ═══════════════════════════
+   TOP BAR
+═══════════════════════════ */
+.top-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 300;
+  height: 56px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(79,195,247,0.18);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 14px;
+  box-shadow: 0 2px 10px rgba(79,195,247,0.09);
+}
+.tlogo { display: flex; align-items: center; gap: 8px; text-decoration: none; min-width: 0; cursor: pointer; }
+.tlogo-ico {
+  width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px;
+  background: linear-gradient(135deg, var(--sky), var(--mint));
+  display: flex; align-items: center; justify-content: center; font-size: 17px;
+}
+.tlogo-name {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 900; font-size: 16px; color: var(--blue);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.top-btns { display: flex; gap: 7px; flex-shrink: 0; }
+.top-btns a {
+  display: flex; align-items: center; gap: 4px;
+  padding: 7px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; text-decoration: none; white-space: nowrap;
+}
+.tbtn-line { background: var(--green); color: white; }
+.tbtn-tel { background: rgba(2,136,209,0.09); color: var(--blue); border: 1.5px solid rgba(2,136,209,0.24); }
+
+/* ═══════════════════════════
+   BOTTOM NAV
+═══════════════════════════ */
+.bottom-nav {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+  height: 56px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(79,195,247,0.16);
+  display: flex;
+  box-shadow: 0 -2px 12px rgba(79,195,247,0.09);
+}
+.bnav-tab {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 2px;
+  text-decoration: none; color: var(--soft);
+  font-size: 9.5px; font-weight: 600;
+  transition: color 0.18s, background 0.18s;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer; border: none; background: none;
+  position: relative;
+}
+.bnav-tab .bi { font-size: 19px; line-height: 1; }
+.bnav-tab::after {
+  content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 2px;
+  background: var(--blue); border-radius: 2px; opacity: 0; transition: opacity 0.18s;
+}
+.bnav-tab.active { color: var(--blue); }
+.bnav-tab.active::after { opacity: 1; }
+
+/* ═══════════════════════════
+   PAGE SYSTEM
+═══════════════════════════ */
+.page { display: none; animation: fadeIn 0.22s ease; }
+.page.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ═══════════════════════════
+   SHARED COMPONENTS
+═══════════════════════════ */
+.sec { padding: 40px 16px; }
+.sec-bg-white { background: white; }
+.sec-bg-cream { background: var(--cream); }
+.sec-bg-grad { background: linear-gradient(180deg, #F0FAFE 0%, var(--cream) 100%); }
+.sh { text-align: center; max-width: 460px; margin: 0 auto 22px; }
+.slabel {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--sky), var(--mint));
+  color: white; padding: 3px 12px; border-radius: 10px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 9px;
+}
+.stitle {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(19px, 5.5vw, 28px); font-weight: 900;
+  color: var(--ink); line-height: 1.4; margin-bottom: 6px;
+}
+.sdesc { font-size: 12.5px; color: var(--soft); line-height: 1.72; }
+
+/* Carousel shared */
+.car-wrap { overflow: hidden; max-width: 460px; margin: 0 auto; }
+.car-track { display: flex; gap: 12px; transition: transform 0.36s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
+.car-ctrl { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 15px; }
+.cbtn {
+  width: 33px; height: 33px; border-radius: 50%;
+  border: 2px solid var(--sky); background: white;
+  color: var(--blue); font-size: 13px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+}
+.cbtn:hover { background: var(--sky); color: white; }
+.cdots { display: flex; gap: 5px; }
+.cdot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(79,195,247,0.26); cursor: pointer; transition: all 0.2s;
+}
+.cdot.on { background: var(--blue); width: 17px; border-radius: 4px; }
+
+/* CTA bar shared */
+.cta-bar {
+  background: linear-gradient(135deg, #0288D1, #00796B);
+  padding: 32px 18px; text-align: center;
+}
+.cta-bar h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px; font-weight: 900; color: white; margin-bottom: 8px;
+}
+.cta-bar p { color: rgba(255,255,255,0.82); font-size: 12.5px; line-height: 1.7; margin-bottom: 18px; }
+.cta-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.cta-line {
+  background: var(--green); color: white; border: none; border-radius: 28px;
+  padding: 12px 24px; font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; gap: 6px; text-decoration: none;
+  box-shadow: 0 4px 14px rgba(6,199,85,0.34); transition: all 0.2s;
+}
+.cta-line:hover { transform: translateY(-2px); }
+.cta-tel {
+  background: rgba(255,255,255,0.16); color: white;
+  border: 2px solid rgba(255,255,255,0.46); border-radius: 28px;
+  padding: 10px 20px; font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; gap: 6px; text-decoration: none; transition: all 0.2s;
+}
+.cta-tel:hover { background: rgba(255,255,255,0.24); }
+
+/* Floating buttons */
+.float-group {
+  position: fixed; right: 13px; bottom: 68px; z-index: 299;
+  display: flex; flex-direction: column; gap: 9px; align-items: flex-end;
+}
+.fb {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 15px; border-radius: 50px;
+  font-size: 13px; font-weight: 700; text-decoration: none;
+  border: none; cursor: pointer; transition: transform 0.2s;
+  box-shadow: var(--sh);
+}
+.fb-line { background: var(--green); color: white; animation: glo 2.4s infinite; }
+.fb-tel { background: white; color: var(--blue); border: 2px solid var(--sky); }
+@keyframes glo {
+  0%,100% { box-shadow: 0 4px 16px rgba(6,199,85,0.36); }
+  50% { box-shadow: 0 4px 26px rgba(6,199,85,0.60); }
+}
+
+/* ═══════════════════════════
+   PAGE 1 — 首頁
+═══════════════════════════ */
+.hero {
+  background: linear-gradient(160deg, #E0F7FA 0%, #E8F5E9 55%, #FFF8F0 100%);
+  padding: 30px 16px 26px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -60px; right: -50px;
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(79,195,247,0.16), transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.hero-inner {
+  max-width: 460px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; position: relative; z-index: 1;
+}
+.hero-badge {
+  background: rgba(79,195,247,0.13); border: 1px solid rgba(79,195,247,0.34);
+  color: var(--blue); padding: 4px 13px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; margin-bottom: 13px;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(24px, 7.5vw, 36px);
+  font-weight: 900; line-height: 1.32; color: var(--ink); margin-bottom: 9px;
+}
+.hero h1 em { color: var(--blue); font-style: normal; border-bottom: 3px solid var(--accent); }
+.hero-sub {
+  font-size: 13px; color: var(--mid); line-height: 1.78;
+  margin-bottom: 18px; max-width: 310px;
+}
+.hero-svg { width: 100%; max-width: 300px; margin: 0 auto 18px; }
+.hero-btns { display: flex; gap: 10px; width: 100%; justify-content: center; flex-wrap: wrap; }
+.hbtn-line {
+  flex: 1; min-width: 130px; max-width: 185px;
+  background: var(--green); color: white; border: none; border-radius: 28px;
+  padding: 12px 14px; font-size: 13.5px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  text-decoration: none; transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(6,199,85,0.27);
+}
+.hbtn-tel {
+  flex: 1; min-width: 130px; max-width: 185px;
+  background: white; color: var(--blue);
+  border: 2px solid var(--sky); border-radius: 28px;
+  padding: 10px 14px; font-size: 13.5px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  text-decoration: none; transition: all 0.2s;
+}
+.hero-stats {
+  display: flex; width: 100%; margin-top: 20px;
+  background: white; border-radius: var(--r); overflow: hidden;
+  box-shadow: 0 2px 12px rgba(79,195,247,0.10);
+}
+.stat { flex: 1; text-align: center; padding: 11px 6px; border-right: 1px solid rgba(79,195,247,0.12); }
+.stat:last-child { border-right: none; }
+.stat-n { font-family: 'Noto Serif TC', serif; font-size: 15px; font-weight: 900; color: var(--blue); white-space: nowrap; }
+.stat-l { font-size: 9.5px; color: var(--soft); margin-top: 2px; }
+
+/* Quick cards on home */
+.quick-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 11px; max-width: 460px; margin: 0 auto;
+}
+.quick-card {
+  background: white; border: 1.5px solid rgba(79,195,247,0.16);
+  border-radius: var(--r); padding: 16px 14px;
+  display: flex; flex-direction: column; gap: 6px;
+  cursor: pointer; transition: all 0.2s;
+}
+.quick-card:hover { border-color: var(--sky); box-shadow: var(--sh); transform: translateY(-2px); }
+.qcard-ico { font-size: 26px; }
+.qcard-title { font-size: 14px; font-weight: 700; color: var(--ink); }
+.qcard-desc { font-size: 11px; color: var(--soft); line-height: 1.6; }
+.qcard-arrow { font-size: 11px; color: var(--blue); font-weight: 700; margin-top: auto; }
+
+/* Steps on home */
+.steps { display: flex; flex-direction: column; gap: 11px; max-width: 460px; margin: 0 auto; }
+.step {
+  display: flex; gap: 13px; align-items: flex-start;
+  background: white; border-radius: var(--r); padding: 14px;
+  box-shadow: 0 2px 8px rgba(79,195,247,0.07);
+  border-left: 4px solid var(--sky);
+}
+.step:nth-child(2) { border-left-color: var(--mint); }
+.step:nth-child(3) { border-left-color: var(--accent); }
+.step:nth-child(4) { border-left-color: var(--green); }
+.step-n {
+  width: 34px; height: 34px; border-radius: 10px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--sky), var(--mint));
+  color: white; display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 14px;
+}
+.step-t h3 { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.step-t p { font-size: 11.5px; color: var(--soft); line-height: 1.62; }
+
+/* ═══════════════════════════
+   PAGE 2 — 服務
+═══════════════════════════ */
+.svc-hero {
+  background: linear-gradient(135deg, #E0F7FA, #E8F5E9);
+  padding: 28px 16px 22px; text-align: center;
+}
+.svc-hero h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(22px, 6vw, 30px); font-weight: 900; color: var(--ink); margin-bottom: 8px;
+}
+.svc-hero p { font-size: 13px; color: var(--mid); line-height: 1.72; }
+.svc-list { display: flex; flex-direction: column; gap: 14px; max-width: 460px; margin: 0 auto; }
+.svc-item {
+  background: white; border-radius: var(--r);
+  border: 1.5px solid rgba(79,195,247,0.16);
+  overflow: hidden; transition: all 0.22s;
+}
+.svc-item:hover { box-shadow: var(--sh); transform: translateY(-2px); }
+.svc-head {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px; cursor: pointer;
+}
+.svc-head-ico {
+  width: 50px; height: 50px; flex-shrink: 0; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(79,195,247,0.14), rgba(128,203,196,0.14));
+  display: flex; align-items: center; justify-content: center; font-size: 24px;
+}
+.svc-head-text { flex: 1; }
+.svc-head-text h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.svc-head-text .price-tag {
+  display: inline-block; background: rgba(79,195,247,0.11); color: var(--blue);
+  padding: 2px 9px; border-radius: 7px; font-size: 11px; font-weight: 700;
+}
+.svc-arrow { color: var(--soft); font-size: 16px; transition: transform 0.25s; }
+.svc-item.open .svc-arrow { transform: rotate(90deg); }
+.svc-body {
+  display: none; padding: 0 16px 16px;
+  border-top: 1px solid rgba(79,195,247,0.12);
+}
+.svc-item.open .svc-body { display: block; }
+.svc-body p { font-size: 12.5px; color: var(--mid); line-height: 1.75; margin-top: 12px; }
+.svc-body ul { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+.svc-body ul li {
+  font-size: 12px; color: var(--mid); display: flex; gap: 7px; align-items: flex-start;
+}
+.svc-body ul li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+.svc-note {
+  margin-top: 12px; padding: 10px 12px; border-radius: 10px;
+  background: rgba(255,179,71,0.09); border: 1px solid rgba(255,179,71,0.22);
+  font-size: 11.5px; color: var(--mid); line-height: 1.7;
+}
+.svc-note strong { color: #D97706; }
+
+/* ═══════════════════════════
+   PAGE 3 — 案例
+═══════════════════════════ */
+.case-hero {
+  background: linear-gradient(135deg, #E8F5E9, #E0F7FA);
+  padding: 28px 16px 22px; text-align: center;
+}
+.case-hero h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(22px, 6vw, 30px); font-weight: 900; color: var(--ink); margin-bottom: 8px;
+}
+.case-hero p { font-size: 13px; color: var(--mid); line-height: 1.72; }
+.case-filter { display: flex; gap: 8px; flex-wrap: wrap; max-width: 460px; margin: 0 auto 18px; }
+.filter-btn {
+  padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+  border: 1.5px solid rgba(79,195,247,0.25); background: white; color: var(--mid);
+  cursor: pointer; transition: all 0.18s;
+}
+.filter-btn.on { background: var(--blue); color: white; border-color: var(--blue); }
+.cases-grid { display: flex; flex-direction: column; gap: 14px; max-width: 460px; margin: 0 auto; }
+.case-full {
+  background: white; border-radius: var(--r); overflow: hidden;
+  border: 1.5px solid rgba(79,195,247,0.16);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  transition: all 0.2s;
+}
+.case-full:hover { box-shadow: var(--sh); transform: translateY(-2px); }
+.case-img-full {
+  width: 100%; height: 140px;
+  background: linear-gradient(135deg, #B2EBF2, #E0F2F1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 56px; position: relative;
+}
+.case-img-full::after {
+  content: attr(data-loc);
+  position: absolute; bottom: 8px; right: 10px;
+  background: rgba(255,255,255,0.88); backdrop-filter: blur(4px);
+  padding: 2px 9px; border-radius: 7px;
+  font-size: 10.5px; color: var(--blue); font-weight: 700;
+}
+.case-body-full { padding: 14px; }
+.case-type-badge {
+  display: inline-block; background: rgba(79,195,247,0.11);
+  color: var(--blue); padding: 2px 9px; border-radius: 7px;
+  font-size: 10.5px; font-weight: 700; margin-bottom: 7px;
+}
+.case-body-full h3 { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.case-body-full p { font-size: 12px; color: var(--soft); line-height: 1.65; }
+.case-meta {
+  display: flex; gap: 12px; margin-top: 10px; padding-top: 10px;
+  border-top: 1px dashed rgba(79,195,247,0.18);
+  font-size: 11px; color: var(--mid);
+}
+.case-meta span { display: flex; align-items: center; gap: 4px; }
+.case-result-badge {
+  display: inline-block; margin-top: 8px;
+  background: rgba(6,199,85,0.10); color: #059669;
+  padding: 4px 10px; border-radius: 8px; font-size: 11px; font-weight: 700;
+}
+
+/* ═══════════════════════════
+   PAGE 4 — 報價
+═══════════════════════════ */
+.price-hero {
+  background: linear-gradient(135deg, #FFF8F0, #E0F7FA);
+  padding: 28px 16px 22px; text-align: center;
+}
+.price-hero h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(22px, 6vw, 30px); font-weight: 900; color: var(--ink); margin-bottom: 8px;
+}
+.price-hero p { font-size: 13px; color: var(--mid); line-height: 1.72; }
+.price-cards { display: flex; flex-direction: column; gap: 14px; max-width: 460px; margin: 0 auto; }
+.pc {
+  background: white; border-radius: var(--r); padding: 18px 16px;
+  border: 1.5px solid rgba(79,195,247,0.17); transition: all 0.2s;
+}
+.pc.feat { border-color: var(--sky); background: linear-gradient(135deg, #E0F7FA 0%, white 60%); }
+.pc:hover { box-shadow: var(--sh); transform: translateY(-2px); }
+.pc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.pc-ico {
+  width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(79,195,247,0.14), rgba(128,203,196,0.14));
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.pc-title h3 { font-size: 15px; font-weight: 700; color: var(--ink); }
+.pc-title span { font-size: 11px; color: var(--soft); }
+.pc-price {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 26px; font-weight: 900; color: var(--blue); margin-bottom: 3px;
+}
+.pc-unit { font-size: 12px; color: var(--soft); margin-bottom: 10px; }
+.pc-divider { height: 1px; background: rgba(79,195,247,0.14); margin: 12px 0; }
+.pc-list { display: flex; flex-direction: column; gap: 7px; }
+.pc-list li {
+  font-size: 12px; color: var(--mid); display: flex; gap: 7px; align-items: flex-start; list-style: none;
+}
+.pc-list li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+.pc-note-text { font-size: 11.5px; color: var(--mid); line-height: 1.7; margin-top: 10px; }
+.promise-box {
+  max-width: 460px; margin: 0 auto;
+  background: rgba(6,199,85,0.07); border: 1.5px solid rgba(6,199,85,0.22);
+  border-radius: var(--r); padding: 16px;
+}
+.promise-box h4 { font-size: 14px; font-weight: 700; color: #059669; margin-bottom: 8px; }
+.promise-box p { font-size: 12px; color: var(--mid); line-height: 1.72; }
+.faq-list { display: flex; flex-direction: column; gap: 11px; max-width: 460px; margin: 0 auto; }
+.faq-item { background: var(--warm); border-radius: var(--r); padding: 15px; border: 1.5px solid rgba(255,179,71,0.17); }
+.faq-q, .faq-a { display: flex; gap: 8px; }
+.faq-q { margin-bottom: 8px; }
+.ftag { flex-shrink: 0; padding: 2px 8px; border-radius: 7px; font-size: 10px; font-weight: 700; height: fit-content; margin-top: 2px; }
+.faq-q .ftag { background: rgba(255,179,71,0.13); color: #D97706; }
+.faq-a .ftag { background: rgba(79,195,247,0.10); color: var(--blue); }
+.faq-q p { font-size: 13px; font-weight: 700; color: var(--ink); }
+.faq-a p { font-size: 11.5px; color: var(--mid); line-height: 1.65; }
+
+/* ═══════════════════════════
+   PAGE 5 — 關於我們
+═══════════════════════════ */
+.about-hero {
+  background: linear-gradient(160deg, #E0F7FA 0%, #E8F5E9 100%);
+  padding: 30px 16px 26px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.about-hero::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(79,195,247,0.18), transparent 70%);
+  border-radius: 50%;
+}
+.about-brand {
+  width: 72px; height: 72px; border-radius: 20px; margin: 0 auto 14px;
+  background: linear-gradient(135deg, var(--sky), var(--mint));
+  display: flex; align-items: center; justify-content: center; font-size: 32px;
+  position: relative; z-index: 1;
+  box-shadow: 0 6px 20px rgba(79,195,247,0.30);
+}
+.about-hero h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 24px; font-weight: 900; color: var(--ink); margin-bottom: 6px;
+  position: relative; z-index: 1;
+}
+.about-hero .tagline { font-size: 13px; color: var(--mid); position: relative; z-index: 1; }
+.about-info-card {
+  background: white; border-radius: var(--r);
+  border: 1.5px solid rgba(79,195,247,0.16);
+  overflow: hidden; max-width: 460px; margin: 0 auto;
+}
+.info-row {
+  display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px;
+  border-bottom: 1px solid rgba(79,195,247,0.10);
+}
+.info-row:last-child { border-bottom: none; }
+.info-ico { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.info-label { font-size: 11px; color: var(--soft); margin-bottom: 3px; font-weight: 600; }
+.info-val { font-size: 13.5px; color: var(--ink); font-weight: 700; line-height: 1.5; }
+.info-val a { color: var(--blue); text-decoration: none; }
+.promise-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 11px; max-width: 460px; margin: 0 auto;
+}
+.prom-card {
+  background: white; border-radius: var(--r); padding: 16px 14px; text-align: center;
+  border: 1.5px solid rgba(79,195,247,0.13);
+  box-shadow: 0 2px 8px rgba(79,195,247,0.06);
+}
+.prom-ico-circle {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(79,195,247,0.14), rgba(128,203,196,0.14));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin: 0 auto 9px;
+}
+.prom-card h4 { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+.prom-card p { font-size: 10.5px; color: var(--soft); line-height: 1.6; }
+.area-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 9px; max-width: 460px; margin: 0 auto;
+}
+.area-tag {
+  background: white; border: 1.5px solid rgba(79,195,247,0.20);
+  border-radius: 10px; padding: 10px 8px; text-align: center;
+  font-size: 12.5px; font-weight: 700; color: var(--ink);
+}
+.area-tag span { display: block; font-size: 18px; margin-bottom: 4px; }
+.area-note { max-width: 460px; margin: 12px auto 0; font-size: 11.5px; color: var(--soft); text-align: center; line-height: 1.7; }
+.contact-card {
+  background: white; border-radius: var(--r);
+  border: 1.5px solid rgba(79,195,247,0.16);
+  padding: 20px 16px; max-width: 460px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.contact-row {
+  display: flex; align-items: center; gap: 14px;
+}
+.contact-ico {
+  width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.contact-ico.c-line { background: rgba(6,199,85,0.12); }
+.contact-ico.c-tel { background: rgba(2,136,209,0.10); }
+.contact-ico.c-addr { background: rgba(79,195,247,0.10); }
+.contact-text h4 { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.contact-text p { font-size: 12px; color: var(--soft); line-height: 1.5; }
+.contact-text a {
+  display: inline-block; margin-top: 6px;
+  background: var(--green); color: white;
+  padding: 7px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; text-decoration: none;
+}
+.contact-text a.tel-btn { background: var(--blue); }
+
+/* ═══════════════════════════
+   FOOTER
+═══════════════════════════ */
+footer {
+  background: var(--ink); color: rgba(255,255,255,0.68);
+  padding: 28px 20px; text-align: center;
+}
+.flogo { color: var(--sky); font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 900; margin-bottom: 10px; }
+footer p { font-size: 11.5px; line-height: 1.9; }
+footer a { color: var(--sky); text-decoration: none; }
+.fdiv { width: 36px; height: 2px; background: rgba(79,195,247,0.28); margin: 10px auto; }
+
+/* ═══════════════════════════
+   PRICE TABLE
+═══════════════════════════ */
+.ptab-wrap { max-width: 460px; margin: 0 auto; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--r); box-shadow: var(--sh); }
+.ptab {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px; background: white;
+  border-radius: var(--r); overflow: hidden;
+}
+.ptab thead tr { background: linear-gradient(90deg, var(--blue), #0277BD); }
+.ptab thead th {
+  color: white; padding: 10px 8px; font-size: 11px; font-weight: 700;
+  text-align: center; white-space: nowrap;
+}
+.ptab thead th:first-child { text-align: left; padding-left: 12px; }
+.ptab tbody tr { border-bottom: 1px solid rgba(79,195,247,0.10); transition: background 0.15s; }
+.ptab tbody tr:hover { background: rgba(79,195,247,0.05); }
+.ptab tbody tr:last-child { border-bottom: none; }
+.ptab td { padding: 10px 8px; text-align: center; color: var(--mid); white-space: nowrap; }
+.ptab td:first-child {
+  font-weight: 700; color: var(--ink); text-align: left; padding-left: 12px;
+  background: rgba(79,195,247,0.04);
+}
+.ptab td.price { color: var(--blue); font-weight: 700; }
+.ptab td.na { color: rgba(0,0,0,0.18); font-size: 11px; }
+.ptab td.ask { color: var(--soft); font-size: 11px; }
+.tab-switch {
+  display: flex; max-width: 460px; margin: 0 auto 16px;
+  background: rgba(79,195,247,0.08); border-radius: 10px; padding: 4px; gap: 4px;
+}
+.tab-sw-btn {
+  flex: 1; padding: 8px 6px; border-radius: 8px; border: none;
+  font-size: 11.5px; font-weight: 700; cursor: pointer;
+  color: var(--soft); background: none; transition: all 0.18s; text-align: center;
+}
+.tab-sw-btn.on { background: white; color: var(--blue); box-shadow: 0 2px 8px rgba(79,195,247,0.15); }
+.ptab-note {
+  max-width: 460px; margin: 12px auto 0;
+  font-size: 11px; color: var(--soft); line-height: 1.72; padding: 0 4px;
+}
+.ptab-note li { display: flex; gap: 6px; margin-bottom: 4px; }
+.ptab-note li::before { content: '※'; flex-shrink: 0; color: var(--blue); }
+/* Hourly table for home cleaning */
+.hour-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 460px; margin: 0 auto; }
+.hc {
+  background: white; border-radius: var(--r); padding: 14px 13px;
+  border: 1.5px solid rgba(79,195,247,0.17); text-align: center;
+}
+.hc.feat { border-color: var(--sky); background: linear-gradient(135deg,#E0F7FA,white); }
+.hc-hr { font-size: 22px; font-weight: 900; font-family:'Noto Serif TC',serif; color: var(--blue); }
+.hc-label { font-size: 11px; color: var(--soft); margin-bottom: 6px; }
+.hc-price { font-size: 18px; font-weight: 900; font-family:'Noto Serif TC',serif; color: var(--ink); }
+.hc-note { font-size: 10.5px; color: var(--soft); margin-top: 4px; line-height: 1.5; }
+.price-type-tabs {
+  display: flex; max-width: 460px; margin: 0 auto 20px;
+  border-bottom: 2px solid rgba(79,195,247,0.15);
+}
+.ptype-tab {
+  flex: 1; padding: 10px 8px; border: none; background: none;
+  font-size: 13px; font-weight: 700; color: var(--soft); cursor: pointer;
+  border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.18s;
+}
+.ptype-tab.on { color: var(--blue); border-bottom-color: var(--blue); }
+.price-section { display: none; }
+.price-section.on { display: block; }
+
+/* ═══════════════════════════
+   RESPONSIVE
+═══════════════════════════ */
+@media (max-width: 359px) {
+  .tlogo-name { font-size: 14px; }
+  .top-btns a { padding: 6px 9px; font-size: 11px; }
+  .quick-grid { grid-template-columns: 1fr; }
+  .promise-grid { grid-template-columns: 1fr; }
+  .area-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ TOP BAR ══ -->
+<header class="top-bar">
+  <div class="tlogo" onclick="showPage('home')">
+    <div class="tlogo-ico">✨</div>
+    <span class="tlogo-name">潔美淨清潔社</span>
+  </div>
+  <div class="top-btns">
+    <a class="tbtn-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+      LINE
+    </a>
+    <a class="tbtn-tel" href="tel:0988145875">📞 電話</a>
+  </div>
+</header>
+
+<!-- ══════════════════════════════
+   PAGE: HOME（首頁）
+══════════════════════════════ -->
+<div id="page-home" class="page active">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">📍 基隆在地・服務新竹以北全區</div>
+      <h1>讓每個角落<br><em>乾淨如新</em></h1>
+      <p class="hero-sub">潔美淨清潔社，居家・社區・店面・裝潢後清潔・收納整理・退租入住・大掃除，估多少收多少，絕不現場加價。</p>
+      <svg class="hero-svg" viewBox="0 0 300 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="48" y="74" width="144" height="90" rx="6" fill="#E0F7FA" stroke="#4FC3F7" stroke-width="2"/>
+        <path d="M40 79L120 25L200 79" fill="#B2EBF2" stroke="#0288D1" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="98" y="122" width="42" height="42" rx="4" fill="#0288D1" opacity="0.3"/>
+        <circle cx="133" cy="144" r="3" fill="#0288D1"/>
+        <rect x="56" y="90" width="42" height="32" rx="4" fill="white" stroke="#80CBC4" stroke-width="1.5"/>
+        <line x1="77" y1="90" x2="77" y2="122" stroke="#80CBC4" stroke-width="1.2"/>
+        <line x1="56" y1="106" x2="98" y2="106" stroke="#80CBC4" stroke-width="1.2"/>
+        <rect x="142" y="90" width="42" height="32" rx="4" fill="white" stroke="#80CBC4" stroke-width="1.5"/>
+        <line x1="163" y1="90" x2="163" y2="122" stroke="#80CBC4" stroke-width="1.2"/>
+        <line x1="142" y1="106" x2="184" y2="106" stroke="#80CBC4" stroke-width="1.2"/>
+        <circle cx="252" cy="60" r="14" fill="#B2EBF2" stroke="#0288D1" stroke-width="1.8"/>
+        <line x1="252" y1="74" x2="252" y2="112" stroke="#0288D1" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="252" y1="91" x2="238" y2="103" stroke="#0288D1" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="252" y1="91" x2="266" y2="103" stroke="#0288D1" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="252" y1="112" x2="242" y2="138" stroke="#0288D1" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="252" y1="112" x2="262" y2="138" stroke="#0288D1" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="238" y1="103" x2="224" y2="134" stroke="#80CBC4" stroke-width="2.5" stroke-linecap="round"/>
+        <ellipse cx="220" cy="139" rx="12" ry="6" fill="#80CBC4" opacity="0.5"/>
+        <text x="10" y="38" font-size="14" opacity="0.5">✨</text>
+        <text x="274" y="28" font-size="12" opacity="0.4">⭐</text>
+        <text x="210" y="46" font-size="12" opacity="0.6">💧</text>
+        <line x1="10" y1="164" x2="290" y2="164" stroke="#B2EBF2" stroke-width="1.6"/>
+      </svg>
+      <div class="hero-btns">
+        <a class="hbtn-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+          LINE 免費諮詢
+        </a>
+        <a class="hbtn-tel" href="tel:0988145875">📞 0988-145-875</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-n">基隆</div><div class="stat-l">在地經營</div></div>
+        <div class="stat"><div class="stat-n">新竹↑</div><div class="stat-l">服務範圍</div></div>
+        <div class="stat"><div class="stat-n">不加價</div><div class="stat-l">估多少收多少</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 快速選服務 -->
+  <div class="sec sec-bg-white">
+    <div class="sh">
+      <span class="slabel">服務項目</span>
+      <h2 class="stitle">7大清潔服務</h2>
+      <p class="sdesc">點選服務了解詳情與報價說明</p>
+    </div>
+    <div class="quick-grid">
+      <div class="quick-card" onclick="showPage('services')">
+        <div class="qcard-ico">🏠</div>
+        <div class="qcard-title">居家清潔</div>
+        <div class="qcard-desc">計時制，$2,500 / 4小時，師傅到府</div>
+        <div class="qcard-arrow">了解更多 →</div>
+      </div>
+      <div class="quick-card" onclick="showPage('services')">
+        <div class="qcard-ico">🏢</div>
+        <div class="qcard-title">社區清潔</div>
+        <div class="qcard-desc">公共區域、走廊、停車場、大廳</div>
+        <div class="qcard-arrow">了解更多 →</div>
+      </div>
+      <div class="quick-card" onclick="showPage('services')">
+        <div class="qcard-ico">🏗</div>
+        <div class="qcard-title">裝潢後清潔</div>
+        <div class="qcard-desc">新成屋、中古屋裝修後細清</div>
+        <div class="qcard-arrow">了解更多 →</div>
+      </div>
+      <div class="quick-card" onclick="showPage('services')">
+        <div class="qcard-ico">🏪</div>
+        <div class="qcard-title">店面・辦公室</div>
+        <div class="qcard-desc">開幕清潔、定期維護、全室清潔</div>
+        <div class="qcard-arrow">了解更多 →</div>
+      </div>
+      <div class="quick-card" onclick="showPage('services')">
+        <div class="qcard-ico">📦</div>
+        <div class="qcard-title">收納整理</div>
+        <div class="qcard-desc">空間規劃整理，讓家更好用</div>
+        <div class="qcard-arrow">了解更多 →</div>
+      </div>
+      <div class="quick-card" onclick="showPage('services')">
+        <div class="qcard-ico">🚪</div>
+        <div class="qcard-title">退租・入住</div>
+        <div class="qcard-desc">退押金清潔、入住前全室清潔</div>
+        <div class="qcard-arrow">了解更多 →</div>
+      </div>
+      <div class="quick-card" onclick="showPage('services')" style="grid-column:1/-1;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="qcard-ico" style="flex-shrink:0;">🪟</div>
+          <div>
+            <div class="qcard-title">大掃除</div>
+            <div class="qcard-desc">含移動家具、水管洗窗，包工估價不加價</div>
+          </div>
+          <div class="qcard-arrow" style="margin-left:auto;flex-shrink:0;">了解 →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 流程 -->
+  <div class="sec sec-bg-grad">
+    <div class="sh">
+      <span class="slabel">服務流程</span>
+      <h2 class="stitle">4步驟透明搞定</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><div class="step-t"><h3>LINE 或電話說明需求</h3><p>告知類型、地址、空間狀況，可傳照片，即可獲得初步說明。</p></div></div>
+      <div class="step"><div class="step-n">2</div><div class="step-t"><h3>到府現場估價</h3><p>大掃除與裝潢細清建議現場評估，依汙染程度、坪數、櫃體給出明確總價。</p></div></div>
+      <div class="step"><div class="step-n">3</div><div class="step-t"><h3>確認細項・開工</h3><p>雙方確認清潔細項與價格後開工，估多少收多少，即使估錯也做完。</p></div></div>
+      <div class="step"><div class="step-n">4</div><div class="step-t"><h3>完工驗收・滿意付款</h3><p>清潔完成業主確認，滿意再付款，有遺漏當場補做。</p></div></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-bar">
+    <h3>立即聯繫，免費評估</h3>
+    <p>新竹以北都可服務・基隆在地快速到府<br>估多少收多少，絕不現場加價</p>
+    <div class="cta-row">
+      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+        LINE 免費諮詢
+      </a>
+      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="flogo">✨ 潔美淨清潔社</div>
+    <div class="fdiv"></div>
+    <p>📍 基隆市中正區義一路87號9樓之2<br>
+    🗺 服務：新竹以北（基隆・台北・新北・桃園・新竹）<br>
+    📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 洽詢</a></p>
+    <div class="fdiv"></div>
+    <p style="font-size:10.5px;opacity:0.42;">© 2025 潔美淨清潔社</p>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════
+   PAGE: SERVICES（服務）
+══════════════════════════════ -->
+<div id="page-services" class="page">
+  <div class="svc-hero">
+    <h2>🧹 服務項目</h2>
+    <p>點選各項服務查看詳細說明<br>所有服務均可 LINE 或電話免費諮詢</p>
+  </div>
+
+  <div class="sec sec-bg-cream">
+    <div class="svc-list">
+
+      <!-- 1. 居家清潔 -->
+      <div class="svc-item open" onclick="toggleSvc(this)">
+        <div class="svc-head">
+          <div class="svc-head-ico">🏠</div>
+          <div class="svc-head-text">
+            <h3>居家清潔</h3>
+            <span class="price-tag">$2,500 / 4小時</span>
+          </div>
+          <span class="svc-arrow">▶</span>
+        </div>
+        <div class="svc-body">
+          <p>採計時制，基本4小時 $2,500，師傅自備清潔工具到府服務。超時部分依比例計算，可彈性搭配需求，也可依坪數包價，詳見報價頁。</p>
+          <ul>
+            <li>廚房：爐台、抽油煙機外部、流理台、磁磚擦拭</li>
+            <li>浴室：馬桶、洗手台、浴缸、鏡面、地板深清</li>
+            <li>臥室、客廳：吸塵除塵、拖地、桌面擦拭</li>
+            <li>玻璃窗（室內面）、門框、踢腳板</li>
+          </ul>
+          <div class="svc-note"><strong>💡 建議：</strong>空間較大或污染較重可安排6～8小時，費用等比例計算。定期配合（週清/雙週清/月清）享優惠方案。</div>
+        </div>
+      </div>
+
+      <!-- 2. 社區清潔 -->
+      <div class="svc-item" onclick="toggleSvc(this)">
+        <div class="svc-head">
+          <div class="svc-head-ico">🏢</div>
+          <div class="svc-head-text">
+            <h3>社區清潔</h3>
+            <span class="price-tag">依現場估價</span>
+          </div>
+          <span class="svc-arrow">▶</span>
+        </div>
+        <div class="svc-body">
+          <p>針對公寓、大樓、社區等公共空間提供定期或單次清潔服務，維持社區整潔，提升居住品質。</p>
+          <ul>
+            <li>大廳、電梯間：地板清潔、牆面除塵、門把消毒</li>
+            <li>走廊、樓梯間：逐層掃除、拖地、扶手擦拭</li>
+            <li>地下停車場：地面清潔、柱體擦拭、排水溝清理</li>
+            <li>頂樓、屋頂：雜物清除、地板沖洗</li>
+            <li>社區公佈欄、信箱區域清潔</li>
+          </ul>
+          <div class="svc-note"><strong>💡 適合：</strong>管委會定期委託、社區換屆大掃除、新建案驗收前清潔。可簽訂定期合約，長期服務享優惠。</div>
+        </div>
+      </div>
+
+      <!-- 3. 裝潢後清潔 -->
+      <div class="svc-item" onclick="toggleSvc(this)">
+        <div class="svc-head">
+          <div class="svc-head-ico">🏗</div>
+          <div class="svc-head-text">
+            <h3>裝潢後清潔</h3>
+            <span class="price-tag">$400–$1,000 / 坪</span>
+          </div>
+          <span class="svc-arrow">▶</span>
+        </div>
+        <div class="svc-body">
+          <p>新成屋裝潢完工或中古屋裝修後的專業細清，依現場汙染程度及系統櫃數量估價。一般裝潢場約 $400–$700/坪，烤漆場費用較高。</p>
+          <ul>
+            <li>地板：磁磚縫隙、超耐磨地板粉塵、矽利康殘留清除</li>
+            <li>系統櫃：門片、層板、鉸鏈位置、抽屜軌道全清</li>
+            <li>玻璃：施工貼紙殘膠、油漆噴濺痕跡去除</li>
+            <li>衛浴：施工矽利康殘留、水垢、磁磚縫深清</li>
+            <li>廚具：台面、內側、抽屜完整清潔</li>
+          </ul>
+          <div class="svc-note"><strong>🎨 烤漆場特別說明：</strong>烤漆經過15道工序，表面精緻不耐刮，師傅全程使用全新拋棄式抹布與指定清潔劑，確保零刮傷，費用較一般場偏高。</div>
+        </div>
+      </div>
+
+      <!-- 4. 店面、辦公室清潔 -->
+      <div class="svc-item" onclick="toggleSvc(this)">
+        <div class="svc-head">
+          <div class="svc-head-ico">🏪</div>
+          <div class="svc-head-text">
+            <h3>店面・辦公室清潔</h3>
+            <span class="price-tag">依現場估價</span>
+          </div>
+          <span class="svc-arrow">▶</span>
+        </div>
+        <div class="svc-body">
+          <p>提供商業空間單次或定期清潔服務，可配合營業時間安排（下班後或假日施工），不影響正常營運。</p>
+          <ul>
+            <li>店面開幕前全室清潔，地板拋光、玻璃擦拭</li>
+            <li>辦公室定期清潔：辦公桌椅、地毯吸塵、茶水間消毒</li>
+            <li>餐廳、廚房：油煙機、爐台、地板油脂深層去除</li>
+            <li>玻璃外牆、招牌、門面維護清潔</li>
+            <li>洗手間、共用區域定期消毒清潔</li>
+          </ul>
+          <div class="svc-note"><strong>💡 適合：</strong>開幕清潔、搬遷前後清潔、定期維護。可依店面類型量身規劃清潔頻率與細項，歡迎 LINE 說明需求。</div>
+        </div>
+      </div>
+
+      <!-- 5. 收納整理 -->
+      <div class="svc-item" onclick="toggleSvc(this)">
+        <div class="svc-head">
+          <div class="svc-head-ico">📦</div>
+          <div class="svc-head-text">
+            <h3>收納整理</h3>
+            <span class="price-tag">依需求估價</span>
+          </div>
+          <span class="svc-arrow">▶</span>
+        </div>
+        <div class="svc-body">
+          <p>不只是清潔，更幫您整理空間、規劃收納動線，讓家更好用、更好找、更好維持整潔。特別適合搬家前後、長期雜亂需要大整理的家庭。</p>
+          <ul>
+            <li>衣櫃整理：分類折疊、依季節歸位、舊物處理建議</li>
+            <li>廚房收納：鍋具、調味料、食材分區規劃</li>
+            <li>書房、儲藏室：雜物分類、空間利用最佳化</li>
+            <li>嬰兒房、兒童房：玩具分類、安全收納規劃</li>
+            <li>搬家整理：新家物品歸位、空間規劃建議</li>
+          </ul>
+          <div class="svc-note"><strong>💡 搭配清潔更超值：</strong>收納整理可搭配居家清潔同日進行，整理完畢後立即清潔，一次完成讓家煥然一新。</div>
+        </div>
+      </div>
+
+      <!-- 6. 退租・入住清潔 -->
+      <div class="svc-item" onclick="toggleSvc(this)">
+        <div class="svc-head">
+          <div class="svc-head-ico">🚪</div>
+          <div class="svc-head-text">
+            <h3>退租・入住清潔</h3>
+            <span class="price-tag">依現場估價</span>
+          </div>
+          <span class="svc-arrow">▶</span>
+        </div>
+        <div class="svc-body">
+          <p>租約結束前的退租清潔，或新居入住前的全室清潔，潔美淨都能配合時程到府服務，讓您順利退押、安心入住。</p>
+          <ul>
+            <li>退租清潔：依租約要求恢復原狀，目標通過房東驗收</li>
+            <li>入住清潔：去除前屋主污垢異味，全室消毒清潔</li>
+            <li>廚房油汙、浴室水垢、牆面污漬重點處理</li>
+            <li>窗戶、紗窗、冷氣出風口、燈具除塵</li>
+            <li>可配合交屋、驗屋時程彈性排程</li>
+          </ul>
+          <div class="svc-note"><strong>💡 退租提醒：</strong>建議提前 1～2 週預約，確保師傅排程充足。套房（10坪以下）約 $2,500–$4,000，整層依坪數估算。</div>
+        </div>
+      </div>
+
+      <!-- 7. 大掃除 -->
+      <div class="svc-item" onclick="toggleSvc(this)">
+        <div class="svc-head">
+          <div class="svc-head-ico">🪟</div>
+          <div class="svc-head-text">
+            <h3>大掃除</h3>
+            <span class="price-tag">包工估價・不加價</span>
+          </div>
+          <span class="svc-arrow">▶</span>
+        </div>
+        <div class="svc-body">
+          <p>大掃除工程量大，師傅需攜帶水管、梯子等重型設備並移動家具，建議以包工方式報總價，細項事先確認，施工中絕不追加費用。</p>
+          <ul>
+            <li>外推式窗戶：高壓水管清洗窗框、紗窗、玻璃</li>
+            <li>移動沙發、冰箱、洗衣機，清潔底部與後側</li>
+            <li>冰箱內部、抽油煙機拆洗、冷氣濾網清洗</li>
+            <li>浴室水垢深層去除、磁磚縫隙刷洗</li>
+            <li>頂板、燈具除塵、門框細縫、踢腳板全清</li>
+          </ul>
+          <div class="svc-note"><strong>💡 估價說明：</strong>大掃除通常包工報總價，談好細項收多少就收多少。農曆年前45天為旺季，費用依牌價調漲20%，建議提早預約。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cta-bar">
+    <h3>不確定哪個方案適合你？</h3>
+    <p>直接 LINE 或電話詢問，我們幫您評估最合適的清潔方案</p>
+    <div class="cta-row">
+      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+        LINE 詢問
+      </a>
+      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+   PAGE: CASES（案例）
+══════════════════════════════ -->
+<div id="page-cases" class="page">
+  <div class="case-hero">
+    <h2>📋 清潔案例</h2>
+    <p>新竹以北真實客戶案例，透明呈現每個服務過程與結果</p>
+  </div>
+
+  <div class="sec sec-bg-cream">
+    <div class="case-filter" id="caseFilter">
+      <button class="filter-btn on" data-type="all">全部</button>
+      <button class="filter-btn" data-type="居家">居家清潔</button>
+      <button class="filter-btn" data-type="大掃除">大掃除</button>
+      <button class="filter-btn" data-type="裝潢">裝潢細清</button>
+      <button class="filter-btn" data-type="退租">入住退租</button>
+    </div>
+    <div class="cases-grid" id="casesGrid">
+
+      <div class="case-full" data-type="居家">
+        <div class="case-img-full" data-loc="基隆中正區">🏠</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">居家清潔</span>
+          <h3>30坪老公寓雙週定期清潔</h3>
+          <p>三口之家，委託雙週清一次，廚房浴室重點加強。固定師傅熟悉環境，每次4小時完成，業主表示輕鬆多了。</p>
+          <div class="case-meta">
+            <span>⏱ 4小時/次</span>
+            <span>📐 30坪</span>
+            <span>🔄 長期配合</span>
+          </div>
+          <span class="case-result-badge">✅ $2,500/次・持續合作中</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="居家">
+        <div class="case-img-full" data-loc="台北內湖區">🏠</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">居家清潔</span>
+          <h3>雙薪家庭每週定期打掃</h3>
+          <p>夫妻兩人都上班，週末不想打掃。安排週清，師傅固定週六上午服務，客廳臥室廚房全清，下午家人就回來放鬆。</p>
+          <div class="case-meta">
+            <span>⏱ 4小時/週</span>
+            <span>📐 25坪</span>
+            <span>🔄 週清</span>
+          </div>
+          <span class="case-result-badge">✅ 客戶滿意・固定配合</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="大掃除">
+        <div class="case-img-full" data-loc="基隆暖暖區">🪟</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">大掃除</span>
+          <h3>年節前全室大掃除含洗窗</h3>
+          <p>年前全室大掃除，含移動沙發冰箱、攜帶水管高壓洗窗、窗框溝槽逐一清潔。包工報價，事先確認細項，當天一次完成。</p>
+          <div class="case-meta">
+            <span>⏱ 一日施工</span>
+            <span>📐 35坪</span>
+            <span>🏆 包工完成</span>
+          </div>
+          <span class="case-result-badge">✅ 包工一口價・驗收通過</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="大掃除">
+        <div class="case-img-full" data-loc="新北瑞芳區">🪟</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">大掃除</span>
+          <h3>出租屋整理後的全室大掃除</h3>
+          <p>舊房客搬出後，房東委託全室整理清潔，移動遺留家具、清理積累油汙水垢，為下一位租客準備。</p>
+          <div class="case-meta">
+            <span>⏱ 一日施工</span>
+            <span>📐 20坪</span>
+            <span>🏆 包工完成</span>
+          </div>
+          <span class="case-result-badge">✅ 新租客隔週入住</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="裝潢">
+        <div class="case-img-full" data-loc="新北汐止區">🏗</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">裝潢細清</span>
+          <h3>新成屋全室木作裝潢細清</h3>
+          <p>全室木作加系統櫃，施工粉塵多，依坪數與櫃體數量估價，師傅全程用新抹布工具，完工後客戶當天即可搬入。</p>
+          <div class="case-meta">
+            <span>💰 約$700/坪</span>
+            <span>📐 45坪</span>
+            <span>🏆 交屋當天</span>
+          </div>
+          <span class="case-result-badge">✅ 交屋當天完工・零追加</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="裝潢">
+        <div class="case-img-full" data-loc="基隆七堵區">✨</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">裝潢細清（烤漆）</span>
+          <h3>烤漆系統廚具裝潢細清</h3>
+          <p>廚房烤漆廚具，表面精緻不耐刮，師傅全程使用全新拋棄式抹布，每個門片單獨處理，完工後烤漆如新。</p>
+          <div class="case-meta">
+            <span>💰 約$900/坪</span>
+            <span>📐 廚房+餐廳</span>
+            <span>🏆 零刮傷</span>
+          </div>
+          <span class="case-result-badge">✅ 無刮傷・客戶大推</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="退租">
+        <div class="case-img-full" data-loc="台北內湖區">🚪</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">退租打掃</span>
+          <h3>租屋退押金前全室清潔</h3>
+          <p>浴室水垢、廚房油汙、牆面污漬全面處理，依房東提供的驗屋標準清潔，一次驗收通過，押金全額退回。</p>
+          <div class="case-meta">
+            <span>⏱ 半日施工</span>
+            <span>📐 15坪套房</span>
+            <span>🏆 一次通過</span>
+          </div>
+          <span class="case-result-badge">✅ 押金全額退回</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="退租">
+        <div class="case-img-full" data-loc="基隆中正區">🏠</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">入住清潔</span>
+          <h3>中古屋購入後全室入住清潔</h3>
+          <p>屋齡15年的中古屋，入住前進行全室深度清潔，除去前屋主留下的污垢與異味，讓新家從乾淨開始。</p>
+          <div class="case-meta">
+            <span>⏱ 8小時</span>
+            <span>📐 38坪</span>
+            <span>🏆 當日入住</span>
+          </div>
+          <span class="case-result-badge">✅ 當日清潔・當日入住</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cta-bar">
+    <h3>想預約或詢問類似案例？</h3>
+    <p>直接傳照片給我們，即可獲得初步報價方向</p>
+    <div class="cta-row">
+      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+        LINE 傳照片詢問
+      </a>
+      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+   PAGE: PRICING（報價）
+══════════════════════════════ -->
+<div id="page-pricing" class="page">
+  <div class="price-hero">
+    <h2>💰 收費說明</h2>
+    <p>透明報價，估多少收多少<br>不現場加價，即使估錯也做完</p>
+  </div>
+
+  <!-- 分類 Tab -->
+  <div class="sec sec-bg-white" style="padding-bottom:8px;">
+    <div class="price-type-tabs" id="priceTypeTabs">
+      <button class="ptype-tab on" onclick="switchPriceTab('home')">🏠 居家清潔</button>
+      <button class="ptype-tab" onclick="switchPriceTab('deep')">🪟 大掃除</button>
+      <button class="ptype-tab" onclick="switchPriceTab('reno')">🏗 裝潢細清</button>
+      <button class="ptype-tab" onclick="switchPriceTab('other')">🚪 其他</button>
+    </div>
+  </div>
+
+  <!-- ① 居家清潔 -->
+  <div class="price-section on sec sec-bg-white" id="psec-home" style="padding-top:8px;">
+    <div class="sh">
+      <span class="slabel">居家清潔</span>
+      <h2 class="stitle">計時制 / 包時制<br>兩種方案任選</h2>
+      <p class="sdesc">依需求彈性選擇，師傅自備工具到府，不另收耗材費</p>
+    </div>
+
+    <!-- 計時制 -->
+    <p style="max-width:460px;margin:0 auto 10px;font-size:12px;font-weight:700;color:var(--blue);">方案一｜計時制</p>
+    <div class="hour-grid">
+      <div class="hc feat">
+        <div class="hc-label">基本方案</div>
+        <div class="hc-hr">4 小時</div>
+        <div class="hc-price">$2,500</div>
+        <div class="hc-note">最受歡迎・適合一般住家</div>
+      </div>
+      <div class="hc">
+        <div class="hc-label">延長方案</div>
+        <div class="hc-hr">6 小時</div>
+        <div class="hc-price">$3,750</div>
+        <div class="hc-note">較大坪數或加強清潔</div>
+      </div>
+      <div class="hc">
+        <div class="hc-label">全日方案</div>
+        <div class="hc-hr">8 小時</div>
+        <div class="hc-price">$5,000</div>
+        <div class="hc-note">大坪數或深層清潔</div>
+      </div>
+      <div class="hc">
+        <div class="hc-label">超時計費</div>
+        <div class="hc-hr">每小時</div>
+        <div class="hc-price">$625</div>
+        <div class="hc-note">超過基本時數後加計</div>
+      </div>
+    </div>
+
+    <!-- 坪數包價表 -->
+    <p style="max-width:460px;margin:20px auto 10px;font-size:12px;font-weight:700;color:var(--blue);">方案二｜坪數包價（含基本清潔項目）</p>
+    <div class="ptab-wrap">
+      <table class="ptab">
+        <thead>
+          <tr>
+            <th>坪數</th>
+            <th>一般清潔</th>
+            <th>定期清潔<br><span style="font-weight:400;font-size:10px;">週/雙週/月</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>15坪以下</td><td class="price">$2,500</td><td class="price">$2,000</td></tr>
+          <tr><td>16～20坪</td><td class="price">$3,000</td><td class="price">$2,500</td></tr>
+          <tr><td>21～25坪</td><td class="price">$3,500</td><td class="price">$3,000</td></tr>
+          <tr><td>26～30坪</td><td class="price">$4,000</td><td class="price">$3,500</td></tr>
+          <tr><td>31～35坪</td><td class="price">$4,800</td><td class="price">$4,000</td></tr>
+          <tr><td>36～40坪</td><td class="price">$5,500</td><td class="price">$4,800</td></tr>
+          <tr><td>41坪以上</td><td class="ask">請洽詢</td><td class="ask">請洽詢</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="ptab-note">
+      <li>以上坪數為室內實際坪數，含衛浴及陽台</li>
+      <li>定期清潔方案需簽訂長期合約，詳情請 LINE 詢問</li>
+      <li>實際報價依現場狀況（家具多寡、汙染程度）為準</li>
+    </ul>
+  </div>
+
+  <!-- ② 大掃除 -->
+  <div class="price-section sec sec-bg-white" id="psec-deep" style="padding-top:8px;">
+    <div class="sh">
+      <span class="slabel">大掃除</span>
+      <h2 class="stitle">包工報價<br>含移動家具・洗窗</h2>
+      <p class="sdesc">工程量大，建議包工報總價，事先確認細項，不現場加價</p>
+    </div>
+    <div class="ptab-wrap">
+      <table class="ptab">
+        <thead>
+          <tr>
+            <th>坪數</th>
+            <th>大掃除<br><span style="font-weight:400;font-size:10px;">含洗窗移家具</span></th>
+            <th>空屋清潔<br><span style="font-weight:400;font-size:10px;">無人居住</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>15坪以下</td><td class="price">$4,000～6,000</td><td class="price">$3,500～5,000</td></tr>
+          <tr><td>16～20坪</td><td class="price">$6,000～9,000</td><td class="price">$5,000～7,500</td></tr>
+          <tr><td>21～25坪</td><td class="price">$8,000～12,000</td><td class="price">$7,000～10,000</td></tr>
+          <tr><td>26～30坪</td><td class="price">$10,000～15,000</td><td class="price">$8,500～12,000</td></tr>
+          <tr><td>31～35坪</td><td class="price">$12,000～18,000</td><td class="price">$10,000～14,000</td></tr>
+          <tr><td>36～40坪</td><td class="price">$14,000～22,000</td><td class="price">$12,000～17,000</td></tr>
+          <tr><td>41坪以上</td><td class="ask">請洽詢</td><td class="ask">請洽詢</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="ptab-note">
+      <li>價格區間依家具數量、窗戶數量、汙染程度而定</li>
+      <li>大掃除通常以包工方式進行，到府評估後報總價</li>
+      <li>農曆年前45日內清潔費用，依牌價調漲20%</li>
+      <li>估多少收多少，施工中不追加任何費用</li>
+    </ul>
+  </div>
+
+  <!-- ③ 裝潢細清 -->
+  <div class="price-section sec sec-bg-white" id="psec-reno" style="padding-top:8px;">
+    <div class="sh">
+      <span class="slabel">裝潢細清</span>
+      <h2 class="stitle">依坪數＋污染程度<br>現場估價</h2>
+      <p class="sdesc">坪數越大、系統櫃越多、污染越重，費用越高；烤漆場因全程換新耗材另計</p>
+    </div>
+
+    <!-- Tab 切換：一般 / 烤漆 -->
+    <div class="tab-switch" id="renoSwitch">
+      <button class="tab-sw-btn on" onclick="switchRenoTab('normal')">一般裝潢場</button>
+      <button class="tab-sw-btn" onclick="switchRenoTab('paint')">🎨 烤漆場</button>
+    </div>
+
+    <div id="reno-normal">
+      <div class="ptab-wrap">
+        <table class="ptab">
+          <thead>
+            <tr>
+              <th>坪數</th>
+              <th>輕度污染<br><span style="font-weight:400;font-size:10px;">少量粉塵</span></th>
+              <th>中度污染<br><span style="font-weight:400;font-size:10px;">一般施工</span></th>
+              <th>重度污染<br><span style="font-weight:400;font-size:10px;">多系統櫃</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>15坪以下</td><td class="price">$6,000</td><td class="price">$9,000</td><td class="price">$12,000</td></tr>
+            <tr><td>16～20坪</td><td class="price">$7,000～9,000</td><td class="price">$10,000～13,000</td><td class="price">$13,000～17,000</td></tr>
+            <tr><td>21～25坪</td><td class="price">$9,000～11,000</td><td class="price">$12,000～16,000</td><td class="price">$16,000～21,000</td></tr>
+            <tr><td>26～30坪</td><td class="price">$11,000～14,000</td><td class="price">$15,000～19,000</td><td class="price">$19,000～25,000</td></tr>
+            <tr><td>31～35坪</td><td class="price">$13,000～17,000</td><td class="price">$18,000～23,000</td><td class="price">$23,000～30,000</td></tr>
+            <tr><td>36～40坪</td><td class="price">$15,000～20,000</td><td class="price">$21,000～27,000</td><td class="price">$27,000～35,000</td></tr>
+            <tr><td>41坪以上</td><td class="ask">請洽詢</td><td class="ask">請洽詢</td><td class="ask">請洽詢</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="reno-paint" style="display:none;">
+      <div style="max-width:460px;margin:0 auto 12px;background:rgba(255,179,71,0.10);border:1.5px solid rgba(255,179,71,0.28);border-radius:12px;padding:12px 14px;">
+        <p style="font-size:12px;color:#92400E;line-height:1.7;"><strong>🎨 烤漆場說明：</strong>烤漆經過15道工序，表面精緻特殊。師傅全程使用全新拋棄式抹布與指定清潔劑，所有工具不重複使用，確保零刮傷。因耗材成本較高，費用比一般裝潢場高出約 30～50%。</p>
+      </div>
+      <div class="ptab-wrap">
+        <table class="ptab">
+          <thead>
+            <tr>
+              <th>坪數</th>
+              <th>烤漆裝潢細清<br><span style="font-weight:400;font-size:10px;">全程新耗材</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>15坪以下</td><td class="price">$10,000～15,000</td></tr>
+            <tr><td>16～20坪</td><td class="price">$15,000～22,000</td></tr>
+            <tr><td>21～25坪</td><td class="price">$20,000～28,000</td></tr>
+            <tr><td>26～30坪</td><td class="price">$24,000～34,000</td></tr>
+            <tr><td>31～35坪</td><td class="price">$29,000～40,000</td></tr>
+            <tr><td>36～40坪</td><td class="price">$34,000～47,000</td></tr>
+            <tr><td>41坪以上</td><td class="ask">請洽詢</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <ul class="ptab-note">
+      <li>坪數為室內實際坪數，含衛浴、陽台、儲藏室</li>
+      <li>費用評估標準：窗戶與系統櫃多寡、施工品質與作業難易度、傢俱多寡與污染程度</li>
+      <li>建議到府現場評估後再報總價，以上為參考區間</li>
+    </ul>
+  </div>
+
+  <!-- ④ 其他 -->
+  <div class="price-section sec sec-bg-white" id="psec-other" style="padding-top:8px;">
+    <div class="sh">
+      <span class="slabel">其他服務</span>
+      <h2 class="stitle">入住・退租・定期<br>依現場靈活報價</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:460px;margin:0 auto;">
+
+      <div class="pc">
+        <div class="pc-head">
+          <div class="pc-ico">🚪</div>
+          <div class="pc-title"><h3>入住清潔</h3><span>中古屋・新屋入住前</span></div>
+        </div>
+        <div class="pc-price">現場估價</div>
+        <div class="pc-unit">依坪數與屋況</div>
+        <div class="pc-divider"></div>
+        <p class="pc-note-text">新居入住前全室清潔，去除前屋主污垢與異味，讓您安心入住。一般25坪住家約 $4,000–$8,000，依屋況調整。</p>
+      </div>
+
+      <div class="pc">
+        <div class="pc-head">
+          <div class="pc-ico">🔑</div>
+          <div class="pc-title"><h3>退租打掃</h3><span>租約結束・退押金前</span></div>
+        </div>
+        <div class="pc-price">現場估價</div>
+        <div class="pc-unit">依坪數與狀況</div>
+        <div class="pc-divider"></div>
+        <p class="pc-note-text">協助恢復租屋原狀，以通過房東驗收為目標。一般套房（10坪以下）約 $2,500–$4,000，整層住家依坪數估算。</p>
+      </div>
+
+      <div class="pc">
+        <div class="pc-head">
+          <div class="pc-ico">📅</div>
+          <div class="pc-title"><h3>定期打掃</h3><span>週清・雙週清・月清</span></div>
+        </div>
+        <div class="pc-price">長期優惠</div>
+        <div class="pc-unit">固定師傅・固定時段</div>
+        <div class="pc-divider"></div>
+        <p class="pc-note-text">定期配合享優惠方案，固定師傅熟悉您家環境，效率更高品質更穩定。詳細方案請 LINE 或電話洽詢。</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 承諾 -->
+  <div class="sec sec-bg-grad">
+    <div class="sh">
+      <span class="slabel">報價承諾</span>
+      <h2 class="stitle">我們的估價承諾</h2>
+    </div>
+    <div class="promise-box">
+      <h4>✅ 估多少、收多少</h4>
+      <p>大掃除與裝潢細清以包工方式報總價，雙方事先確認清潔細項與費用。<br><br>施工中不會追加任何費用。即使師傅低估了工程量，我們也會把談好的細項全部做完，不讓客戶承擔評估失誤的風險。<br><br>這是潔美淨在地經營最基本的誠信原則。</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec sec-bg-white">
+    <div class="sh">
+      <span class="slabel">常見問題</span>
+      <h2 class="stitle">報價常見疑慮</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span class="ftag">疑慮</span><p>「裝潢細清為什麼差這麼多，同樣坪數差很多錢？」</p></div>
+        <div class="faq-a"><span class="ftag">說明</span><p>主要看兩個因素：①污染程度（油漆殘留、粉塵厚薄）②系統櫃數量（櫃越多清潔面積越大）。烤漆場因工序特殊，全程換新耗材，成本較高。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="ftag">疑慮</span><p>「表格上的價格是最終價格嗎？」</p></div>
+        <div class="faq-a"><span class="ftag">說明</span><p>表格為參考區間。居家清潔可直接按計時制收費；大掃除與裝潢細清建議現場評估後確認總價，以免因屋況差異產生糾紛。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="ftag">疑慮</span><p>「估錯了你們會不會偷工減料？」</p></div>
+        <div class="faq-a"><span class="ftag">說明</span><p>不會。估了一個價格就是我們的承諾，即使估錯我們也會做完。這是在地口碑的基礎，客戶信任比單次利潤重要。</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="ftag">疑慮</span><p>「年節前為什麼比較貴？」</p></div>
+        <div class="faq-a"><span class="ftag">說明</span><p>農曆年前45天為清潔旺季，師傅排程非常緊，依慣例費用調漲約20%。建議提早預約，旺季前排定服務。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-bar">
+    <h3>想知道你的案子要多少錢？</h3>
+    <p>LINE 傳照片＋說明坪數，即可初步估價</p>
+    <div class="cta-row">
+      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+        LINE 傳照片估價
+      </a>
+      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+   PAGE: ABOUT（關於我們）
+══════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <div class="about-brand">✨</div>
+    <h2>潔美淨清潔社</h2>
+    <p class="tagline">基隆在地・新竹以北服務</p>
+  </div>
+
+  <!-- 基本資訊 -->
+  <div class="sec sec-bg-white">
+    <div class="sh">
+      <span class="slabel">店家資訊</span>
+      <h2 class="stitle">聯絡我們</h2>
+    </div>
+    <div class="contact-card">
+      <div class="contact-row">
+        <div class="contact-ico c-line">
+          <svg width="22" height="22" viewBox="0 0 48 48" fill="#06C755"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+        </div>
+        <div class="contact-text">
+          <h4>LINE 官方帳號</h4>
+          <p>直接傳訊說明需求・可傳照片</p>
+          <a href="https://line.me/R/ti/p/@117adltu" target="_blank">加入 LINE 諮詢</a>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-ico c-tel">📞</div>
+        <div class="contact-text">
+          <h4>電話</h4>
+          <p>0988-145-875</p>
+          <a href="tel:0988145875" class="tel-btn">撥打電話</a>
+        </div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-ico c-addr">📍</div>
+        <div class="contact-text">
+          <h4>地址</h4>
+          <p style="font-size:13px;color:var(--ink);font-weight:600;">基隆市中正區義一路87號9樓之2</p>
+          <p>（依服務地址到府，不需來店）</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 服務區域 -->
+  <div class="sec sec-bg-grad">
+    <div class="sh">
+      <span class="slabel">服務範圍</span>
+      <h2 class="stitle">新竹以北全區服務</h2>
+      <p class="sdesc">以基隆為核心，北台灣各縣市均可服務</p>
+    </div>
+    <div class="area-grid">
+      <div class="area-tag"><span>⚓</span>基隆市</div>
+      <div class="area-tag"><span>🏙</span>台北市</div>
+      <div class="area-tag"><span>🌉</span>新北市</div>
+      <div class="area-tag"><span>🍑</span>桃園市</div>
+      <div class="area-tag"><span>🎋</span>新竹市</div>
+      <div class="area-tag"><span>🌾</span>新竹縣</div>
+    </div>
+    <p class="area-note">其他縣市或離島地區如有需求，歡迎 LINE 詢問，<br>視距離另行評估是否可配合。</p>
+  </div>
+
+  <!-- 我們的承諾 -->
+  <div class="sec sec-bg-white">
+    <div class="sh">
+      <span class="slabel">服務承諾</span>
+      <h2 class="stitle">潔美淨的每一條承諾<br>都認真在做</h2>
+    </div>
+    <div class="promise-grid">
+      <div class="prom-card">
+        <div class="prom-ico-circle">📋</div>
+        <h4>估價透明不加價</h4>
+        <p>現場評估給總價，施工中不追加，即使估錯也做完。</p>
+      </div>
+      <div class="prom-card">
+        <div class="prom-ico-circle">🧴</div>
+        <h4>自備全套設備</h4>
+        <p>大掃除攜帶水管梯子，裝潢細清全程使用新工具、新抹布。</p>
+      </div>
+      <div class="prom-card">
+        <div class="prom-ico-circle">🔍</div>
+        <h4>細節到位</h4>
+        <p>死角、溝縫、窗框逐一處理，不因看不見就略過。</p>
+      </div>
+      <div class="prom-card">
+        <div class="prom-ico-circle">📅</div>
+        <h4>彈性配合時程</h4>
+        <p>可配合交屋、退租、開幕等特殊時程安排施工。</p>
+      </div>
+      <div class="prom-card">
+        <div class="prom-ico-circle">💬</div>
+        <h4>LINE 即時溝通</h4>
+        <p>服務前後都可 LINE，有問必答，讓您安心委託。</p>
+      </div>
+      <div class="prom-card">
+        <div class="prom-ico-circle">🏠</div>
+        <h4>在地快速到府</h4>
+        <p>基隆在地出發，北台灣各縣市快速排程到府。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 基本資訊卡 -->
+  <div class="sec sec-bg-cream">
+    <div class="sh">
+      <span class="slabel">店家詳情</span>
+      <h2 class="stitle">基本資訊</h2>
+    </div>
+    <div class="about-info-card">
+      <div class="info-row">
+        <span class="info-ico">🏷</span>
+        <div>
+          <div class="info-label">店家名稱</div>
+          <div class="info-val">潔美淨清潔社</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-ico">📍</span>
+        <div>
+          <div class="info-label">地址</div>
+          <div class="info-val">基隆市中正區義一路87號9樓之2</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-ico">📞</span>
+        <div>
+          <div class="info-label">電話</div>
+          <div class="info-val"><a href="tel:0988145875">0988-145-875</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-ico">💬</span>
+        <div>
+          <div class="info-label">LINE 洽詢</div>
+          <div class="info-val"><a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 官方帳號（點此加入）</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-ico">🗺</span>
+        <div>
+          <div class="info-label">服務範圍</div>
+          <div class="info-val">新竹以北（基隆・台北・新北・桃園・新竹）</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <span class="info-ico">🧹</span>
+        <div>
+          <div class="info-label">服務項目</div>
+          <div class="info-val">居家清潔・社區清潔・裝潢後清潔・店面辦公室清潔・收納整理・退租入住・大掃除</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-bar">
+    <h3>歡迎加入 LINE 或直接來電</h3>
+    <p>新竹以北到府服務，免費評估，估多少收多少</p>
+    <div class="cta-row">
+      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+        加入 LINE
+      </a>
+      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING BTNS -->
+<div class="float-group">
+  <a class="fb fb-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+    <svg width="15" height="15" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+    LINE
+  </a>
+  <a class="fb fb-tel" href="tel:0988145875">📞 電話</a>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button class="bnav-tab active" onclick="showPage('home')"><span class="bi">🏠</span>首頁</button>
+  <button class="bnav-tab" onclick="showPage('services')"><span class="bi">🧹</span>服務</button>
+  <button class="bnav-tab" onclick="showPage('cases')"><span class="bi">📋</span>案例</button>
+  <button class="bnav-tab" onclick="showPage('pricing')"><span class="bi">💰</span>報價</button>
+  <button class="bnav-tab" onclick="showPage('about')"><span class="bi">📍</span>關於</button>
+</nav>
+
+<script>
+// ── Price type tabs ──
+function switchPriceTab(id) {
+  document.querySelectorAll('.price-section').forEach(s => s.classList.remove('on'));
+  document.getElementById('psec-' + id).classList.add('on');
+  document.querySelectorAll('.ptype-tab').forEach((t, i) => {
+    const ids = ['home','deep','reno','other'];
+    t.classList.toggle('on', ids[i] === id);
+  });
+}
+
+// ── Reno sub-tabs (normal vs paint) ──
+function switchRenoTab(type) {
+  document.getElementById('reno-normal').style.display = type === 'normal' ? '' : 'none';
+  document.getElementById('reno-paint').style.display = type === 'paint' ? '' : 'none';
+  document.querySelectorAll('#renoSwitch .tab-sw-btn').forEach((b, i) => {
+    b.classList.toggle('on', (i === 0 && type === 'normal') || (i === 1 && type === 'paint'));
+  });
+}
+
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.bnav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  document.querySelectorAll('.bnav-tab').forEach(t => {
+    if (t.getAttribute('onclick') === "showPage('" + id + "')") t.classList.add('active');
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Service accordion ──
+function toggleSvc(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.svc-item').forEach(s => s.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+// ── Case filter ──
+document.getElementById('caseFilter').addEventListener('click', function(e) {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  const type = btn.dataset.type;
+  document.querySelectorAll('.case-full').forEach(c => {
+    c.style.display = (type === 'all' || c.dataset.type === type) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>
