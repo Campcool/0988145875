@@ -1,13 +1,16 @@
 [
   {
-    "title": "基隆中正區 — 廚房深度清潔",
-    "description": "油煙機、瓦斯爐、流理台全面除油垢，恢復原本光澤。",
-    "before": "cases/sample-before.jpg",
-    "after": "cases/sample-after.jpg",
-    "tags": [
-      "廚房清潔",
-      "基隆",
-      "深度清潔"
-    ]
+    "title": "基隆中正區 — 浴廁深度清潔",
+    "description": "馬桶、浴室藏汙納垢",
+    "before": "cases/case01-before.jpg",
+    "after": "cases/case01-after.jpg",
+    "tags": ["浴廁清潔", "基隆"]
+  },
+  {
+    "title": "台北內湖 — 店面裝潢後細清",
+    "description": "裝潢完工，粉塵、膠漬、保護膜殘膠全部清除乾淨。",
+    "before": "cases/case02-before.jpg",
+    "after": "cases/case02-after.jpg",
+    "tags": ["裝潢細清", "台北", "新店面"]
   }
 ]
