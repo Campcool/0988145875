@@ -1849,7 +1849,7 @@ document.getElementById('caseFilter').addEventListener('click', function(e) {
   object-fit: cover;
 }
 .photo-compare .photo-after {
-  clip-path: inset(0 50% 0 0);
+  clip-path: inset(0 0 0 50%);
 }
 .photo-compare .compare-slider {
   position: absolute;
@@ -1886,11 +1886,11 @@ document.getElementById('caseFilter').addEventListener('click', function(e) {
   color: white;
 }
 .photo-compare .label-before {
-  right: 10px;
+  left: 10px;
   background: rgba(231,76,60,0.85);
 }
 .photo-compare .label-after {
-  left: 10px;
+  right: 10px;
   background: rgba(46,204,113,0.85);
 }
 .photo-case-info {
@@ -1991,7 +1991,7 @@ document.getElementById('caseFilter').addEventListener('click', function(e) {
       const rect = el.getBoundingClientRect();
       let pct = ((x - rect.left) / rect.width) * 100;
       pct = Math.max(5, Math.min(95, pct));
-      el.querySelector('.photo-after').style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      el.querySelector('.photo-after').style.clipPath = 'inset(0 0 0 ' + pct + '%)';
       el.querySelector('.compare-slider').style.left = pct + '%';
       el.querySelector('.compare-handle').style.left = pct + '%';
     }
