@@ -1,13 +1,22 @@
 [
   {
-    "title": "基隆中正區 — 廚房深度清潔",
-    "description": "油煙機、瓦斯爐、流理台全面除油垢，恢復原本光澤。",
-    "before": "cases/sample-before.jpg",
-    "after": "cases/sample-after.jpg",
-    "tags": [
-      "廚房清潔",
-      "基隆",
-      "深度清潔"
-    ]
+    "id": "case01",
+    "title": "基隆中正區 — 浴廁深度清潔",
+    "description": "經服務後馬桶乾淨如新，水垢、污漬完全去除，讓浴廁恢復亮白潔淨。",
+    "location": "基隆市中正區",
+    "type": "居家",
+    "tags": ["居家清潔", "浴廁清潔", "基隆"],
+    "before": "cases/case01-before.jpg",
+    "after": "cases/case01-after.jpg"
+  },
+  {
+    "id": "case02",
+    "title": "台北內湖區 — 店面裝潢細清",
+    "description": "開店前全室細清，讓顧客對新店面感覺耳目一新，第一印象加分滿分。",
+    "location": "台北市內湖區",
+    "type": "裝潢",
+    "tags": ["裝潢細清", "店面清潔", "台北"],
+    "before": "cases/case02-before.jpg",
+    "after": "cases/case02-after.jpg"
   }
 ]
