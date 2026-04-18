@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>潔美淨清潔社 | 基隆・台北・新北 居家・社區・裝潢・店面清潔</title>
 <meta name="description" content="潔美淨清潔社－基隆在地，服務新竹以北。居家清潔、裝潢細清、入住退租、定期打掃。估多少收多少，不現場加價。電話 0988-145-875">
 <meta name="keywords" content="基隆清潔,台北清潔,新北清潔,居家清潔,裝潢細清,入住清潔,退租清潔,定期打掃,社區清潔,店面清潔,潔美淨">
@@ -77,13 +77,9 @@ body {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .top-btns { display: flex; gap: 7px; flex-shrink: 0; }
-.top-btns a {
-  display: flex; align-items: center; gap: 4px;
-  padding: 7px 12px; border-radius: 20px;
-  font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap;
-}
+.top-btns a { display: flex; align-items: center; gap: 5px; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .tbtn-line { background: var(--green); color: white; }
-.tbtn-tel { background: rgba(2,136,209,0.09); color: var(--blue); border: 1.5px solid rgba(2,136,209,0.24); }
+.tbtn-tel { background: rgba(2,136,209,0.09); color: var(--blue); border: 1.5px solid rgba(2,136,209,0.24); white-space: nowrap; font-weight: 700; }
 
 /* ═══════════════════════════
    BOTTOM NAV
@@ -193,25 +189,26 @@ body {
 
 /* Floating buttons */
 .float-group {
-  position: fixed; right: 14px; bottom: 82px; z-index: 299;
-  display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
+  position: fixed; right: 12px; bottom: 82px; z-index: 299;
+  display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
 }
 .fb {
-  display: flex; align-items: center; justify-content: center; gap: 7px;
-  padding: 13px 22px; border-radius: 50px;
-  font-size: 15px; font-weight: 700; text-decoration: none;
-  border: none; cursor: pointer;
-  white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  width: 44px; height: 44px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; border: none; cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.18);
+  font-size: 20px;
 }
 .fb-line { background: #06C755; color: white; animation: glo 3s ease-in-out infinite; }
 .fb-tel  { background: white; color: #0288D1; border: 2px solid #4FC3F7; animation: telPulse 3s ease-in-out infinite 1.5s; }
 @keyframes glo {
-  0%,100% { box-shadow: 0 4px 16px rgba(6,199,85,0.35); transform: scale(1); }
-  48%,52% { box-shadow: 0 4px 28px rgba(6,199,85,0.65), 0 0 0 6px rgba(6,199,85,0.14); transform: scale(1.05); }
+  0%,100% { box-shadow: 0 3px 12px rgba(6,199,85,0.35); transform: scale(1); }
+  48%,52% { box-shadow: 0 3px 24px rgba(6,199,85,0.65), 0 0 0 6px rgba(6,199,85,0.14); transform: scale(1.08); }
 }
 @keyframes telPulse {
-  0%,100% { box-shadow: 0 4px 12px rgba(2,136,209,0.20); transform: scale(1); }
+  0%,100% { box-shadow: 0 3px 10px rgba(2,136,209,0.22); transform: scale(1); }
+  48%,52% { box-shadow: 0 3px 20px rgba(2,136,209,0.52), 0 0 0 5px rgba(2,136,209,0.11); transform: scale(1.08); }
+}
   48%,52% { box-shadow: 0 4px 22px rgba(2,136,209,0.50), 0 0 0 5px rgba(2,136,209,0.11); transform: scale(1.05); }
 }
   50% { box-shadow: 0 4px 26px rgba(6,199,85,0.60); }
@@ -286,14 +283,15 @@ body {
 }
 .quick-card {
   background: white; border: 1.5px solid rgba(79,195,247,0.16);
-  border-radius: var(--r); padding: 16px 14px;
-  display: flex; flex-direction: column; gap: 6px;
+  border-radius: var(--r); padding: 14px 12px;
+  display: flex; flex-direction: column; gap: 5px;
   cursor: pointer; transition: all 0.2s;
+  min-height: 130px;
 }
 .quick-card:hover { border-color: var(--sky); box-shadow: var(--sh); transform: translateY(-2px); }
 .qcard-ico { font-size: 26px; }
-.qcard-title { font-size: 14px; font-weight: 700; color: var(--ink); }
-.qcard-desc { font-size: 13px; color: var(--soft); line-height: 1.6; }
+.qcard-title { font-size: 15px; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.qcard-desc { font-size: 12px; color: var(--soft); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .qcard-arrow { font-size: 13px; color: var(--blue); font-weight: 700; margin-top: auto; }
 
 /* Steps on home */
@@ -676,10 +674,10 @@ footer a { color: var(--sky); text-decoration: none; }
   display: flex; flex-direction: column; gap: 8px;
 }
 .float-social a {
-  width: 42px; height: 42px; border-radius: 50%;
+  width: 44px; height: 44px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  text-decoration: none; color: white; font-size: 19px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.18);
+  text-decoration: none; color: white; font-size: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.18);
   transition: transform 0.18s;
 }
 .float-social a:hover { transform: scale(1.08); }
@@ -689,6 +687,97 @@ footer a { color: var(--sky); text-decoration: none; }
 @media (max-width: 600px) {
   .float-social { left: 8px; bottom: 68px; }
   .float-social a { width: 38px; height: 38px; font-size: 15px; }
+}
+
+/* ═══ Photo Cases ═══ */
+.photo-case-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid rgba(79,195,247,0.16);
+  margin-bottom: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.compare-container {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+}
+.compare-container img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  display: block;
+}
+.compare-after {
+  clip-path: inset(0 50% 0 0);
+}
+.compare-slider {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: white;
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: ew-resize;
+}
+.compare-slider::before {
+  content: '◀ ▶';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: #0288D1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.20);
+  white-space: nowrap;
+}
+.compare-label {
+  position: absolute;
+  bottom: 8px;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-size: 12px; font-weight: 700; color: white;
+}
+.compare-label-before {
+  left: 8px;
+  background: rgba(220,53,69,0.82);
+}
+.compare-label-after {
+  right: 8px;
+  background: rgba(6,199,85,0.82);
+}
+.photo-case-info {
+  padding: 14px 16px;
+}
+.photo-case-info h4 {
+  font-size: 15px; font-weight: 700; color: #1A2332; margin-bottom: 5px;
+}
+.photo-case-info p {
+  font-size: 13px; color: #718096; line-height: 1.6; margin-bottom: 8px;
+}
+.photo-case-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.photo-case-tags span {
+  background: rgba(79,195,247,0.12); color: #0288D1;
+  padding: 2px 9px; border-radius: 7px; font-size: 11px; font-weight: 700;
+}
+.photo-cases-section { max-width: 460px; margin: 0 auto; padding: 0 4px 20px; }
+.photo-cases-title {
+  text-align: center; font-size: 17px; font-weight: 700;
+  color: #1A2332; margin-bottom: 6px;
+}
+.photo-cases-desc {
+  text-align: center; font-size: 13px; color: #718096;
+  margin-bottom: 16px;
 }
 </style>
 <!-- Structured Data: LocalBusiness -->
@@ -727,11 +816,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <span class="tlogo-name">潔美淨清潔社</span>
   </div>
   <div class="top-btns">
-    <a class="tbtn-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
-      <svg width="13" height="13" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
-      LINE
-    </a>
-    <a class="tbtn-tel" href="tel:0988145875">📞 電話</a>
+    <a class="tbtn-tel" href="tel:0988145875">📞 0988-145-875</a>
   </div>
 </header>
 
@@ -1768,11 +1853,10 @@ footer a { color: var(--sky); text-decoration: none; }
 
 <!-- FLOATING BTNS -->
 <div class="float-group">
-  <a class="fb fb-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
-    <svg width="17" height="17" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
-    LINE 諮詢
+  <a class="fb fb-line" href="https://line.me/R/ti/p/@117adltu" target="_blank" aria-label="LINE 諮詢">
+    <svg width="22" height="22" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
   </a>
-  <a class="fb fb-tel" href="tel:0988145875">📞 0988-145-875</a>
+  <a class="fb fb-tel" href="tel:0988145875" aria-label="撥打電話">📞</a>
 </div>
 
 <!-- BOTTOM NAV -->
