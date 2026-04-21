@@ -27,4 +27,130 @@
     "before": "cases/case02-before.jpg",
     "after": "cases/case02-after.jpg"
   }
+  {
+    "id": "case03",
+    "title": "桃園市 — 餐廳拉門清理",
+    "description": "店面拉門油汙清理，讓顧客對新店面感覺耳目一新，第一印象加分滿分。",
+    "location": "桃園市餐廳",
+    "type": "餐廳門面",
+    "tags": [
+      "廚房細清",
+      "店面清潔",
+      "桃園"
+    ],
+    "before": "cases/case03-before.jpg",
+    "after": "cases/case03-after.jpg"
+  }
+  {
+    "id": "case04",
+    "title": "台北中山區 — 住家冷氣清潔",
+    "description": "夏天到了，客戶為孩子清潔冷氣，不再打噴嚏。",
+    "location": "台北市中山區",
+    "type": "住家",
+    "tags": [
+      "住家清潔",
+      "冷氣清潔",
+      "台北"
+    ],
+    "before": "cases/case04-before.jpg",
+    "after": "cases/case04-after.jpg"
+  }
+  {
+    "id": "case05",
+    "title": "新北市瑞芳區 — 住家除油煙機清潔",
+    "description": "吃飯乾淨的不只是鍋具，除油煙機乾乾淨淨，美味滿點。",
+    "location": "新北市瑞芳區",
+    "type": "住家",
+    "tags": [
+      "廚房清潔",
+      "居家清潔",
+      "新北市"
+    ],
+    "before": "cases/case05-before.jpg",
+    "after": "cases/case05-after.jpg"
+  }
+  {
+    "id": "case06",
+    "title": "新北市金山區 — 浴廁排風扇清潔",
+    "description": "住家浴廁細清，不只是地面，天花板也注意到了。",
+    "location": "新北市金山區",
+    "type": "住家",
+    "tags": [
+      "住家清潔",
+      "居家清潔",
+      "新北市金山區"
+    ],
+    "before": "cases/case06-before.jpg",
+    "after": "cases/case06-after.jpg"
+  }
+  {
+    "id": "case07",
+    "title": "基隆市仁愛區 — 廚房清潔",
+    "description": "往往廚房最難清潔就是重油汙，潔美淨還你乾淨如新。",
+    "location": "基隆市仁愛區",
+    "type": "廚房",
+    "tags": [
+      "廚房清潔",
+      "住家清潔",
+      "基隆市仁愛區"
+    ],
+    "before": "cases/case07-before.jpg",
+    "after": "cases/case07-after.jpg"
+  }
+  {
+    "id": "case08",
+    "title": "新北市三重區 — 浴廁浴缸清潔",
+    "description": "每天泡澡如同滷肉飯一樣，老滷汁不適合健康的你。",
+    "location": "新北市三重區",
+    "type": "浴廁",
+    "tags": [
+      "預測清潔",
+      "住家清潔",
+      "新北市三重區"
+    ],
+    "before": "cases/case08-before.jpg",
+    "after": "cases/case08-after.jpg"
+  }
+  {
+    "id": "case09",
+    "title": "新北市新莊區 — 浴廁整體清潔",
+    "description": "乾乾淨淨的廁所，才洗得出乾乾淨淨的你。",
+    "location": "新北市新莊區",
+    "type": "浴廁",
+    "tags": [
+      "浴廁清潔",
+      "住家清潔",
+      "新北市新莊區"
+    ],
+    "before": "cases/case09-before.jpg",
+    "after": "cases/case09-after.jpg"
+  }
+  {
+    "id": "case10",
+    "title": "新北市土城區 — 抽油煙機清潔",
+    "description": "會不會煮飯煮到一半，醬油就這樣滴進鍋裡。",
+    "location": "新北市土城區",
+    "type": "廚房",
+    "tags": [
+      "廚房清潔",
+      "住家清潔",
+      "新北市土城區"
+    ],
+    "before": "cases/case10-before.jpg",
+    "after": "cases/case10-after.jpg"
+  }
+  {
+    "id": "case11",
+    "title": "台北市新店區 — 浴廁整體清潔",
+    "description": "這些汙垢真的是洗澡能洗出來的嗎!?",
+    "location": "新北市土城區",
+    "type": "浴廁",
+    "tags": [
+      "浴廁清潔",
+      "住家清潔",
+      "台北市新店區"
+    ],
+    "before": "cases/case11-before.jpg",
+    "after": "cases/case11-after.jpg"
+  }
 ]
