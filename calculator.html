@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>清潔費用試算｜潔美淨清潔社・居家裝潢大掃除即時估價</title>
+<meta name="description" content="免費線上清潔費用試算！輸入坪數與服務類型，立即顯示估價範圍。居家清潔、裝潢後細清、大掃除、退租入住清潔，基隆出發服務台北新北桃園。電話 0988-145-875。">
+<meta name="keywords" content="清潔費用,清潔報價,清潔估價,居家清潔費用,裝潢細清費用,大掃除費用,退租清潔費用,清潔計算機">
+<link rel="canonical" href="https://0988145875.com.tw/calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="清潔費用試算｜潔美淨清潔社">
+<meta property="og:description" content="輸入坪數+服務類型，即時顯示估價範圍。免費 LINE 諮詢確認正式報價。">
+<meta property="og:url" content="https://0988145875.com.tw/calculator.html">
+<meta property="og:image" content="https://0988145875.com.tw/og-image.jpg">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "清潔費用試算",
+  "description": "潔美淨清潔社清潔費用線上試算工具，輸入坪數與服務類型即可顯示估價範圍。",
+  "url": "https://0988145875.com.tw/calculator.html",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"name": "首頁","item": "https://0988145875.com.tw/"},
+      {"@type": "ListItem","position": 2,"name": "費用試算","item": "https://0988145875.com.tw/calculator.html"}
+    ]
+  },
+  "mainEntity": {
+    "@type": "LocalBusiness",
+    "name": "潔美淨清潔社",
+    "telephone": "+886988145875",
+    "url": "https://0988145875.com.tw/"
+  }
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;overflow-wrap:break-word}
+html{scroll-behavior:smooth;overflow-x:hidden;font-size:100%}
+body{font-family:'Noto Sans TC',sans-serif;background:#FAFAF7;color:#1A2332;max-width:600px;margin:0 auto;padding:0 0 40px}
+:root{--sky:#4FC3F7;--blue:#0288D1;--mint:#80CBC4;--green:#06C755;--accent:#FFB347;--ink:#1A2332;--mid:#4A5568;--soft:#718096;--r:14px;--sh:0 4px 20px rgba(26,35,50,.09)}
+.topbar{background:rgba(255,255,255,.97);border-bottom:1px solid rgba(79,195,247,.18);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(79,195,247,.09)}
+.topbar a{text-decoration:none;display:flex;align-items:center;gap:7px}
+.topbar img{width:32px;height:32px;border-radius:8px;object-fit:contain}
+.topbar-name{font-family:'Noto Serif TC',serif;font-weight:900;font-size:15px;color:var(--blue)}
+.topbar-tel{background:white;color:#0288D1;border:1.5px solid #4FC3F7;border-radius:20px;padding:7px 13px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap}
+.hero{background:linear-gradient(160deg,#E0F7FA 0%,#E8F5E9 55%,#FFF8F0 100%);padding:28px 20px 24px;text-align:center}
+.hero-badge{display:inline-block;background:rgba(255,179,71,.15);border:1px solid rgba(255,179,71,.40);color:#C87700;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:12px}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(20px,6vw,30px);font-weight:900;line-height:1.35;color:var(--ink);margin-bottom:8px}
+.hero h1 em{color:var(--blue);font-style:normal;border-bottom:3px solid var(--accent)}
+.hero-sub{font-size:13px;color:var(--mid);line-height:1.78}
+.sec{padding:28px 20px}
+.sec-white{background:white}
+.sec-cream{background:#FAFAF7}
+.sh{text-align:center;max-width:420px;margin:0 auto 20px}
+.slabel{display:inline-block;background:linear-gradient(90deg,var(--sky),var(--mint));color:white;padding:3px 12px;border-radius:10px;font-size:13px;font-weight:700;letter-spacing:1.5px;margin-bottom:9px}
+.stitle{font-family:'Noto Serif TC',serif;font-size:clamp(17px,5vw,24px);font-weight:900;color:var(--ink);line-height:1.4;margin-bottom:6px}
+.sdesc{font-size:13px;color:var(--soft);line-height:1.72}
+
+/* ── Calculator card ── */
+.calc-card{background:white;border-radius:18px;box-shadow:var(--sh);padding:24px 20px;max-width:480px;margin:0 auto}
+.calc-field{margin-bottom:18px}
+.calc-label{font-size:13px;font-weight:700;color:var(--mid);margin-bottom:7px;display:block}
+.calc-label span{font-size:11px;font-weight:400;color:var(--soft);margin-left:5px}
+.calc-select,.calc-input{width:100%;border:1.5px solid rgba(79,195,247,.28);border-radius:10px;padding:12px 14px;font-size:15px;font-family:'Noto Sans TC',sans-serif;color:var(--ink);background:white;outline:none;transition:border-color .2s}
+.calc-select:focus,.calc-input:focus{border-color:var(--sky)}
+.svc-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.svc-btn{background:#F0F7FF;border:2px solid transparent;border-radius:10px;padding:12px 8px;font-size:13px;font-weight:700;color:var(--mid);cursor:pointer;text-align:center;transition:all .18s;-webkit-tap-highlight-color:transparent}
+.svc-btn:hover{border-color:var(--sky);background:#E0F4FF;color:var(--blue)}
+.svc-btn.active{border-color:var(--blue);background:linear-gradient(135deg,#E0F4FF,#E8F5E9);color:var(--blue)}
+.svc-btn-ico{font-size:22px;display:block;margin-bottom:4px}
+.size-row{display:flex;gap:10px;align-items:center}
+.size-stepper{display:flex;align-items:center;gap:0;border:1.5px solid rgba(79,195,247,.28);border-radius:10px;overflow:hidden;flex-shrink:0}
+.step-btn{width:42px;height:46px;background:#F0F7FF;border:none;font-size:20px;color:var(--blue);cursor:pointer;font-weight:700;transition:background .15s}
+.step-btn:active{background:#c8e9f8}
+.size-val{min-width:48px;text-align:center;font-size:16px;font-weight:700;color:var(--ink);padding:0 8px}
+.size-input-wrap{flex:1}
+.size-note{font-size:12px;color:var(--soft);margin-top:6px;line-height:1.5}
+.calc-btn{width:100%;background:linear-gradient(135deg,var(--blue),#006CA3);color:white;border:none;border-radius:12px;padding:15px;font-size:16px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;letter-spacing:.5px;box-shadow:0 4px 16px rgba(2,136,209,.28);transition:transform .15s,box-shadow .15s;margin-top:4px}
+.calc-btn:active{transform:scale(.97)}
+
+/* ── Result ── */
+.result-box{display:none;background:linear-gradient(135deg,#E0F7FA,#E8F5E9);border-radius:14px;padding:20px;margin-top:20px;border:1px solid rgba(79,195,247,.22)}
+.result-box.show{display:block}
+.result-svc-tag{display:inline-flex;align-items:center;gap:6px;background:white;border:1.5px solid rgba(79,195,247,.28);border-radius:20px;padding:5px 14px;font-size:13px;font-weight:700;color:var(--blue);margin-bottom:14px}
+.result-range{text-align:center;margin-bottom:14px}
+.result-min-max{font-family:'Noto Serif TC',serif;font-size:clamp(26px,8vw,38px);font-weight:900;color:var(--blue);line-height:1.15}
+.result-unit{font-size:13px;color:var(--mid);margin-top:4px}
+.result-note-bar{background:rgba(255,179,71,.12);border-radius:8px;padding:10px 12px;font-size:12px;color:#8B5800;line-height:1.6;margin-bottom:14px}
+.result-detail{font-size:12px;color:var(--mid);line-height:1.7;background:white;border-radius:10px;padding:12px}
+.result-detail strong{color:var(--blue)}
+
+/* ── Breakdown ── */
+.breakdown-rows{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.br-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:4px 0;border-bottom:1px dashed rgba(79,195,247,.15)}
+.br-row:last-child{border-bottom:none;font-weight:700;color:var(--blue)}
+.br-label{color:var(--mid)}
+.br-val{font-weight:700;color:var(--ink)}
+
+/* ── FAQ ── */
+.faq-list{max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.faq-item{background:#FFF8F0;border-radius:var(--r);padding:14px;border:1.5px solid rgba(255,179,71,.17)}
+.faq-q{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.faq-a{font-size:13px;color:var(--mid);line-height:1.65}
+
+/* ── Trust row ── */
+.trust-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.trust-chip{background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:10px;padding:10px 12px;text-align:center;flex:1;min-width:90px;max-width:130px}
+.trust-chip span{display:block;font-size:20px;margin-bottom:3px}
+.trust-chip p{font-size:12px;color:var(--mid);font-weight:700;line-height:1.4}
+
+/* ── CTA bar ── */
+.cta-bar{background:linear-gradient(135deg,#0288D1,#00796B);padding:30px 20px;text-align:center}
+.cta-bar h3{font-family:'Noto Serif TC',serif;font-size:clamp(15px,4.5vw,18px);font-weight:900;color:white;margin-bottom:8px}
+.cta-bar p{color:rgba(255,255,255,.82);font-size:13px;line-height:1.7;margin-bottom:18px}
+.cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cta-line{background:var(--green);color:white;border:none;border-radius:28px;padding:12px 20px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;text-decoration:none;box-shadow:0 4px 14px rgba(6,199,85,.34)}
+.cta-tel{background:rgba(255,255,255,.16);color:white;border:2px solid rgba(255,255,255,.46);border-radius:28px;padding:10px 16px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;text-decoration:none}
+footer{background:#1A2332;color:rgba(255,255,255,.68);padding:24px 20px;text-align:center;font-size:13px;line-height:1.9}
+footer a{color:#4FC3F7;text-decoration:none}
+
+/* ── Quick CTA after result ── */
+.quick-cta{margin-top:14px;display:flex;gap:8px;flex-direction:column}
+.qcta-line{background:var(--green);color:white;border:none;border-radius:28px;padding:14px;font-size:14px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;box-shadow:0 4px 14px rgba(6,199,85,.28);letter-spacing:.3px}
+.qcta-tel{background:white;color:var(--blue);border:2px solid var(--sky);border-radius:28px;padding:11px;font-size:13px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="/">
+    <img src="logo.png" alt="潔美淨清潔社">
+    <span class="topbar-name">潔美淨清潔社</span>
+  </a>
+  <a class="topbar-tel" href="tel:0988145875">📞 來電</a>
+</header>
+
+<div class="hero">
+  <div class="hero-badge">🧮 免費費用試算</div>
+  <h1>清潔費用<em>即時試算</em><br>輸入坪數馬上看估價</h1>
+  <p class="hero-sub">選擇服務類型・輸入坪數，立即顯示估價範圍<br>確認報價請 LINE 或來電，估多少收多少絕不加價</p>
+</div>
+
+<section class="sec sec-white" id="calculator">
+  <div class="sh">
+    <span class="slabel">費用試算</span>
+    <h2 class="stitle">線上估價計算機</h2>
+    <p class="sdesc">以下為參考範圍，正式報價以現場評估或 LINE 諮詢為準</p>
+  </div>
+
+  <div class="calc-card">
+
+    <!-- Step 1: Service type -->
+    <div class="calc-field">
+      <label class="calc-label">① 選擇服務類型</label>
+      <div class="svc-btns">
+        <button class="svc-btn active" data-svc="home" onclick="selectSvc(this,'home')">
+          <span class="svc-btn-ico">🏠</span>居家清潔
+        </button>
+        <button class="svc-btn" data-svc="deep" onclick="selectSvc(this,'deep')">
+          <span class="svc-btn-ico">🪟</span>大掃除・定期深清
+        </button>
+        <button class="svc-btn" data-svc="reno" onclick="selectSvc(this,'reno')">
+          <span class="svc-btn-ico">🏗</span>裝潢後細清
+        </button>
+        <button class="svc-btn" data-svc="move" onclick="selectSvc(this,'move')">
+          <span class="svc-btn-ico">🚪</span>退租・入住清潔
+        </button>
+        <button class="svc-btn" data-svc="office" onclick="selectSvc(this,'office')">
+          <span class="svc-btn-ico">🏢</span>店面・辦公室
+        </button>
+        <button class="svc-btn" data-svc="sofa" onclick="selectSvc(this,'sofa')">
+          <span class="svc-btn-ico">🛋</span>沙發・地毯清洗
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: Size -->
+    <div class="calc-field">
+      <label class="calc-label">② 輸入坪數 <span id="svc-hint">（室內坪數）</span></label>
+      <div class="size-row">
+        <div class="size-stepper">
+          <button class="step-btn" onclick="adjustSize(-5)" type="button">－</button>
+          <span class="size-val" id="size-display">20</span>
+          <button class="step-btn" onclick="adjustSize(5)" type="button">＋</button>
+        </div>
+        <div class="size-input-wrap">
+          <input class="calc-input" type="number" id="size-input" value="20" min="5" max="500" placeholder="坪數" oninput="syncSize(this.value)">
+        </div>
+      </div>
+      <p class="size-note" id="size-note">一般 2 房 2 廳約 25–35 坪｜3 房 2 廳約 35–50 坪</p>
+    </div>
+
+    <!-- Step 3: Extra option -->
+    <div class="calc-field" id="extra-field" style="display:none">
+      <label class="calc-label">③ 特殊加項 <span>（可複選）</span></label>
+      <div class="svc-btns" id="extra-btns">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+    <button class="calc-btn" onclick="calculate()">🧮 立即試算費用</button>
+
+    <!-- Result -->
+    <div class="result-box" id="result-box">
+      <div class="result-svc-tag" id="result-svc-tag">🏠 居家清潔</div>
+      <div class="result-range">
+        <div class="result-min-max" id="result-range">$3,500 ~ $5,000</div>
+        <div class="result-unit" id="result-unit">元（含工資＋耗材，不另收費）</div>
+      </div>
+      <div class="result-note-bar" id="result-note">
+        ⚠ 以上為估算範圍，實際報價以現場或照片評估為準。若現場確認無需加價，施工中也絕不追加。
+      </div>
+      <div class="result-detail" id="result-detail"></div>
+      <div class="quick-cta">
+        <a class="qcta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+          傳送估算結果給師傅確認正式報價
+        </a>
+        <a class="qcta-tel" href="tel:0988145875">📞 直接來電 0988-145-875</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Price reference table -->
+<section class="sec sec-cream">
+  <div class="sh">
+    <span class="slabel">收費說明</span>
+    <h2 class="stitle">各項服務收費說明</h2>
+    <p class="sdesc">所有費用包工計算，施工中不追加</p>
+  </div>
+  <div style="max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:10px">
+
+    <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid var(--sky);box-shadow:0 2px 8px rgba(79,195,247,.07)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="font-size:22px">🏠</span>
+        <strong style="font-size:14px;color:var(--ink)">居家清潔（按時計算）</strong>
+      </div>
+      <div style="font-size:13px;color:var(--mid);line-height:1.7">
+        • 4 小時方案：<strong style="color:var(--blue)">$2,500</strong>（約 20 坪以內）<br>
+        • 每增加 1 小時：+$500<br>
+        • 含：全室清掃、廚房、衛浴、窗台<br>
+        • 不含：冰箱內部、烤箱內部（可加購）
+      </div>
+    </div>
+
+    <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid var(--mint);box-shadow:0 2px 8px rgba(79,195,247,.07)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="font-size:22px">🪟</span>
+        <strong style="font-size:14px;color:var(--ink)">大掃除・定期深清</strong>
+      </div>
+      <div style="font-size:13px;color:var(--mid);line-height:1.7">
+        • 包工估價，依坪數與狀況報總價<br>
+        • 約 <strong style="color:var(--blue)">$200–$350/坪</strong>，最低 $3,500 起<br>
+        • 含：全室深層清潔含死角、溝縫<br>
+        • 大掃除通常安排 2 師傅同行提升效率
+      </div>
+    </div>
+
+    <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid var(--accent);box-shadow:0 2px 8px rgba(79,195,247,.07)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="font-size:22px">🏗</span>
+        <strong style="font-size:14px;color:var(--ink)">裝潢後細清</strong>
+      </div>
+      <div style="font-size:13px;color:var(--mid);line-height:1.7">
+        • <strong style="color:var(--blue)">$400–$1,000/坪</strong>（依工程複雜度）<br>
+        • 輕整修細清約 $400–$600/坪<br>
+        • 全室翻新細清約 $700–$1,000/坪<br>
+        • 含：矽利康、水泥痕、玻璃膠跡清除
+      </div>
+    </div>
+
+    <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid var(--green);box-shadow:0 2px 8px rgba(79,195,247,.07)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="font-size:22px">🚪</span>
+        <strong style="font-size:14px;color:var(--ink)">退租・入住清潔</strong>
+      </div>
+      <div style="font-size:13px;color:var(--mid);line-height:1.7">
+        • 包工估價，依坪數與狀況報總價<br>
+        • 約 <strong style="color:var(--blue)">$200–$350/坪</strong>，最低 $3,000 起<br>
+        • 含：全室深清、廚衛徹底清潔、窗框<br>
+        • 可配合交屋時程彈性排班
+      </div>
+    </div>
+
+    <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid #AB47BC;box-shadow:0 2px 8px rgba(79,195,247,.07)">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <span style="font-size:22px">🏢</span>
+        <strong style="font-size:14px;color:var(--ink)">店面・辦公室清潔</strong>
+      </div>
+      <div style="font-size:13px;color:var(--mid);line-height:1.7">
+        • 依空間性質與現況報總價<br>
+        • 約 <strong style="color:var(--blue)">$100–$200/坪</strong>，最低 $3,000 起<br>
+        • 含：地板、玻璃、辦公設備外部<br>
+        • 可依需求安排平日夜間或假日施工
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Trust signals -->
+<section class="sec sec-white">
+  <div class="sh">
+    <span class="slabel">為什麼選我們</span>
+    <h2 class="stitle">估多少・收多少<br>是我們對您的承諾</h2>
+  </div>
+  <div class="trust-row">
+    <div class="trust-chip"><span>📋</span><p>包工報價<br>不追加</p></div>
+    <div class="trust-chip"><span>🧴</span><p>自備工具<br>耗材</p></div>
+    <div class="trust-chip"><span>🔍</span><p>細節到位<br>完工驗收</p></div>
+    <div class="trust-chip"><span>📅</span><p>配合時程<br>彈性排班</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-cream">
+  <div class="sh">
+    <span class="slabel">常見問題</span>
+    <h2 class="stitle">費用相關 Q&amp;A</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <p class="faq-q">Q：試算結果和實際報價會差很多嗎？</p>
+      <p class="faq-a">試算結果是參考範圍。實際報價會依現場狀況（清潔程度、特殊污漬、地板材質）調整，一般誤差在 10–15% 內。建議傳照片或直接到府評估後確認報價，確認後不再追加。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Q：工具和清潔劑要自己準備嗎？</p>
+      <p class="faq-a">不需要，師傅自備所有清潔工具、吸塵器、專業藥劑到府，費用已包含耗材，不另收材料費。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Q：現場發現要做的比預期多，要加錢嗎？</p>
+      <p class="faq-a">確認報價後，師傅施工中不追加費用。即使現場遇到估錯的情況，我們承諾做完所有原定細項。若需要增加服務範圍，會事先與您溝通取得同意。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Q：服務哪些地區？交通費另計嗎？</p>
+      <p class="faq-a">主要服務基隆、台北、新北、桃園地區。基隆市內免交通費，台北新北桃園視距離可能酌收油費，諮詢時會一併告知。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA bar -->
+<div class="cta-bar">
+  <h3>試算完畢，下一步讓師傅確認正式報價</h3>
+  <p>傳照片或描述狀況，師傅評估後給您正式報價<br>確認報價・施工中絕不追加</p>
+  <div class="cta-row">
+    <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+      LINE 免費諮詢估價
+    </a>
+    <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+  </div>
+</div>
+
+<footer>
+  <strong style="color:white">潔美淨清潔社</strong><br>
+  📞 <a href="tel:0988145875">0988-145-875</a>｜
+  <a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 免費諮詢</a><br>
+  服務地區：基隆・台北・新北・桃園<br>
+  <br>
+  <a href="/">回首頁</a>｜
+  <a href="taipei.html">台北清潔</a>｜
+  <a href="new-taipei.html">新北清潔</a>｜
+  <a href="taoyuan.html">桃園清潔</a>
+</footer>
+
+<script>
+// ── State ──
+var currentSvc = 'home';
+var currentSize = 20;
+var activeExtras = {};
+
+var SVC_CONFIG = {
+  home: {
+    label: '🏠 居家清潔',
+    hint: '（室內坪數）',
+    sizeNote: '一般 2 房 2 廳約 25–35 坪｜3 房 2 廳約 35–50 坪',
+    unit: '元（含工資＋耗材，不另收費）',
+    calc: function(sz) {
+      // Per-hour model: 4h = 2500, each 5 sqm ≈ +1hr
+      var hours = Math.max(4, 4 + Math.ceil((sz - 20) / 5));
+      var lo = 2500 + Math.max(0, hours - 4) * 450;
+      var hi = 2500 + Math.max(0, hours - 4) * 600;
+      return { lo: lo, hi: hi, hours: hours };
+    },
+    detail: function(sz, r) {
+      return '<strong>估算依據：</strong> ' + sz + ' 坪 → 約需 ' + r.hours + ' 小時<br>'
+           + '基本 4 小時 $2,500，每增加 1 小時 +$450–$600<br>'
+           + '<strong>含：</strong>全室清掃、廚房、衛浴、窗台、家電外部';
+    },
+    extras: [
+      { id: 'fridge', label: '❄ 冰箱內部', add: [500, 800] },
+      { id: 'oven',   label: '🔥 烤箱內部', add: [300, 500] },
+      { id: 'window', label: '🪟 紗窗拆洗', add: [150, 250] },
+    ]
+  },
+  deep: {
+    label: '🪟 大掃除・深清',
+    hint: '（室內坪數）',
+    sizeNote: '一般公寓 20–30 坪｜大坪數電梯大樓 50 坪以上',
+    unit: '元（包工，含耗材）',
+    calc: function(sz) {
+      var lo = Math.max(3500, Math.round(sz * 200 / 100) * 100);
+      var hi = Math.max(4500, Math.round(sz * 350 / 100) * 100);
+      return { lo: lo, hi: hi };
+    },
+    detail: function(sz) {
+      return '<strong>估算依據：</strong> ' + sz + ' 坪 × $200–$350/坪（最低 $3,500）<br>'
+           + '<strong>含：</strong>全室深層清潔、死角溝縫、廚衛徹底清潔、窗框<br>'
+           + '通常安排 2 名師傅同行，縮短施工時間';
+    },
+    extras: [
+      { id: 'balcony', label: '🌿 陽台清洗', add: [500, 1000] },
+      { id: 'window2', label: '🪟 外推窗戶',  add: [300, 600]  },
+    ]
+  },
+  reno: {
+    label: '🏗 裝潢後細清',
+    hint: '（施工坪數）',
+    sizeNote: '輕整修：$400–$600/坪｜全室翻新：$700–$1,000/坪',
+    unit: '元（包工，含專業藥劑）',
+    calc: function(sz) {
+      var lo = Math.max(6000, Math.round(sz * 400 / 100) * 100);
+      var hi = Math.max(10000, Math.round(sz * 1000 / 100) * 100);
+      return { lo: lo, hi: hi };
+    },
+    detail: function(sz) {
+      return '<strong>估算依據：</strong> ' + sz + ' 坪 × $400–$1,000/坪<br>'
+           + '輕整修細清（$400–$600） vs 全室翻新細清（$700–$1,000）<br>'
+           + '<strong>含：</strong>矽利康跡、水泥漿、玻璃膠、鐵鏽清除，完工驗收';
+    },
+    extras: [
+      { id: 'marble', label: '🪨 大理石拋光', add: [1000, 3000] },
+      { id: 'sofa2',  label: '🛋 家具防護撤除',  add: [500, 800]  },
+    ]
+  },
+  move: {
+    label: '🚪 退租・入住',
+    hint: '（室內坪數）',
+    sizeNote: '套房 8–15 坪｜2 房公寓 25–35 坪｜3 房 35–50 坪',
+    unit: '元（包工，含耗材）',
+    calc: function(sz) {
+      var lo = Math.max(3000, Math.round(sz * 200 / 100) * 100);
+      var hi = Math.max(4500, Math.round(sz * 350 / 100) * 100);
+      return { lo: lo, hi: hi };
+    },
+    detail: function(sz) {
+      return '<strong>估算依據：</strong> ' + sz + ' 坪 × $200–$350/坪（最低 $3,000）<br>'
+           + '<strong>含：</strong>全室深清、廚衛徹底清潔、窗框溝縫、牆面輕清<br>'
+           + '可配合退租/交屋時程彈性排班';
+    },
+    extras: [
+      { id: 'mold', label: '🦠 壁癌黴斑處理', add: [500, 1500] },
+      { id: 'ac',   label: '❄ 冷氣清洗（每台）', add: [600, 900] },
+    ]
+  },
+  office: {
+    label: '🏢 店面・辦公室',
+    hint: '（使用坪數）',
+    sizeNote: '小店面 20–50 坪｜中型辦公室 50–100 坪',
+    unit: '元（包工，含耗材）',
+    calc: function(sz) {
+      var lo = Math.max(3000, Math.round(sz * 100 / 100) * 100);
+      var hi = Math.max(5000, Math.round(sz * 200 / 100) * 100);
+      return { lo: lo, hi: hi };
+    },
+    detail: function(sz) {
+      return '<strong>估算依據：</strong> ' + sz + ' 坪 × $100–$200/坪（最低 $3,000）<br>'
+           + '<strong>含：</strong>地板、玻璃門窗、辦公設備外部、廁所<br>'
+           + '可安排平日夜間或假日施工，不影響營業';
+    },
+    extras: [
+      { id: 'floor', label: '🪣 地板打蠟', add: [1000, 3000] },
+      { id: 'glass', label: '🪟 外牆玻璃',  add: [500, 2000]  },
+    ]
+  },
+  sofa: {
+    label: '🛋 沙發・地毯',
+    hint: '（沙發組件數 / 地毯面積坪）',
+    sizeNote: '2 人沙發 1 件｜3 人沙發 1 件｜L 型沙發 2–3 件',
+    unit: '元（含清洗藥劑）',
+    calc: function(sz) {
+      var lo = Math.max(1500, sz * 600);
+      var hi = Math.max(2500, sz * 1200);
+      return { lo: lo, hi: hi };
+    },
+    detail: function(sz) {
+      return '<strong>估算依據：</strong> ' + sz + ' 組件/坪 × $600–$1,200<br>'
+           + '<strong>含：</strong>專業蒸汽清洗、除蟎、去污、快乾處理<br>'
+           + '布面沙發、皮革沙發、地毯均可處理';
+    },
+    extras: [
+      { id: 'deodor', label: '🌸 除臭加強', add: [300, 500] },
+    ]
+  }
+};
+
+function selectSvc(btn, svc) {
+  document.querySelectorAll('.svc-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  currentSvc = svc;
+  activeExtras = {};
+  var cfg = SVC_CONFIG[svc];
+  document.getElementById('svc-hint').textContent = cfg.hint;
+  document.getElementById('size-note').textContent = cfg.sizeNote;
+  renderExtras(cfg);
+  document.getElementById('result-box').classList.remove('show');
+}
+
+function renderExtras(cfg) {
+  var field = document.getElementById('extra-field');
+  var container = document.getElementById('extra-btns');
+  if (!cfg.extras || cfg.extras.length === 0) {
+    field.style.display = 'none';
+    return;
+  }
+  field.style.display = 'block';
+  container.innerHTML = '';
+  cfg.extras.forEach(function(ex) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'svc-btn';
+    btn.innerHTML = ex.label + '<br><small style="font-size:11px;color:var(--soft)">+$' + ex.add[0] + '~' + ex.add[1] + '</small>';
+    btn.onclick = function() {
+      if (activeExtras[ex.id]) {
+        delete activeExtras[ex.id];
+        btn.classList.remove('active');
+      } else {
+        activeExtras[ex.id] = ex.add;
+        btn.classList.add('active');
+      }
+    };
+    container.appendChild(btn);
+  });
+}
+
+function adjustSize(delta) {
+  currentSize = Math.min(500, Math.max(5, currentSize + delta));
+  document.getElementById('size-display').textContent = currentSize;
+  document.getElementById('size-input').value = currentSize;
+  document.getElementById('result-box').classList.remove('show');
+}
+
+function syncSize(val) {
+  var n = parseInt(val, 10);
+  if (!isNaN(n) && n >= 1) {
+    currentSize = Math.min(500, Math.max(1, n));
+    document.getElementById('size-display').textContent = currentSize;
+  }
+  document.getElementById('result-box').classList.remove('show');
+}
+
+function formatMoney(n) {
+  return '$' + n.toLocaleString('zh-TW');
+}
+
+function calculate() {
+  var size = parseInt(document.getElementById('size-input').value, 10);
+  if (isNaN(size) || size < 1) { alert('請輸入有效坪數'); return; }
+  currentSize = Math.min(500, Math.max(1, size));
+  document.getElementById('size-display').textContent = currentSize;
+
+  var cfg = SVC_CONFIG[currentSvc];
+  var r = cfg.calc(currentSize);
+  var extraLo = 0, extraHi = 0;
+  Object.values(activeExtras).forEach(function(a) { extraLo += a[0]; extraHi += a[1]; });
+
+  var totalLo = r.lo + extraLo;
+  var totalHi = r.hi + extraHi;
+
+  document.getElementById('result-svc-tag').textContent = cfg.label + '・' + currentSize + ' 坪';
+  document.getElementById('result-range').textContent = formatMoney(totalLo) + ' ~ ' + formatMoney(totalHi);
+  document.getElementById('result-unit').textContent = cfg.unit;
+  document.getElementById('result-detail').innerHTML = cfg.detail(currentSize, r)
+    + (extraLo > 0 ? '<br><br><strong>加項：</strong>+' + formatMoney(extraLo) + '~' + formatMoney(extraHi) : '');
+
+  document.getElementById('result-box').classList.add('show');
+  document.getElementById('result-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Init extras for default service
+renderExtras(SVC_CONFIG['home']);
+</script>
+
+</body>
+</html>

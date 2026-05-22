@@ -789,6 +789,102 @@ footer a { color: var(--sky); text-decoration: none; }
   background: rgba(79,195,247,0.11); color: var(--blue);
   padding: 2px 9px; border-radius: 7px; font-size: 12px; font-weight: 700;
 }
+
+/* ═══════════════════════════
+   TESTIMONIALS
+═══════════════════════════ */
+.testi-grid { display: flex; flex-direction: column; gap: 11px; max-width: 460px; margin: 0 auto; }
+.testi-card {
+  background: white; border-radius: var(--r); padding: 16px;
+  border: 1.5px solid rgba(79,195,247,0.16);
+  box-shadow: 0 2px 8px rgba(79,195,247,0.07);
+}
+.testi-stars { color: #FBBF24; font-size: 16px; margin-bottom: 8px; letter-spacing: 2px; }
+.testi-text {
+  font-size: 14px; color: var(--mid); line-height: 1.75; margin-bottom: 10px;
+  border-left: 3px solid rgba(79,195,247,0.30); padding-left: 10px;
+}
+.testi-author { display: flex; align-items: center; gap: 9px; }
+.testi-avatar {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--sky), var(--mint));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; color: white; font-weight: 900;
+}
+.testi-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+.testi-date { font-size: 12px; color: var(--soft); }
+.testi-source { margin-left: auto; font-size: 11px; color: var(--soft); display: flex; align-items: center; gap: 3px; }
+.testi-more {
+  max-width: 460px; margin: 12px auto 0; text-align: center;
+  font-size: 13px; color: var(--soft);
+}
+.testi-more a { color: var(--blue); font-weight: 700; text-decoration: none; }
+
+/* ═══════════════════════════
+   BOOKING FORM
+═══════════════════════════ */
+.bk-form {
+  background: white; border-radius: var(--r); padding: 20px 16px;
+  max-width: 460px; margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(79,195,247,0.10);
+  border: 1.5px solid rgba(79,195,247,0.18);
+}
+.bk-row { margin-bottom: 13px; }
+.bk-row label { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+.bk-row label span { color: #E53E3E; margin-left: 2px; }
+.bk-row select, .bk-row input, .bk-row textarea {
+  width: 100%; padding: 10px 12px;
+  border: 1.5px solid rgba(79,195,247,0.28);
+  border-radius: 10px; font-size: 14px;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--ink); background: white; outline: none;
+  transition: border-color 0.18s; box-sizing: border-box;
+}
+.bk-row select:focus, .bk-row input:focus, .bk-row textarea:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(79,195,247,0.10); }
+.bk-row textarea { resize: vertical; min-height: 68px; }
+.bk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bk-submit {
+  width: 100%; background: var(--green); color: white; border: none;
+  border-radius: 28px; padding: 14px; font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  box-shadow: 0 4px 14px rgba(6,199,85,0.27);
+}
+.bk-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(6,199,85,0.38); }
+.bk-confirm {
+  display: none; background: rgba(6,199,85,0.06);
+  border: 1.5px solid rgba(6,199,85,0.22);
+  border-radius: var(--r); padding: 20px 16px;
+  max-width: 460px; margin: 0 auto; text-align: center;
+}
+.bk-confirm h4 { font-size: 16px; font-weight: 700; color: #059669; margin-bottom: 8px; }
+.bk-confirm p { font-size: 14px; color: var(--mid); margin-bottom: 12px; line-height: 1.65; }
+.bk-msg-box {
+  background: var(--cream); border: 1px solid rgba(79,195,247,0.20);
+  border-radius: 10px; padding: 12px; font-size: 13px; color: var(--ink);
+  text-align: left; line-height: 1.78; margin-bottom: 14px; white-space: pre-wrap;
+}
+.bk-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.bk-copy {
+  padding: 10px 18px; border-radius: 24px;
+  background: white; border: 2px solid var(--sky); color: var(--blue);
+  font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.18s;
+}
+.bk-copy:hover { background: var(--sky); color: white; }
+.bk-line-btn {
+  padding: 10px 18px; border-radius: 24px;
+  background: var(--green); color: white; border: none;
+  font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 5px; transition: all 0.18s;
+}
+
+/* Top bar 預約 button */
+.tbtn-book {
+  background: linear-gradient(90deg, var(--sky), var(--mint));
+  color: white; cursor: pointer; border: none; border-radius: 20px;
+  padding: 7px 12px; font-size: clamp(12px, 3.2vw, 14px); font-weight: 700;
+  display: flex; align-items: center; gap: 5px; white-space: nowrap;
+}
 </style>
 <!-- Structured Data: LocalBusiness + Reviews + Offers -->
 <script type="application/ld+json">
@@ -1176,6 +1272,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <span class="tlogo-name">潔美淨清潔社</span>
   </div>
   <div class="top-btns">
+    <button class="tbtn-book" onclick="showPage('home');setTimeout(function(){var el=document.getElementById('booking-section');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},120)">📝 預約</button>
     <a class="tbtn-tel" href="tel:0988145875">📞 來電</a>
   </div></div>
 </header>
@@ -1284,9 +1381,9 @@ footer a { color: var(--sky); text-decoration: none; }
         <a class="hbtn-tel" href="tel:0988145875">📞 來電</a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><div class="stat-n">基隆</div><div class="stat-l">在地經營</div></div>
-        <div class="stat"><div class="stat-n">台北・新北</div><div class="stat-l">服務範圍</div></div>
-        <div class="stat"><div class="stat-n">不加價</div><div class="stat-l">估多少收多少</div></div>
+        <div class="stat"><div class="stat-n">300+</div><div class="stat-l">服務戶數</div></div>
+        <div class="stat"><div class="stat-n">Google 4.7★</div><div class="stat-l">好評評分</div></div>
+        <div class="stat"><div class="stat-n">不加價</div><div class="stat-l">承諾保證</div></div>
       </div>
     </div>
   </div>
@@ -1348,6 +1445,53 @@ footer a { color: var(--sky); text-decoration: none; }
     </div>
   </div>
 
+  <!-- 顧客見證 -->
+  <div class="sec sec-bg-cream">
+    <div class="sh">
+      <span class="slabel">顧客見證</span>
+      <h2 class="stitle">真實顧客好評</h2>
+      <p class="sdesc">每一則評論都是真實客戶的親身體驗</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">「店家打掃的很專業也很細心，因為是新買的房子，店家在打掃的過程中，還幫忙發現到一些瑕疵，實在是很感謝！」</p>
+        <div class="testi-author">
+          <div class="testi-avatar">強</div>
+          <div>
+            <div class="testi-name">強 lin</div>
+            <div class="testi-date">入住清潔・2025年11月</div>
+          </div>
+          <div class="testi-source">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Google 評論
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">「專業快速又清潔超乾淨的！老闆娘誠信正直很放心把家交給她。」</p>
+        <div class="testi-author">
+          <div class="testi-avatar">薛</div>
+          <div>
+            <div class="testi-name">薛詠婷</div>
+            <div class="testi-date">居家清潔・2025年11月</div>
+          </div>
+          <div class="testi-source">
+            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Google 評論
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="testi-more">
+      更多顧客評論請見
+      <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank">Google 地圖評論頁 →</a>
+      &nbsp;・&nbsp;
+      <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank">幫我們留個評論 ⭐</a>
+    </p>
+  </div>
+
   <!-- 流程 -->
   <div class="sec sec-bg-grad">
     <div class="sh">
@@ -1359,6 +1503,81 @@ footer a { color: var(--sky); text-decoration: none; }
       <div class="step"><div class="step-n">2</div><div class="step-t"><h3>到府現場估價</h3><p>大掃除與裝潢細清建議現場評估，依汙染程度、坪數、櫃體給出明確總價。</p></div></div>
       <div class="step"><div class="step-n">3</div><div class="step-t"><h3>確認細項・開工</h3><p>雙方確認清潔細項與價格後開工，估多少收多少，即使估錯也做完。</p></div></div>
       <div class="step"><div class="step-n">4</div><div class="step-t"><h3>完工驗收・滿意付款</h3><p>清潔完成業主確認，滿意再付款，有遺漏當場補做。</p></div></div>
+    </div>
+  </div>
+
+  <!-- 線上預約 -->
+  <div class="sec sec-bg-white" id="booking-section">
+    <div class="sh">
+      <span class="slabel">線上預約</span>
+      <h2 class="stitle">填寫需求，我們主動聯繫</h2>
+      <p class="sdesc">填好後點送出，系統幫您整理需求訊息，複製到 LINE 即可</p>
+    </div>
+    <div id="bk-form-wrap">
+      <form class="bk-form" onsubmit="submitBookingForm(event)">
+        <div class="bk-row">
+          <label>服務類型<span>*</span></label>
+          <select id="bk-service" required>
+            <option value="">請選擇服務項目</option>
+            <option>居家清潔（計時制）</option>
+            <option>居家清潔（坪數包價）</option>
+            <option>大掃除</option>
+            <option>裝潢後細清</option>
+            <option>退租清潔</option>
+            <option>入住清潔</option>
+            <option>社區清潔</option>
+            <option>店面・辦公室清潔</option>
+            <option>收納整理</option>
+            <option>其他（請在備注說明）</option>
+          </select>
+        </div>
+        <div class="bk-grid">
+          <div class="bk-row">
+            <label>地區<span>*</span></label>
+            <input type="text" id="bk-area" placeholder="例：基隆中正區" required>
+          </div>
+          <div class="bk-row">
+            <label>坪數</label>
+            <input type="text" id="bk-size" placeholder="例：30坪">
+          </div>
+        </div>
+        <div class="bk-grid">
+          <div class="bk-row">
+            <label>姓名<span>*</span></label>
+            <input type="text" id="bk-name" placeholder="您的稱呼" required>
+          </div>
+          <div class="bk-row">
+            <label>電話<span>*</span></label>
+            <input type="tel" id="bk-phone" placeholder="0912-345-678" required>
+          </div>
+        </div>
+        <div class="bk-row">
+          <label>偏好服務時間</label>
+          <input type="text" id="bk-time" placeholder="例：週六上午、盡快安排均可">
+        </div>
+        <div class="bk-row">
+          <label>其他說明</label>
+          <textarea id="bk-note" placeholder="描述現場狀況、特殊需求，可在 LINE 補傳照片⋯"></textarea>
+        </div>
+        <button type="submit" class="bk-submit">
+          <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+          送出預約需求
+        </button>
+      </form>
+    </div>
+    <div id="bk-confirm" class="bk-confirm">
+      <div style="font-size:44px;margin-bottom:10px;">✅</div>
+      <h4>需求已整理完成！</h4>
+      <p>請複製以下訊息，貼到 LINE 傳給我們<br>我們收到後會盡快回覆您。</p>
+      <div class="bk-msg-box" id="bk-msg-text"></div>
+      <div class="bk-actions">
+        <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn">📋 複製訊息</button>
+        <a class="bk-line-btn" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+          開啟 LINE
+        </a>
+      </div>
+      <p style="margin-top:14px;font-size:13px;"><a href="#" onclick="resetBookingForm();return false;" style="color:var(--blue);">重新填寫</a></p>
     </div>
   </div>
 
@@ -1382,6 +1601,9 @@ footer a { color: var(--sky); text-decoration: none; }
     🗺 服務：新竹以北（基隆・台北・新北・桃園・新竹）<br>
     📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 洽詢</a></p>
     <p>📘 <a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank">Facebook 粉專</a>　📍 <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank">Google 地圖</a></p>
+    <div class="fdiv"></div>
+    <p style="font-size:12px;">地區頁面：<a href="taipei.html">台北清潔</a>　<a href="new-taipei.html">新北清潔</a>　<a href="taoyuan.html">桃園清潔</a></p>
+    <p style="font-size:12px;">🧮 <a href="calculator.html">清潔費用試算</a></p>
     <div class="fdiv"></div>
     <p style="font-size:10.5px;opacity:0.42;">© 2025-2026 潔美淨清潔社</p>
   </footer>
@@ -1725,6 +1947,205 @@ footer a { color: var(--sky); text-decoration: none; }
             <span>🏆 當日入住</span>
           </div>
           <span class="case-result-badge">✅ 當日清潔・當日入住</span>
+        </div>
+      </div>
+
+      <!-- 追加案例 -->
+      <div class="case-full" data-type="居家">
+        <div class="case-img-full" data-loc="台北松山區">🏠</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">居家清潔</span>
+          <h3>台北松山區老公寓月清服務</h3>
+          <p>長輩獨居，子女委託每月定期打掃，重點加強廚房油垢與浴室水垢，師傅固定，長輩也放心。</p>
+          <div class="case-meta"><span>⏱ 4小時/月</span><span>📐 20坪</span><span>🔄 月清</span></div>
+          <span class="case-result-badge">✅ 長輩滿意・持續合作</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="居家">
+        <div class="case-img-full" data-loc="新北淡水區">🏠</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">居家清潔</span>
+          <h3>淡水新成屋入住前基礎清潔</h3>
+          <p>新屋雖無太多污垢，但有建築粉塵殘留，4小時徹底清潔各角落，讓客戶安心入住。</p>
+          <div class="case-meta"><span>⏱ 4小時</span><span>📐 28坪</span><span>🏆 新屋</span></div>
+          <span class="case-result-badge">✅ 當日即可入住</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="居家">
+        <div class="case-img-full" data-loc="桃園中壢區">🏠</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">居家清潔</span>
+          <h3>中壢雙薪家庭雙週清服務</h3>
+          <p>兩人均忙於上班，委託雙週清，固定週日上午服務，每次重點廚房與衛浴，客廳臥室維持整潔。</p>
+          <div class="case-meta"><span>⏱ 4小時</span><span>📐 22坪</span><span>🔄 雙週清</span></div>
+          <span class="case-result-badge">✅ 固定配合中</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="居家">
+        <div class="case-img-full" data-loc="基隆七堵區">🏠</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">居家清潔</span>
+          <h3>三代同堂大坪數住家週清</h3>
+          <p>三代同堂，共40坪，每週固定6小時服務，各房間、公共區域輪流深清，維持整潔舒適。</p>
+          <div class="case-meta"><span>⏱ 6小時/週</span><span>📐 40坪</span><span>🔄 週清</span></div>
+          <span class="case-result-badge">✅ 長期合作 3 個月+</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="大掃除">
+        <div class="case-img-full" data-loc="台北信義區">🪟</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">大掃除</span>
+          <h3>信義區辦公室年底大掃除</h3>
+          <p>公司年底大掃除，辦公桌椅、茶水間、玻璃外牆全面清潔，配合下班後進場，不影響日間作業。</p>
+          <div class="case-meta"><span>⏱ 一日施工</span><span>📐 50坪</span><span>🏆 包工完成</span></div>
+          <span class="case-result-badge">✅ 開工前完成驗收</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="大掃除">
+        <div class="case-img-full" data-loc="新北板橋區">🪟</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">大掃除</span>
+          <h3>板橋透天厝全棟大掃除</h3>
+          <p>透天三層樓，含頂樓、地下室全部清潔，移動家具、洗窗、除油，包工報總價，一次到底不加價。</p>
+          <div class="case-meta"><span>⏱ 兩日施工</span><span>📐 80坪</span><span>🏆 三層透天</span></div>
+          <span class="case-result-badge">✅ 全棟清潔完成</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="大掃除">
+        <div class="case-img-full" data-loc="基隆仁愛區">🪟</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">大掃除</span>
+          <h3>基隆老透天屋旺季大掃除</h3>
+          <p>舊屋積年油汙水垢，農曆年前委託，包工評估後確認總價，搬動大型傢俱徹底清潔，年前驗收完畢。</p>
+          <div class="case-meta"><span>⏱ 一日施工</span><span>📐 30坪</span><span>🏆 包工完成</span></div>
+          <span class="case-result-badge">✅ 年前如期完工</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="大掃除">
+        <div class="case-img-full" data-loc="桃園桃園區">🪟</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">大掃除</span>
+          <h3>桃園公寓空屋整理大清潔</h3>
+          <p>租客搬走後留下重度污垢，房東在出租前委託全室整理清潔，含廚衛深清及地板翻新準備。</p>
+          <div class="case-meta"><span>⏱ 一日施工</span><span>📐 25坪</span><span>🏆 重度清潔</span></div>
+          <span class="case-result-badge">✅ 一個月後成功出租</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="裝潢">
+        <div class="case-img-full" data-loc="台北大安區">🏗</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">裝潢細清</span>
+          <h3>大安區全室改裝後細清</h3>
+          <p>全室改裝，含廚具更換與衛浴翻新，施工粉塵與矽利康殘膠多，師傅逐一細清，交屋當天通過驗收。</p>
+          <div class="case-meta"><span>💰 約$650/坪</span><span>📐 32坪</span><span>🏆 交屋前</span></div>
+          <span class="case-result-badge">✅ 一次驗收通過</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="裝潢">
+        <div class="case-img-full" data-loc="新北新莊區">🏗</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">裝潢細清</span>
+          <h3>新莊預售屋交屋前細清</h3>
+          <p>預售屋剛完工，需於交屋前完成清潔，配合建商時程，師傅準時到場，全室細清含磁磚縫與系統櫃。</p>
+          <div class="case-meta"><span>💰 約$500/坪</span><span>📐 28坪</span><span>🏆 配合交屋</span></div>
+          <span class="case-result-badge">✅ 準時完工・業主滿意</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="裝潢">
+        <div class="case-img-full" data-loc="基隆中正區">🏗</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">裝潢細清（重度）</span>
+          <h3>基隆老屋全翻新後重度細清</h3>
+          <p>屋齡30年老屋全翻新，施工時間長、污染重，依重度污染標準報價，師傅兩人一日完成。</p>
+          <div class="case-meta"><span>💰 約$800/坪</span><span>📐 20坪</span><span>🏆 老屋翻新</span></div>
+          <span class="case-result-badge">✅ 煥然一新</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="裝潢">
+        <div class="case-img-full" data-loc="新竹竹北市">🏗</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">裝潢細清</span>
+          <h3>竹北科技新貴新宅裝潢細清</h3>
+          <p>科學園區附近新成屋，系統櫃多，施工粉塵殘留嚴重，師傅細心處理每個層板及抽屜軌道。</p>
+          <div class="case-meta"><span>💰 約$700/坪</span><span>📐 38坪</span><span>🏆 多系統櫃</span></div>
+          <span class="case-result-badge">✅ 搬入前完成</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="退租">
+        <div class="case-img-full" data-loc="台北中山區">🚪</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">退租清潔</span>
+          <h3>中山區套房退租通過驗收</h3>
+          <p>住了三年的套房，油垢水垢積累明顯。依房東驗屋單逐項清潔，一次過關，押金全額退回。</p>
+          <div class="case-meta"><span>⏱ 半日</span><span>📐 8坪套房</span><span>🏆 一次驗收</span></div>
+          <span class="case-result-badge">✅ 押金全額退回</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="退租">
+        <div class="case-img-full" data-loc="新北三重區">🚪</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">退租清潔</span>
+          <h3>三重兩房兩廳退租打掃</h3>
+          <p>搬家後委託，廚房爐台多年油垢、浴室頑固水垢、地板污漬全部處理，房東驗收一次通過。</p>
+          <div class="case-meta"><span>⏱ 6小時</span><span>📐 22坪</span><span>🏆 包工完成</span></div>
+          <span class="case-result-badge">✅ 驗收通過</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="退租">
+        <div class="case-img-full" data-loc="桃園中壢區">🚪</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">入住清潔</span>
+          <h3>中壢舊公寓新租戶入住清潔</h3>
+          <p>房東委託在新租戶入住前全室清潔，去除前任留下的異味與積垢，讓租客第一印象大加分。</p>
+          <div class="case-meta"><span>⏱ 5小時</span><span>📐 18坪</span><span>🏆 換租清潔</span></div>
+          <span class="case-result-badge">✅ 新租客滿意入住</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="退租">
+        <div class="case-img-full" data-loc="基隆安樂區">🚪</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">退租清潔</span>
+          <h3>安樂區整層住宅退租清潔</h3>
+          <p>三房兩廳整層退租，重點處理衛浴、廚房及陽台，協助租客如期搬走並順利退押金。</p>
+          <div class="case-meta"><span>⏱ 8小時</span><span>📐 30坪</span><span>🏆 包工完成</span></div>
+          <span class="case-result-badge">✅ 如期退屋</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="居家">
+        <div class="case-img-full" data-loc="新北永和區">🏠</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">居家清潔</span>
+          <h3>永和媽媽育兒假前大整理</h3>
+          <p>二寶媽趁孩子上學委託一次深度清潔，廚房、浴室、兒童房重點加強，完工後全家煥然一新。</p>
+          <div class="case-meta"><span>⏱ 6小時</span><span>📐 32坪</span><span>🏆 深度清潔</span></div>
+          <span class="case-result-badge">✅ 客戶超滿意</span>
+        </div>
+      </div>
+
+      <div class="case-full" data-type="大掃除">
+        <div class="case-img-full" data-loc="台北北投區">🪟</div>
+        <div class="case-body-full">
+          <span class="case-type-badge">大掃除</span>
+          <h3>北投溫泉老屋年節大掃除</h3>
+          <p>屋齡25年，牆面積垢與廚衛污染嚴重，包工報總價後開工，師傅帶齊專業設備，一日全部完成。</p>
+          <div class="case-meta"><span>⏱ 一日施工</span><span>📐 28坪</span><span>🏆 舊屋重清</span></div>
+          <span class="case-result-badge">✅ 乾淨如新</span>
         </div>
       </div>
 
@@ -2264,6 +2685,55 @@ function toggleSvc(el) {
   const isOpen = el.classList.contains('open');
   document.querySelectorAll('.svc-item').forEach(s => s.classList.remove('open'));
   if (!isOpen) el.classList.add('open');
+}
+
+// ── Booking Form ──
+function submitBookingForm(event) {
+  event.preventDefault();
+  var service = document.getElementById('bk-service').value;
+  var area    = document.getElementById('bk-area').value;
+  var size    = document.getElementById('bk-size').value || '未填寫';
+  var name    = document.getElementById('bk-name').value;
+  var phone   = document.getElementById('bk-phone').value;
+  var time    = document.getElementById('bk-time').value || '均可配合';
+  var note    = document.getElementById('bk-note').value || '無';
+  window._bookingMsg =
+    '您好，我想詢問清潔服務\n\n' +
+    '📋 服務類型：' + service + '\n' +
+    '📍 地區：' + area + '\n' +
+    '📐 坪數：' + size + '\n' +
+    '⏰ 偏好時間：' + time + '\n' +
+    '👤 姓名：' + name + '\n' +
+    '📞 電話：' + phone + '\n' +
+    '💬 備注：' + note;
+  document.getElementById('bk-form-wrap').style.display = 'none';
+  var confirm = document.getElementById('bk-confirm');
+  confirm.style.display = 'block';
+  document.getElementById('bk-msg-text').textContent = window._bookingMsg;
+  setTimeout(function() {
+    confirm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 80);
+}
+function copyBookingMsg() {
+  var btn = document.getElementById('bk-copy-btn');
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(window._bookingMsg).then(function() {
+      btn.textContent = '✅ 已複製！';
+      setTimeout(function() { btn.textContent = '📋 複製訊息'; }, 2500);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = window._bookingMsg;
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); ta.remove();
+    btn.textContent = '✅ 已複製！';
+    setTimeout(function() { btn.textContent = '📋 複製訊息'; }, 2500);
+  }
+}
+function resetBookingForm() {
+  document.getElementById('bk-form-wrap').style.display = '';
+  document.getElementById('bk-confirm').style.display = 'none';
+  document.getElementById('bk-form-wrap').querySelector('form').reset();
 }
 
 // ── Case filter ──
