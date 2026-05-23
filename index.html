@@ -872,6 +872,49 @@ footer a { color: var(--sky); text-decoration: none; }
   font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.18s;
 }
 .bk-copy:hover { background: var(--sky); color: white; }
+/* Counter controls */
+.bk-space-section { margin-bottom: 13px; }
+.bk-space-section > label { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.bk-counters { display: flex; flex-direction: column; gap: 8px; }
+.bk-counter-row {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #F8FBFF; border: 1.5px solid rgba(79,195,247,0.22);
+  border-radius: 10px; padding: 10px 14px;
+}
+.bk-counter-info { flex: 1; }
+.bk-counter-label { font-size: 13px; font-weight: 700; color: var(--ink); }
+.bk-counter-hint { font-size: 11px; color: var(--soft); margin-top: 1px; }
+.bk-counter-ctrl { display: flex; align-items: center; gap: 14px; }
+.bk-cbtn {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  border: 2px solid var(--sky); background: white; color: var(--blue);
+  font-size: 16px; font-weight: 700; line-height: 1; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.15s; -webkit-tap-highlight-color: transparent;
+}
+.bk-cbtn:active { background: var(--sky); color: white; transform: scale(0.92); }
+.bk-cbtn:disabled { border-color: #E2E8F0; color: #CBD5E0; cursor: not-allowed; }
+.bk-cval { font-size: 20px; font-weight: 900; color: var(--blue); min-width: 22px; text-align: center; }
+
+/* Extras checkboxes */
+.bk-extras-section { margin-bottom: 13px; }
+.bk-extras-section > label { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+.bk-extras-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.bk-extra-item {
+  display: flex; align-items: center; gap: 7px;
+  background: #F8FBFF; border: 1.5px solid rgba(79,195,247,0.18);
+  border-radius: 9px; padding: 8px 10px;
+  font-size: 12.5px; font-weight: 600; color: var(--mid);
+  cursor: pointer; transition: all 0.15s; -webkit-tap-highlight-color: transparent;
+}
+.bk-extra-item:has(input:checked) {
+  background: rgba(79,195,247,0.10); border-color: var(--sky); color: var(--blue);
+}
+.bk-extra-item input { width: 15px; height: 15px; accent-color: var(--blue); flex-shrink:0; cursor: pointer; }
+
+/* Reno-specific section */
+.bk-reno-extra { display: none; }
+
 .bk-line-btn {
   padding: 10px 18px; border-radius: 24px;
   background: var(--green); color: white; border: none;
@@ -1625,6 +1668,57 @@ footer a { color: var(--sky); text-decoration: none; }
             <input type="text" id="bk-size" placeholder="例：30坪">
           </div>
         </div>
+        <!-- 衛浴 & 陽台 counters -->
+        <div class="bk-counters" id="bk-counters-section">
+          <div class="bk-counter-row">
+            <div class="bk-counter-info">
+              <div class="bk-counter-label">衛浴間數</div>
+              <div class="bk-counter-hint">含廁所、淋浴間、浴缸間</div>
+            </div>
+            <div class="bk-counter-ctrl">
+              <button type="button" class="bk-cbtn" onclick="adjustCounter('bk-bath',-1,1)" id="bk-bath-minus">－</button>
+              <span class="bk-cval" id="bk-bath">1</span>
+              <button type="button" class="bk-cbtn" onclick="adjustCounter('bk-bath',1,1)">＋</button>
+            </div>
+          </div>
+          <div class="bk-counter-row">
+            <div class="bk-counter-info">
+              <div class="bk-counter-label">陽台數量</div>
+              <div class="bk-counter-hint">含前後陽台、工作陽台</div>
+            </div>
+            <div class="bk-counter-ctrl">
+              <button type="button" class="bk-cbtn" onclick="adjustCounter('bk-balcony',-1,0)" id="bk-balcony-minus" disabled>－</button>
+              <span class="bk-cval" id="bk-balcony">0</span>
+              <button type="button" class="bk-cbtn" onclick="adjustCounter('bk-balcony',1,0)">＋</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 加購項目 checkboxes -->
+        <div class="bk-extras-section" id="bk-extras-section">
+          <label>加購項目（可複選）</label>
+          <div class="bk-extras-grid">
+            <label class="bk-extra-item"><input type="checkbox" name="extra" value="冰箱內部清潔"> 冰箱內部清潔</label>
+            <label class="bk-extra-item"><input type="checkbox" name="extra" value="冷氣濾網清洗"> 冷氣濾網清洗</label>
+            <label class="bk-extra-item"><input type="checkbox" name="extra" value="抽油煙機清潔"> 抽油煙機清潔</label>
+            <label class="bk-extra-item"><input type="checkbox" name="extra" value="紗窗清洗"> 紗窗清洗</label>
+          </div>
+        </div>
+
+        <!-- 裝潢後細清 專屬欄位 -->
+        <div class="bk-reno-extra" id="bk-reno-extra">
+          <div class="bk-grid">
+            <div class="bk-row">
+              <label>系統櫃數量</label>
+              <input type="text" id="bk-cabinets" placeholder="例：3 組">
+            </div>
+            <div class="bk-row">
+              <label>施工類型</label>
+              <input type="text" id="bk-reno-type" placeholder="例：全室翻修、局部油漆">
+            </div>
+          </div>
+        </div>
+
         <div class="bk-grid">
           <div class="bk-row">
             <label>姓名<span>*</span></label>
@@ -2772,20 +2866,49 @@ function toggleSvc(el) {
 }
 
 // ── Booking Form ──
+function adjustCounter(id, delta, min) {
+  var el = document.getElementById(id);
+  var val = parseInt(el.textContent, 10) + delta;
+  if (val < min) val = min;
+  el.textContent = val;
+  var minusId = id + '-minus';
+  var minusBtn = document.getElementById(minusId);
+  if (minusBtn) minusBtn.disabled = (val <= min);
+}
+
+document.getElementById('bk-service').addEventListener('change', function() {
+  var isReno = this.value === '裝潢後細清';
+  document.getElementById('bk-reno-extra').style.display = isReno ? '' : 'none';
+});
+
 function submitBookingForm(event) {
   event.preventDefault();
-  var service = document.getElementById('bk-service').value;
-  var area    = document.getElementById('bk-area').value;
-  var size    = document.getElementById('bk-size').value || '未填寫';
-  var name    = document.getElementById('bk-name').value;
-  var phone   = document.getElementById('bk-phone').value;
-  var time    = document.getElementById('bk-time').value || '均可配合';
-  var note    = document.getElementById('bk-note').value || '無';
+  var service  = document.getElementById('bk-service').value;
+  var area     = document.getElementById('bk-area').value;
+  var size     = document.getElementById('bk-size').value || '未填寫';
+  var bath     = document.getElementById('bk-bath').textContent;
+  var balcony  = document.getElementById('bk-balcony').textContent;
+  var extras   = Array.from(document.querySelectorAll('input[name="extra"]:checked')).map(function(c){ return c.value; });
+  var extrasStr = extras.length ? extras.join('、') : '無';
+  var name     = document.getElementById('bk-name').value;
+  var phone    = document.getElementById('bk-phone').value;
+  var time     = document.getElementById('bk-time').value || '均可配合';
+  var note     = document.getElementById('bk-note').value || '無';
+  var renoLine = '';
+  if (service === '裝潢後細清') {
+    var cab  = document.getElementById('bk-cabinets').value || '未填';
+    var rtype = document.getElementById('bk-reno-type').value || '未填';
+    renoLine = '🪵 系統櫃：' + cab + '\n🔨 施工類型：' + rtype + '\n';
+  }
   window._bookingMsg =
     '您好，我想詢問清潔服務\n\n' +
     '📋 服務類型：' + service + '\n' +
     '📍 地區：' + area + '\n' +
     '📐 坪數：' + size + '\n' +
+    '🚿 衛浴間數：' + bath + ' 間\n' +
+    '🌿 陽台數量：' + balcony + ' 個\n' +
+    '➕ 加購項目：' + extrasStr + '\n' +
+    renoLine +
     '⏰ 偏好時間：' + time + '\n' +
     '👤 姓名：' + name + '\n' +
     '📞 電話：' + phone + '\n' +
@@ -2836,6 +2959,13 @@ function resetBookingForm() {
   document.getElementById('bk-form-wrap').style.display = '';
   document.getElementById('bk-confirm').style.display = 'none';
   document.getElementById('bk-form-wrap').querySelector('form').reset();
+  // Reset counters to defaults
+  document.getElementById('bk-bath').textContent = '1';
+  document.getElementById('bk-bath-minus').disabled = false;
+  document.getElementById('bk-balcony').textContent = '0';
+  document.getElementById('bk-balcony-minus').disabled = true;
+  // Hide reno section
+  document.getElementById('bk-reno-extra').style.display = 'none';
 }
 
 // ── Case filter ──
