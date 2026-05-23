@@ -886,6 +886,32 @@ footer a { color: var(--sky); text-decoration: none; }
   padding: 7px 12px; font-size: clamp(12px, 3.2vw, 14px); font-weight: 700;
   display: flex; align-items: center; gap: 5px; white-space: nowrap;
 }
+
+/* Urgency strip */
+.urgency-strip {
+  background: linear-gradient(90deg, #FFF3E0, #FFF8E1);
+  border: 1px solid rgba(255,152,0,0.38);
+  color: #E65100;
+  padding: 5px 13px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+
+/* Home case preview */
+.home-cases { max-width: 460px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.hcase-card { background: white; border-radius: var(--r); overflow: hidden; box-shadow: var(--sh); border: 1.5px solid rgba(79,195,247,0.12); }
+.hcase-imgs { display: grid; grid-template-columns: 1fr 1fr; }
+.hcase-imgs img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.hcase-labels { display: grid; grid-template-columns: 1fr 1fr; }
+.hcase-label { text-align: center; font-size: 11px; font-weight: 700; padding: 3px 0; }
+.hcase-label-b { background: rgba(0,0,0,0.06); color: var(--soft); }
+.hcase-label-a { background: rgba(79,195,247,0.12); color: var(--blue); }
+.hcase-info { padding: 10px 12px 12px; }
+.hcase-info h4 { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.hcase-info p { font-size: 12.5px; color: var(--soft); line-height: 1.55; }
+.hcase-more { text-align: center; margin-top: 14px; }
+.hcase-more-btn { background: none; border: 1.5px solid var(--sky); color: var(--blue); border-radius: 20px; padding: 8px 22px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.hcase-more-btn:hover { background: var(--sky); color: white; }
 </style>
 <!-- Structured Data: LocalBusiness + Reviews + Offers -->
 <script type="application/ld+json">
@@ -1286,6 +1312,7 @@ footer a { color: var(--sky); text-decoration: none; }
   <div class="hero">
     <div class="hero-inner">
       <div class="hero-badge">📍 基隆在地・服務新竹以北全區</div>
+      <div class="urgency-strip">🔥 畢業・搬家旺季！現接受 6 月預約，額滿為止</div>
       <h1>讓每個角落<br><em>乾淨如新</em></h1>
       <p class="hero-sub">潔美淨清潔社，居家・社區・店面・裝潢後清潔・收納整理・退租入住・大掃除，估多少收多少，絕不現場加價。</p>
       <svg class="hero-svg" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1377,9 +1404,9 @@ footer a { color: var(--sky); text-decoration: none; }
       <div class="hero-btns">
         <a class="hbtn-line" href="https://line.me/R/ti/p/@117adltu" target="_blank" rel="noopener noreferrer">
           <svg width="15" height="15" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
-          LINE 諮詢
+          免費拍照估價
         </a>
-        <a class="hbtn-tel" href="tel:0988145875">📞 來電</a>
+        <a class="hbtn-tel" href="tel:0988145875">📞 立即來電</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="stat-n">300+</div><div class="stat-l">服務戶數</div></div>
@@ -1507,12 +1534,68 @@ footer a { color: var(--sky); text-decoration: none; }
     </div>
   </div>
 
+  <!-- 真實案例預覽 -->
+  <div class="sec sec-bg-white">
+    <div class="sh">
+      <span class="slabel">真實成果</span>
+      <h2 class="stitle">清潔前後，眼見為憑</h2>
+      <p class="sdesc">師傅施工真實記錄，完工即拍照確認</p>
+    </div>
+    <div class="home-cases">
+      <div class="hcase-card">
+        <div class="hcase-imgs">
+          <img src="cases/case01-before.jpg" alt="基隆浴廁清潔前" loading="lazy">
+          <img src="cases/case01-after.jpg" alt="基隆浴廁清潔後" loading="lazy">
+        </div>
+        <div class="hcase-labels">
+          <span class="hcase-label hcase-label-b">清潔前</span>
+          <span class="hcase-label hcase-label-a">清潔後 ✨</span>
+        </div>
+        <div class="hcase-info">
+          <h4>基隆中正區 — 浴廁深度清潔</h4>
+          <p>水垢、污漬完全去除，馬桶恢復亮白潔淨</p>
+        </div>
+      </div>
+      <div class="hcase-card">
+        <div class="hcase-imgs">
+          <img src="cases/case07-before.jpg" alt="基隆廚房清潔前" loading="lazy">
+          <img src="cases/case07-after.jpg" alt="基隆廚房清潔後" loading="lazy">
+        </div>
+        <div class="hcase-labels">
+          <span class="hcase-label hcase-label-b">清潔前</span>
+          <span class="hcase-label hcase-label-a">清潔後 ✨</span>
+        </div>
+        <div class="hcase-info">
+          <h4>基隆仁愛區 — 廚房重油汙清潔</h4>
+          <p>頑固油垢徹底去除，廚房恢復如新</p>
+        </div>
+      </div>
+      <div class="hcase-card">
+        <div class="hcase-imgs">
+          <img src="cases/case08-before.jpg" alt="新北浴缸清潔前" loading="lazy">
+          <img src="cases/case08-after.jpg" alt="新北浴缸清潔後" loading="lazy">
+        </div>
+        <div class="hcase-labels">
+          <span class="hcase-label hcase-label-b">清潔前</span>
+          <span class="hcase-label hcase-label-a">清潔後 ✨</span>
+        </div>
+        <div class="hcase-info">
+          <h4>新北三重區 — 浴缸水垢深層清除</h4>
+          <p>長期積累水垢完全清除，浴缸潔白如初</p>
+        </div>
+      </div>
+    </div>
+    <div class="hcase-more">
+      <button class="hcase-more-btn" onclick="showPage('cases')">查看全部 11 個案例 →</button>
+    </div>
+  </div>
+
   <!-- 線上預約 -->
   <div class="sec sec-bg-white" id="booking-section">
     <div class="sh">
       <span class="slabel">線上預約</span>
       <h2 class="stitle">填寫需求，我們主動聯繫</h2>
-      <p class="sdesc">填好後點送出，系統幫您整理需求訊息，複製到 LINE 即可</p>
+      <p class="sdesc">填好後點送出，系統自動複製訊息，一鍵開啟 LINE 貼上即可</p>
     </div>
     <div id="bk-form-wrap">
       <form class="bk-form" onsubmit="submitBookingForm(event)">
@@ -1568,15 +1651,15 @@ footer a { color: var(--sky); text-decoration: none; }
     </div>
     <div id="bk-confirm" class="bk-confirm">
       <div style="font-size:44px;margin-bottom:10px;">✅</div>
-      <h4>需求已整理完成！</h4>
-      <p>請複製以下訊息，貼到 LINE 傳給我們<br>我們收到後會盡快回覆您。</p>
+      <h4>需求整理完成！訊息已自動複製</h4>
+      <p>訊息已自動複製到剪貼簿<br>點下方按鈕開啟 LINE，<strong>直接貼上傳送即可</strong></p>
       <div class="bk-msg-box" id="bk-msg-text"></div>
       <div class="bk-actions">
-        <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn">📋 複製訊息</button>
-        <a class="bk-line-btn" href="https://line.me/R/ti/p/@117adltu" target="_blank" rel="noopener noreferrer">
+        <a class="bk-line-btn" id="bk-line-btn" href="https://line.me/R/ti/p/@117adltu" target="_blank" rel="noopener noreferrer">
           <svg width="14" height="14" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
-          開啟 LINE
+          開啟 LINE・貼上傳送
         </a>
+        <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn">📋 重新複製</button>
       </div>
       <p style="margin-top:14px;font-size:13px;"><a href="#" onclick="resetBookingForm();return false;" style="color:var(--blue);">重新填寫</a></p>
     </div>
@@ -2707,10 +2790,28 @@ function submitBookingForm(event) {
     '👤 姓名：' + name + '\n' +
     '📞 電話：' + phone + '\n' +
     '💬 備注：' + note;
+  // Auto-copy to clipboard
+  var autoCopied = false;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(window._bookingMsg).then(function(){ autoCopied = true; }).catch(function(){});
+  } else {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = window._bookingMsg;
+      ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px';
+      document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); ta.remove();
+      autoCopied = true;
+    } catch(e){}
+  }
+
   document.getElementById('bk-form-wrap').style.display = 'none';
   var confirm = document.getElementById('bk-confirm');
   confirm.style.display = 'block';
   document.getElementById('bk-msg-text').textContent = window._bookingMsg;
+  if (!autoCopied) {
+    document.getElementById('bk-copy-btn').textContent = '📋 複製訊息';
+  }
   setTimeout(function() {
     confirm.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 80);
