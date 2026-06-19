@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>潔美淨清潔社｜基隆・台北・新北 居家・社區・裝潢・店面清潔 0988-145-875</title>
-<meta name="description" content="潔美淨清潔社，基隆在地（負責人梁美玲・統編60214473），服務基隆・台北・新北・桃園・新竹。提供居家、社區、裝潢後、店面、辦公室、收納整理、退租入住、大掃除等7大清潔服務。估多少收多少，絕不現場加價。Google 4.7星好評。電話 0988-145-875。">
+<script src="analytics.js" defer></script>
+<title>基隆清潔公司｜潔美淨清潔社・居家・裝潢細清・大掃除 不加價</title>
+<meta name="description" content="潔美淨清潔社，基隆合法立案（統編60214473）。居家清潔・裝潢細清・大掃除・退租入住，服務基隆・台北・新北。估多少收多少，絕不現場加價。LINE 或電話 0988-145-875 免費諮詢。">
 <meta name="keywords" content="基隆清潔,基隆清潔公司,基隆居家清潔,台北清潔,新北清潔,基隆中正區清潔,居家清潔,裝潢後清潔,裝潢細清,入住清潔,退租清潔,大掃除,社區清潔,店面清潔,辦公室清潔,收納整理,潔美淨,梁美玲">
 <link rel="canonical" href="https://0988145875.com.tw/">
 <!-- Open Graph -->
@@ -35,7 +36,9 @@
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet"></noscript>
 <style>
 /* ═══════════════════════════
    RESET & BASE
@@ -101,7 +104,7 @@ body {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .top-btns { display: flex; gap: 7px; flex-shrink: 0; }
-.top-btns a { display: flex; align-items: center; gap: 5px; padding: 7px 12px; border-radius: 20px; font-size: clamp(12px, 3.2vw, 14px); font-weight: 700; text-decoration: none; white-space: nowrap; }
+.top-btns a { display: flex; align-items: center; gap: 5px; padding: 9px 14px; min-height: 40px; border-radius: 20px; font-size: clamp(12px, 3.2vw, 14px); font-weight: 700; text-decoration: none; white-space: nowrap; }
 .tbtn-line { background: var(--green); color: white; }
 .tbtn-tel { background: white; color: #0288D1; border: 1.5px solid #4FC3F7; white-space: nowrap; font-weight: 700; border-radius: 20px; }
 
@@ -227,7 +230,7 @@ body {
   display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
 }
 .fb {
-  width: 44px; height: 44px; border-radius: 50%;
+  width: 48px; height: 48px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   text-decoration: none; border: none; cursor: pointer;
   box-shadow: 0 3px 12px rgba(0,0,0,0.18);
@@ -282,7 +285,7 @@ body {
   font-size: 13px; color: var(--mid); line-height: 1.78;
   margin-bottom: 18px; width: 100%; max-width: 100%;
 }
-.hero-svg { width: 100%; max-width: 300px; margin: 0 auto 18px; display: block; }
+.hero-photo { width: 100%; max-width: 360px; margin: 0 auto 18px; display: block; border-radius: 16px; box-shadow: 0 8px 28px rgba(2,136,209,0.18); }
 .hero-btns { display: flex; gap: 10px; width: 100%; justify-content: center; flex-wrap: wrap; }
 .hbtn-line {
   flex: 1; min-width: 100px; max-width: 160px;
@@ -294,9 +297,10 @@ body {
 }
 .hbtn-tel {
   flex: 1; min-width: 80px; max-width: 140px;
-  background: white; color: var(--blue);
-  border: 2px solid var(--sky); border-radius: 28px;
-  padding: 10px 12px; font-size: 13.5px; font-weight: 700;
+  background: var(--blue); color: white;
+  border: 2px solid var(--blue); border-radius: 28px;
+  padding: 14px 12px; font-size: 13.5px; font-weight: 700;
+  box-shadow: 0 4px 14px rgba(2,136,209,0.25);
   display: flex; align-items: center; justify-content: center; gap: 6px;
   text-decoration: none; transition: all 0.2s;
 }
@@ -309,6 +313,18 @@ body {
 .stat:last-child { border-right: none; }
 .stat-n { font-family: 'Noto Serif TC', serif; font-size: clamp(12px, 3.5vw, 15px); font-weight: 900; color: var(--blue); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .stat-l { font-size: clamp(11px, 3vw, 14px); color: var(--soft); margin-top: 2px; }
+.promise-bar {
+  margin-top: 14px; width: 100%;
+  background: rgba(6,199,85,0.10);
+  border: 1.5px solid rgba(6,199,85,0.40);
+  border-radius: 10px;
+  color: #059669;
+  font-size: clamp(13px, 3.5vw, 15px);
+  padding: 10px 14px;
+  text-align: center;
+  line-height: 1.5;
+}
+.promise-bar strong { color: #047857; }
 
 /* Quick cards on home */
 .quick-grid {
@@ -897,7 +913,7 @@ footer a { color: var(--sky); text-decoration: none; }
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
   "@id": "https://0988145875.com.tw/#business",
   "name": "潔美淨清潔社",
   "alternateName": [
@@ -994,8 +1010,10 @@ footer a { color: var(--sky); text-decoration: none; }
   },
   "sameAs": [
     "https://line.me/R/ti/p/@117adltu",
-    "https://lawplayer.com/company/60214473"
+    "https://lawplayer.com/company/60214473",
+    "https://www.facebook.com/share/1EzD6TjZww/"
   ],
+  "hasMap": "https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.7",
@@ -1030,20 +1048,6 @@ footer a { color: var(--sky); text-decoration: none; }
       "reviewRating": {
         "@type": "Rating",
         "ratingValue": "5",
-        "bestRating": "5"
-      }
-    },
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Y.C.T"
-      },
-      "datePublished": "2026-04-12",
-      "reviewBody": "客戶反饋的清潔細節問題（已積極改善服務流程，並針對個案做檢討）",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "1",
         "bestRating": "5"
       }
     }
@@ -1385,94 +1389,9 @@ footer a { color: var(--sky); text-decoration: none; }
   <div class="hero">
     <div class="hero-inner">
       <div class="hero-badge">📍 基隆在地・服務新竹以北全區</div>
-      <h1>讓每個角落<br><em>乾淨如新</em></h1>
+      <h1>基隆<em>清潔公司</em><br>台北・新北 居家清潔到府</h1>
       <p class="hero-sub">潔美淨清潔社，居家・社區・店面・裝潢後清潔・收納整理・退租入住・大掃除，估多少收多少，絕不現場加價。</p>
-      <svg class="hero-svg" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="hfg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E0F7FA"/><stop offset="100%" stop-color="#B2EBF2"/></linearGradient>
-    <linearGradient id="hwg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F0FFFE"/><stop offset="100%" stop-color="#E0F7FA"/></linearGradient>
-    <linearGradient id="hsg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="white" stop-opacity="0.8"/><stop offset="100%" stop-color="white" stop-opacity="0"/></linearGradient>
-    <filter id="hss"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0288D1" flood-opacity="0.10"/></filter>
-    <filter id="hgl"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  </defs>
-  <!-- 背景 -->
-  <rect width="320" height="200" fill="url(#hwg)"/>
-  <!-- 地板 -->
-  <rect y="145" width="320" height="55" fill="url(#hfg)"/>
-  <line x1="0" y1="145" x2="320" y2="145" stroke="#80CBC4" stroke-width="1.2" opacity="0.4"/>
-  <!-- 地板光澤 -->
-  <ellipse cx="160" cy="154" rx="85" ry="6" fill="url(#hsg)" opacity="0.5"/>
-  <!-- 窗戶 -->
-  <rect x="16" y="16" width="74" height="58" rx="7" fill="white" filter="url(#hss)"/>
-  <rect x="18" y="18" width="70" height="54" rx="6" fill="#E1F5FE"/>
-  <rect x="18" y="18" width="70" height="30" rx="6" fill="#B3E5FC"/>
-  <ellipse cx="35" cy="29" rx="9" ry="5.5" fill="white" opacity="0.9"/>
-  <ellipse cx="48" cy="26" rx="12" ry="6.5" fill="white" opacity="0.95"/>
-  <ellipse cx="62" cy="30" rx="8" ry="5" fill="white" opacity="0.85"/>
-  <line x1="53" y1="18" x2="53" y2="72" stroke="#80CBC4" stroke-width="1.3"/>
-  <line x1="18" y1="46" x2="88" y2="46" stroke="#80CBC4" stroke-width="1.3"/>
-  <rect x="16" y="16" width="74" height="58" rx="7" fill="none" stroke="#4FC3F7" stroke-width="1.8"/>
-  <!-- 陽光射入 -->
-  <polygon points="90,18 138,0 138,62 90,74" fill="#FFF9C4" opacity="0.20"/>
-  <!-- 沙發 -->
-  <rect x="96" y="104" width="136" height="46" rx="9" fill="#DCF2F8" filter="url(#hss)"/>
-  <rect x="96" y="104" width="136" height="15" rx="9" fill="#B2EBF2"/>
-  <!-- 沙發腳 -->
-  <rect x="107" y="147" width="9" height="8" rx="2" fill="#80CBC4"/>
-  <rect x="216" y="147" width="9" height="8" rx="2" fill="#80CBC4"/>
-  <!-- 靠枕 -->
-  <rect x="103" y="107" width="38" height="30" rx="7" fill="white" opacity="0.60"/>
-  <rect x="147" y="107" width="38" height="30" rx="7" fill="white" opacity="0.60"/>
-  <rect x="191" y="107" width="35" height="30" rx="7" fill="white" opacity="0.60"/>
-  <!-- 茶几 -->
-  <rect x="122" y="152" width="88" height="5" rx="2.5" fill="#80CBC4" opacity="0.65"/>
-  <rect x="132" y="157" width="4" height="8" rx="2" fill="#80CBC4" opacity="0.45"/>
-  <rect x="196" y="157" width="4" height="8" rx="2" fill="#80CBC4" opacity="0.45"/>
-  <!-- 清潔噴瓶 -->
-  <g transform="translate(254,82)" filter="url(#hss)">
-    <rect y="18" width="28" height="44" rx="9" fill="#4FC3F7"/>
-    <rect x="2" y="20" width="11" height="40" rx="4" fill="white" opacity="0.20"/>
-    <rect x="7" y="9" width="14" height="13" rx="4" fill="#0288D1"/>
-    <rect y="7" width="21" height="8" rx="4" fill="#0277BD"/>
-    <path d="M21 11 L34 6 L34 11 L21 13Z" fill="#0277BD"/>
-    <!-- 噴霧 -->
-    <circle cx="38" cy="4" r="2.2" fill="#80CBC4" opacity="0.55"/>
-    <circle cx="42" cy="1" r="1.6" fill="#B2EBF2" opacity="0.50"/>
-    <circle cx="40" cy="8" r="1.3" fill="#80CBC4" opacity="0.40"/>
-    <!-- 標籤 -->
-    <rect x="4" y="28" width="20" height="24" rx="3" fill="white" opacity="0.30"/>
-    <line x1="7" y1="34" x2="20" y2="34" stroke="white" stroke-width="1.1" opacity="0.70"/>
-    <line x1="7" y1="39" x2="17" y2="39" stroke="white" stroke-width="1.1" opacity="0.70"/>
-    <line x1="7" y1="44" x2="19" y2="44" stroke="white" stroke-width="1.1" opacity="0.70"/>
-  </g>
-  <!-- 掃把柄 -->
-  <rect x="284" y="55" width="5" height="88" rx="2.5" fill="#0288D1" opacity="0.60"/>
-  <!-- 掃把頭 -->
-  <rect x="274" y="141" width="28" height="9" rx="3" fill="#4FC3F7"/>
-  <!-- 刷毛 -->
-  <line x1="277" y1="150" x2="275" y2="163" stroke="#80CBC4" stroke-width="1.4" stroke-linecap="round"/>
-  <line x1="281" y1="150" x2="280" y2="164" stroke="#80CBC4" stroke-width="1.4" stroke-linecap="round"/>
-  <line x1="285" y1="150" x2="285" y2="164" stroke="#80CBC4" stroke-width="1.4" stroke-linecap="round"/>
-  <line x1="289" y1="150" x2="289" y2="164" stroke="#80CBC4" stroke-width="1.4" stroke-linecap="round"/>
-  <line x1="293" y1="150" x2="294" y2="163" stroke="#80CBC4" stroke-width="1.4" stroke-linecap="round"/>
-  <!-- 閃亮星 -->
-  <g filter="url(#hgl)">
-    <path d="M80 84L82 78L84 84L90 84L85 88L87 94L82 90L77 94L79 88L74 84Z" fill="#FFD54F" opacity="0.90"/>
-  </g>
-  <path d="M200 26L201.5 21L203 26L208 26L204 29L205.5 34L201.5 31L197.5 34L199 29L195 26Z" fill="#FFD54F" opacity="0.80"/>
-  <path d="M244 46L245 43L246 46L249 46L246.5 48L247.5 51L245 49L242.5 51L243.5 48L241 46Z" fill="#4FC3F7" opacity="0.75"/>
-  <circle cx="154" cy="22" r="2.2" fill="#FFD54F" opacity="0.60"/>
-  <circle cx="170" cy="15" r="1.6" fill="#4FC3F7" opacity="0.50"/>
-  <!-- 小植物 -->
-  <path d="M22 148L19 164L37 164L34 148Z" fill="#80CBC4" opacity="0.70"/>
-  <rect x="17" y="146" width="22" height="4" rx="2" fill="#4FC3F7" opacity="0.70"/>
-  <ellipse cx="28" cy="136" rx="5" ry="12" fill="#66BB6A" opacity="0.70" transform="rotate(-12,28,136)"/>
-  <ellipse cx="28" cy="136" rx="5" ry="12" fill="#81C784" opacity="0.60" transform="rotate(12,28,136)"/>
-  <ellipse cx="28" cy="130" rx="4" ry="9" fill="#A5D6A7" opacity="0.55"/>
-  <!-- 潔淨氣泡 -->
-  <circle cx="146" cy="74" r="3.5" fill="none" stroke="#4FC3F7" stroke-width="1.1" opacity="0.45"/>
-  <circle cx="174" cy="62" r="2.8" fill="none" stroke="#80CBC4" stroke-width="0.9" opacity="0.38"/>
-</svg>
+      <img class="hero-photo" src="hero-photo.jpg" alt="潔美淨清潔社專業到府居家清潔服務" width="640" height="580">
       <div class="hero-btns">
         <a class="hbtn-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
           <svg width="15" height="15" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
@@ -1485,6 +1404,29 @@ footer a { color: var(--sky); text-decoration: none; }
         <div class="stat"><div class="stat-n">Google 4.7★</div><div class="stat-l">好評評分</div></div>
         <div class="stat"><div class="stat-n">不加價</div><div class="stat-l">承諾保證</div></div>
       </div>
+      <div class="promise-bar">🤝 估多少收多少・<strong>即使估錯，我們也做完</strong></div>
+    </div>
+  </div>
+
+  <!-- 真實案例前後對比 -->
+  <div class="sec sec-bg-cream">
+    <div class="sh">
+      <span class="slabel">真實案例</span>
+      <h2 class="stitle">清潔前後，看得見的差別</h2>
+      <p class="sdesc">基隆中正區・浴廁深度清潔實例</p>
+    </div>
+    <div style="max-width:460px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div style="position:relative;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(26,35,50,.12);">
+        <img src="home-case01-before.jpg" alt="基隆中正區浴廁清潔前" width="480" height="640" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;">
+        <span style="position:absolute;left:8px;top:8px;background:rgba(26,35,50,.72);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;">清潔前</span>
+      </div>
+      <div style="position:relative;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(26,35,50,.12);">
+        <img src="home-case01-after.jpg" alt="基隆中正區浴廁清潔後" width="480" height="640" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;">
+        <span style="position:absolute;left:8px;top:8px;background:var(--green);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;">清潔後</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:18px;">
+      <a href="#" onclick="showPage('cases');return false;" style="display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:24px;box-shadow:0 4px 14px rgba(2,136,209,.25);">看更多真實案例 →</a>
     </div>
   </div>
 
@@ -1694,6 +1636,24 @@ footer a { color: var(--sky); text-decoration: none; }
     </div>
   </div>
 
+  <!-- 服務地區 + 地圖 -->
+  <div class="sec sec-bg-cream">
+    <div class="sh">
+      <span class="slabel">服務地區</span>
+      <h2 class="stitle">服務範圍與據點</h2>
+      <p class="sdesc">基隆在地出發，服務新竹以北五大都會區</p>
+    </div>
+    <div style="max-width:460px;margin:0 auto 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <a href="taipei.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;"><span style="font-weight:700;color:var(--ink);font-size:14px;">台北清潔</span><br><span style="font-size:12px;color:var(--soft);">台北全區到府</span></a>
+      <a href="new-taipei.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;"><span style="font-weight:700;color:var(--ink);font-size:14px;">新北清潔</span><br><span style="font-size:12px;color:var(--soft);">板橋三重新莊</span></a>
+      <a href="taoyuan.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;"><span style="font-weight:700;color:var(--ink);font-size:14px;">桃園清潔</span><br><span style="font-size:12px;color:var(--soft);">桃園中壢平鎮</span></a>
+      <a href="hsinchu.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;"><span style="font-weight:700;color:var(--ink);font-size:14px;">新竹清潔</span><br><span style="font-size:12px;color:var(--soft);">竹科竹北東區</span></a>
+    </div>
+    <div style="max-width:460px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(79,195,247,.12);">
+      <iframe src="https://maps.google.com/maps?q=25.1318,121.7391&z=15&output=embed" width="100%" height="220" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="潔美淨清潔社・基隆據點位置"></iframe>
+    </div>
+  </div>
+
   <footer>
     <div class="flogo"><img src="logo.png" alt="潔美淨清潔社" style="height:36px;vertical-align:middle;margin-bottom:6px;filter:brightness(0) invert(1);opacity:0.9;"> 潔美淨清潔社</div>
     <div class="fdiv"></div>
@@ -1702,8 +1662,11 @@ footer a { color: var(--sky); text-decoration: none; }
     📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 洽詢</a></p>
     <p>📘 <a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank">Facebook 粉專</a>　📍 <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank">Google 地圖</a></p>
     <div class="fdiv"></div>
-    <p style="font-size:12px;">地區頁面：<a href="taipei.html">台北清潔</a>　<a href="new-taipei.html">新北清潔</a>　<a href="taoyuan.html">桃園清潔</a></p>
+    <p style="font-size:12px;">地區頁面：<a href="taipei.html">台北清潔</a>　<a href="new-taipei.html">新北清潔</a>　<a href="taoyuan.html">桃園清潔</a>　<a href="hsinchu.html">新竹清潔</a></p>
     <p style="font-size:12px;">🧮 <a href="calculator.html">清潔費用試算</a></p>
+    <div class="fdiv"></div>
+    <p style="font-size:11.5px;opacity:0.78;line-height:1.8;">基隆服務區域：中正區、信義區、仁愛區、安樂區、暖暖區、七堵區，及鄰近汐止地區，均可到府清潔。</p>
+    <p style="font-size:11px;opacity:0.62;line-height:1.85;text-align:left;max-width:460px;margin:6px auto 0;">關於潔美淨清潔社：由負責人梁美玲於 2025 年在基隆市中正區依法設立（統一編號 60214473），提供居家清潔（4 小時 $2,500 起）、裝潢後細清（每坪 $400–$1,000）、大掃除、退租入住清潔、店面與辦公室清潔、社區清潔及收納整理共 7 大服務，服務範圍涵蓋基隆市、台北市、新北市、桃園市與新竹市。Google 評分 4.7 星，師傅自備清潔工具到府，採包工報價，估多少收多少、絕不現場加價，並可開立統一發票。聯絡電話 0988-145-875。</p>
     <div class="fdiv"></div>
     <p style="font-size:10.5px;opacity:0.42;">© 2025-2026 潔美淨清潔社</p>
   </footer>
@@ -2747,6 +2710,7 @@ footer a { color: var(--sky); text-decoration: none; }
   <button class="bnav-tab" onclick="showPage('cases')"><span class="bi">📋</span>案例</button>
   <button class="bnav-tab" onclick="showPage('pricing')"><span class="bi">💰</span>報價</button>
   <button class="bnav-tab" onclick="showPage('about')"><span class="bi">📍</span>關於</button>
+  <a class="bnav-tab" href="https://line.me/R/ti/p/@117adltu" target="_blank" style="text-decoration:none;color:#06C755;"><span class="bi">💬</span>LINE</a>
 </nav>
 
 <script>
@@ -2813,6 +2777,9 @@ function submitBookingForm(event) {
   setTimeout(function() {
     confirm.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 80);
+  if (window.jmjTrack) jmjTrack.form();
+  var lineUrl = 'https://line.me/R/ti/p/@117adltu?text=' + encodeURIComponent(window._bookingMsg);
+  window.open(lineUrl, '_blank');
 }
 function copyBookingMsg() {
   var btn = document.getElementById('bk-copy-btn');
@@ -2862,30 +2829,6 @@ document.getElementById('caseFilter').addEventListener('click', function(e) {
   </a>
 </div>
 
-<script>
-/* ── 溢出診斷工具（找到問題後可刪除此段）── */
-window.addEventListener('load', function() {
-  var vw = document.documentElement.clientWidth;
-  var found = [];
-  document.querySelectorAll('*').forEach(function(el) {
-    if (el.offsetParent === null && !['HTML','BODY'].includes(el.tagName)) return;
-    var r = el.getBoundingClientRect();
-    if (r.right > vw + 2) {
-      var name = el.tagName.toLowerCase();
-      if (el.id) name += '#' + el.id;
-      else if (el.className) name += '.' + String(el.className).trim().split(/\s+/)[0];
-      found.push(name + '(' + Math.round(r.right - vw) + 'px超)');
-    }
-  });
-  if (found.length) {
-    var dbg = document.createElement('div');
-    dbg.style.cssText = 'position:fixed;top:56px;left:0;right:0;z-index:9999;background:#c00;color:#fff;font-size:11px;padding:6px 10px;line-height:1.6;word-break:break-all;';
-    dbg.innerHTML = '⚠️ 寬度超出(' + vw + 'px): ' + found.slice(0,6).join(' | ') + '<br><small>10秒後消失</small>';
-    document.body.appendChild(dbg);
-    setTimeout(function(){ dbg.remove(); }, 10000);
-  }
-});
-</script>
 
 <script>
 // ── Photo Cases Gallery ──
@@ -2902,8 +2845,8 @@ window.addEventListener('load', function() {
           card.className = 'photo-case-card';
           card.innerHTML = `
             <div class="photo-compare" data-idx="${idx}">
-              <img class="photo-before" src="${c.before}" alt="清潔前" loading="lazy">
-              <img class="photo-after" src="${c.after}" alt="清潔後" loading="lazy">
+              <img class="photo-before" src="${c.before}" alt="${(c.title || '清潔')}（清潔前）" loading="lazy">
+              <img class="photo-after" src="${c.after}" alt="${(c.title || '清潔')}（清潔後）" loading="lazy">
               <div class="compare-slider"></div>
               <div class="compare-handle">◀▶</div>
               <span class="label-before">清潔前</span>

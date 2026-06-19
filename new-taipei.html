@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="analytics.js" defer></script>
 <title>新北清潔公司｜潔美淨清潔社・新北居家・大掃除・裝潢細清 0988-145-875</title>
 <meta name="description" content="潔美淨清潔社提供新北市居家清潔、裝潢後細清、大掃除、退租入住清潔服務。板橋、三重、新莊、中和、永和、淡水等各區均可到府。估多少收多少。電話 0988-145-875。">
 <meta name="keywords" content="新北清潔,新北清潔公司,新北居家清潔,板橋清潔,三重清潔,新莊清潔,中和清潔,永和清潔,淡水清潔,新北裝潢細清,新北大掃除">
@@ -22,9 +23,13 @@
 <meta name="robots" content="index,follow">
 <meta name="geo.region" content="TW-NWT">
 <meta name="geo.placename" content="新北市">
+<meta name="geo.position" content="25.0169;121.4627">
+<meta name="ICBM" content="25.0169, 121.4627">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -36,18 +41,35 @@
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "義一路87號9樓之2",
     "addressLocality": "中正區",
     "addressRegion": "基隆市",
+    "postalCode": "202",
     "addressCountry": "TW"
   },
-  "areaServed": { "@type": "City", "name": "新北市" },
+  "areaServed": [
+    { "@type": "City", "name": "新北市" },
+    { "@type": "AdministrativeArea", "name": "新北市板橋區" },
+    { "@type": "AdministrativeArea", "name": "新北市三重區" },
+    { "@type": "AdministrativeArea", "name": "新北市新莊區" },
+    { "@type": "AdministrativeArea", "name": "新北市中和區" },
+    { "@type": "AdministrativeArea", "name": "新北市永和區" },
+    { "@type": "AdministrativeArea", "name": "新北市汐止區" }
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00",
+    "closes": "20:00"
+  },
+  "hasMap": "https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.7",
     "bestRating": "5",
     "ratingCount": "3"
   },
-  "sameAs": ["https://0988145875.com.tw/"]
+  "sameAs": ["https://0988145875.com.tw/", "https://www.facebook.com/share/1EzD6TjZww/"]
 }
 </script>
 <script type="application/ld+json">
@@ -121,7 +143,7 @@ body{font-family:'Noto Sans TC',sans-serif;background:#FAFAF7;color:#1A2332;max-
 .hero-sub{font-size:14px;color:var(--mid);line-height:1.78;margin-bottom:22px}
 .hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
 .hbtn-line{flex:1;min-width:110px;max-width:160px;background:var(--green);color:white;border:none;border-radius:28px;padding:14px 16px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;box-shadow:0 4px 14px rgba(6,199,85,.27)}
-.hbtn-tel{flex:1;min-width:90px;max-width:140px;background:white;color:var(--blue);border:2px solid var(--sky);border-radius:28px;padding:10px 12px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.hbtn-tel{flex:1;min-width:90px;max-width:140px;background:var(--blue);color:white;border:2px solid var(--blue);border-radius:28px;padding:14px 12px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;box-shadow:0 4px 14px rgba(2,136,209,.25)}
 .stats{display:flex;background:white;border-radius:var(--r);overflow:hidden;box-shadow:0 2px 12px rgba(79,195,247,.10)}
 .stat{flex:1;text-align:center;padding:11px 4px;border-right:1px solid rgba(79,195,247,.12)}
 .stat:last-child{border-right:none}
@@ -305,9 +327,10 @@ footer a{color:#4FC3F7;text-decoration:none}
 </div>
 
 <footer>
-  <p>潔美淨清潔社｜基隆・台北・新北・桃園・新竹</p>
+  <p>潔美淨清潔社｜基隆市中正區義一路87號9樓之2</p>
+  <p>服務基隆・台北・新北・桃園・新竹　統編 60214473</p>
   <p>📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 洽詢</a></p>
-  <p><a href="/">← 回主網站</a>　<a href="/taipei.html">台北清潔</a>　<a href="/taoyuan.html">桃園清潔</a>　<a href="/calculator.html">費用估算器</a></p>
+  <p><a href="/">← 基隆清潔公司・潔美淨清潔社</a>　<a href="/taipei.html">台北清潔</a>　<a href="/taoyuan.html">桃園清潔</a>　<a href="/hsinchu.html">新竹清潔</a>　<a href="/calculator.html">費用估算器</a></p>
   <p style="font-size:11px;opacity:0.42;margin-top:8px;">© 2025-2026 潔美淨清潔社</p>
 </footer>
 </body>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="analytics.js" defer></script>
 <title>清潔費用試算｜潔美淨清潔社・居家裝潢大掃除即時估價</title>
 <meta name="description" content="免費線上清潔費用試算！輸入坪數與服務類型，立即顯示估價範圍。居家清潔、裝潢後細清、大掃除、退租入住清潔，基隆出發服務台北新北桃園。電話 0988-145-875。">
 <meta name="keywords" content="清潔費用,清潔報價,清潔估價,居家清潔費用,裝潢細清費用,大掃除費用,退租清潔費用,清潔計算機">
@@ -26,7 +27,9 @@
 <meta name="ICBM" content="25.1318, 121.7391">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -611,6 +614,7 @@ function calculate() {
 
   document.getElementById('result-box').classList.add('show');
   document.getElementById('result-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  if (window.jmjTrack) jmjTrack.calc();
 }
 
 // Init extras for default service
