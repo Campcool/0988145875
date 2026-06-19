@@ -22,9 +22,13 @@
 <meta name="robots" content="index,follow">
 <meta name="geo.region" content="TW-NWT">
 <meta name="geo.placename" content="新北市">
+<meta name="geo.position" content="25.0169;121.4627">
+<meta name="ICBM" content="25.0169, 121.4627">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet"></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -36,18 +40,35 @@
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "義一路87號9樓之2",
     "addressLocality": "中正區",
     "addressRegion": "基隆市",
+    "postalCode": "202",
     "addressCountry": "TW"
   },
-  "areaServed": { "@type": "City", "name": "新北市" },
+  "areaServed": [
+    { "@type": "City", "name": "新北市" },
+    { "@type": "AdministrativeArea", "name": "新北市板橋區" },
+    { "@type": "AdministrativeArea", "name": "新北市三重區" },
+    { "@type": "AdministrativeArea", "name": "新北市新莊區" },
+    { "@type": "AdministrativeArea", "name": "新北市中和區" },
+    { "@type": "AdministrativeArea", "name": "新北市永和區" },
+    { "@type": "AdministrativeArea", "name": "新北市汐止區" }
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00",
+    "closes": "20:00"
+  },
+  "hasMap": "https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.7",
     "bestRating": "5",
     "ratingCount": "3"
   },
-  "sameAs": ["https://0988145875.com.tw/"]
+  "sameAs": ["https://0988145875.com.tw/", "https://www.facebook.com/share/1EzD6TjZww/"]
 }
 </script>
 <script type="application/ld+json">
