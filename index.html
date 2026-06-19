@@ -1887,13 +1887,6 @@ footer a { color: var(--sky); text-decoration: none; }
   </div>
 
   <div class="sec sec-bg-cream">
-    <div class="case-filter" id="caseFilter">
-      <button class="filter-btn on" data-type="all">全部</button>
-      <button class="filter-btn" data-type="居家">居家清潔</button>
-      <button class="filter-btn" data-type="大掃除">大掃除</button>
-      <button class="filter-btn" data-type="裝潢">裝潢細清</button>
-      <button class="filter-btn" data-type="退租">入住退租</button>
-    </div>
 
     <!-- 📸 真實照片案例（前後對比）-->
     <div class="photo-cases-section" id="photoCases">
@@ -2820,17 +2813,7 @@ function resetBookingForm() {
   document.getElementById('bk-form-wrap').querySelector('form').reset();
 }
 
-// ── Case filter ──
-document.getElementById('caseFilter').addEventListener('click', function(e) {
-  const btn = e.target.closest('.filter-btn');
-  if (!btn) return;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
-  btn.classList.add('on');
-  const type = btn.dataset.type;
-  document.querySelectorAll('.case-full').forEach(c => {
-    c.style.display = (type === 'all' || c.dataset.type === type) ? '' : 'none';
-  });
-});
+
 </script>
 
 <!-- Social Float Buttons -->
