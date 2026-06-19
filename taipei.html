@@ -141,8 +141,8 @@ body{font-family:'Noto Sans TC',sans-serif;background:#FAFAF7;color:#1A2332;max-
 .hero h1 em{color:var(--blue);font-style:normal;border-bottom:3px solid var(--accent)}
 .hero-sub{font-size:14px;color:var(--mid);line-height:1.78;margin-bottom:22px}
 .hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.hbtn-line{flex:1;min-width:110px;max-width:160px;background:var(--green);color:white;border:none;border-radius:28px;padding:14px 16px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;box-shadow:0 4px 14px rgba(6,199,85,.27)}
-.hbtn-tel{flex:1;min-width:90px;max-width:140px;background:var(--blue);color:white;border:2px solid var(--blue);border-radius:28px;padding:14px 12px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;box-shadow:0 4px 14px rgba(2,136,209,.25)}
+.hbtn-line{flex:1;min-width:110px;max-width:160px;background:var(--green);color:white;border:none;border-radius:28px;padding:14px 16px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;box-shadow:0 4px 14px rgba(6,199,85,.27);white-space:nowrap}
+.hbtn-tel{flex:1;min-width:90px;max-width:140px;background:var(--blue);color:white;border:2px solid var(--blue);border-radius:28px;padding:14px 12px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;box-shadow:0 4px 14px rgba(2,136,209,.25);white-space:nowrap}
 .stats{display:flex;background:white;border-radius:var(--r);overflow:hidden;box-shadow:0 2px 12px rgba(79,195,247,.10)}
 .stat{flex:1;text-align:center;padding:11px 4px;border-right:1px solid rgba(79,195,247,.12)}
 .stat:last-child{border-right:none}
@@ -176,15 +176,16 @@ body{font-family:'Noto Sans TC',sans-serif;background:#FAFAF7;color:#1A2332;max-
 .cta-bar h3{font-family:'Noto Serif TC',serif;font-size:clamp(15px,4.5vw,18px);font-weight:900;color:white;margin-bottom:8px}
 .cta-bar p{color:rgba(255,255,255,.82);font-size:13px;line-height:1.7;margin-bottom:18px}
 .cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.cta-line{background:var(--green);color:white;border:none;border-radius:28px;padding:12px 20px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;text-decoration:none;box-shadow:0 4px 14px rgba(6,199,85,.34)}
-.cta-tel{background:rgba(255,255,255,.16);color:white;border:2px solid rgba(255,255,255,.46);border-radius:28px;padding:10px 16px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;text-decoration:none}
-footer{background:#1A2332;color:rgba(255,255,255,.68);padding:24px 20px;text-align:center;font-size:13px;line-height:1.9}
+.cta-line{background:var(--green);color:white;border:none;border-radius:28px;padding:12px 20px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;text-decoration:none;box-shadow:0 4px 14px rgba(6,199,85,.34);white-space:nowrap}
+.cta-tel{background:rgba(255,255,255,.16);color:white;border:2px solid rgba(255,255,255,.46);border-radius:28px;padding:10px 16px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;text-decoration:none;box-shadow:0 6px 20px rgba(2,136,209,.35);white-space:nowrap}
+footer{background:#1A2332;color:rgba(255,255,255,.68);padding:24px 16px;text-align:center;font-size:13px;line-height:1.9}
 footer a{color:#4FC3F7;text-decoration:none}
+footer .footer-tel{font-size:17px;font-weight:700;color:var(--blue)}
 .back-link{display:inline-block;margin-top:10px;font-size:13px}
 .faq-list{max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-.faq-item{background:#FFF8F0;border-radius:var(--r);padding:14px;border:1.5px solid rgba(255,179,71,.17)}
-.faq-q{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:6px}
-.faq-a{font-size:13px;color:var(--mid);line-height:1.65}
+.faq-item{background:#FFF8F0;border-radius:var(--r);padding:16px;border:1.5px solid rgba(255,179,71,.17)}
+.faq-q{font-size:14px;font-weight:700;color:#1a2332;margin-bottom:8px}
+.faq-a{font-size:13px;color:#546e7a;line-height:1.75}
 </style>
 </head>
 <body>
@@ -298,7 +299,7 @@ footer a{color:#4FC3F7;text-decoration:none}
   <div style="max-width:460px;margin:0 auto;font-size:14px;color:var(--mid);line-height:1.85;">
     <p>潔美淨清潔社由基隆出發，行駛國道 1 號或台 2 線濱海公路，約 40～60 分鐘即可抵達台北市各行政區，提供台北居家清潔、台北鐘點清潔與到府打掃服務，服務範圍涵蓋大安區、信義區、中山區、松山區、內湖區、士林區等 12 個行政區。</p>
     <h3 style="font-size:15px;color:var(--ink);margin:16px 0 8px;">台北常見清潔需求</h3>
-    <ul style="padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0;">
+    <ul style="padding-left:20px;display:flex;flex-direction:column;gap:7px;margin:0;line-height:1.9;font-size:14px;list-style:disc;">
       <li><strong>台北老公寓大掃除</strong>：大安區、中正區、萬華區 30～50 年老屋，廚房油垢與浴室磁磚溝縫深層清潔。</li>
       <li><strong>台北新成屋裝潢細清</strong>：信義區、南港區、內湖區新大樓交屋前，矽利康殘膠與裝潢粉塵清除。</li>
       <li><strong>台北套房退租清潔</strong>：中山區、大安區租屋族退租打掃，協助通過房東驗收、順利退還押金。</li>
@@ -322,7 +323,7 @@ footer a{color:#4FC3F7;text-decoration:none}
 <footer>
   <p>潔美淨清潔社｜基隆市中正區義一路87號9樓之2</p>
   <p>服務基隆・台北・新北・桃園・新竹　統編 60214473</p>
-  <p>📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 洽詢</a></p>
+  <p>📞 <a href="tel:0988145875" class="footer-tel">0988-145-875</a>　💬 <a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 洽詢</a></p>
   <p><a href="/" class="back-link">← 基隆清潔公司・潔美淨清潔社</a>　<a href="/new-taipei.html">新北清潔</a>　<a href="/taoyuan.html">桃園清潔</a>　<a href="/hsinchu.html">新竹清潔</a>　<a href="/calculator.html">費用估算器</a></p>
   <p style="font-size:11px;opacity:0.42;margin-top:8px;">© 2025-2026 潔美淨清潔社</p>
 </footer>
