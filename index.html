@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="analytics.js" defer></script>
 <title>基隆清潔公司｜潔美淨清潔社・居家・裝潢細清・大掃除 不加價</title>
 <meta name="description" content="潔美淨清潔社，基隆合法立案（統編60214473）。居家清潔・裝潢細清・大掃除・退租入住，服務基隆・台北・新北。估多少收多少，絕不現場加價。LINE 或電話 0988-145-875 免費諮詢。">
 <meta name="keywords" content="基隆清潔,基隆清潔公司,基隆居家清潔,台北清潔,新北清潔,基隆中正區清潔,居家清潔,裝潢後清潔,裝潢細清,入住清潔,退租清潔,大掃除,社區清潔,店面清潔,辦公室清潔,收納整理,潔美淨,梁美玲">
@@ -103,7 +104,7 @@ body {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .top-btns { display: flex; gap: 7px; flex-shrink: 0; }
-.top-btns a { display: flex; align-items: center; gap: 5px; padding: 7px 12px; border-radius: 20px; font-size: clamp(12px, 3.2vw, 14px); font-weight: 700; text-decoration: none; white-space: nowrap; }
+.top-btns a { display: flex; align-items: center; gap: 5px; padding: 9px 14px; min-height: 40px; border-radius: 20px; font-size: clamp(12px, 3.2vw, 14px); font-weight: 700; text-decoration: none; white-space: nowrap; }
 .tbtn-line { background: var(--green); color: white; }
 .tbtn-tel { background: white; color: #0288D1; border: 1.5px solid #4FC3F7; white-space: nowrap; font-weight: 700; border-radius: 20px; }
 
@@ -229,7 +230,7 @@ body {
   display: flex; flex-direction: column; gap: 10px; align-items: flex-end;
 }
 .fb {
-  width: 44px; height: 44px; border-radius: 50%;
+  width: 48px; height: 48px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   text-decoration: none; border: none; cursor: pointer;
   box-shadow: 0 3px 12px rgba(0,0,0,0.18);
@@ -296,9 +297,10 @@ body {
 }
 .hbtn-tel {
   flex: 1; min-width: 80px; max-width: 140px;
-  background: white; color: var(--blue);
-  border: 2px solid var(--sky); border-radius: 28px;
-  padding: 10px 12px; font-size: 13.5px; font-weight: 700;
+  background: var(--blue); color: white;
+  border: 2px solid var(--blue); border-radius: 28px;
+  padding: 14px 12px; font-size: 13.5px; font-weight: 700;
+  box-shadow: 0 4px 14px rgba(2,136,209,0.25);
   display: flex; align-items: center; justify-content: center; gap: 6px;
   text-decoration: none; transition: all 0.2s;
 }
@@ -2819,6 +2821,7 @@ function submitBookingForm(event) {
   setTimeout(function() {
     confirm.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 80);
+  if (window.jmjTrack) jmjTrack.form();
   var lineUrl = 'https://line.me/R/ti/p/@117adltu?text=' + encodeURIComponent(window._bookingMsg);
   window.open(lineUrl, '_blank');
 }
@@ -2886,8 +2889,8 @@ document.getElementById('caseFilter').addEventListener('click', function(e) {
           card.className = 'photo-case-card';
           card.innerHTML = `
             <div class="photo-compare" data-idx="${idx}">
-              <img class="photo-before" src="${c.before}" alt="清潔前" loading="lazy">
-              <img class="photo-after" src="${c.after}" alt="清潔後" loading="lazy">
+              <img class="photo-before" src="${c.before}" alt="${(c.title || '清潔')}（清潔前）" loading="lazy">
+              <img class="photo-after" src="${c.after}" alt="${(c.title || '清潔')}（清潔後）" loading="lazy">
               <div class="compare-slider"></div>
               <div class="compare-handle">◀▶</div>
               <span class="label-before">清潔前</span>
