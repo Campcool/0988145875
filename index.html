@@ -1507,13 +1507,13 @@ footer a { color: var(--sky); text-decoration: none; }
     <div class="sh">
       <span class="slabel">線上預約</span>
       <h2 class="stitle">填寫需求，我們主動聯繫</h2>
-      <p class="sdesc">填好後點送出，系統幫您整理需求訊息，複製到 LINE 即可</p>
+      <p class="sdesc">建議先填寫需求，系統會整理成 LINE 訊息；不想填也可直接送出加入 LINE</p>
     </div>
     <div id="bk-form-wrap">
       <form class="bk-form" onsubmit="submitBookingForm(event)">
         <div class="bk-row">
-          <label>服務類型<span>*</span></label>
-          <select id="bk-service" required>
+          <label>服務類型</label>
+          <select id="bk-service">
             <option value="">請選擇服務項目</option>
             <option>居家清潔（計時制）</option>
             <option>居家清潔（坪數包價）</option>
@@ -1529,8 +1529,8 @@ footer a { color: var(--sky); text-decoration: none; }
         </div>
         <div class="bk-grid">
           <div class="bk-row">
-            <label>地區<span>*</span></label>
-            <input type="text" id="bk-area" placeholder="例：基隆中正區" required>
+            <label>地區</label>
+            <input type="text" id="bk-area" placeholder="例：基隆中正區">
           </div>
           <div class="bk-row">
             <label>坪數</label>
@@ -1539,12 +1539,12 @@ footer a { color: var(--sky); text-decoration: none; }
         </div>
         <div class="bk-grid">
           <div class="bk-row">
-            <label>姓名<span>*</span></label>
-            <input type="text" id="bk-name" placeholder="您的稱呼" required>
+            <label>姓名</label>
+            <input type="text" id="bk-name" placeholder="您的稱呼">
           </div>
           <div class="bk-row">
-            <label>電話<span>*</span></label>
-            <input type="tel" id="bk-phone" placeholder="0912-345-678" required>
+            <label>電話</label>
+            <input type="tel" id="bk-phone" placeholder="0912-345-678">
           </div>
         </div>
         <div class="bk-row">
@@ -2406,13 +2406,34 @@ function toggleSvc(el) {
 // ── Booking Form ──
 function submitBookingForm(event) {
   event.preventDefault();
-  var service = document.getElementById('bk-service').value;
-  var area    = document.getElementById('bk-area').value;
-  var size    = document.getElementById('bk-size').value || '未填寫';
-  var name    = document.getElementById('bk-name').value;
-  var phone   = document.getElementById('bk-phone').value;
-  var time    = document.getElementById('bk-time').value || '均可配合';
-  var note    = document.getElementById('bk-note').value || '無';
+  var lineProfileUrl = 'https://line.me/R/ti/p/@117adltu';
+  var rawService = document.getElementById('bk-service').value.trim();
+  var rawArea    = document.getElementById('bk-area').value.trim();
+  var rawSize    = document.getElementById('bk-size').value.trim();
+  var rawName    = document.getElementById('bk-name').value.trim();
+  var rawPhone   = document.getElementById('bk-phone').value.trim();
+  var rawTime    = document.getElementById('bk-time').value.trim();
+  var rawNote    = document.getElementById('bk-note').value.trim();
+  var hasAnyInput = [rawService, rawArea, rawSize, rawName, rawPhone, rawTime, rawNote].some(Boolean);
+
+  if (!hasAnyInput) {
+    if (window.jmjTrack) {
+      jmjTrack.line({
+        cta_context: 'booking_empty_submit',
+        booking_flow: 'direct_line_no_form'
+      });
+    }
+    window.location.href = lineProfileUrl;
+    return;
+  }
+
+  var service = rawService || '未填寫';
+  var area    = rawArea || '未填寫';
+  var size    = rawSize || '未填寫';
+  var name    = rawName || '未填寫';
+  var phone   = rawPhone || '未填寫';
+  var time    = rawTime || '均可配合';
+  var note    = rawNote || '無';
   window._bookingMsg =
     '您好，我想詢問清潔服務\n\n' +
     '📋 服務類型：' + service + '\n' +
@@ -2435,7 +2456,8 @@ function submitBookingForm(event) {
       service_area: area,
       property_size: size,
       preferred_time: time,
-      has_note: note !== '無'
+      has_note: note !== '無',
+      booking_flow: 'form_to_line'
     });
   }
   var lineUrl = 'https://line.me/R/oaMessage/@117adltu/?' + encodeURIComponent(window._bookingMsg);
