@@ -744,32 +744,7 @@ footer a { color: var(--sky); text-decoration: none; }
   .ptype-tab { font-size: 10px; padding: 10px 2px; }
 }
 
-/* Social float buttons */
-.float-social {
-  position: fixed; left: 12px; bottom: 82px; z-index: 299;
-  display: flex; flex-direction: column; gap: 8px;
-}
-.float-social a {
-  width: 44px; height: 44px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none; color: white; font-size: 20px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.18);
-  transition: transform 0.18s;
-}
-.float-social a:hover { transform: scale(1.08); }
-.float-social .fs-fb   { background: #1877F2; }
-.float-social .fs-gmap { background: #EA4335; }
-.float-social .fs-review { background: #FBBC04; color: #333; font-size: 17px; font-weight: 700; }
-@media (max-width: 600px) {
-  .float-social { left: 8px; bottom: 68px; }
-  .float-social a {
-  width: 44px; height: 44px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  text-decoration: none; color: white; font-size: 20px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.18);
-  transition: transform 0.18s;
-}
-}
+.fb-map { background: #EA4335; color: white; }
 
 .top-bar-inner {
   max-width: 600px; width: 100%; margin: 0 auto;
@@ -2716,10 +2691,11 @@ footer a { color: var(--sky); text-decoration: none; }
 
 <!-- FLOATING BTNS -->
 <div class="float-group">
-  <a class="fb fb-line" href="#booking-section" aria-label="LINE諮詢">
+  <a class="fb fb-line" href="#booking-section" aria-label="線上預約" title="線上預約">
     <svg width="22" height="22" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
   </a>
-  <a class="fb fb-tel" href="tel:0988145875" aria-label="撥打電話">📞</a>
+  <a class="fb fb-tel" href="tel:0988145875" aria-label="撥打電話" title="撥打電話">📞</a>
+  <a class="fb fb-map" href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" aria-label="Google 地圖" title="Google 地圖">📍</a>
 </div>
 
 <!-- BOTTOM NAV -->
@@ -2727,9 +2703,7 @@ footer a { color: var(--sky); text-decoration: none; }
   <button class="bnav-tab active" onclick="showPage('home')"><span class="bi">🏠</span>首頁</button>
   <button class="bnav-tab" onclick="showPage('services')"><span class="bi">🧹</span>服務</button>
   <button class="bnav-tab" onclick="showPage('cases')"><span class="bi">📋</span>案例</button>
-  <button class="bnav-tab" onclick="showPage('pricing')"><span class="bi">💰</span>報價</button>
-  <button class="bnav-tab" onclick="showPage('about')"><span class="bi">📍</span>關於</button>
-  <a class="bnav-tab" href="#booking-section" style="text-decoration:none;color:#06C755;"><span class="bi">💬</span>LINE</a>
+  <button class="bnav-tab bnav-book" onclick="goBooking()" style="color:#06C755;"><span class="bi">💬</span>預約</button>
 </nav>
 
 <script>
@@ -2765,6 +2739,9 @@ function showPage(id) {
 
 function goBooking() {
   showPage('home');
+  document.querySelectorAll('.bnav-tab').forEach(t => t.classList.remove('active'));
+  var bookTab = document.querySelector('.bnav-book');
+  if (bookTab) bookTab.classList.add('active');
   setTimeout(function() {
     var el = document.getElementById('booking-section');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -2882,20 +2859,6 @@ function resetBookingForm() {
 
 
 </script>
-
-<!-- Social Float Buttons -->
-<div class="float-social">
-  <a class="fs-fb" href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank" aria-label="Facebook 粉專" title="Facebook 粉專">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-  </a>
-  <a class="fs-gmap" href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" aria-label="Google 地圖" title="Google 地圖導航">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-  </a>
-  <a class="fs-review" href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" aria-label="Google 評論" title="幫我們留個 Google 評論 ⭐">
-    ⭐
-  </a>
-</div>
-
 
 <script>
 // ── Photo Cases Gallery ──
