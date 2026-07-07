@@ -66,17 +66,24 @@
 
   if (gaOn || adsOn) {
     var primaryId = gaOn ? CFG.GA4_ID : CFG.ADS_ID;
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(primaryId);
-    document.head.appendChild(script);
+    var hasGtagScript = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+    if (!hasGtagScript) {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(primaryId);
+      document.head.appendChild(script);
+    }
 
-    gtag('js', new Date());
-    if (gaOn) {
+    if (!window.__JMJ_GTAG_STARTED) {
+      gtag('js', new Date());
+      window.__JMJ_GTAG_STARTED = true;
+    }
+    if (gaOn && !window.__JMJ_GA4_CONFIGURED) {
       gtag('config', CFG.GA4_ID, {
         page_title: document.title,
         page_path: location.pathname + location.search
       });
+      window.__JMJ_GA4_CONFIGURED = true;
     }
     if (adsOn) {
       gtag('config', CFG.ADS_ID);
