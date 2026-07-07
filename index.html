@@ -2385,6 +2385,22 @@ function handleBookingAnchor() {
   }
 }
 
+function prefillBookingFromQuery() {
+  var params = new URLSearchParams(window.location.search);
+  var fieldMap = {
+    area: 'bk-area',
+    service: 'bk-service',
+    size: 'bk-size',
+    time: 'bk-time',
+    note: 'bk-note'
+  };
+  Object.keys(fieldMap).forEach(function(key) {
+    var value = (params.get(key) || '').trim();
+    var field = document.getElementById(fieldMap[key]);
+    if (value && field && !field.value) field.value = value;
+  });
+}
+
 document.addEventListener('click', function(event) {
   var link = event.target.closest('a[href="#booking-section"]');
   if (!link || link.classList.contains('bk-line-btn')) return;
@@ -2393,7 +2409,10 @@ document.addEventListener('click', function(event) {
   if (history.replaceState) history.replaceState(null, '', '#booking-section');
 });
 
-document.addEventListener('DOMContentLoaded', handleBookingAnchor);
+document.addEventListener('DOMContentLoaded', function() {
+  prefillBookingFromQuery();
+  handleBookingAnchor();
+});
 window.addEventListener('hashchange', handleBookingAnchor);
 
 // ── Service accordion ──
