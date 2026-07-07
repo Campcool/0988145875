@@ -104,7 +104,7 @@
     "location": "新北市三重區",
     "type": "浴廁",
     "tags": [
-      "預測清潔",
+      "浴廁清潔",
       "住家清潔",
       "新北市三重區"
     ],
@@ -141,14 +141,14 @@
   },
   {
     "id": "case11",
-    "title": "台北市新店區 — 浴廁整體清潔",
+    "title": "新北市新店區 — 浴廁整體清潔",
     "description": "這些汙垢真的是洗澡能洗出來的嗎!?",
-    "location": "新北市土城區",
+    "location": "新北市新店區",
     "type": "浴廁",
     "tags": [
       "浴廁清潔",
       "住家清潔",
-      "台北市新店區"
+      "新北市新店區"
     ],
     "before": "cases/case11-before.jpg",
     "after": "cases/case11-after.jpg"
