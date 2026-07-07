@@ -300,8 +300,25 @@ body {
   font-size: 12.5px; color: var(--mid); line-height: 1.68;
   margin-bottom: 16px; width: 100%;
 }
-.hero-photo {
+.hero-proof {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin: -6px 0 14px;
+}
+.hero-proof span {
+  background: rgba(255,255,255,0.86);
+  border: 1px solid rgba(79,195,247,0.22);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+.hero-media {
   grid-column: 2; grid-row: 1;
+  display: block; margin: 0;
+}
+.hero-photo {
   width: 104px; height: 138px;
   object-fit: cover; object-position: center 12%;
   border-radius: 12px;
@@ -386,6 +403,23 @@ body {
 }
 .step-t h3 { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
 .step-t p { font-size: 14px; color: var(--soft); line-height: 1.62; }
+.mini-faq {
+  display: flex; flex-direction: column; gap: 10px;
+  max-width: 460px; margin: 0 auto;
+}
+.mini-faq-item {
+  background: white;
+  border: 1.5px solid rgba(79,195,247,0.16);
+  border-radius: var(--r);
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(79,195,247,0.06);
+}
+.mini-faq-item h3 {
+  font-size: 14px; color: var(--ink); margin-bottom: 5px;
+}
+.mini-faq-item p {
+  font-size: 13.5px; color: var(--soft); line-height: 1.68;
+}
 
 /* ═══════════════════════════
    PAGE 2 — 服務
@@ -727,6 +761,7 @@ footer a { color: var(--sky); text-decoration: none; }
   width: 100%; height: 100%;
   object-fit: cover; pointer-events: none;
 }
+.photo-compare picture { display: contents; }
 .photo-after {
   clip-path: inset(0 0 0 50%);
 }
@@ -873,7 +908,11 @@ footer a { color: var(--sky); text-decoration: none; }
     "Jie Mei Jing Cleaning"
   ],
   "description": "潔美淨清潔社，基隆在地清潔服務，由負責人梁美玲於2025年成立，提供居家清潔、社區清潔、店面辦公室清潔、裝潢後細清、大掃除、入住退租打掃、收納整理。服務基隆、台北、新北、桃園、宜蘭。估多少收多少，絕不現場加價。",
-  "image": "https://0988145875.com.tw/og-image.jpg",
+  "image": [
+    "https://0988145875.com.tw/og-image.jpg",
+    "https://0988145875.com.tw/hero-photo.jpg",
+    "https://0988145875.com.tw/home-case01-after.jpg"
+  ],
   "logo": "https://0988145875.com.tw/logo.png",
   "url": "https://0988145875.com.tw/",
   "telephone": "+886988145875",
@@ -966,6 +1005,22 @@ footer a { color: var(--sky); text-decoration: none; }
     "https://www.facebook.com/share/1EzD6TjZww/"
   ],
   "hasMap": "https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9",
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "線上預約清潔服務",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://0988145875.com.tw/#booking-section",
+      "actionPlatform": [
+        "https://schema.org/DesktopWebPlatform",
+        "https://schema.org/MobileWebPlatform"
+      ]
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": "清潔服務預約需求"
+    }
+  },
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.7",
@@ -1343,16 +1398,24 @@ footer a { color: var(--sky); text-decoration: none; }
       <div class="hero-content">
         <div class="hero-badge">📍 基隆在地・服務雙北桃園宜蘭</div>
         <h1>雙北基隆桃園宜蘭<em>清潔公司</em><br>居家清潔・裝潢細清到府</h1>
-        <p class="hero-sub">潔美淨清潔社，居家・社區・店面・裝潢後清潔・收納整理・退租入住・大掃除，估多少收多少，絕不現場加價。</p>
+        <p class="hero-sub">居家清潔 4 小時 $2,500 起，裝潢細清與大掃除可先傳照片估價。合法立案，可開統一發票，估多少收多少。</p>
+        <div class="hero-proof">
+          <span>4小時 $2,500 起</span>
+          <span>可開統一發票</span>
+          <span>LINE 快速估價</span>
+        </div>
         <div class="hero-btns">
           <a class="hbtn-line" href="#booking-section">
             <svg width="15" height="15" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
-            LINE 諮詢
+            線上預約
           </a>
           <a class="hbtn-tel" href="tel:0988145875">📞 來電</a>
         </div>
       </div>
-      <img class="hero-photo" src="hero-photo.jpg" alt="潔美淨清潔社專業到府居家清潔服務" width="640" height="580">
+      <picture class="hero-media">
+        <source srcset="hero-photo.webp" type="image/webp">
+        <img class="hero-photo" src="hero-photo.jpg" alt="潔美淨清潔社專業到府居家清潔服務" width="640" height="580" fetchpriority="high" decoding="async">
+      </picture>
       <div class="hero-stats">
         <div class="stat"><div class="stat-n">300+</div><div class="stat-l">服務戶數</div></div>
         <div class="stat"><div class="stat-n">Google 4.7★</div><div class="stat-l">好評評分</div></div>
@@ -1371,11 +1434,17 @@ footer a { color: var(--sky); text-decoration: none; }
     </div>
     <div style="max-width:460px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
       <div style="position:relative;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(26,35,50,.12);">
-        <img src="home-case01-before.jpg" alt="基隆中正區浴廁清潔前" width="480" height="640" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;">
+        <picture>
+          <source srcset="home-case01-before.webp" type="image/webp">
+          <img src="home-case01-before.jpg" alt="基隆中正區浴廁清潔前" width="480" height="640" loading="lazy" decoding="async" style="width:100%;height:220px;object-fit:cover;display:block;">
+        </picture>
         <span style="position:absolute;left:8px;top:8px;background:rgba(26,35,50,.72);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;">清潔前</span>
       </div>
       <div style="position:relative;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(26,35,50,.12);">
-        <img src="home-case01-after.jpg" alt="基隆中正區浴廁清潔後" width="480" height="640" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;">
+        <picture>
+          <source srcset="home-case01-after.webp" type="image/webp">
+          <img src="home-case01-after.jpg" alt="基隆中正區浴廁清潔後" width="480" height="640" loading="lazy" decoding="async" style="width:100%;height:220px;object-fit:cover;display:block;">
+        </picture>
         <span style="position:absolute;left:8px;top:8px;background:var(--green);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;">清潔後</span>
       </div>
     </div>
@@ -1574,6 +1643,32 @@ footer a { color: var(--sky); text-decoration: none; }
         </a>
       </div>
       <p style="margin-top:14px;font-size:13px;"><a href="#" onclick="resetBookingForm();return false;" style="color:var(--blue);">重新填寫</a></p>
+    </div>
+  </div>
+
+  <div class="sec sec-bg-cream">
+    <div class="sh">
+      <span class="slabel">常見問題</span>
+      <h2 class="stitle">預約前最常問的事</h2>
+      <p class="sdesc">價格、工具、排程與報價方式先說清楚</p>
+    </div>
+    <div class="mini-faq">
+      <div class="mini-faq-item">
+        <h3>Q：居家清潔費用怎麼算？</h3>
+        <p>A：基本方案為 4 小時 $2,500 起，適合一般住家維持清潔。坪數較大、廚房浴室需深清或需要加時，會在預約前先確認。</p>
+      </div>
+      <div class="mini-faq-item">
+        <h3>Q：需要自己準備清潔工具嗎？</h3>
+        <p>A：不用。師傅會自備清潔工具、吸塵器、清潔劑與耗材，若家中有特殊材質可先在 LINE 說明。</p>
+      </div>
+      <div class="mini-faq-item">
+        <h3>Q：裝潢細清或大掃除可以先報價嗎？</h3>
+        <p>A：可以先傳地址、坪數、現場照片與需求。污染較重或範圍較大時，會建議到府確認後再給正式報價。</p>
+      </div>
+      <div class="mini-faq-item">
+        <h3>Q：會不會到現場才加價？</h3>
+        <p>A：不會任意加價。包工項目會先確認範圍與總價，施工中以談好的內容完成，這也是潔美淨的主要承諾。</p>
+      </div>
     </div>
   </div>
 
@@ -2397,7 +2492,11 @@ function prefillBookingFromQuery() {
   Object.keys(fieldMap).forEach(function(key) {
     var value = (params.get(key) || '').trim();
     var field = document.getElementById(fieldMap[key]);
-    if (value && field && !field.value) field.value = value;
+    if (!value || !field || field.value) return;
+    if (field.tagName === 'SELECT' && !Array.from(field.options).some(function(opt) { return opt.value === value; })) {
+      field.add(new Option(value, value));
+    }
+    field.value = value;
   });
 }
 
@@ -2405,6 +2504,12 @@ document.addEventListener('click', function(event) {
   var link = event.target.closest('a[href="#booking-section"]');
   if (!link || link.classList.contains('bk-line-btn')) return;
   event.preventDefault();
+  if (window.jmjTrack) {
+    jmjTrack.event('booking_cta_click', {
+      cta_text: (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+      cta_class: link.className ? String(link.className).slice(0, 80) : ''
+    });
+  }
   goBooking();
   if (history.replaceState) history.replaceState(null, '', '#booking-section');
 });
@@ -2535,6 +2640,10 @@ function resetBookingForm() {
 <script>
 // ── Photo Cases Gallery ──
 (function() {
+  function webpPath(src) {
+    return String(src || '').replace(/\.(jpe?g|png)$/i, '.webp');
+  }
+
   function loadPhotoCases() {
     fetch('cases.json')
       .then(r => r.json())
@@ -2547,8 +2656,14 @@ function resetBookingForm() {
           card.className = 'photo-case-card';
           card.innerHTML = `
             <div class="photo-compare" data-idx="${idx}">
-              <img class="photo-before" src="${c.before}" alt="${(c.title || '清潔')}（清潔前）" loading="lazy">
-              <img class="photo-after" src="${c.after}" alt="${(c.title || '清潔')}（清潔後）" loading="lazy">
+              <picture>
+                <source srcset="${webpPath(c.before)}" type="image/webp">
+                <img class="photo-before" src="${c.before}" alt="${(c.title || '清潔')}（清潔前）" loading="lazy" decoding="async">
+              </picture>
+              <picture>
+                <source srcset="${webpPath(c.after)}" type="image/webp">
+                <img class="photo-after" src="${c.after}" alt="${(c.title || '清潔')}（清潔後）" loading="lazy" decoding="async">
+              </picture>
               <div class="compare-slider"></div>
               <div class="compare-handle">◀▶</div>
               <span class="label-before">清潔前</span>

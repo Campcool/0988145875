@@ -258,7 +258,7 @@ footer a{color:#4FC3F7;text-decoration:none}
       </div>
       <div class="result-detail" id="result-detail"></div>
       <div class="quick-cta">
-        <a class="qcta-line" href="/#booking-section">
+        <a class="qcta-line" id="estimate-booking-link" href="/#booking-section">
           <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
           傳送估算結果給師傅確認正式報價
         </a>
@@ -602,6 +602,26 @@ function formatMoney(n) {
   return '$' + n.toLocaleString('zh-TW');
 }
 
+function updateEstimateBookingLink(cfg, size, totalLo, totalHi) {
+  var link = document.getElementById('estimate-booking-link');
+  if (!link) return;
+  var params = new URLSearchParams();
+  params.set('service', cfg.label);
+  params.set('size', size + '坪');
+  params.set('note', '我已使用費用試算器，估算範圍約 ' + formatMoney(totalLo) + ' ~ ' + formatMoney(totalHi) + '，請協助確認正式報價。');
+  link.href = '/?' + params.toString() + '#booking-section';
+  link.onclick = function() {
+    if (window.jmjTrack) {
+      jmjTrack.event('estimate_booking_click', {
+        service_type: cfg.label,
+        property_size: size,
+        estimate_low: totalLo,
+        estimate_high: totalHi
+      });
+    }
+  };
+}
+
 function calculate() {
   var size = parseInt(document.getElementById('size-input').value, 10);
   if (isNaN(size) || size < 1) { alert('請輸入有效坪數'); return; }
@@ -621,6 +641,7 @@ function calculate() {
   document.getElementById('result-unit').textContent = cfg.unit;
   document.getElementById('result-detail').innerHTML = cfg.detail(currentSize, r)
     + (extraLo > 0 ? '<br><br><strong>加項：</strong>+' + formatMoney(extraLo) + '~' + formatMoney(extraHi) : '');
+  updateEstimateBookingLink(cfg, currentSize, totalLo, totalHi);
 
   document.getElementById('result-box').classList.add('show');
   document.getElementById('result-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });

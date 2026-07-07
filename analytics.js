@@ -36,7 +36,6 @@
     if (path.indexOf('taoyuan') !== -1) return 'area_taoyuan';
     if (path.indexOf('keelung') !== -1) return 'area_keelung';
     if (path.indexOf('yilan') !== -1) return 'area_yilan';
-    if (path.indexOf('hsinchu') !== -1) return 'area_hsinchu';
     return 'content';
   }
 
