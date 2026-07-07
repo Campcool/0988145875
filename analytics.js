@@ -11,7 +11,7 @@
    ============================================================ */
 (function () {
   var CFG = {
-    GA4_ID: 'G-XXXXXXXXXX',
+    GA4_ID: 'G-B9402ZZ7EB',
     ADS_ID: 'AW-XXXXXXXXXX',
     CONV_PHONE: 'AW-XXXXXXXXXX/PhoneLabel',
     CONV_LINE: 'AW-XXXXXXXXXX/LineLabel',
