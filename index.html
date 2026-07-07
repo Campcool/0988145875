@@ -1391,7 +1391,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <span class="tlogo-name">潔美淨清潔社</span>
   </div>
   <div class="top-btns">
-    <button class="tbtn-book" onclick="showPage('home');setTimeout(function(){var el=document.getElementById('booking-section');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},120)">📝 預約</button>
+    <button class="tbtn-book" onclick="goBooking()">📝 預約</button>
     <a class="tbtn-tel" href="tel:0988145875">📞 來電</a>
   </div></div>
 </header>
@@ -1408,7 +1408,7 @@ footer a { color: var(--sky); text-decoration: none; }
         <h1>雙北基隆桃園宜蘭<em>清潔公司</em><br>居家清潔・裝潢細清到府</h1>
         <p class="hero-sub">潔美淨清潔社，居家・社區・店面・裝潢後清潔・收納整理・退租入住・大掃除，估多少收多少，絕不現場加價。</p>
         <div class="hero-btns">
-          <a class="hbtn-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+          <a class="hbtn-line" href="#booking-section">
             <svg width="15" height="15" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
             LINE 諮詢
           </a>
@@ -1627,11 +1627,11 @@ footer a { color: var(--sky); text-decoration: none; }
     <div id="bk-confirm" class="bk-confirm">
       <div style="font-size:44px;margin-bottom:10px;">✅</div>
       <h4>需求已整理完成！</h4>
-      <p>系統會自動開啟 LINE 並帶入需求內容<br>若沒有跳轉，可點下方按鈕或複製訊息。</p>
+      <p>系統會先複製一份需求內容，再自動開啟 LINE 帶入文字<br>若沒有跳轉，可點下方按鈕或複製訊息。</p>
       <div class="bk-msg-box" id="bk-msg-text"></div>
       <div class="bk-actions">
         <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn">📋 複製訊息</button>
-        <a class="bk-line-btn" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+        <a class="bk-line-btn" href="#booking-section">
           <svg width="14" height="14" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
           開啟 LINE 送出需求
         </a>
@@ -1645,7 +1645,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <h3>立即聯繫，免費評估</h3>
     <p>基隆・台北・新北・桃園・宜蘭 均可服務<br>估多少收多少，絕不現場加價</p>
     <div class="cta-row">
-      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+      <a class="cta-line" href="#booking-section">
         <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         LINE 免費諮詢
       </a>
@@ -1677,7 +1677,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <div class="fdiv"></div>
     <p>📍 基隆市中正區義一路87號9樓之2<br>
     🗺 服務：基隆・台北・新北・桃園・宜蘭<br>
-    📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 洽詢</a></p>
+    📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="#booking-section">LINE 洽詢</a></p>
     <p>📘 <a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank">Facebook 粉專</a>　📍 <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank">Google 地圖</a></p>
     <div class="fdiv"></div>
     <p style="font-size:12px;">地區頁面：<a href="keelung.html">基隆清潔</a>　<a href="taipei.html">台北清潔</a>　<a href="new-taipei.html">新北清潔</a>　<a href="taoyuan.html">桃園清潔</a>　<a href="yilan.html">宜蘭清潔</a></p>
@@ -1869,7 +1869,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <h3>不確定哪個方案適合你？</h3>
     <p>直接 LINE 或電話詢問，我們幫您評估最合適的清潔方案</p>
     <div class="cta-row">
-      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+      <a class="cta-line" href="#booking-section">
         <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         LINE 詢問
       </a>
@@ -1897,7 +1897,7 @@ footer a { color: var(--sky); text-decoration: none; }
         <!-- 照片案例由 cases.json 動態載入 -->
       </div>
       <div class="no-photo-hint" id="noPhotoHint">
-        🔜 更多真實案例照片持續更新中⋯<br>歡迎 <a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 洽詢</a> 了解更多
+        🔜 更多真實案例照片持續更新中⋯<br>歡迎 <a href="#booking-section">LINE 洽詢</a> 了解更多
       </div>
     </div>
 
@@ -2230,7 +2230,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <h3>想預約或詢問類似案例？</h3>
     <p>直接傳照片給我們，即可獲得初步報價方向</p>
     <div class="cta-row">
-      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+      <a class="cta-line" href="#booking-section">
         <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         LINE 傳照片詢問
       </a>
@@ -2514,7 +2514,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <h3>想知道你的案子要多少錢？</h3>
     <p>LINE 傳照片＋說明坪數，即可初步估價</p>
     <div class="cta-row">
-      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+      <a class="cta-line" href="#booking-section">
         <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         LINE 傳照片估價
       </a>
@@ -2547,7 +2547,7 @@ footer a { color: var(--sky); text-decoration: none; }
         <div class="contact-text">
           <h4>LINE 官方帳號</h4>
           <p>直接傳訊說明需求・可傳照片</p>
-          <a href="https://line.me/R/ti/p/@117adltu" target="_blank">加入 LINE 諮詢</a>
+          <a href="#booking-section">加入 LINE 諮詢</a>
         </div>
       </div>
       <div class="contact-row">
@@ -2658,7 +2658,7 @@ footer a { color: var(--sky); text-decoration: none; }
         <span class="info-ico">💬</span>
         <div>
           <div class="info-label">LINE 洽詢</div>
-          <div class="info-val"><a href="https://line.me/R/ti/p/@117adltu" target="_blank">LINE 官方帳號（點此加入）</a></div>
+          <div class="info-val"><a href="#booking-section">LINE 官方帳號（點此加入）</a></div>
         </div>
       </div>
       <div class="info-row">
@@ -2696,7 +2696,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <h3>歡迎加入 LINE 或直接來電</h3>
     <p>雙北基隆桃園宜蘭到府服務，免費評估，估多少收多少</p>
     <div class="cta-row">
-      <a class="cta-line" href="https://line.me/R/ti/p/@117adltu" target="_blank">
+      <a class="cta-line" href="#booking-section">
         <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         加入 LINE
       </a>
@@ -2707,7 +2707,7 @@ footer a { color: var(--sky); text-decoration: none; }
 
 <!-- FLOATING BTNS -->
 <div class="float-group">
-  <a class="fb fb-line" href="https://line.me/R/ti/p/@117adltu" target="_blank" aria-label="LINE諮詢">
+  <a class="fb fb-line" href="#booking-section" aria-label="LINE諮詢">
     <svg width="22" height="22" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
   </a>
   <a class="fb fb-tel" href="tel:0988145875" aria-label="撥打電話">📞</a>
@@ -2720,7 +2720,7 @@ footer a { color: var(--sky); text-decoration: none; }
   <button class="bnav-tab" onclick="showPage('cases')"><span class="bi">📋</span>案例</button>
   <button class="bnav-tab" onclick="showPage('pricing')"><span class="bi">💰</span>報價</button>
   <button class="bnav-tab" onclick="showPage('about')"><span class="bi">📍</span>關於</button>
-  <a class="bnav-tab" href="https://line.me/R/ti/p/@117adltu" target="_blank" style="text-decoration:none;color:#06C755;"><span class="bi">💬</span>LINE</a>
+  <a class="bnav-tab" href="#booking-section" style="text-decoration:none;color:#06C755;"><span class="bi">💬</span>LINE</a>
 </nav>
 
 <script>
@@ -2753,6 +2753,31 @@ function showPage(id) {
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function goBooking() {
+  showPage('home');
+  setTimeout(function() {
+    var el = document.getElementById('booking-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 120);
+}
+
+function handleBookingAnchor() {
+  if (window.location.hash === '#booking-section') {
+    goBooking();
+  }
+}
+
+document.addEventListener('click', function(event) {
+  var link = event.target.closest('a[href="#booking-section"]');
+  if (!link || link.classList.contains('bk-line-btn')) return;
+  event.preventDefault();
+  goBooking();
+  if (history.replaceState) history.replaceState(null, '', '#booking-section');
+});
+
+document.addEventListener('DOMContentLoaded', handleBookingAnchor);
+window.addEventListener('hashchange', handleBookingAnchor);
 
 // ── Service accordion ──
 function toggleSvc(el) {
@@ -2799,23 +2824,46 @@ function submitBookingForm(event) {
   var lineUrl = 'https://line.me/R/oaMessage/@117adltu/?' + encodeURIComponent(window._bookingMsg);
   var lineBtn = document.querySelector('#bk-confirm .bk-line-btn');
   if (lineBtn) lineBtn.href = lineUrl;
-  window.location.href = lineUrl;
+  copyBookingMsg(false).then(function() {
+    window.location.href = lineUrl;
+  });
 }
-function copyBookingMsg() {
+function setCopyDone() {
   var btn = document.getElementById('bk-copy-btn');
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText(window._bookingMsg).then(function() {
-      btn.textContent = '✅ 已複製！';
-      setTimeout(function() { btn.textContent = '📋 複製訊息'; }, 2500);
-    });
-  } else {
-    var ta = document.createElement('textarea');
-    ta.value = window._bookingMsg;
-    document.body.appendChild(ta); ta.select();
-    document.execCommand('copy'); ta.remove();
+  if (btn) {
     btn.textContent = '✅ 已複製！';
     setTimeout(function() { btn.textContent = '📋 複製訊息'; }, 2500);
   }
+}
+function copyBookingMsg(showFeedback) {
+  var msg = window._bookingMsg || document.getElementById('bk-msg-text').textContent || '';
+  return new Promise(function(resolve) {
+    if (!msg) { resolve(false); return; }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(msg).then(function() {
+        if (showFeedback !== false) setCopyDone();
+        resolve(true);
+      }).catch(function() {
+        resolve(false);
+      });
+      return;
+    }
+    var ta = document.createElement('textarea');
+    ta.value = msg;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      if (showFeedback !== false) setCopyDone();
+      resolve(true);
+    } catch (err) {
+      resolve(false);
+    }
+    ta.remove();
+  });
 }
 function resetBookingForm() {
   document.getElementById('bk-form-wrap').style.display = '';
