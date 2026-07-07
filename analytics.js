@@ -5,6 +5,8 @@
    - GA4_ID: Google Analytics 4 Measurement ID, e.g. G-XXXXXXXXXX
    - ADS_ID: Google Ads tag ID, e.g. AW-XXXXXXXXXX
    - CONV_*: Google Ads conversion send_to values, e.g. AW-xxxx/label
+   - ENHANCED_CONVERSIONS: Set true after Google Ads enhanced conversions
+     are enabled and a hashed data implementation is added.
 
    Until IDs are replaced, this file still records events in dataLayer
    and prints them in the console for QA. No external tracking script loads.
@@ -16,7 +18,8 @@
     CONV_PHONE: 'AW-XXXXXXXXXX/PhoneLabel',
     CONV_LINE: 'AW-XXXXXXXXXX/LineLabel',
     CONV_FORM: 'AW-XXXXXXXXXX/FormLabel',
-    CONV_CALCULATOR: 'AW-XXXXXXXXXX/CalculatorLabel'
+    CONV_CALCULATOR: 'AW-XXXXXXXXXX/CalculatorLabel',
+    ENHANCED_CONVERSIONS: false
   };
 
   function isSet(value) {
@@ -39,6 +42,38 @@
     return 'content';
   }
 
+  function campaignParams() {
+    var keys = [
+      'utm_source',
+      'utm_medium',
+      'utm_campaign',
+      'utm_content',
+      'utm_term',
+      'gclid',
+      'gbraid',
+      'wbraid'
+    ];
+    var search = new URLSearchParams(location.search || '');
+    var stored = {};
+    try {
+      stored = JSON.parse(sessionStorage.getItem('jmj_campaign') || '{}');
+    } catch (err) {
+      stored = {};
+    }
+    var current = {};
+    keys.forEach(function(key) {
+      var value = search.get(key);
+      if (value) current[key] = value.slice(0, 160);
+    });
+    if (Object.keys(current).length) {
+      stored = Object.assign({}, stored, current);
+      try {
+        sessionStorage.setItem('jmj_campaign', JSON.stringify(stored));
+      } catch (err) {}
+    }
+    return stored;
+  }
+
   function baseParams(extra) {
     var params = {
       page_type: pageType(),
@@ -46,6 +81,7 @@
       page_title: document.title || '',
       location_area: (location.pathname || '/').replace('/', '').replace('.html', '') || 'home'
     };
+    Object.assign(params, campaignParams());
     extra = extra || {};
     Object.keys(extra).forEach(function (key) {
       if (extra[key] !== undefined && extra[key] !== null && extra[key] !== '') {
