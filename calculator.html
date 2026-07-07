@@ -615,7 +615,15 @@ function calculate() {
 
   document.getElementById('result-box').classList.add('show');
   document.getElementById('result-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  if (window.jmjTrack) jmjTrack.calc();
+  if (window.jmjTrack) {
+    jmjTrack.calc({
+      service_type: cfg.label,
+      property_size: currentSize,
+      estimate_low: totalLo,
+      estimate_high: totalHi,
+      extra_count: Object.keys(activeExtras).length
+    });
+  }
 }
 
 // Init extras for default service

@@ -2787,7 +2787,15 @@ function submitBookingForm(event) {
   setTimeout(function() {
     confirm.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 80);
-  if (window.jmjTrack) jmjTrack.form();
+  if (window.jmjTrack) {
+    jmjTrack.form({
+      service_type: service,
+      service_area: area,
+      property_size: size,
+      preferred_time: time,
+      has_note: note !== '無'
+    });
+  }
   var lineUrl = 'https://line.me/R/oaMessage/@117adltu/?' + encodeURIComponent(window._bookingMsg);
   var lineBtn = document.querySelector('#bk-confirm .bk-line-btn');
   if (lineBtn) lineBtn.href = lineUrl;
