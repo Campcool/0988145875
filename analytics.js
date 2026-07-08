@@ -14,10 +14,10 @@
 (function () {
   var CFG = {
     GA4_ID: 'G-B9402ZZ7EB',
-    ADS_ID: 'AW-XXXXXXXXXX',
+    ADS_ID: 'AW-18307009336',
     CONV_PHONE: 'AW-XXXXXXXXXX/PhoneLabel',
     CONV_LINE: 'AW-XXXXXXXXXX/LineLabel',
-    CONV_FORM: 'AW-XXXXXXXXXX/FormLabel',
+    CONV_FORM: 'AW-18307009336/O10nCOjD0MwcELiWu5lE',
     CONV_CALCULATOR: 'AW-XXXXXXXXXX/CalculatorLabel',
     ENHANCED_CONVERSIONS: false
   };
@@ -120,8 +120,9 @@
       });
       window.__JMJ_GA4_CONFIGURED = true;
     }
-    if (adsOn) {
+    if (adsOn && !window.__JMJ_ADS_CONFIGURED) {
       gtag('config', CFG.ADS_ID);
+      window.__JMJ_ADS_CONFIGURED = true;
     }
   } else {
     console.info('[JMJ tracking] GA4/Ads IDs are not set. Events are kept in dataLayer only.');
@@ -154,7 +155,11 @@
       track('line_click', Object.assign({ contact_method: 'line' }, params || {}), CFG.CONV_LINE);
     },
     form: function (params) {
-      track('booking_form_submit', Object.assign({ contact_method: 'line' }, params || {}), CFG.CONV_FORM);
+      track('booking_form_submit', Object.assign({
+        contact_method: 'line',
+        value: 1.0,
+        currency: 'TWD'
+      }, params || {}), CFG.CONV_FORM);
     },
     calc: function (params) {
       track('calculator_used', Object.assign({ engagement_type: 'pricing_calculator' }, params || {}), CFG.CONV_CALCULATOR);
