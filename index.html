@@ -855,6 +855,29 @@ footer a { color: var(--sky); text-decoration: none; }
 .bk-row select:focus, .bk-row input:focus, .bk-row textarea:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(79,195,247,0.10); }
 .bk-row textarea { resize: vertical; min-height: 68px; }
 .bk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bk-quick {
+  max-width: 460px; margin: 0 auto 14px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.bk-quick-btn {
+  border-radius: 14px; padding: 13px 12px; text-decoration: none;
+  display: flex; flex-direction: column; gap: 4px;
+  border: 1.5px solid rgba(79,195,247,0.22);
+  background: white; box-shadow: 0 4px 16px rgba(26,35,50,0.08);
+}
+.bk-quick-btn strong { font-size: 15px; color: var(--ink); }
+.bk-quick-btn span { font-size: 12px; color: var(--soft); line-height: 1.45; }
+.bk-quick-calc { border-color: rgba(2,136,209,0.26); }
+.bk-quick-photo { border-color: rgba(6,199,85,0.28); }
+.bk-trust-row {
+  max-width: 460px; margin: 0 auto 12px;
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 8px;
+}
+.bk-trust-row span {
+  background: #F7FBFD; border: 1px solid rgba(79,195,247,0.18);
+  border-radius: 10px; padding: 8px 6px; text-align: center;
+  font-size: 12px; font-weight: 700; color: var(--mid);
+}
 .bk-submit {
   width: 100%; background: var(--green); color: white; border: none;
   border-radius: 28px; padding: 14px; font-size: 15px; font-weight: 700;
@@ -871,6 +894,11 @@ footer a { color: var(--sky); text-decoration: none; }
 }
 .bk-confirm h4 { font-size: 16px; font-weight: 700; color: #059669; margin-bottom: 8px; }
 .bk-confirm p { font-size: 14px; color: var(--mid); margin-bottom: 12px; line-height: 1.65; }
+.bk-next-note {
+  background: #fff; border-radius: 10px; padding: 10px 12px;
+  color: var(--ink); font-size: 13px; line-height: 1.6;
+  border: 1px solid rgba(6,199,85,0.18); margin-bottom: 12px;
+}
 .bk-msg-box {
   background: var(--cream); border: 1px solid rgba(79,195,247,0.20);
   border-radius: 10px; padding: 12px; font-size: 13px; color: var(--ink);
@@ -886,6 +914,12 @@ footer a { color: var(--sky); text-decoration: none; }
 .bk-line-btn {
   padding: 10px 18px; border-radius: 24px;
   background: var(--green); color: white; border: none;
+  font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 5px; transition: all 0.18s;
+}
+.bk-call-btn {
+  padding: 10px 18px; border-radius: 24px;
+  background: white; color: var(--blue); border: 2px solid rgba(79,195,247,0.45);
   font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;
   display: inline-flex; align-items: center; gap: 5px; transition: all 0.18s;
 }
@@ -1580,6 +1614,21 @@ footer a { color: var(--sky); text-decoration: none; }
       <h2 class="stitle">填寫需求，我們主動聯繫</h2>
       <p class="sdesc">建議先填寫需求，系統會整理成 LINE 訊息；不想填也可直接送出加入 LINE</p>
     </div>
+    <div class="bk-quick" aria-label="快速預約入口">
+      <a class="bk-quick-btn bk-quick-calc" href="calculator.html?utm_source=site&utm_medium=booking_quick&utm_campaign=booking_flow">
+        <strong>🧮 先試算估價</strong>
+        <span>套用服務與坪數，帶回表單後送出 LINE</span>
+      </a>
+      <a class="bk-quick-btn bk-quick-photo" href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%82%B3%E7%85%A7%E7%89%87%E8%AB%AE%E8%A9%A2%E6%B8%85%E6%BD%94%E4%BC%B0%E5%83%B9%E3%80%82" data-line-photo="true">
+        <strong>📷 傳照片估價</strong>
+        <span>直接開 LINE，拍照傳給師傅評估</span>
+      </a>
+    </div>
+    <div class="bk-trust-row" aria-label="服務保障">
+      <span>合法立案</span>
+      <span>可開發票</span>
+      <span>不亂加價</span>
+    </div>
     <div id="bk-form-wrap">
       <form class="bk-form" onsubmit="submitBookingForm(event)">
         <div class="bk-row">
@@ -1635,7 +1684,8 @@ footer a { color: var(--sky); text-decoration: none; }
     <div id="bk-confirm" class="bk-confirm">
       <div style="font-size:44px;margin-bottom:10px;">✅</div>
       <h4>需求已整理完成！</h4>
-      <p>系統會先複製一份需求內容，再自動開啟 LINE 帶入文字<br>若沒有跳轉，可點下方按鈕或複製訊息。</p>
+      <p>下一步請到 LINE 貼上並送出需求；系統會先幫你複製一份內容。</p>
+      <div class="bk-next-note" id="bk-next-note">若 LINE 沒有自動開啟，請點「開啟 LINE 送出需求」或直接複製訊息。</div>
       <div class="bk-msg-box" id="bk-msg-text"></div>
       <div class="bk-actions">
         <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn">📋 複製訊息</button>
@@ -1643,6 +1693,7 @@ footer a { color: var(--sky); text-decoration: none; }
           <svg width="14" height="14" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
           開啟 LINE 送出需求
         </a>
+        <a class="bk-call-btn" href="tel:0988145875">📞 直接來電</a>
       </div>
       <p style="margin-top:14px;font-size:13px;"><a href="#" onclick="resetBookingForm();return false;" style="color:var(--blue);">重新填寫</a></p>
     </div>
@@ -2501,6 +2552,12 @@ function prefillBookingFromQuery() {
     }
     field.value = value;
   });
+  if (params.get('estimate_low') || params.get('estimate_high')) {
+    var note = document.getElementById('bk-note');
+    if (note && note.value) {
+      note.value += '\n試算來源：線上費用試算器';
+    }
+  }
 }
 
 document.addEventListener('click', function(event) {
@@ -2515,6 +2572,23 @@ document.addEventListener('click', function(event) {
   }
   goBooking();
   if (history.replaceState) history.replaceState(null, '', '#booking-section');
+});
+
+document.addEventListener('click', function(event) {
+  var quick = event.target.closest('.bk-quick-btn');
+  if (!quick || !window.jmjTrack) return;
+  var isPhoto = quick.classList.contains('bk-quick-photo');
+  jmjTrack.event('booking_quick_action', {
+    quick_action: isPhoto ? 'line_photo' : 'calculator',
+    cta_text: (quick.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80)
+  });
+  if (isPhoto) {
+    jmjTrack.form({
+      service_type: '照片估價',
+      booking_flow: 'photo_to_line',
+      lead_intent: 'send_photo_quote'
+    });
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -2548,6 +2622,11 @@ function submitBookingForm(event) {
       jmjTrack.line({
         cta_context: 'booking_empty_submit',
         booking_flow: 'direct_line_no_form'
+      });
+      jmjTrack.form({
+        service_type: '未填寫',
+        booking_flow: 'direct_line_no_form',
+        lead_intent: 'empty_submit_to_line'
       });
     }
     window.location.href = lineProfileUrl;
@@ -2588,10 +2667,25 @@ function submitBookingForm(event) {
     });
   }
   var lineUrl = 'https://line.me/R/oaMessage/@117adltu/?' + encodeURIComponent(window._bookingMsg);
+  window._bookingLineUrl = lineUrl;
   var lineBtn = document.querySelector('#bk-confirm .bk-line-btn');
-  if (lineBtn) lineBtn.href = lineUrl;
+  if (lineBtn) {
+    lineBtn.href = lineUrl;
+    lineBtn.onclick = function() {
+      if (window.jmjTrack) {
+        jmjTrack.line({
+          cta_context: 'booking_confirm_button',
+          booking_flow: 'manual_line_open'
+        });
+      }
+    };
+  }
   copyBookingMsg(false).then(function() {
-    window.location.href = lineUrl;
+    var note = document.getElementById('bk-next-note');
+    if (note) note.textContent = '需求內容已複製。即將開啟 LINE，請貼上後送出；若沒有開啟，可按下方綠色按鈕。';
+    window.setTimeout(function() {
+      window.location.href = lineUrl;
+    }, 1100);
   });
 }
 function setCopyDone() {

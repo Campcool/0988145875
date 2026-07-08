@@ -610,6 +610,9 @@ function updateEstimateBookingLink(cfg, size, totalLo, totalHi) {
   var params = new URLSearchParams();
   params.set('service', cfg.label);
   params.set('size', size + '坪');
+  params.set('estimate_low', totalLo);
+  params.set('estimate_high', totalHi);
+  params.set('source', 'calculator');
   params.set('note', '我已使用費用試算器，估算範圍約 ' + formatMoney(totalLo) + ' ~ ' + formatMoney(totalHi) + '，請協助確認正式報價。');
   link.href = '/?' + params.toString() + '#booking-section';
   link.onclick = function() {
