@@ -8,7 +8,10 @@
 window.dataLayer = window.dataLayer || [];
 window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
 gtag('js', new Date());
-gtag('config', 'G-B9402ZZ7EB');
+gtag('config', 'G-B9402ZZ7EB', {
+  page_location: location.origin + location.pathname,
+  page_path: location.pathname
+});
 gtag('config', 'AW-18307009336');
 window.__JMJ_GTAG_STARTED = true;
 window.__JMJ_GA4_CONFIGURED = true;
@@ -72,7 +75,7 @@ body {
   color: #1A2332;
   width: 100%;           /* 不用 max-width: 100vw，避免 scrollbar 計算誤差 */
   padding-top: 56px;
-  padding-bottom: 76px;
+  padding-bottom: calc(76px + env(safe-area-inset-bottom));
   min-height: 100vh;
   position: relative;
 }
@@ -89,6 +92,14 @@ body {
   --accent: #FFB347;
   --sh: 0 4px 20px rgba(26,35,50,0.09);
   --r: 14px;
+  --content: 1120px;
+}
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgba(2,136,209,0.34);
+  outline-offset: 3px;
 }
 
 /* ═══════════════════════════
@@ -105,7 +116,11 @@ body {
   box-shadow: 0 2px 10px rgba(79,195,247,0.09);
   overflow: hidden;
 }
-.tlogo { display: flex; align-items: center; gap: 8px; text-decoration: none; min-width: 0; cursor: pointer; flex-shrink: 1; overflow: hidden; }
+.tlogo {
+  display: flex; align-items: center; gap: 8px; text-decoration: none;
+  min-width: 0; cursor: pointer; flex-shrink: 1; overflow: hidden;
+  border: 0; background: transparent; padding: 0; text-align: left;
+}
 .tlogo-ico {
   width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px;
   overflow: hidden; display: flex; align-items: center; justify-content: center;
@@ -132,6 +147,7 @@ body {
   display: flex; align-items: stretch;
   box-shadow: 0 -3px 20px rgba(26,35,50,0.12);
   overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .bnav-tab {
   flex: 1; display: flex; flex-direction: column;
@@ -277,15 +293,13 @@ body {
 }
 .hero-inner {
   max-width: 460px; margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 104px;
-  gap: 0 12px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
   z-index: 1;
   width: 100%; min-width: 0;
 }
 .hero-content {
-  grid-column: 1; grid-row: 1;
+  order: 1;
   text-align: left;
 }
 .hero-badge {
@@ -296,12 +310,13 @@ body {
 }
 .hero h1 {
   font-family: 'Noto Serif TC', serif;
-  font-size: clamp(17px, 4.8vw, 24px);
-  font-weight: 900; line-height: 1.35; color: var(--ink); margin-bottom: 8px;
+  font-size: clamp(27px, 8vw, 34px);
+  font-weight: 900; line-height: 1.3; color: var(--ink); margin-bottom: 10px;
+  letter-spacing: -0.02em;
 }
 .hero h1 em { color: var(--blue); font-style: normal; border-bottom: 3px solid var(--accent); }
 .hero-sub {
-  font-size: 12.5px; color: var(--mid); line-height: 1.68;
+  font-size: 14px; color: var(--mid); line-height: 1.72;
   margin-bottom: 16px; width: 100%;
 }
 .hero-proof {
@@ -319,17 +334,17 @@ body {
   white-space: nowrap;
 }
 .hero-media {
-  grid-column: 2; grid-row: 1;
-  display: block; margin: 0;
+  order: 2;
+  display: block; margin: 20px 0 0;
 }
 .hero-photo {
-  width: 104px; height: 138px;
-  object-fit: cover; object-position: center 12%;
-  border-radius: 12px;
+  width: 100%; height: 220px;
+  object-fit: cover; object-position: center 18%;
+  border-radius: 16px;
   box-shadow: 0 6px 20px rgba(2,136,209,0.20);
   display: block; margin: 0;
 }
-.hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero-btns { display: grid; grid-template-columns: 1.25fr 1fr; gap: 10px; }
 .hbtn-line {
   background: var(--green); color: white; border: none; border-radius: 28px;
   padding: 13px 18px; font-size: 13px; font-weight: 700;
@@ -337,7 +352,7 @@ body {
   text-decoration: none; white-space: nowrap;
   box-shadow: 0 4px 14px rgba(6,199,85,0.27);
 }
-.hbtn-tel {
+.hbtn-calc {
   background: var(--blue); color: white;
   border: 2px solid var(--blue); border-radius: 28px;
   padding: 13px 18px; font-size: 13px; font-weight: 700;
@@ -346,7 +361,7 @@ body {
   text-decoration: none; white-space: nowrap;
 }
 .hero-stats {
-  grid-column: 1 / -1; grid-row: 2;
+  order: 3;
   display: flex; width: 100%; margin-top: 12px;
   background: white; border-radius: var(--r); overflow: hidden;
   box-shadow: 0 2px 12px rgba(79,195,247,0.10);
@@ -356,7 +371,7 @@ body {
 .stat-n { font-family: 'Noto Serif TC', serif; font-size: clamp(12px, 3.5vw, 15px); font-weight: 900; color: var(--blue); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .stat-l { font-size: clamp(11px, 3vw, 14px); color: var(--soft); margin-top: 2px; }
 .promise-bar {
-  grid-column: 1 / -1; grid-row: 3;
+  order: 4;
   margin-top: 14px; width: 100%;
   background: rgba(6,199,85,0.10);
   border: 1.5px solid rgba(6,199,85,0.40);
@@ -381,8 +396,10 @@ body {
   text-align: center; gap: 6px;
   cursor: pointer; transition: all 0.2s;
   min-height: 140px;
+  font-family: inherit; color: inherit;
 }
 .quick-card:hover { border-color: var(--sky); box-shadow: var(--sh); transform: translateY(-2px); }
+.quick-card-wide { grid-column: 1 / -1; }
 .qcard-ico { font-size: 32px; }
 .qcard-title { font-size: 16px; font-weight: 700; color: var(--ink); }
 .qcard-desc { font-size: 12px; color: var(--soft); line-height: 1.55; }
@@ -883,6 +900,16 @@ footer a { color: var(--sky); text-decoration: none; }
 }
 .bk-row select:focus, .bk-row input:focus, .bk-row textarea:focus { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(79,195,247,0.10); }
 .bk-row textarea { resize: vertical; min-height: 68px; }
+.bk-privacy {
+  margin: 10px 2px 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(2,136,209,0.06);
+  color: var(--mid);
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+.bk-privacy a { color: var(--blue); font-weight: 700; }
 .bk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .bk-quick {
   max-width: 460px; margin: 0 auto 14px;
@@ -959,6 +986,93 @@ footer a { color: var(--sky); text-decoration: none; }
   color: white; cursor: pointer; border: none; border-radius: 20px;
   padding: 7px 12px; font-size: clamp(12px, 3.2vw, 14px); font-weight: 700;
   display: flex; align-items: center; gap: 5px; white-space: nowrap;
+}
+
+@media (max-width: 839px) {
+  .float-group { display: none; }
+}
+
+@media (min-width: 840px) {
+  body {
+    padding-top: 72px;
+    padding-bottom: 0;
+  }
+  .top-bar { height: 72px; }
+  .top-bar-inner {
+    max-width: var(--content);
+    padding: 0 24px;
+  }
+  .tlogo-name { font-size: 19px; }
+  .top-btns a, .tbtn-book { min-height: 44px; padding: 10px 18px; font-size: 14px; }
+  .bottom-nav { display: none; }
+  .float-group { right: 24px; bottom: 24px; }
+  .sec { padding: 72px 24px; }
+  .sh { max-width: 720px; margin-bottom: 32px; }
+  .stitle { font-size: 36px; }
+  .sdesc { font-size: 16px; }
+  .hero { padding: 72px 24px 64px; }
+  .hero-inner {
+    max-width: var(--content);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 470px);
+    grid-template-rows: auto auto auto;
+    column-gap: 64px;
+    align-items: center;
+  }
+  .hero-content { order: initial; grid-column: 1; grid-row: 1; }
+  .hero-badge { font-size: 14px; padding: 6px 14px; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(42px, 4vw, 56px); line-height: 1.2; margin-bottom: 18px; }
+  .hero-sub { font-size: 17px; max-width: 620px; }
+  .hero-proof span { font-size: 13px; padding: 6px 10px; }
+  .hero-media {
+    order: initial;
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    margin: 0;
+  }
+  .hero-photo { height: 520px; border-radius: 24px; }
+  .hero-btns { max-width: 500px; }
+  .hbtn-line, .hbtn-calc { min-height: 52px; font-size: 15px; }
+  .hero-stats { order: initial; grid-column: 1; grid-row: 2; margin-top: 24px; }
+  .stat { padding: 15px 8px; }
+  .stat-n { font-size: 17px; }
+  .stat-l { font-size: 13px; }
+  .promise-bar { order: initial; grid-column: 1; grid-row: 3; font-size: 15px; }
+  .home-case-grid { max-width: 860px !important; gap: 18px !important; }
+  .home-case-grid img { height: 360px !important; }
+  .quick-grid {
+    max-width: var(--content);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .quick-card {
+    min-height: 190px;
+    padding: 24px 18px;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .quick-card-wide { grid-column: auto; }
+  .qcard-ico { font-size: 36px; }
+  .qcard-title { font-size: 18px; }
+  .qcard-desc { font-size: 14px; }
+  .testi-grid, .steps, .mini-faq, .geo-answer-grid {
+    max-width: 980px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .testi-card, .step, .mini-faq-item, .geo-answer { padding: 20px; }
+  .bk-form, .bk-quick, .bk-trust-row, .bk-confirm { max-width: 620px; }
+  .bk-form { padding: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 </style>
 <!-- Structured Data: LocalBusiness + Reviews + Offers -->
@@ -1473,7 +1587,7 @@ footer a { color: var(--sky); text-decoration: none; }
   "url": "https://0988145875.com.tw/",
   "name": "潔美淨清潔社｜基隆・台北・新北 居家・社區・裝潢・店面清潔",
   "description": "潔美淨清潔社，基隆在地合法清潔公司，提供居家、裝潢後、大掃除、退租入住、店面辦公室清潔。估多少收多少，絕不現場加價。",
-  "dateModified": "2026-07-08",
+  "dateModified": "2026-07-30",
   "isPartOf": { "@id": "https://0988145875.com.tw/#website" },
   "about": { "@id": "https://0988145875.com.tw/#business" },
   "inLanguage": "zh-TW",
@@ -1505,13 +1619,13 @@ footer a { color: var(--sky); text-decoration: none; }
 
 <!-- ══ TOP BAR ══ -->
 <header class="top-bar"><div class="top-bar-inner">
-  <div class="tlogo" onclick="showPage('home')">
+  <button class="tlogo" type="button" onclick="showPage('home')" aria-label="回到潔美淨首頁">
     <div class="tlogo-ico"><img src="logo.png" alt="潔美淨清潔社"></div>
     <span class="tlogo-name">潔美淨清潔社</span>
-  </div>
+  </button>
   <div class="top-btns">
-    <button class="tbtn-book" onclick="goBooking()">📝 預約</button>
-    <a class="tbtn-tel" href="tel:0988145875">📞 來電</a>
+    <button class="tbtn-book" onclick="goBooking()">LINE 詢價</button>
+    <a class="tbtn-tel" href="tel:0988145875">來電</a>
   </div></div>
 </header>
 
@@ -1523,20 +1637,20 @@ footer a { color: var(--sky); text-decoration: none; }
   <div class="hero">
     <div class="hero-inner">
       <div class="hero-content">
-        <div class="hero-badge">📍 基隆在地・服務雙北桃園宜蘭</div>
-        <h1>雙北基隆桃園宜蘭<em>清潔公司</em><br>居家清潔・裝潢細清到府</h1>
-        <p class="hero-sub">居家清潔 4 小時 $2,500 起，裝潢細清與大掃除可先傳照片估價。合法立案，可開統一發票，估多少收多少。</p>
+        <div class="hero-badge">基隆在地｜雙北・桃園・宜蘭到府</div>
+        <h1>基隆在地清潔公司<br><em>先報價，做到驗收</em></h1>
+        <p class="hero-sub">居家清潔 4 小時 $2,500 起；裝潢細清、大掃除可先用 LINE 傳照片評估。合法立案、可開統一發票，談好的細項不任意現場加價。</p>
         <div class="hero-proof">
           <span>4小時 $2,500 起</span>
           <span>可開統一發票</span>
-          <span>LINE 快速估價</span>
+          <span>師傅自備工具</span>
         </div>
         <div class="hero-btns">
-          <a class="hbtn-line" href="#booking-section">
+          <a class="hbtn-line" href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%82%B3%E7%85%A7%E7%89%87%E8%AB%AE%E8%A9%A2%E6%B8%85%E6%BD%94%E4%BC%B0%E5%83%B9%E3%80%82" data-line-photo="true">
             <svg width="15" height="15" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
-            線上預約
+            LINE 傳照片估價
           </a>
-          <a class="hbtn-tel" href="tel:0988145875">📞 來電</a>
+          <a class="hbtn-calc" href="calculator.html?utm_source=site&utm_medium=hero&utm_campaign=quote_flow">先試算費用</a>
         </div>
       </div>
       <picture class="hero-media">
@@ -1548,7 +1662,7 @@ footer a { color: var(--sky); text-decoration: none; }
         <div class="stat"><div class="stat-n">Google 4.7★</div><div class="stat-l">好評評分</div></div>
         <div class="stat"><div class="stat-n">不加價</div><div class="stat-l">承諾保證</div></div>
       </div>
-      <div class="promise-bar">🤝 估多少收多少・<strong>即使估錯，我們也做完</strong></div>
+      <div class="promise-bar">估價承諾：<strong>談好的清潔細項，就照約定完成</strong></div>
     </div>
   </div>
 
@@ -1559,7 +1673,7 @@ footer a { color: var(--sky); text-decoration: none; }
       <h2 class="stitle">清潔前後，看得見的差別</h2>
       <p class="sdesc">基隆中正區・浴廁深度清潔實例</p>
     </div>
-    <div style="max-width:460px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <div class="home-case-grid" style="max-width:460px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
       <div style="position:relative;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(26,35,50,.12);">
         <picture>
           <source srcset="home-case01-before.webp" type="image/webp">
@@ -1588,43 +1702,43 @@ footer a { color: var(--sky); text-decoration: none; }
       <p class="sdesc">點選服務了解詳情與報價說明</p>
     </div>
     <div class="quick-grid">
-      <div class="quick-card" onclick="showPage('services')">
+      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看居家清潔服務">
         <div class="qcard-ico">🏠</div>
         <div class="qcard-title">居家清潔</div>
         <div class="qcard-desc">計時制，$2,500 / 4小時，師傅到府</div>
         <div class="qcard-arrow">了解更多 →</div>
       </div>
-      <div class="quick-card" onclick="showPage('services')">
+      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看社區清潔服務">
         <div class="qcard-ico">🏢</div>
         <div class="qcard-title">社區清潔</div>
         <div class="qcard-desc">公共區域、走廊、停車場、大廳</div>
         <div class="qcard-arrow">了解更多 →</div>
       </div>
-      <div class="quick-card" onclick="showPage('services')">
+      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看裝潢後清潔服務">
         <div class="qcard-ico">🏗</div>
         <div class="qcard-title">裝潢後清潔</div>
         <div class="qcard-desc">新成屋、中古屋裝修後細清</div>
         <div class="qcard-arrow">了解更多 →</div>
       </div>
-      <div class="quick-card" onclick="showPage('services')">
+      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看店面與辦公室清潔服務">
         <div class="qcard-ico">🏪</div>
         <div class="qcard-title">店面・辦公室</div>
         <div class="qcard-desc">開幕清潔、定期維護、全室清潔</div>
         <div class="qcard-arrow">了解更多 →</div>
       </div>
-      <div class="quick-card" onclick="showPage('services')">
+      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看收納整理服務">
         <div class="qcard-ico">📦</div>
         <div class="qcard-title">收納整理</div>
         <div class="qcard-desc">空間規劃整理，讓家更好用</div>
         <div class="qcard-arrow">了解更多 →</div>
       </div>
-      <div class="quick-card" onclick="showPage('services')">
+      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看退租與入住清潔服務">
         <div class="qcard-ico">🚪</div>
         <div class="qcard-title">退租・入住</div>
         <div class="qcard-desc">退押金清潔、入住前全室清潔</div>
         <div class="qcard-arrow">了解更多 →</div>
       </div>
-      <div class="quick-card" onclick="showPage('services')" style="grid-column:1/-1;">
+      <div class="quick-card quick-card-wide" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看大掃除服務">
         <div style="display:flex;align-items:center;gap:12px;">
           <div class="qcard-ico" style="flex-shrink:0;">🪟</div>
           <div>
@@ -1678,9 +1792,9 @@ footer a { color: var(--sky); text-decoration: none; }
     </div>
     <p class="testi-more">
       更多顧客評論請見
-      <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank">Google 地圖評論頁 →</a>
+      <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">Google 地圖評論頁 →</a>
       &nbsp;・&nbsp;
-      <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank">幫我們留個評論 ⭐</a>
+      <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">幫我們留個評論 ⭐</a>
     </p>
   </div>
 
@@ -1728,9 +1842,9 @@ footer a { color: var(--sky); text-decoration: none; }
   <!-- 線上預約 -->
   <div class="sec sec-bg-white" id="booking-section">
     <div class="sh">
-      <span class="slabel">線上預約</span>
-      <h2 class="stitle">填寫需求，我們主動聯繫</h2>
-      <p class="sdesc">建議先填寫需求，系統會整理成 LINE 訊息；不想填也可直接送出加入 LINE</p>
+      <span class="slabel">LINE 詢價</span>
+      <h2 class="stitle">整理需求，再到 LINE 確認傳送</h2>
+      <p class="sdesc">填寫後會產生一段詢價訊息並開啟 LINE；送出前仍可自行確認或修改</p>
     </div>
     <div class="bk-quick" aria-label="快速預約入口">
       <a class="bk-quick-btn bk-quick-calc" href="calculator.html?utm_source=site&utm_medium=booking_quick&utm_campaign=booking_flow">
@@ -1750,8 +1864,8 @@ footer a { color: var(--sky); text-decoration: none; }
     <div id="bk-form-wrap">
       <form class="bk-form" onsubmit="submitBookingForm(event)">
         <div class="bk-row">
-          <label>服務類型</label>
-          <select id="bk-service">
+          <label for="bk-service">服務類型</label>
+          <select id="bk-service" autocomplete="off">
             <option value="">請選擇服務項目</option>
             <option>居家清潔（計時制）</option>
             <option>居家清潔（坪數包價）</option>
@@ -1767,35 +1881,36 @@ footer a { color: var(--sky); text-decoration: none; }
         </div>
         <div class="bk-grid">
           <div class="bk-row">
-            <label>地區</label>
-            <input type="text" id="bk-area" placeholder="例：基隆中正區">
+            <label for="bk-area">地區</label>
+            <input type="text" id="bk-area" placeholder="例：基隆中正區" autocomplete="address-level2">
           </div>
           <div class="bk-row">
-            <label>坪數</label>
-            <input type="text" id="bk-size" placeholder="例：30坪">
+            <label for="bk-size">坪數</label>
+            <input type="text" id="bk-size" placeholder="例：30坪" inputmode="decimal" autocomplete="off">
           </div>
         </div>
         <div class="bk-grid">
           <div class="bk-row">
-            <label>姓名</label>
-            <input type="text" id="bk-name" placeholder="您的稱呼">
+            <label for="bk-name">姓名</label>
+            <input type="text" id="bk-name" placeholder="您的稱呼" autocomplete="name">
           </div>
           <div class="bk-row">
-            <label>電話</label>
-            <input type="tel" id="bk-phone" placeholder="0912-345-678">
+            <label for="bk-phone">電話</label>
+            <input type="tel" id="bk-phone" placeholder="0912-345-678" autocomplete="tel" inputmode="tel">
           </div>
         </div>
         <div class="bk-row">
-          <label>偏好服務時間</label>
-          <input type="text" id="bk-time" placeholder="例：週六上午、盡快安排均可">
+          <label for="bk-time">偏好服務時間</label>
+          <input type="text" id="bk-time" placeholder="例：週六上午、盡快安排均可" autocomplete="off">
         </div>
         <div class="bk-row">
-          <label>其他說明</label>
+          <label for="bk-note">其他說明</label>
           <textarea id="bk-note" placeholder="描述現場狀況、特殊需求，可在 LINE 補傳照片⋯"></textarea>
         </div>
+        <p class="bk-privacy">本站不會儲存這些欄位內容；按下按鈕後只會整理文字並開啟 LINE，由您確認後傳送。詳見<a href="privacy.html">隱私權政策</a>。</p>
         <button type="submit" class="bk-submit">
           <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
-          送出預約需求
+          整理需求並開啟 LINE
         </button>
       </form>
     </div>
@@ -1881,7 +1996,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <p>📍 基隆市中正區義一路87號9樓之2<br>
     🗺 服務：基隆・台北・新北・桃園・宜蘭<br>
     📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="#booking-section">LINE 洽詢</a></p>
-    <p>📘 <a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank">Facebook 粉專</a>　📍 <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank">Google 地圖</a></p>
+    <p>📘 <a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank" rel="noopener noreferrer">Facebook 粉專</a>　📍 <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">Google 地圖</a></p>
     <div class="fdiv"></div>
     <p style="font-size:12px;">地區頁面：<a href="keelung.html">基隆清潔</a>　<a href="taipei.html">台北清潔</a>　<a href="new-taipei.html">新北清潔</a>　<a href="taoyuan.html">桃園清潔</a>　<a href="yilan.html">宜蘭清潔</a></p>
     <p style="font-size:12px;"><a href="calculator.html">費用估算器</a>　<a href="privacy.html">隱私權政策</a>　<a href="terms.html">服務條款</a></p>
@@ -1889,7 +2004,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <div class="fdiv"></div>
     <p style="font-size:11.5px;opacity:0.78;line-height:1.8;">基隆服務區域：中正區、信義區、仁愛區、安樂區、暖暖區、七堵區，及鄰近汐止地區，均可到府清潔。</p>
     <p style="font-size:11px;opacity:0.62;line-height:1.85;text-align:left;max-width:460px;margin:6px auto 0;">關於潔美淨清潔社：由負責人梁美玲於 2025 年在基隆市中正區依法設立（統一編號 60214473），提供居家清潔（4 小時 $2,500 起）、裝潢後細清（每坪 $400–$1,000）、大掃除、退租入住清潔、店面與辦公室清潔、社區清潔及收納整理共 7 大服務，服務範圍涵蓋基隆市、台北市、新北市、桃園市與宜蘭縣。Google 評分 4.7 星，師傅自備清潔工具到府，採包工報價，估多少收多少、絕不現場加價，並可開立統一發票。聯絡電話 0988-145-875。</p>
-    <p style="font-size:10.5px;opacity:0.48;margin-top:6px;">網站資料最後更新：2026-07-08</p>
+    <p style="font-size:10.5px;opacity:0.48;margin-top:6px;">網站資料最後更新：2026-07-30</p>
     <div class="fdiv"></div>
     <p style="font-size:10.5px;opacity:0.42;">© 2025-2026 潔美淨清潔社</p>
   </footer>
@@ -2546,14 +2661,14 @@ footer a { color: var(--sky); text-decoration: none; }
         <span class="info-ico">📘</span>
         <div>
           <div class="info-label">Facebook 粉專</div>
-          <div class="info-val"><a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank">追蹤我們的 Facebook</a></div>
+          <div class="info-val"><a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank" rel="noopener noreferrer">追蹤我們的 Facebook</a></div>
         </div>
       </div>
       <div class="info-row">
         <span class="info-ico">📍</span>
         <div>
           <div class="info-label">Google 地圖</div>
-          <div class="info-val"><a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank">查看 Google 評論・導航</a></div>
+          <div class="info-val"><a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">查看 Google 評論・導航</a></div>
         </div>
       </div>
       <div class="info-row">
@@ -2592,7 +2707,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <svg width="22" height="22" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
   </a>
   <a class="fb fb-tel" href="tel:0988145875" aria-label="撥打電話" title="撥打電話">📞</a>
-  <a class="fb fb-map" href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" aria-label="Google 地圖" title="Google 地圖">
+  <a class="fb fb-map" href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer" aria-label="Google 地圖" title="Google 地圖">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2.25c-3.73 0-6.75 3.02-6.75 6.75 0 5.08 6.14 11.97 6.4 12.26a.47.47 0 0 0 .7 0c.26-.29 6.4-7.18 6.4-12.26 0-3.73-3.02-6.75-6.75-6.75Zm0 9.4A2.65 2.65 0 1 1 12 6.35a2.65 2.65 0 0 1 0 5.3Z"/></svg>
   </a>
 </div>
@@ -2677,6 +2792,13 @@ function prefillBookingFromQuery() {
       note.value += '\n試算來源：線上費用試算器';
     }
   }
+  var privateKeys = ['area', 'service', 'size', 'time', 'note', 'estimate_low', 'estimate_high'];
+  var hadPrivateQuery = privateKeys.some(function(key) { return params.has(key); });
+  if (hadPrivateQuery && history.replaceState) {
+    privateKeys.forEach(function(key) { params.delete(key); });
+    var cleanedQuery = params.toString();
+    history.replaceState(null, '', (cleanedQuery ? '?' + cleanedQuery : '/') + (window.location.hash || ''));
+  }
 }
 
 document.addEventListener('click', function(event) {
@@ -2713,14 +2835,34 @@ document.addEventListener('click', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
   prefillBookingFromQuery();
   handleBookingAnchor();
+  document.querySelectorAll('.quick-card, .svc-item').forEach(function(el) {
+    if (el.classList.contains('svc-item')) {
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('aria-expanded', el.classList.contains('open') ? 'true' : 'false');
+      var serviceTitle = el.querySelector('.svc-head-text h3');
+      if (serviceTitle) el.setAttribute('aria-label', '查看' + serviceTitle.textContent.trim() + '服務說明');
+    }
+    el.addEventListener('keydown', function(event) {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+      event.preventDefault();
+      el.click();
+    });
+  });
 });
 window.addEventListener('hashchange', handleBookingAnchor);
 
 // ── Service accordion ──
 function toggleSvc(el) {
   const isOpen = el.classList.contains('open');
-  document.querySelectorAll('.svc-item').forEach(s => s.classList.remove('open'));
-  if (!isOpen) el.classList.add('open');
+  document.querySelectorAll('.svc-item').forEach(function(item) {
+    item.classList.remove('open');
+    item.setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    el.classList.add('open');
+    el.setAttribute('aria-expanded', 'true');
+  }
 }
 
 // ── Booking Form ──
@@ -2778,10 +2920,12 @@ function submitBookingForm(event) {
   if (window.jmjTrack) {
     jmjTrack.form({
       service_type: service,
-      service_area: area,
-      property_size: size,
-      preferred_time: time,
-      has_note: note !== '無',
+      has_area: Boolean(rawArea),
+      has_property_size: Boolean(rawSize),
+      has_name: Boolean(rawName),
+      has_phone: Boolean(rawPhone),
+      has_preferred_time: Boolean(rawTime),
+      has_note: Boolean(rawNote),
       booking_flow: 'form_to_line'
     });
   }

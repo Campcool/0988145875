@@ -116,7 +116,8 @@
     if (gaOn && !window.__JMJ_GA4_CONFIGURED) {
       gtag('config', CFG.GA4_ID, {
         page_title: document.title,
-        page_path: location.pathname + location.search
+        page_location: location.origin + location.pathname,
+        page_path: location.pathname
       });
       window.__JMJ_GA4_CONFIGURED = true;
     }
@@ -174,9 +175,17 @@
     if (!anchor) return;
 
     var href = anchor.getAttribute('href') || '';
+    var safeLinkUrl = href;
+    if (href.indexOf('line.me') !== -1 || href.indexOf('line://') === 0) {
+      safeLinkUrl = 'line';
+    } else if (href.indexOf('tel:') === 0) {
+      safeLinkUrl = 'tel';
+    } else {
+      safeLinkUrl = href.split('?')[0].split('#')[0];
+    }
     var params = {
       link_text: cleanText(anchor.textContent),
-      link_url: href,
+      link_url: safeLinkUrl,
       cta_class: anchor.className ? String(anchor.className).slice(0, 80) : ''
     };
 
