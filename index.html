@@ -291,12 +291,12 @@ select:focus-visible, textarea:focus-visible {
   box-shadow: 0 3px 12px rgba(0,0,0,0.18);
   font-size: 20px;
 }
-.fb-line { background: var(--green); color: white; animation: glo 3s ease-in-out infinite; }
-.fb-tel  { background: white; color: var(--blue); border: 2px solid var(--blue); animation: telPulse 3s ease-in-out infinite 1.5s; }
-@keyframes glo {
-  0%,100% { box-shadow: 0 4px 16px rgba(6,199,85,0.35); transform: scale(1); }
-  48%,52% { box-shadow: 0 4px 28px rgba(6,199,85,0.65), 0 0 0 6px rgba(6,199,85,0.14); transform: scale(1.05); }
+.fb-line {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: transparent; color: inherit; box-shadow: none;
 }
+.fb-line img { display: block; width: 48px; height: 48px; }
+.fb-tel  { background: white; color: var(--blue); border: 2px solid var(--blue); animation: telPulse 3s ease-in-out infinite 1.5s; }
 @keyframes telPulse {
   0%,100% { box-shadow: 0 4px 12px rgba(2,136,209,0.20); transform: scale(1); }
   48%,52% { box-shadow: 0 4px 22px rgba(2,136,209,0.50), 0 0 0 5px rgba(2,136,209,0.11); transform: scale(1.05); }
@@ -701,7 +701,8 @@ select:focus-visible, textarea:focus-visible {
   width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px;
   display: flex; align-items: center; justify-content: center; font-size: 22px;
 }
-.contact-ico.c-line { background: rgba(6,199,85,0.12); }
+.contact-ico.c-line { width: 48px; height: 48px; background: transparent; }
+.contact-ico.c-line img { display: block; width: 40px; height: 40px; }
 .contact-ico.c-tel { background: rgba(2,136,209,0.10); }
 .contact-ico.c-addr { background: rgba(79,195,247,0.10); }
 .contact-text h4 { font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
@@ -1690,7 +1691,6 @@ footer a { color: var(--sky); text-decoration: none; }
         </div>
         <div class="hero-btns">
           <a class="hbtn-line" href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%82%B3%E7%85%A7%E7%89%87%E8%AB%AE%E8%A9%A2%E6%B8%85%E6%BD%94%E4%BC%B0%E5%83%B9%E3%80%82" data-line-photo="true">
-            <svg width="15" height="15" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
             LINE 傳照片估價
           </a>
           <a class="hbtn-calc" href="calculator.html?utm_source=site&utm_medium=hero&utm_campaign=quote_flow">先試算費用</a>
@@ -1952,7 +1952,6 @@ footer a { color: var(--sky); text-decoration: none; }
         </div>
         <p class="bk-privacy">本站不會儲存這些欄位內容；按下按鈕後只會整理文字並開啟 LINE，由您確認後傳送。詳見<a href="privacy.html">隱私權政策</a>。</p>
         <button type="submit" class="bk-submit">
-          <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
           整理需求並開啟 LINE
         </button>
       </form>
@@ -1966,7 +1965,6 @@ footer a { color: var(--sky); text-decoration: none; }
       <div class="bk-actions">
         <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn">📋 複製訊息</button>
         <a class="bk-line-btn" href="#booking-section">
-          <svg width="14" height="14" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
           開啟 LINE 送出需求
         </a>
         <a class="bk-call-btn" href="tel:0988145875">📞 直接來電</a>
@@ -2007,7 +2005,6 @@ footer a { color: var(--sky); text-decoration: none; }
     <p>基隆・台北・新北・桃園・宜蘭 均可服務<br>估多少收多少，絕不現場加價</p>
     <div class="cta-row">
       <a class="cta-line" href="#booking-section">
-        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         LINE 免費諮詢
       </a>
       <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
@@ -2233,7 +2230,6 @@ footer a { color: var(--sky); text-decoration: none; }
     <p>直接 LINE 或電話詢問，我們幫您評估最合適的清潔方案</p>
     <div class="cta-row">
       <a class="cta-line" href="#booking-section">
-        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         LINE 詢問
       </a>
       <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
@@ -2270,7 +2266,6 @@ footer a { color: var(--sky); text-decoration: none; }
     <p>直接傳照片給我們，即可獲得初步報價方向</p>
     <div class="cta-row">
       <a class="cta-line" href="#booking-section">
-        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         LINE 傳照片詢問
       </a>
       <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
@@ -2554,7 +2549,6 @@ footer a { color: var(--sky); text-decoration: none; }
     <p>LINE 傳照片＋說明坪數，即可初步估價</p>
     <div class="cta-row">
       <a class="cta-line" href="#booking-section">
-        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         LINE 傳照片估價
       </a>
       <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
@@ -2581,7 +2575,7 @@ footer a { color: var(--sky); text-decoration: none; }
     <div class="contact-card">
       <div class="contact-row">
         <div class="contact-ico c-line">
-          <svg width="22" height="22" viewBox="0 0 48 48" fill="#06C755"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+          <img src="LINE_Brand_icon.png" alt="" width="40" height="40">
         </div>
         <div class="contact-text">
           <h4>LINE 官方帳號</h4>
@@ -2736,7 +2730,6 @@ footer a { color: var(--sky); text-decoration: none; }
     <p>雙北基隆桃園宜蘭到府服務，免費評估，估多少收多少</p>
     <div class="cta-row">
       <a class="cta-line" href="#booking-section">
-        <svg width="16" height="16" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
         加入 LINE
       </a>
       <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
@@ -2746,8 +2739,8 @@ footer a { color: var(--sky); text-decoration: none; }
 
 <!-- FLOATING BTNS -->
 <div class="float-group">
-  <a class="fb fb-line" href="#booking-section" aria-label="線上預約" title="線上預約">
-    <svg width="22" height="22" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.87 4 21.5c0 5.74 3.17 10.84 8.1 14.12-.35 1.3-1.27 4.74-1.46 5.47-.24.9.33 1.1.69.9.28-.16 4.53-3.08 6.36-4.33A22.7 22.7 0 0 0 24 39c11.05 0 20-7.87 20-17.5S35.05 4 24 4z"/></svg>
+  <a class="fb fb-line" href="#booking-section" aria-label="使用 LINE 詢價" title="使用 LINE 詢價">
+    <img src="LINE_Brand_icon.png" alt="" width="48" height="48">
   </a>
   <a class="fb fb-tel" href="tel:0988145875" aria-label="撥打電話" title="撥打電話">📞</a>
   <a class="fb fb-map" href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer" aria-label="Google 地圖" title="Google 地圖">
