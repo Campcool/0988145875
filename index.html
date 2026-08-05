@@ -914,6 +914,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 /* ═══════════════════════════
    BOOKING FORM
 ═══════════════════════════ */
+#booking-section,
 #booking-form {
   scroll-margin-top: 72px;
 }
@@ -959,18 +960,33 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 .bk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .bk-quick {
   max-width: 460px; margin: 0 auto 14px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  display: grid; grid-template-columns: 1fr; gap: 10px;
 }
 .bk-quick-btn {
-  border-radius: 14px; padding: 13px 12px; text-decoration: none;
+  border-radius: 14px; padding: 14px; min-height: 76px; text-decoration: none;
   display: flex; flex-direction: column; gap: 4px;
   border: 1.5px solid rgba(79,195,247,0.22);
   background: white; box-shadow: 0 4px 16px rgba(26,35,50,0.08);
 }
-.bk-quick-btn strong { font-size: 15px; color: var(--ink); }
+.bk-quick-heading { display: flex; align-items: center; gap: 9px; }
+.bk-quick-heading strong { font-size: 16px; color: var(--ink); }
+.bk-line-icon { display: block; width: 32px; height: auto; flex: 0 0 auto; }
+.bk-quick-badge {
+  margin-left: auto; padding: 3px 8px; border-radius: 999px;
+  background: var(--green); color: white; font-size: 13px; font-weight: 700;
+}
 .bk-quick-btn span { font-size: 13px; color: var(--soft); line-height: 1.55; }
+.bk-quick-btn .bk-quick-badge { color: white; line-height: 1.3; flex-shrink: 0; }
 .bk-quick-calc { border-color: rgba(2,136,209,0.26); }
-.bk-quick-photo { border-color: rgba(6,199,85,0.28); }
+.bk-quick-photo { border: 2px solid rgba(4,122,54,0.42); background: #F3FCF6; }
+.bk-form-divider {
+  max-width: 460px; margin: 18px auto 12px;
+  display: flex; align-items: center; gap: 12px;
+  color: var(--mid); font-size: 14px; font-weight: 700;
+}
+.bk-form-divider::before, .bk-form-divider::after {
+  content: ''; height: 1px; flex: 1; background: rgba(79,195,247,0.28);
+}
 .bk-trust-row {
   max-width: 460px; margin: 0 auto 12px;
   display: grid; grid-template-columns: repeat(3,1fr); gap: 8px;
@@ -1113,9 +1129,10 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     gap: 16px;
   }
   .testi-card, .step, .mini-faq-item, .geo-answer { padding: 20px; }
-  .bk-form, .bk-quick, .bk-trust-row, .bk-confirm { max-width: 620px; }
+  .bk-form, .bk-quick, .bk-trust-row, .bk-form-divider, .bk-confirm { max-width: 620px; }
+  .bk-quick { grid-template-columns: 1.1fr 1fr; }
   .bk-form { padding: 28px; }
-  #booking-form { scroll-margin-top: 88px; }
+  #booking-section, #booking-form { scroll-margin-top: 88px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1898,20 +1915,24 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   </div>
 
   <!-- 線上預約 -->
-  <div class="sec sec-bg-white" id="booking-section">
+  <div class="sec sec-bg-white" id="booking-section" aria-labelledby="booking-action-title">
     <div class="sh">
       <span class="slabel">LINE 詢價</span>
-      <h2 class="stitle">整理需求，再到 LINE 確認傳送</h2>
-      <p class="sdesc">填寫後會產生一段詢價訊息並開啟 LINE；送出前仍可自行確認或修改</p>
+      <h2 class="stitle" id="booking-action-title" tabindex="-1">先傳照片，最快取得初步估價</h2>
+      <p class="sdesc">直接開啟 LINE 傳現場照片，也可以先試算費用或填寫完整需求</p>
     </div>
     <div class="bk-quick" aria-label="快速預約入口">
-      <a class="bk-quick-btn bk-quick-calc" href="calculator.html?utm_source=site&utm_medium=booking_quick&utm_campaign=booking_flow">
-        <strong>🧮 先試算估價</strong>
-        <span>套用服務與坪數，帶回表單後送出 LINE</span>
-      </a>
       <a class="bk-quick-btn bk-quick-photo" href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%82%B3%E7%85%A7%E7%89%87%E8%AB%AE%E8%A9%A2%E6%B8%85%E6%BD%94%E4%BC%B0%E5%83%B9%E3%80%82" data-line-photo="true">
-        <strong>📷 傳照片估價</strong>
-        <span>直接開 LINE，拍照傳給師傅評估</span>
+        <span class="bk-quick-heading">
+          <img class="bk-line-icon" src="LINE_Brand_icon.png" alt="" width="1001" height="1000">
+          <strong>直接傳照片估價</strong>
+          <span class="bk-quick-badge">最快</span>
+        </span>
+        <span>開啟 LINE，把現場照片傳給師傅初步評估</span>
+      </a>
+      <a class="bk-quick-btn bk-quick-calc" href="calculator.html?utm_source=site&utm_medium=booking_quick&utm_campaign=booking_flow">
+        <span class="bk-quick-heading"><strong>🧮 先試算費用</strong></span>
+        <span>套用服務與坪數，試算後可帶回完整表單</span>
       </a>
     </div>
     <div class="bk-trust-row" aria-label="服務保障">
@@ -1919,6 +1940,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <span>可開發票</span>
       <span>不亂加價</span>
     </div>
+    <div class="bk-form-divider" aria-hidden="true"><span>或填寫完整需求</span></div>
     <div id="bk-form-wrap">
       <form class="bk-form" id="booking-form" tabindex="-1" aria-labelledby="booking-form-title" onsubmit="submitBookingForm(event)">
         <h3 class="bk-form-title" id="booking-form-title">填寫預約需求</h3>
@@ -2771,7 +2793,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   <button class="bnav-tab" data-page="services" onclick="showPage('services')"><span class="bi" aria-hidden="true">🧹</span>服務</button>
   <button class="bnav-tab" data-page="pricing" onclick="showPage('pricing')"><span class="bi" aria-hidden="true">💰</span>收費</button>
   <button class="bnav-tab" data-page="cases" onclick="showPage('cases')"><span class="bi" aria-hidden="true">📋</span>案例</button>
-  <button class="bnav-tab bnav-book" data-page="booking" aria-controls="booking-form" onclick="goBooking()" style="color:var(--green);"><span class="bi" aria-hidden="true">💬</span>預約</button>
+  <button class="bnav-tab bnav-book" data-page="booking" aria-controls="booking-section" onclick="goBooking()" style="color:var(--green);"><span class="bi" aria-hidden="true">💬</span>預約</button>
 </nav>
 
 <script>
@@ -2862,7 +2884,7 @@ function showPage(id, moveFocus = true, resetScroll = true) {
   }
 }
 
-function goBooking() {
+function goBooking(targetId = 'booking-section') {
   showPage('home', false, false);
   document.querySelectorAll('.bnav-tab, .dnav-btn').forEach(t => {
     t.classList.remove('active');
@@ -2874,19 +2896,20 @@ function goBooking() {
     bookTab.setAttribute('aria-current', 'location');
   }
   setTimeout(function() {
-    var form = document.getElementById('booking-form');
-    var fallback = document.getElementById('booking-section');
-    var target = form || fallback;
+    var target = document.getElementById(targetId) || document.getElementById('booking-section');
     if (target) {
       target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
-      target.focus({ preventScroll: true });
+      var focusTarget = target.id === 'booking-form' ? target : target.querySelector('h2, h3');
+      if (focusTarget) focusTarget.focus({ preventScroll: true });
     }
   }, 120);
 }
 
 function handleBookingAnchor() {
-  if (window.location.hash === '#booking-section' || window.location.hash === '#booking-form') {
-    goBooking();
+  if (window.location.hash === '#booking-section') {
+    goBooking('booking-section');
+  } else if (window.location.hash === '#booking-form') {
+    goBooking('booking-form');
   }
 }
 
@@ -2933,8 +2956,9 @@ document.addEventListener('click', function(event) {
       cta_class: link.className ? String(link.className).slice(0, 80) : ''
     });
   }
-  goBooking();
-  if (history.replaceState) history.replaceState(null, '', '#booking-form');
+  var targetId = link.getAttribute('href') === '#booking-form' ? 'booking-form' : 'booking-section';
+  goBooking(targetId);
+  if (history.replaceState) history.replaceState(null, '', '#' + targetId);
 });
 
 document.addEventListener('click', function(event) {
