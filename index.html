@@ -41,7 +41,7 @@ window.__JMJ_ADS_CONFIGURED = true;
 <meta name="twitter:description" content="基隆在地，服務基隆・台北・新北・桃園・宜蘭。估多少收多少，不加價。電話 0988-145-875">
 <meta name="twitter:image" content="https://0988145875.com.tw/og-image.jpg">
 <!-- Mobile + GEO meta -->
-<meta name="theme-color" content="#0288D1">
+<meta name="theme-color" content="#0369A1">
 <meta name="robots" content="index,follow">
 <meta name="geo.region" content="TW-KEE">
 <meta name="geo.placename" content="基隆市">
@@ -81,14 +81,17 @@ body {
 }
 :root {
   --sky: #4FC3F7;
-  --blue: #0288D1;
+  --blue: #0369A1;
+  --blue-hover: #075985;
   --mint: #80CBC4;
   --cream: #FAFAF7;
   --warm: #FFF8F0;
   --ink: #1A2332;
   --mid: #4A5568;
-  --soft: #718096;
-  --green: #06C755;
+  --soft: #52606D;
+  --green: #047A36;
+  --green-hover: #035C29;
+  --focus: #B45309;
   --accent: #FFB347;
   --sh: 0 4px 20px rgba(26,35,50,0.09);
   --r: 14px;
@@ -98,7 +101,7 @@ button, input, select, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible, [role="button"]:focus-visible, input:focus-visible,
 select:focus-visible, textarea:focus-visible {
-  outline: 3px solid rgba(2,136,209,0.34);
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
 }
 
@@ -119,7 +122,7 @@ select:focus-visible, textarea:focus-visible {
 .tlogo {
   display: flex; align-items: center; gap: 8px; text-decoration: none;
   min-width: 0; cursor: pointer; flex-shrink: 1; overflow: hidden;
-  border: 0; background: transparent; padding: 0; text-align: left;
+  border: 0; background: transparent; padding: 5px 0; min-height: 44px; text-align: left;
 }
 .tlogo-ico {
   width: 34px; height: 34px; flex-shrink: 0; border-radius: 10px;
@@ -132,9 +135,17 @@ select:focus-visible, textarea:focus-visible {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .top-btns { display: flex; gap: 7px; flex-shrink: 0; }
-.top-btns a { display: flex; align-items: center; gap: 5px; padding: 9px 14px; min-height: 40px; border-radius: 20px; font-size: clamp(12px, 3.2vw, 14px); font-weight: 700; text-decoration: none; white-space: nowrap; }
+.desktop-nav { display: none; }
+.dnav-btn {
+  min-height: 44px; padding: 8px 11px; border: 0; border-radius: 10px;
+  background: transparent; color: var(--mid); font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: color 0.18s, background-color 0.18s;
+}
+.dnav-btn:hover { color: var(--blue); background: rgba(79,195,247,0.10); }
+.dnav-btn.active { color: var(--blue); background: rgba(79,195,247,0.14); }
+.top-btns a { display: flex; align-items: center; gap: 5px; padding: 9px 14px; min-height: 44px; border-radius: 22px; font-size: clamp(13px, 3.2vw, 14px); font-weight: 700; text-decoration: none; white-space: nowrap; }
 .tbtn-line { background: var(--green); color: white; }
-.tbtn-tel { background: white; color: #0288D1; border: 1.5px solid #4FC3F7; white-space: nowrap; font-weight: 700; border-radius: 20px; }
+.tbtn-tel { background: white; color: var(--blue); border: 1.5px solid var(--blue); white-space: nowrap; font-weight: 700; border-radius: 22px; }
 
 /* ═══════════════════════════
    BOTTOM NAV
@@ -152,9 +163,9 @@ select:focus-visible, textarea:focus-visible {
 .bnav-tab {
   flex: 1; display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 2px;
-  color: #B0BEC5;
-  font-size: clamp(10px, 2.8vw, 13px); font-weight: 700;
-  transition: all 0.20s ease;
+  color: #52606D;
+  font-size: 13px; font-weight: 700;
+  transition: color 0.20s ease, background-color 0.20s ease, box-shadow 0.20s ease, transform 0.20s ease;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer; border: none;
   background: transparent;
@@ -167,7 +178,7 @@ select:focus-visible, textarea:focus-visible {
 .bnav-tab .bi { font-size: clamp(20px, 5.5vw, 24px); line-height: 1; }
 .bnav-tab:active { opacity: 0.7; transform: scale(0.94); }
 .bnav-tab.active {
-  color: #0288D1;
+  color: var(--blue);
   background: rgba(79,195,247,0.14);
   box-shadow: inset 0 0 0 1.5px rgba(79,195,247,0.40);
 }
@@ -197,7 +208,7 @@ select:focus-visible, textarea:focus-visible {
 .slabel {
   display: inline-block;
   background: linear-gradient(90deg, var(--sky), var(--mint));
-  color: white; padding: 3px 12px; border-radius: 10px;
+  color: #0F3D3A; padding: 4px 12px; border-radius: 10px;
   font-size: 13px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 9px;
 }
 .stitle {
@@ -212,22 +223,22 @@ select:focus-visible, textarea:focus-visible {
 .car-track { display: flex; gap: 12px; transition: transform 0.36s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
 .car-ctrl { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 15px; }
 .cbtn {
-  width: 33px; height: 33px; border-radius: 50%;
+  width: 44px; height: 44px; border-radius: 50%;
   border: 2px solid var(--sky); background: white;
   color: var(--blue); font-size: 13px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
-.cbtn:hover { background: var(--sky); color: white; }
+.cbtn:hover { background: var(--sky); color: #0F3D3A; }
 .cdots { display: flex; gap: 5px; }
 .cdot {
   width: 7px; height: 7px; border-radius: 50%;
-  background: rgba(79,195,247,0.26); cursor: pointer; transition: all 0.2s;
+  background: rgba(79,195,247,0.26); cursor: pointer; transition: background-color 0.2s, width 0.2s;
 }
 .cdot.on { background: var(--blue); width: 17px; border-radius: 4px; }
 
 /* CTA bar shared */
 .cta-bar {
-  background: linear-gradient(135deg, #0288D1, #00796B);
+  background: linear-gradient(135deg, var(--blue-hover), #065F46);
   padding: 32px 18px; text-align: center;
   overflow: hidden; width: 100%;
 }
@@ -236,20 +247,20 @@ select:focus-visible, textarea:focus-visible {
   font-size: clamp(15px, 4.5vw, 18px); font-weight: 900; color: white; margin-bottom: 8px;
   word-break: break-word;
 }
-.cta-bar p { color: rgba(255,255,255,0.82); font-size: clamp(12px, 3.5vw, 14px); line-height: 1.7; margin-bottom: 18px; word-break: break-word; }
+.cta-bar p { color: rgba(255,255,255,0.92); font-size: clamp(13px, 3.5vw, 14px); line-height: 1.7; margin-bottom: 18px; word-break: break-word; }
 .cta-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 .cta-line {
   background: var(--green); color: white; border: none; border-radius: 28px;
-  padding: 12px 20px; font-size: clamp(12px, 3.5vw, 14px); font-weight: 700;
+  padding: 12px 20px; min-height: 48px; font-size: clamp(13px, 3.5vw, 14px); font-weight: 700;
   display: flex; align-items: center; gap: 6px; text-decoration: none;
-  box-shadow: 0 4px 14px rgba(6,199,85,0.34); transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(4,122,54,0.28); transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 .cta-line:hover { transform: translateY(-2px); }
 .cta-tel {
   background: rgba(255,255,255,0.16); color: white;
   border: 2px solid rgba(255,255,255,0.46); border-radius: 28px;
-  padding: 10px 16px; font-size: clamp(12px, 3.5vw, 14px); font-weight: 700;
-  display: flex; align-items: center; gap: 6px; text-decoration: none; transition: all 0.2s;
+  padding: 10px 16px; min-height: 48px; font-size: clamp(13px, 3.5vw, 14px); font-weight: 700;
+  display: flex; align-items: center; gap: 6px; text-decoration: none; transition: background-color 0.2s, border-color 0.2s;
 }
 .cta-tel:hover { background: rgba(255,255,255,0.24); }
 
@@ -265,8 +276,8 @@ select:focus-visible, textarea:focus-visible {
   box-shadow: 0 3px 12px rgba(0,0,0,0.18);
   font-size: 20px;
 }
-.fb-line { background: #06C755; color: white; animation: glo 3s ease-in-out infinite; }
-.fb-tel  { background: white; color: #0288D1; border: 2px solid #4FC3F7; animation: telPulse 3s ease-in-out infinite 1.5s; }
+.fb-line { background: var(--green); color: white; animation: glo 3s ease-in-out infinite; }
+.fb-tel  { background: white; color: var(--blue); border: 2px solid var(--blue); animation: telPulse 3s ease-in-out infinite 1.5s; }
 @keyframes glo {
   0%,100% { box-shadow: 0 4px 16px rgba(6,199,85,0.35); transform: scale(1); }
   48%,52% { box-shadow: 0 4px 28px rgba(6,199,85,0.65), 0 0 0 6px rgba(6,199,85,0.14); transform: scale(1.05); }
@@ -305,7 +316,7 @@ select:focus-visible, textarea:focus-visible {
 .hero-badge {
   background: rgba(79,195,247,0.13); border: 1px solid rgba(79,195,247,0.34);
   color: var(--blue); padding: 4px 12px; border-radius: 20px;
-  font-size: 12px; font-weight: 700; margin-bottom: 10px;
+  font-size: 13px; font-weight: 700; margin-bottom: 10px;
   display: inline-block; max-width: 100%;
 }
 .hero h1 {
@@ -328,7 +339,7 @@ select:focus-visible, textarea:focus-visible {
   border: 1px solid rgba(79,195,247,0.22);
   border-radius: 999px;
   color: var(--ink);
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 700;
   padding: 4px 8px;
   white-space: nowrap;
@@ -347,7 +358,7 @@ select:focus-visible, textarea:focus-visible {
 .hero-btns { display: grid; grid-template-columns: 1.25fr 1fr; gap: 10px; }
 .hbtn-line {
   background: var(--green); color: white; border: none; border-radius: 28px;
-  padding: 13px 18px; font-size: 13px; font-weight: 700;
+  padding: 13px 18px; min-height: 50px; font-size: 14px; font-weight: 700;
   display: flex; align-items: center; justify-content: center; gap: 6px;
   text-decoration: none; white-space: nowrap;
   box-shadow: 0 4px 14px rgba(6,199,85,0.27);
@@ -355,7 +366,7 @@ select:focus-visible, textarea:focus-visible {
 .hbtn-calc {
   background: var(--blue); color: white;
   border: 2px solid var(--blue); border-radius: 28px;
-  padding: 13px 18px; font-size: 13px; font-weight: 700;
+  padding: 13px 18px; min-height: 50px; font-size: 14px; font-weight: 700;
   box-shadow: 0 4px 14px rgba(2,136,209,0.25);
   display: flex; align-items: center; justify-content: center; gap: 6px;
   text-decoration: none; white-space: nowrap;
@@ -368,15 +379,15 @@ select:focus-visible, textarea:focus-visible {
 }
 .stat { flex: 1; text-align: center; padding: 11px 4px; border-right: 1px solid rgba(79,195,247,0.12); min-width: 0; }
 .stat:last-child { border-right: none; }
-.stat-n { font-family: 'Noto Serif TC', serif; font-size: clamp(12px, 3.5vw, 15px); font-weight: 900; color: var(--blue); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.stat-l { font-size: clamp(11px, 3vw, 14px); color: var(--soft); margin-top: 2px; }
+.stat-n { font-family: 'Noto Serif TC', serif; font-size: clamp(13px, 3.5vw, 15px); font-weight: 900; color: var(--blue); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stat-l { font-size: clamp(12px, 3vw, 14px); color: var(--soft); margin-top: 2px; }
 .promise-bar {
   order: 4;
   margin-top: 14px; width: 100%;
   background: rgba(6,199,85,0.10);
   border: 1.5px solid rgba(6,199,85,0.40);
   border-radius: 10px;
-  color: #059669;
+  color: var(--green);
   font-size: clamp(13px, 3.5vw, 15px);
   padding: 10px 14px;
   text-align: center;
@@ -394,7 +405,7 @@ select:focus-visible, textarea:focus-visible {
   border-radius: var(--r); padding: 16px 12px;
   display: flex; flex-direction: column; align-items: center;
   text-align: center; gap: 6px;
-  cursor: pointer; transition: all 0.2s;
+  cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
   min-height: 140px;
   font-family: inherit; color: inherit;
 }
@@ -402,8 +413,8 @@ select:focus-visible, textarea:focus-visible {
 .quick-card-wide { grid-column: 1 / -1; }
 .qcard-ico { font-size: 32px; }
 .qcard-title { font-size: 16px; font-weight: 700; color: var(--ink); }
-.qcard-desc { font-size: 12px; color: var(--soft); line-height: 1.55; }
-.qcard-arrow { font-size: 12px; color: var(--blue); font-weight: 700; margin-top: auto; }
+.qcard-desc { font-size: 14px; color: var(--soft); line-height: 1.6; }
+.qcard-arrow { font-size: 13px; color: var(--blue); font-weight: 700; margin-top: auto; }
 
 /* Steps on home */
 .steps { display: flex; flex-direction: column; gap: 11px; max-width: 460px; margin: 0 auto; }
@@ -485,7 +496,7 @@ select:focus-visible, textarea:focus-visible {
 .svc-item {
   background: white; border-radius: var(--r);
   border: 1.5px solid rgba(79,195,247,0.16);
-  overflow: hidden; transition: all 0.22s;
+  overflow: hidden; transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
 }
 .svc-item:hover { box-shadow: var(--sh); transform: translateY(-2px); }
 .svc-head {
@@ -551,7 +562,7 @@ select:focus-visible, textarea:focus-visible {
 .price-cards { display: flex; flex-direction: column; gap: 14px; max-width: 460px; margin: 0 auto; }
 .pc {
   background: white; border-radius: var(--r); padding: 18px 16px;
-  border: 1.5px solid rgba(79,195,247,0.17); transition: all 0.2s;
+  border: 1.5px solid rgba(79,195,247,0.17); transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
 }
 .pc.feat { border-color: var(--sky); background: linear-gradient(135deg, #E0F7FA 0%, white 60%); }
 .pc:hover { box-shadow: var(--sh); transform: translateY(-2px); }
@@ -580,7 +591,7 @@ select:focus-visible, textarea:focus-visible {
   background: rgba(6,199,85,0.07); border: 1.5px solid rgba(6,199,85,0.22);
   border-radius: var(--r); padding: 16px;
 }
-.promise-box h4 { font-size: 14px; font-weight: 700; color: #059669; margin-bottom: 8px; }
+.promise-box h4 { font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 8px; }
 .promise-box p { font-size: 14px; color: var(--mid); line-height: 1.72; }
 .faq-list { display: flex; flex-direction: column; gap: 11px; max-width: 460px; margin: 0 auto; }
 .faq-item { background: var(--warm); border-radius: var(--r); padding: 15px; border: 1.5px solid rgba(255,179,71,0.17); }
@@ -657,7 +668,7 @@ select:focus-visible, textarea:focus-visible {
   background: white; border: 1.5px solid rgba(79,195,247,0.20);
   border-radius: 10px; padding: 10px 8px; text-align: center;
   font-size: 14px; font-weight: 700; color: var(--ink);
-  transition: all 0.2s; cursor: default;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: default;
 }
 .area-tag:hover { transform: translateY(-3px); box-shadow: var(--sh); border-color: var(--sky); }
 .area-tag span { display: block; font-size: 18px; margin-bottom: 4px; }
@@ -683,7 +694,7 @@ select:focus-visible, textarea:focus-visible {
 .contact-text a {
   display: inline-block; margin-top: 6px;
   background: var(--green); color: white;
-  padding: 7px 16px; border-radius: 20px;
+  padding: 10px 16px; min-height: 44px; border-radius: 22px;
   font-size: 14px; font-weight: 700; text-decoration: none;
 }
 .contact-text a.tel-btn { background: var(--blue); }
@@ -711,14 +722,14 @@ footer a { color: var(--sky); text-decoration: none; }
 }
 .ptab thead tr { background: linear-gradient(90deg, var(--blue), #0277BD); }
 .ptab thead th {
-  color: white; padding: 10px 8px; font-size: clamp(11px, 3vw, 13px); font-weight: 700;
+  color: white; padding: 10px 8px; font-size: clamp(13px, 3vw, 14px); font-weight: 700;
   text-align: center; white-space: nowrap;
 }
 .ptab thead th:first-child { text-align: left; padding-left: 12px; }
 .ptab tbody tr { border-bottom: 1px solid rgba(79,195,247,0.10); transition: background 0.15s; }
 .ptab tbody tr:hover { background: rgba(79,195,247,0.05); }
 .ptab tbody tr:last-child { border-bottom: none; }
-.ptab td { padding: 9px 6px; text-align: center; color: var(--mid); font-size: clamp(12px, 3.2vw, 14px); }
+.ptab td { padding: 10px 6px; text-align: center; color: var(--mid); font-size: clamp(13px, 3.2vw, 14px); }
 .ptab td:first-child {
   font-weight: 700; color: var(--ink); text-align: left; padding-left: 12px;
   background: rgba(79,195,247,0.04);
@@ -731,9 +742,9 @@ footer a { color: var(--sky); text-decoration: none; }
   background: rgba(79,195,247,0.08); border-radius: 10px; padding: 4px; gap: 4px;
 }
 .tab-sw-btn {
-  flex: 1; padding: 8px 6px; border-radius: 8px; border: none;
+  flex: 1; padding: 10px 6px; min-height: 44px; border-radius: 8px; border: none;
   font-size: 14px; font-weight: 700; cursor: pointer;
-  color: var(--soft); background: none; transition: all 0.18s; text-align: center;
+  color: var(--soft); background: none; transition: color 0.18s, background-color 0.18s, box-shadow 0.18s; text-align: center;
 }
 .tab-sw-btn.on { background: white; color: var(--blue); box-shadow: 0 2px 8px rgba(79,195,247,0.15); }
 .ptab-note {
@@ -758,9 +769,9 @@ footer a { color: var(--sky); text-decoration: none; }
   border-bottom: 2px solid rgba(79,195,247,0.15);
 }
 .ptype-tab {
-  flex: 1; padding: 10px 4px; border: none; background: none;
-  font-size: clamp(11px, 3vw, 13px); font-weight: 700; color: var(--soft); cursor: pointer;
-  border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.18s;
+  flex: 1; padding: 10px 4px; min-height: 48px; border: none; background: none;
+  font-size: clamp(13px, 3vw, 14px); font-weight: 700; color: var(--soft); cursor: pointer;
+  border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color 0.18s, border-color 0.18s, background-color 0.18s;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0;
 }
 .ptype-tab.on { color: var(--blue); border-bottom-color: var(--blue); }
@@ -771,12 +782,12 @@ footer a { color: var(--sky); text-decoration: none; }
    RESPONSIVE
 ═══════════════════════════ */
 @media (max-width: 359px) {
-  .tlogo-name { font-size: 12px; }
-  .top-btns a { padding: 6px 8px; font-size: 11px; }
+  .tlogo-name { font-size: 13px; }
+  .top-btns a { padding: 6px 8px; font-size: 13px; }
   .quick-grid { grid-template-columns: 1fr; }
   .promise-grid { grid-template-columns: 1fr; }
   .area-grid { grid-template-columns: repeat(2, 1fr); }
-  .ptype-tab { font-size: 10px; padding: 10px 2px; }
+  .ptype-tab { font-size: 13px; padding: 10px 2px; }
 }
 
 .fb-map { background: #1A73E8; color: white; }
@@ -803,6 +814,10 @@ footer a { color: var(--sky); text-decoration: none; }
   user-select: none; -webkit-user-select: none;
   touch-action: pan-y;
 }
+.photo-compare:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
 .photo-before,
 .photo-after {
   position: absolute; top: 0; left: 0;
@@ -823,9 +838,9 @@ footer a { color: var(--sky); text-decoration: none; }
 .compare-handle {
   position: absolute; top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 38px; height: 38px; border-radius: 50%;
+  width: 44px; height: 44px; border-radius: 50%;
   background: white; color: var(--blue);
-  font-size: 12px; font-weight: 900;
+  font-size: 13px; font-weight: 900;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 2px 10px rgba(0,0,0,0.22);
   pointer-events: none;
@@ -833,9 +848,9 @@ footer a { color: var(--sky); text-decoration: none; }
 .label-before,
 .label-after {
   position: absolute; bottom: 10px;
-  background: rgba(0,0,0,0.52); color: white;
+  background: rgba(0,0,0,0.76); color: white;
   padding: 2px 9px; border-radius: 6px;
-  font-size: 12px; font-weight: 700; pointer-events: none;
+  font-size: 13px; font-weight: 700; pointer-events: none;
 }
 .label-before { left: 10px; }
 .label-after  { right: 10px; }
@@ -845,7 +860,7 @@ footer a { color: var(--sky); text-decoration: none; }
 .case-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
 .case-tags span {
   background: rgba(79,195,247,0.11); color: var(--blue);
-  padding: 2px 9px; border-radius: 7px; font-size: 12px; font-weight: 700;
+  padding: 3px 9px; border-radius: 7px; font-size: 13px; font-weight: 700;
 }
 
 /* ═══════════════════════════
@@ -867,11 +882,11 @@ footer a { color: var(--sky); text-decoration: none; }
   width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
   background: linear-gradient(135deg, var(--sky), var(--mint));
   display: flex; align-items: center; justify-content: center;
-  font-size: 15px; color: white; font-weight: 900;
+  font-size: 15px; color: var(--ink); font-weight: 900;
 }
 .testi-name { font-size: 13px; font-weight: 700; color: var(--ink); }
-.testi-date { font-size: 12px; color: var(--soft); }
-.testi-source { margin-left: auto; font-size: 11px; color: var(--soft); display: flex; align-items: center; gap: 3px; }
+.testi-date { font-size: 13px; color: var(--soft); }
+.testi-source { margin-left: auto; font-size: 13px; color: var(--soft); display: flex; align-items: center; gap: 3px; }
 .testi-more {
   max-width: 460px; margin: 12px auto 0; text-align: center;
   font-size: 13px; color: var(--soft);
@@ -892,6 +907,7 @@ footer a { color: var(--sky); text-decoration: none; }
 .bk-row label span { color: #E53E3E; margin-left: 2px; }
 .bk-row select, .bk-row input, .bk-row textarea {
   width: 100%; padding: 10px 12px;
+  min-height: 48px;
   border: 1.5px solid rgba(79,195,247,0.28);
   border-radius: 10px; font-size: 14px;
   font-family: 'Noto Sans TC', sans-serif;
@@ -906,7 +922,7 @@ footer a { color: var(--sky); text-decoration: none; }
   border-radius: 10px;
   background: rgba(2,136,209,0.06);
   color: var(--mid);
-  font-size: 12.5px;
+  font-size: 14px;
   line-height: 1.65;
 }
 .bk-privacy a { color: var(--blue); font-weight: 700; }
@@ -922,7 +938,7 @@ footer a { color: var(--sky); text-decoration: none; }
   background: white; box-shadow: 0 4px 16px rgba(26,35,50,0.08);
 }
 .bk-quick-btn strong { font-size: 15px; color: var(--ink); }
-.bk-quick-btn span { font-size: 12px; color: var(--soft); line-height: 1.45; }
+.bk-quick-btn span { font-size: 13px; color: var(--soft); line-height: 1.55; }
 .bk-quick-calc { border-color: rgba(2,136,209,0.26); }
 .bk-quick-photo { border-color: rgba(6,199,85,0.28); }
 .bk-trust-row {
@@ -932,12 +948,12 @@ footer a { color: var(--sky); text-decoration: none; }
 .bk-trust-row span {
   background: #F7FBFD; border: 1px solid rgba(79,195,247,0.18);
   border-radius: 10px; padding: 8px 6px; text-align: center;
-  font-size: 12px; font-weight: 700; color: var(--mid);
+  font-size: 13px; font-weight: 700; color: var(--mid);
 }
 .bk-submit {
   width: 100%; background: var(--green); color: white; border: none;
   border-radius: 28px; padding: 14px; font-size: 15px; font-weight: 700;
-  cursor: pointer; transition: all 0.2s;
+  min-height: 50px; cursor: pointer; transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
   display: flex; align-items: center; justify-content: center; gap: 7px;
   box-shadow: 0 4px 14px rgba(6,199,85,0.27);
 }
@@ -948,7 +964,7 @@ footer a { color: var(--sky); text-decoration: none; }
   border-radius: var(--r); padding: 20px 16px;
   max-width: 460px; margin: 0 auto; text-align: center;
 }
-.bk-confirm h4 { font-size: 16px; font-weight: 700; color: #059669; margin-bottom: 8px; }
+.bk-confirm h4 { font-size: 16px; font-weight: 700; color: var(--green); margin-bottom: 8px; }
 .bk-confirm p { font-size: 14px; color: var(--mid); margin-bottom: 12px; line-height: 1.65; }
 .bk-next-note {
   background: #fff; border-radius: 10px; padding: 10px 12px;
@@ -964,27 +980,27 @@ footer a { color: var(--sky); text-decoration: none; }
 .bk-copy {
   padding: 10px 18px; border-radius: 24px;
   background: white; border: 2px solid var(--sky); color: var(--blue);
-  font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.18s;
+  min-height: 44px; font-size: 14px; font-weight: 700; cursor: pointer; transition: color 0.18s, background-color 0.18s, border-color 0.18s;
 }
-.bk-copy:hover { background: var(--sky); color: white; }
+.bk-copy:hover { background: var(--sky); color: #0F3D3A; }
 .bk-line-btn {
   padding: 10px 18px; border-radius: 24px;
   background: var(--green); color: white; border: none;
   font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;
-  display: inline-flex; align-items: center; gap: 5px; transition: all 0.18s;
+  min-height: 44px; display: inline-flex; align-items: center; gap: 5px; transition: color 0.18s, background-color 0.18s, box-shadow 0.18s;
 }
 .bk-call-btn {
   padding: 10px 18px; border-radius: 24px;
   background: white; color: var(--blue); border: 2px solid rgba(79,195,247,0.45);
   font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none;
-  display: inline-flex; align-items: center; gap: 5px; transition: all 0.18s;
+  min-height: 44px; display: inline-flex; align-items: center; gap: 5px; transition: color 0.18s, background-color 0.18s, border-color 0.18s;
 }
 
 /* Top bar 預約 button */
 .tbtn-book {
   background: linear-gradient(90deg, var(--sky), var(--mint));
-  color: white; cursor: pointer; border: none; border-radius: 20px;
-  padding: 7px 12px; font-size: clamp(12px, 3.2vw, 14px); font-weight: 700;
+  color: #0F3D3A; cursor: pointer; border: none; border-radius: 20px;
+  padding: 8px 12px; min-height: 44px; font-size: clamp(13px, 3.2vw, 14px); font-weight: 700;
   display: flex; align-items: center; gap: 5px; white-space: nowrap;
 }
 
@@ -1003,6 +1019,7 @@ footer a { color: var(--sky); text-decoration: none; }
     padding: 0 24px;
   }
   .tlogo-name { font-size: 19px; }
+  .desktop-nav { display: flex; align-items: center; gap: 2px; margin: 0 auto; }
   .top-btns a, .tbtn-book { min-height: 44px; padding: 10px 18px; font-size: 14px; }
   .bottom-nav { display: none; }
   .float-group { right: 24px; bottom: 24px; }
@@ -1620,9 +1637,16 @@ footer a { color: var(--sky); text-decoration: none; }
 <!-- ══ TOP BAR ══ -->
 <header class="top-bar"><div class="top-bar-inner">
   <button class="tlogo" type="button" onclick="showPage('home')" aria-label="回到潔美淨首頁">
-    <div class="tlogo-ico"><img src="logo.png" alt="潔美淨清潔社"></div>
+    <div class="tlogo-ico"><img src="logo.png" alt="潔美淨清潔社" width="34" height="34"></div>
     <span class="tlogo-name">潔美淨清潔社</span>
   </button>
+  <nav class="desktop-nav" aria-label="桌面主選單">
+    <button class="dnav-btn active" data-page="home" aria-current="page" onclick="showPage('home')">首頁</button>
+    <button class="dnav-btn" data-page="services" onclick="showPage('services')">服務</button>
+    <button class="dnav-btn" data-page="pricing" onclick="showPage('pricing')">收費</button>
+    <button class="dnav-btn" data-page="cases" onclick="showPage('cases')">案例</button>
+    <button class="dnav-btn" data-page="about" onclick="showPage('about')">關於</button>
+  </nav>
   <div class="top-btns">
     <button class="tbtn-book" onclick="goBooking()">LINE 詢價</button>
     <a class="tbtn-tel" href="tel:0988145875">來電</a>
@@ -1679,14 +1703,14 @@ footer a { color: var(--sky); text-decoration: none; }
           <source srcset="home-case01-before.webp" type="image/webp">
           <img src="home-case01-before.jpg" alt="基隆中正區浴廁清潔前" width="480" height="640" loading="lazy" decoding="async" style="width:100%;height:220px;object-fit:cover;display:block;">
         </picture>
-        <span style="position:absolute;left:8px;top:8px;background:rgba(26,35,50,.72);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;">清潔前</span>
+        <span style="position:absolute;left:8px;top:8px;background:rgba(26,35,50,.82);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">清潔前</span>
       </div>
       <div style="position:relative;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(26,35,50,.12);">
         <picture>
           <source srcset="home-case01-after.webp" type="image/webp">
           <img src="home-case01-after.jpg" alt="基隆中正區浴廁清潔後" width="480" height="640" loading="lazy" decoding="async" style="width:100%;height:220px;object-fit:cover;display:block;">
         </picture>
-        <span style="position:absolute;left:8px;top:8px;background:var(--green);color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:20px;">清潔後</span>
+        <span style="position:absolute;left:8px;top:8px;background:var(--green);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">清潔後</span>
       </div>
     </div>
     <div style="text-align:center;margin-top:18px;">
@@ -1979,11 +2003,11 @@ footer a { color: var(--sky); text-decoration: none; }
       <p class="sdesc">基隆在地出發，服務雙北・基隆・桃園・宜蘭</p>
     </div>
     <div style="max-width:460px;margin:0 auto 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-      <a href="keelung.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;"><span style="font-weight:700;color:var(--ink);font-size:14px;">基隆清潔</span><br><span style="font-size:12px;color:var(--soft);">中正信義安樂</span></a>
-      <a href="taipei.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;"><span style="font-weight:700;color:var(--ink);font-size:14px;">台北清潔</span><br><span style="font-size:12px;color:var(--soft);">台北全區到府</span></a>
-      <a href="new-taipei.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;"><span style="font-weight:700;color:var(--ink);font-size:14px;">新北清潔</span><br><span style="font-size:12px;color:var(--soft);">板橋三重新莊</span></a>
-      <a href="taoyuan.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;"><span style="font-weight:700;color:var(--ink);font-size:14px;">桃園清潔</span><br><span style="font-size:12px;color:var(--soft);">桃園中壢平鎮</span></a>
-      <a href="yilan.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;"><span style="font-weight:700;color:var(--ink);font-size:14px;">宜蘭清潔</span><br><span style="font-size:12px;color:var(--soft);">宜蘭羅東礁溪</span></a>
+      <a href="keelung.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;min-height:64px;"><span style="font-weight:700;color:var(--ink);font-size:14px;">基隆清潔</span><br><span style="font-size:13px;color:var(--soft);">中正信義安樂</span></a>
+      <a href="taipei.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;min-height:64px;"><span style="font-weight:700;color:var(--ink);font-size:14px;">台北清潔</span><br><span style="font-size:13px;color:var(--soft);">台北全區到府</span></a>
+      <a href="new-taipei.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;min-height:64px;"><span style="font-weight:700;color:var(--ink);font-size:14px;">新北清潔</span><br><span style="font-size:13px;color:var(--soft);">板橋三重新莊</span></a>
+      <a href="taoyuan.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;min-height:64px;"><span style="font-weight:700;color:var(--ink);font-size:14px;">桃園清潔</span><br><span style="font-size:13px;color:var(--soft);">桃園中壢平鎮</span></a>
+      <a href="yilan.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;min-height:64px;"><span style="font-weight:700;color:var(--ink);font-size:14px;">宜蘭清潔</span><br><span style="font-size:13px;color:var(--soft);">宜蘭羅東礁溪</span></a>
     </div>
     <div style="max-width:460px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(79,195,247,.12);">
       <iframe src="https://maps.google.com/maps?q=25.1318,121.7391&z=15&output=embed" width="100%" height="220" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="潔美淨清潔社・基隆據點位置"></iframe>
@@ -1998,15 +2022,15 @@ footer a { color: var(--sky); text-decoration: none; }
     📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="#booking-section">LINE 洽詢</a></p>
     <p>📘 <a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank" rel="noopener noreferrer">Facebook 粉專</a>　📍 <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">Google 地圖</a></p>
     <div class="fdiv"></div>
-    <p style="font-size:12px;">地區頁面：<a href="keelung.html">基隆清潔</a>　<a href="taipei.html">台北清潔</a>　<a href="new-taipei.html">新北清潔</a>　<a href="taoyuan.html">桃園清潔</a>　<a href="yilan.html">宜蘭清潔</a></p>
-    <p style="font-size:12px;"><a href="calculator.html">費用估算器</a>　<a href="privacy.html">隱私權政策</a>　<a href="terms.html">服務條款</a></p>
-    <p style="font-size:12px;">🧮 <a href="calculator.html">清潔費用試算</a>　<a href="llms.txt">AI 可讀摘要</a>　<a href="pricing.md">價格資料</a></p>
+    <p style="font-size:13px;">地區頁面：<a href="keelung.html">基隆清潔</a>　<a href="taipei.html">台北清潔</a>　<a href="new-taipei.html">新北清潔</a>　<a href="taoyuan.html">桃園清潔</a>　<a href="yilan.html">宜蘭清潔</a></p>
+    <p style="font-size:13px;"><a href="#about" onclick="showPage('about');return false;">關於我們</a>　<a href="calculator.html">費用估算器</a>　<a href="privacy.html">隱私權政策</a>　<a href="terms.html">服務條款</a></p>
+    <p style="font-size:13px;">🧮 <a href="calculator.html">清潔費用試算</a>　<a href="llms.txt">AI 可讀摘要</a>　<a href="pricing.md">價格資料</a></p>
     <div class="fdiv"></div>
-    <p style="font-size:11.5px;opacity:0.78;line-height:1.8;">基隆服務區域：中正區、信義區、仁愛區、安樂區、暖暖區、七堵區，及鄰近汐止地區，均可到府清潔。</p>
-    <p style="font-size:11px;opacity:0.62;line-height:1.85;text-align:left;max-width:460px;margin:6px auto 0;">關於潔美淨清潔社：由負責人梁美玲於 2025 年在基隆市中正區依法設立（統一編號 60214473），提供居家清潔（4 小時 $2,500 起）、裝潢後細清（每坪 $400–$1,000）、大掃除、退租入住清潔、店面與辦公室清潔、社區清潔及收納整理共 7 大服務，服務範圍涵蓋基隆市、台北市、新北市、桃園市與宜蘭縣。Google 評分 4.7 星，師傅自備清潔工具到府，採包工報價，估多少收多少、絕不現場加價，並可開立統一發票。聯絡電話 0988-145-875。</p>
-    <p style="font-size:10.5px;opacity:0.48;margin-top:6px;">網站資料最後更新：2026-07-30</p>
+    <p style="font-size:13px;opacity:0.9;line-height:1.8;">基隆服務區域：中正區、信義區、仁愛區、安樂區、暖暖區、七堵區，及鄰近汐止地區，均可到府清潔。</p>
+    <p style="font-size:13px;opacity:0.82;line-height:1.85;text-align:left;max-width:460px;margin:6px auto 0;">關於潔美淨清潔社：由負責人梁美玲於 2025 年在基隆市中正區依法設立（統一編號 60214473），提供居家清潔（4 小時 $2,500 起）、裝潢後細清（每坪 $400–$1,000）、大掃除、退租入住清潔、店面與辦公室清潔、社區清潔及收納整理共 7 大服務，服務範圍涵蓋基隆市、台北市、新北市、桃園市與宜蘭縣。Google 評分 4.7 星，師傅自備清潔工具到府，採包工報價，估多少收多少、絕不現場加價，並可開立統一發票。聯絡電話 0988-145-875。</p>
+    <p style="font-size:13px;opacity:0.78;margin-top:6px;">網站資料最後更新：2026-08-05</p>
     <div class="fdiv"></div>
-    <p style="font-size:10.5px;opacity:0.42;">© 2025-2026 潔美淨清潔社</p>
+    <p style="font-size:13px;opacity:0.78;">© 2025-2026 潔美淨清潔社</p>
   </footer>
 </div>
 
@@ -2246,16 +2270,16 @@ footer a { color: var(--sky); text-decoration: none; }
 
   <!-- 分類 Tab -->
   <div class="sec sec-bg-white" style="padding-bottom:8px;">
-    <div class="price-type-tabs" id="priceTypeTabs">
-      <button class="ptype-tab on" onclick="switchPriceTab('home')">🏠 居家清潔</button>
-      <button class="ptype-tab" onclick="switchPriceTab('deep')">🪟 大掃除</button>
-      <button class="ptype-tab" onclick="switchPriceTab('reno')">🏗 裝潢細清</button>
-      <button class="ptype-tab" onclick="switchPriceTab('other')">🚪 其他</button>
+    <div class="price-type-tabs" id="priceTypeTabs" role="tablist" aria-label="清潔服務收費分類">
+      <button class="ptype-tab on" id="ptab-home" role="tab" aria-selected="true" aria-controls="psec-home" onclick="switchPriceTab('home')"><span aria-hidden="true">🏠</span> 居家清潔</button>
+      <button class="ptype-tab" id="ptab-deep" role="tab" aria-selected="false" aria-controls="psec-deep" onclick="switchPriceTab('deep')"><span aria-hidden="true">🪟</span> 大掃除</button>
+      <button class="ptype-tab" id="ptab-reno" role="tab" aria-selected="false" aria-controls="psec-reno" onclick="switchPriceTab('reno')"><span aria-hidden="true">🏗</span> 裝潢細清</button>
+      <button class="ptype-tab" id="ptab-other" role="tab" aria-selected="false" aria-controls="psec-other" onclick="switchPriceTab('other')"><span aria-hidden="true">🚪</span> 其他</button>
     </div>
   </div>
 
   <!-- ① 居家清潔 -->
-  <div class="price-section on sec sec-bg-white" id="psec-home" style="padding-top:8px;">
+  <div class="price-section on sec sec-bg-white" id="psec-home" role="tabpanel" aria-labelledby="ptab-home" style="padding-top:8px;">
     <div class="sh">
       <span class="slabel">居家清潔</span>
       <h2 class="stitle">計時制 / 包時制<br>兩種方案任選</h2>
@@ -2263,7 +2287,7 @@ footer a { color: var(--sky); text-decoration: none; }
     </div>
 
     <!-- 計時制 -->
-    <p style="max-width:460px;margin:0 auto 10px;font-size:12px;font-weight:700;color:var(--blue);">方案一｜計時制</p>
+    <p style="max-width:460px;margin:0 auto 10px;font-size:13px;font-weight:700;color:var(--blue);">方案一｜計時制</p>
     <div class="hour-grid">
       <div class="hc feat">
         <div class="hc-label">基本方案</div>
@@ -2292,14 +2316,14 @@ footer a { color: var(--sky); text-decoration: none; }
     </div>
 
     <!-- 坪數包價表 -->
-    <p style="max-width:460px;margin:20px auto 10px;font-size:12px;font-weight:700;color:var(--blue);">方案二｜坪數包價（含基本清潔項目）</p>
+    <p style="max-width:460px;margin:20px auto 10px;font-size:13px;font-weight:700;color:var(--blue);">方案二｜坪數包價（含基本清潔項目）</p>
     <div class="ptab-wrap">
       <table class="ptab">
         <thead>
           <tr>
             <th>坪數</th>
             <th>一般清潔</th>
-            <th>定期清潔<br><span style="font-weight:400;font-size:10px;">週/雙週/月</span></th>
+            <th>定期清潔<br><span style="font-weight:400;font-size:13px;">週/雙週/月</span></th>
           </tr>
         </thead>
         <tbody>
@@ -2321,7 +2345,7 @@ footer a { color: var(--sky); text-decoration: none; }
   </div>
 
   <!-- ② 大掃除 -->
-  <div class="price-section sec sec-bg-white" id="psec-deep" style="padding-top:8px;">
+  <div class="price-section sec sec-bg-white" id="psec-deep" role="tabpanel" aria-labelledby="ptab-deep" hidden style="padding-top:8px;">
     <div class="sh">
       <span class="slabel">大掃除</span>
       <h2 class="stitle">包工報價<br>含移動家具・洗窗</h2>
@@ -2332,8 +2356,8 @@ footer a { color: var(--sky); text-decoration: none; }
         <thead>
           <tr>
             <th>坪數</th>
-            <th>大掃除<br><span style="font-weight:400;font-size:10px;">含洗窗移家具</span></th>
-            <th>空屋清潔<br><span style="font-weight:400;font-size:10px;">無人居住</span></th>
+            <th>大掃除<br><span style="font-weight:400;font-size:13px;">含洗窗移家具</span></th>
+            <th>空屋清潔<br><span style="font-weight:400;font-size:13px;">無人居住</span></th>
           </tr>
         </thead>
         <tbody>
@@ -2356,7 +2380,7 @@ footer a { color: var(--sky); text-decoration: none; }
   </div>
 
   <!-- ③ 裝潢細清 -->
-  <div class="price-section sec sec-bg-white" id="psec-reno" style="padding-top:8px;">
+  <div class="price-section sec sec-bg-white" id="psec-reno" role="tabpanel" aria-labelledby="ptab-reno" hidden style="padding-top:8px;">
     <div class="sh">
       <span class="slabel">裝潢細清</span>
       <h2 class="stitle">依坪數＋污染程度<br>現場估價</h2>
@@ -2364,20 +2388,20 @@ footer a { color: var(--sky); text-decoration: none; }
     </div>
 
     <!-- Tab 切換：一般 / 烤漆 -->
-    <div class="tab-switch" id="renoSwitch">
-      <button class="tab-sw-btn on" onclick="switchRenoTab('normal')">一般裝潢場</button>
-      <button class="tab-sw-btn" onclick="switchRenoTab('paint')">🎨 烤漆場</button>
+    <div class="tab-switch" id="renoSwitch" role="tablist" aria-label="裝潢細清場域類型">
+      <button class="tab-sw-btn on" id="reno-tab-normal" role="tab" aria-selected="true" aria-controls="reno-normal" onclick="switchRenoTab('normal')">一般裝潢場</button>
+      <button class="tab-sw-btn" id="reno-tab-paint" role="tab" aria-selected="false" aria-controls="reno-paint" onclick="switchRenoTab('paint')"><span aria-hidden="true">🎨</span> 烤漆場</button>
     </div>
 
-    <div id="reno-normal">
+    <div id="reno-normal" role="tabpanel" aria-labelledby="reno-tab-normal">
       <div class="ptab-wrap">
         <table class="ptab">
           <thead>
             <tr>
               <th>坪數</th>
-              <th>輕度污染<br><span style="font-weight:400;font-size:10px;">少量粉塵</span></th>
-              <th>中度污染<br><span style="font-weight:400;font-size:10px;">一般施工</span></th>
-              <th>重度污染<br><span style="font-weight:400;font-size:10px;">多系統櫃</span></th>
+              <th>輕度污染<br><span style="font-weight:400;font-size:13px;">少量粉塵</span></th>
+              <th>中度污染<br><span style="font-weight:400;font-size:13px;">一般施工</span></th>
+              <th>重度污染<br><span style="font-weight:400;font-size:13px;">多系統櫃</span></th>
             </tr>
           </thead>
           <tbody>
@@ -2393,16 +2417,16 @@ footer a { color: var(--sky); text-decoration: none; }
       </div>
     </div>
 
-    <div id="reno-paint" style="display:none;">
+    <div id="reno-paint" role="tabpanel" aria-labelledby="reno-tab-paint" hidden style="display:none;">
       <div style="max-width:460px;margin:0 auto 12px;background:rgba(255,179,71,0.10);border:1.5px solid rgba(255,179,71,0.28);border-radius:12px;padding:12px 14px;">
-        <p style="font-size:12px;color:#92400E;line-height:1.7;"><strong>🎨 烤漆場說明：</strong>烤漆經過15道工序，表面精緻特殊。師傅全程使用全新拋棄式抹布與指定清潔劑，所有工具不重複使用，確保零刮傷。因耗材成本較高，費用比一般裝潢場高出約 30～50%。</p>
+        <p style="font-size:14px;color:#78350F;line-height:1.7;"><strong>🎨 烤漆場說明：</strong>烤漆經過15道工序，表面精緻特殊。師傅全程使用全新拋棄式抹布與指定清潔劑，所有工具不重複使用，確保零刮傷。因耗材成本較高，費用比一般裝潢場高出約 30～50%。</p>
       </div>
       <div class="ptab-wrap">
         <table class="ptab">
           <thead>
             <tr>
               <th>坪數</th>
-              <th>烤漆裝潢細清<br><span style="font-weight:400;font-size:10px;">全程新耗材</span></th>
+              <th>烤漆裝潢細清<br><span style="font-weight:400;font-size:13px;">全程新耗材</span></th>
             </tr>
           </thead>
           <tbody>
@@ -2425,7 +2449,7 @@ footer a { color: var(--sky); text-decoration: none; }
   </div>
 
   <!-- ④ 其他 -->
-  <div class="price-section sec sec-bg-white" id="psec-other" style="padding-top:8px;">
+  <div class="price-section sec sec-bg-white" id="psec-other" role="tabpanel" aria-labelledby="ptab-other" hidden style="padding-top:8px;">
     <div class="sh">
       <span class="slabel">其他服務</span>
       <h2 class="stitle">入住・退租・定期<br>依現場靈活報價</h2>
@@ -2524,7 +2548,7 @@ footer a { color: var(--sky); text-decoration: none; }
 ══════════════════════════════ -->
 <div id="page-about" class="page">
   <div class="about-hero">
-    <div class="about-brand"><img src="logo.png" alt="潔美淨清潔社 Logo"></div>
+    <div class="about-brand"><img src="logo.png" alt="潔美淨清潔社 Logo" width="78" height="78"></div>
     <h2>潔美淨清潔社</h2>
     <p class="tagline">基隆在地・雙北桃園宜蘭服務</p>
   </div>
@@ -2713,52 +2737,121 @@ footer a { color: var(--sky); text-decoration: none; }
 </div>
 
 <!-- BOTTOM NAV -->
-<nav class="bottom-nav">
-  <button class="bnav-tab active" onclick="showPage('home')"><span class="bi">🏠</span>首頁</button>
-  <button class="bnav-tab" onclick="showPage('services')"><span class="bi">🧹</span>服務</button>
-  <button class="bnav-tab" onclick="showPage('cases')"><span class="bi">📋</span>案例</button>
-  <button class="bnav-tab bnav-book" onclick="goBooking()" style="color:#06C755;"><span class="bi">💬</span>預約</button>
+<nav class="bottom-nav" aria-label="主要導覽">
+  <button class="bnav-tab active" data-page="home" aria-current="page" onclick="showPage('home')"><span class="bi" aria-hidden="true">🏠</span>首頁</button>
+  <button class="bnav-tab" data-page="services" onclick="showPage('services')"><span class="bi" aria-hidden="true">🧹</span>服務</button>
+  <button class="bnav-tab" data-page="pricing" onclick="showPage('pricing')"><span class="bi" aria-hidden="true">💰</span>收費</button>
+  <button class="bnav-tab" data-page="cases" onclick="showPage('cases')"><span class="bi" aria-hidden="true">📋</span>案例</button>
+  <button class="bnav-tab bnav-book" data-page="booking" onclick="goBooking()" style="color:var(--green);"><span class="bi" aria-hidden="true">💬</span>預約</button>
 </nav>
 
 <script>
 // ── Price type tabs ──
 function switchPriceTab(id) {
-  document.querySelectorAll('.price-section').forEach(s => s.classList.remove('on'));
-  document.getElementById('psec-' + id).classList.add('on');
+  document.querySelectorAll('.price-section').forEach(s => {
+    s.classList.remove('on');
+    s.hidden = true;
+  });
+  const panel = document.getElementById('psec-' + id);
+  panel.classList.add('on');
+  panel.hidden = false;
   document.querySelectorAll('.ptype-tab').forEach((t, i) => {
     const ids = ['home','deep','reno','other'];
-    t.classList.toggle('on', ids[i] === id);
+    const selected = ids[i] === id;
+    t.classList.toggle('on', selected);
+    t.setAttribute('aria-selected', String(selected));
+    t.tabIndex = selected ? 0 : -1;
   });
 }
 
 // ── Reno sub-tabs (normal vs paint) ──
 function switchRenoTab(type) {
-  document.getElementById('reno-normal').style.display = type === 'normal' ? '' : 'none';
-  document.getElementById('reno-paint').style.display = type === 'paint' ? '' : 'none';
+  const normalPanel = document.getElementById('reno-normal');
+  const paintPanel = document.getElementById('reno-paint');
+  normalPanel.hidden = type !== 'normal';
+  paintPanel.hidden = type !== 'paint';
+  normalPanel.style.display = type === 'normal' ? '' : 'none';
+  paintPanel.style.display = type === 'paint' ? '' : 'none';
   document.querySelectorAll('#renoSwitch .tab-sw-btn').forEach((b, i) => {
-    b.classList.toggle('on', (i === 0 && type === 'normal') || (i === 1 && type === 'paint'));
+    const selected = (i === 0 && type === 'normal') || (i === 1 && type === 'paint');
+    b.classList.toggle('on', selected);
+    b.setAttribute('aria-selected', String(selected));
+    b.tabIndex = selected ? 0 : -1;
   });
 }
 
-
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.bnav-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  document.querySelectorAll('.bnav-tab').forEach(t => {
-    if (t.getAttribute('onclick') === "showPage('" + id + "')") t.classList.add('active');
+function setupTabKeyboard(listId, buttonSelector) {
+  const list = document.getElementById(listId);
+  if (!list) return;
+  list.addEventListener('keydown', function(event) {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    const tabs = Array.from(list.querySelectorAll(buttonSelector));
+    const currentIndex = tabs.indexOf(document.activeElement);
+    if (currentIndex < 0) return;
+    event.preventDefault();
+    let nextIndex = currentIndex;
+    if (event.key === 'Home') nextIndex = 0;
+    if (event.key === 'End') nextIndex = tabs.length - 1;
+    if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+    if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % tabs.length;
+    tabs[nextIndex].focus();
+    tabs[nextIndex].click();
   });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+setupTabKeyboard('priceTypeTabs', '.ptype-tab');
+setupTabKeyboard('renoSwitch', '.tab-sw-btn');
+
+
+function prefersReducedMotion() {
+  return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function showPage(id, moveFocus = true) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.bnav-tab, .dnav-btn').forEach(t => {
+    t.classList.remove('active');
+    t.removeAttribute('aria-current');
+  });
+  const page = document.getElementById('page-' + id);
+  page.classList.add('active');
+  document.querySelectorAll('.bnav-tab, .dnav-btn').forEach(t => {
+    if (t.dataset.page === id) {
+      t.classList.add('active');
+      t.setAttribute('aria-current', 'page');
+    }
+  });
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+  if (moveFocus) {
+    const heading = page.querySelector('h1, h2');
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      window.setTimeout(() => heading.focus({ preventScroll: true }), prefersReducedMotion() ? 0 : 220);
+    }
+  }
 }
 
 function goBooking() {
-  showPage('home');
-  document.querySelectorAll('.bnav-tab').forEach(t => t.classList.remove('active'));
+  showPage('home', false);
+  document.querySelectorAll('.bnav-tab, .dnav-btn').forEach(t => {
+    t.classList.remove('active');
+    t.removeAttribute('aria-current');
+  });
   var bookTab = document.querySelector('.bnav-book');
-  if (bookTab) bookTab.classList.add('active');
+  if (bookTab) {
+    bookTab.classList.add('active');
+    bookTab.setAttribute('aria-current', 'location');
+  }
   setTimeout(function() {
     var el = document.getElementById('booking-section');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (el) {
+      el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+      const heading = el.querySelector('h2, h3');
+      if (heading) {
+        heading.setAttribute('tabindex', '-1');
+        heading.focus({ preventScroll: true });
+      }
+    }
   }, 120);
 }
 
@@ -3018,11 +3111,11 @@ function resetBookingForm() {
             <div class="photo-compare" data-idx="${idx}">
               <picture>
                 <source srcset="${webpPath(c.before)}" type="image/webp">
-                <img class="photo-before" src="${c.before}" alt="${(c.title || '清潔')}（清潔前）" loading="lazy" decoding="async">
+                <img class="photo-before" src="${c.before}" alt="${(c.title || '清潔')}（清潔前）" width="1200" height="900" loading="lazy" decoding="async">
               </picture>
               <picture>
                 <source srcset="${webpPath(c.after)}" type="image/webp">
-                <img class="photo-after" src="${c.after}" alt="${(c.title || '清潔')}（清潔後）" loading="lazy" decoding="async">
+                <img class="photo-after" src="${c.after}" alt="${(c.title || '清潔')}（清潔後）" width="1200" height="900" loading="lazy" decoding="async">
               </picture>
               <div class="compare-slider"></div>
               <div class="compare-handle">◀▶</div>
@@ -3049,13 +3142,24 @@ function resetBookingForm() {
 
   function initSlider(el) {
     let isDragging = false;
+    let currentPct = 50;
+    el.setAttribute('role', 'slider');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', '拖曳或使用方向鍵比較清潔前後照片');
+    el.setAttribute('aria-valuemin', '5');
+    el.setAttribute('aria-valuemax', '95');
+    el.setAttribute('aria-valuenow', '50');
+    function setSlider(pct) {
+      currentPct = Math.max(5, Math.min(95, pct));
+      el.setAttribute('aria-valuenow', String(Math.round(currentPct)));
+      el.querySelector('.photo-after').style.clipPath = 'inset(0 0 0 ' + currentPct + '%)';
+      el.querySelector('.compare-slider').style.left = currentPct + '%';
+      el.querySelector('.compare-handle').style.left = currentPct + '%';
+    }
     function updateSlider(x) {
       const rect = el.getBoundingClientRect();
       let pct = ((x - rect.left) / rect.width) * 100;
-      pct = Math.max(5, Math.min(95, pct));
-      el.querySelector('.photo-after').style.clipPath = 'inset(0 0 0 ' + pct + '%)';
-      el.querySelector('.compare-slider').style.left = pct + '%';
-      el.querySelector('.compare-handle').style.left = pct + '%';
+      setSlider(pct);
     }
     el.addEventListener('mousedown', e => { isDragging = true; updateSlider(e.clientX); });
     el.addEventListener('touchstart', e => { isDragging = true; updateSlider(e.touches[0].clientX); }, {passive: true});
@@ -3063,6 +3167,14 @@ function resetBookingForm() {
     document.addEventListener('touchmove', e => { if (isDragging) updateSlider(e.touches[0].clientX); }, {passive: true});
     document.addEventListener('mouseup', () => isDragging = false);
     document.addEventListener('touchend', () => isDragging = false);
+    el.addEventListener('keydown', event => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      if (event.key === 'Home') setSlider(5);
+      if (event.key === 'End') setSlider(95);
+      if (event.key === 'ArrowLeft') setSlider(currentPct - 5);
+      if (event.key === 'ArrowRight') setSlider(currentPct + 5);
+    });
   }
 
   if (document.readyState === 'loading') {
