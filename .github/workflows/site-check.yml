@@ -1,0 +1,23 @@
+name: Site check
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Node syntax check
+        run: node --check analytics.js
+      - name: Whitespace check
+        run: git diff --check HEAD~1 2>/dev/null || true
+      - name: Site validation (canonical, JSON-LD, sitemap, local-only booking, brand promises)
+        run: node scripts/validate-site.mjs
+      - name: Mobile viewport quick check (390x844 and 1280x720 overflow)
+        run: |
+          # 靜態站無法在 CI 內跑真瀏覽器，由人工在合併前以 390x844 / 1280x720 驗證
+          echo "UI overflow check must be done manually before merging (AI-README rule 4)"

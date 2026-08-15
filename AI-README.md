@@ -89,3 +89,31 @@
 - 詢價行動順序調整為「直接傳照片估價（最快）」→「先試算費用」→「或填寫完整需求」；表單仍保留獨立 `#booking-form` 錨點與「填寫預約需求」標題。
 - 手機預留 72px、桌機預留 88px 固定導覽間距；行動區落點聚焦於區塊標題，直接表單落點才聚焦表單容器，兩者都不會自動叫出手機鍵盤。
 - 預約流程切換回首頁時不再同時觸發「捲到頁首」與「捲到表單」兩段平滑動畫，避免不同手機因捲動競爭而停在 LINE 詢價卡或不一致的高度。
+
+## 2026-08-16 AI-readme 更新（Manus 多倉庫優化迭代）
+
+### 現況
+
+本次更新前的狀態：純靜態站 10 個 HTML 頁面、index.html 有 6 個 JSON-LD blocks（LocalBusiness、FAQPage、WebSite 等）、全部頁面 canonical 齊備、llms.txt 與 sitemap.xml 完整、analytics.js 符合「GA4 不送個資」原則、hsinchu.html 是「新竹服務區已取消」的 noindex 轉跳頁且正確排除於 sitemap 之外。AI-README 已有七條修改守則，但**缺少自動化驗證腳本與 GitHub Actions 工作流**，安全網完全依賴人工，是三個靜態站中最弱的一個。
+
+### 修改方向（2026-08-16 迭代）
+
+以 campcool 的 scripts/validate-site.mjs 為範本，建立本站的自動化防回歸系統：把人工守則（canonical、JSON-LD 語法、個資保護模式、品牌承諾文字、服務區事實）寫成可執行的檢查腳本，並掛上 GitHub Actions 讓每次 push 與 PR 自動跑。新竹處置經辯證後確認正確（noindex＋轉跳＋排除 sitemap），不修改；「新竹目前未列入服務區」的誠實宣告文案予以保留並納入檢查的正向模式。
+
+### 修改進度（2026-08-16 已完成並驗證）
+
+| 項目 | 狀態 | 驗證方式 |
+|---|---|---|
+| `scripts/validate-site.mjs` | 已建立，10 個 HTML 檔全檢查通過 | node 執行 exit 0；防假綠測試通過（故意改「絕不現場加價」後正確報錯） |
+| `.github/workflows/site-check.yml` | 已建立，push 與 PR 觸發 | node --check analytics.js ＋ validate-site.mjs |
+| hsinchu.html 檢查 | 已納入（維持 noindex＋排除 sitemap） | 轉跳頁檢查通過 |
+| 品牌承諾防回歸 | 「估多少收多少」「絕不現場加價」、統編、電話、LINE、複製流程 | 防假綠測試通過 |
+| 個資保護防回歸 | 禁止 fetch 外部 POST、XMLHttpRequest、sendBeacon；fetch 只允許本地靜態資源（cases.json） | 已驗證 |
+
+### 後續接手注意事項
+
+1. **改動任何 HTML／analytics.js 前先跑 `node scripts/validate-site.mjs`**，PR 的 workflow 檢查必須全綠才能合併；CI 通過不等於 UI 沒壞，390×844 與 1280×720 的人工目檢仍是必要步驟（AI-README 守則第 4 條）。
+2. **新增品牌承諾文字時同步加進 validate-site.mjs 的 required 清單**，讓檢查腳本跟隨品牌演進；刪除承諾文字前必須先向負責人確認。
+3. **新增 HTML 頁面時**：必須加絕對 canonical、進 sitemap（除非是 noindex 轉跳頁）、通過 new Function() 語法檢查；轉跳頁不得進 sitemap。
+4. **服務區**：若負責人未來決定重新開放新竹服務，必須同步更新 validate-site.mjs 的誠實宣告模式（honestRe）與此條目，不能只改頁面文案。
+5. **fetch 白名單**：目前只允許本地相對路徑讀取；若未來需要呼叫外部 API（例如匯款驗證），必須先與負責人確認並更新此檢查規則——個資保護防回歸規則不可單方面放鬆。
