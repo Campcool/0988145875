@@ -110,6 +110,49 @@ for (const required of [
 ]) {
   if (!homepage.includes(required)) errors.push('index.html missing required text: ' + required);
 }
+// GA4 ID 全站一致性：所有 inline gtag config 的測量 ID 必須等於 analytics.js 的來源 ID
+// 防止改動時 inline script 與分析檔漂移成兩個測量 ID
+const ga4Source = analytics.match(/GA4_ID:\s*['"](G-[A-Z0-9]+)['"]/);
+if (!ga4Source) errors.push('analytics.js GA4_ID constant not found');
+else {
+  const ga4Id = ga4Source[1];
+  for (const file of htmlFiles) {
+    const relative = path.relative(root, file).replaceAll('\\', '/');
+    if (relative === 'hsinchu.html') continue;
+    const html = fs.readFileSync(file, 'utf8');
+    const configRe = /gtag\(['"]config['"],\s*['"](G-[A-Z0-9]+)['"]/g;
+    let cMatch;
+    while ((cMatch = configRe.exec(html))) {
+      if (cMatch[1] !== ga4Id) {
+        errors.push(relative + ': inline GA4 config ID ("' + cMatch[1] + '") differs from analytics.js source ("' + ga4Id + '")');
+      }
+    }
+    // G-XXXXXXXXXX 佔位字串只能留在 analytics.js 註解，正式頁 inline script 出現即錯誤
+    if (/gtag\([^)]*G-XXXX/i.test(html)) {
+      errors.push(relative + ': placeholder G-XXXXXXXXXX ID in live inline script');
+    }
+  }
+}
+// 每個公開頁必須至少有一個有效承接管道（LINE 官方帳號入口或官方電話），訪客不會無處可去
+const ctaLineRe = /https?:\/\/line\.me\/R\/[a-z]+\/@117adltu|@117adltu/i;
+const ctaTelRe = /href=["']tel:0988145875["']/i;
+for (const file of htmlFiles) {
+  const relative = path.relative(root, file).replaceAll('\\', '/');
+  if (relative === 'hsinchu.html') continue;
+  const html = fs.readFileSync(file, 'utf8');
+  if (!ctaLineRe.test(html) && !ctaTelRe.test(html)) {
+    errors.push(relative + ': page has no LINE or phone CTA — every public page must offer a contact path');
+  }
+}
+// calculator 試算閉環：結果區塊必須同時具備「回帶估算結果」與「電話直撥」兩個 CTA
+const calcHtml = htmlFiles
+  .filter((file) => path.relative(root, file).replaceAll('\\', '/') === 'calculator.html')
+  .map((file) => fs.readFileSync(file, 'utf8'))[0];
+if (calcHtml) {
+  for (const required of ['estimate-booking-link', 'qcta-tel', 'tel:0988145875', 'quick-cta']) {
+    if (!calcHtml.includes(required)) errors.push('calculator.html missing booking-loop CTA: ' + required);
+  }
+}
 // 服務區事實：只能出現經確認的五個服務區（基隆、台北、新北、桃園、宜蘭）
 // 新竹服務已取消（見 hsinchu.html），出現「新竹」服務文案即視為回歸
 const publicHtml = htmlFiles

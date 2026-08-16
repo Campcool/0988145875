@@ -110,6 +110,27 @@
 | 品牌承諾防回歸 | 「估多少收多少」「絕不現場加價」、統編、電話、LINE、複製流程 | 防假綠測試通過 |
 | 個資保護防回歸 | 禁止 fetch 外部 POST、XMLHttpRequest、sendBeacon；fetch 只允許本地靜態資源（cases.json） | 已驗證 |
 
+## 2026-08-16 滿分制迭代（Manus 第二輪）
+
+### 現況
+
+第一輪已建立 validate-site.mjs 與 site-check.yml，基礎安全網到位。滿分制盤點後發現三處可追回：GA4 測量 ID 為雙來源（analytics.js 的 CFG 與 9 個 HTML 頁的 inline gtag config）但無漂移檢查；無承接管道（CTA）強制規則；試算閉環未斷言。
+
+### 修改進度（已完成並驗證）
+
+| 項目 | 狀態 | 驗證方式 |
+|---|---|---|
+| GA4 ID 全站一致性 | 已加進 validate：inline config ID 必須等於 analytics.js 來源 ID | 防假綠通過（改 CFG 常數後 9 頁全報錯） |
+| G-XXXXXXXXXX 佔位字串 | 只允許留 analytics.js 註解，正式頁 inline script 出現即報錯 | 已驗證 |
+| 每頁 CTA 強制規則 | 所有公開頁至少一個承接管道（@117adltu 或 tel:0988145875） | 10 頁通過（hsinchu 轉跳頁豁免） |
+| calculator 試算閉環 | 結果區塊必須同時含「回帶估算結果」與「電話直撥」雙 CTA | 4 個元素斷言全過 |
+
+### 後續接手注意事項（本輪新增）
+
+6. **GA4 ID 只有一個真源**：analytics.js 的 CFG.GA4_ID 是唯一來源；改 ID 時必須同步改全部 HTML 頁 inline gtag config，validate 會自動抓住漂移。佔位字串 G-XXXXXXXXXX 永遠只能留註解，不可進正式頁。
+7. **CTA 不可消失**：每頁至少保留 LINE 官方帳號或電話承接管道之一；若策略改為單一管道，必須同步更新 validate 的 CTA 規則，不可單刪頁面連結。
+8. **試算閉環是轉化核心**：calculator 的「傳送估算結果給師傅確認」回帶與電話直撥缺任一側 validate 即報錯。
+
 ### 後續接手注意事項
 
 1. **改動任何 HTML／analytics.js 前先跑 `node scripts/validate-site.mjs`**，PR 的 workflow 檢查必須全綠才能合併；CI 通過不等於 UI 沒壞，390×844 與 1280×720 的人工目檢仍是必要步驟（AI-README 守則第 4 條）。
