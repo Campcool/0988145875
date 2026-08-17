@@ -13,11 +13,20 @@ jobs:
           node-version: 22
       - name: Node syntax check
         run: node --check analytics.js
-      - name: Whitespace check
-        run: git diff --check HEAD~1 2>/dev/null || true
       - name: Site validation (canonical, JSON-LD, sitemap, local-only booking, brand promises)
         run: node scripts/validate-site.mjs
-      - name: Mobile viewport quick check (390x844 and 1280x720 overflow)
+      # 防假綠：故意破壞 GA4 ID，確認 validate 真的會擋。
+      # 沒有這一步的話，validate 靜默失效（例如比對字串寫錯）會表現為「一直全綠」。
+      - name: 防假綠：破壞 GA4 ID 後 validate 必須失敗
         run: |
-          # 靜態站無法在 CI 內跑真瀏覽器，由人工在合併前以 390x844 / 1280x720 驗證
-          echo "UI overflow check must be done manually before merging (AI-README rule 4)"
+          cp analytics.js analytics.js.bak
+          # 必須改 GA4_ID 常數本身。檔案開頭另有 G-XXXXXXXXXX 佔位字串，
+          # 改到那個不會觸發任何斷言，會讓這一步變成假的防假綠。
+          node -e "const fs=require('fs');fs.writeFileSync('analytics.js',fs.readFileSync('analytics.js','utf8').replace(/(GA4_ID:\s*['\"])G-[A-Z0-9]+/,'\$1G-BROKEN000'))"
+          if node scripts/validate-site.mjs >/dev/null 2>&1; then
+            mv analytics.js.bak analytics.js
+            echo "::error::validate 未抓到被破壞的 GA4 ID（防假綠失敗）"
+            exit 1
+          fi
+          mv analytics.js.bak analytics.js
+          node scripts/validate-site.mjs
