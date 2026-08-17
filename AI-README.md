@@ -110,6 +110,97 @@
 | 品牌承諾防回歸 | 「估多少收多少」「絕不現場加價」、統編、電話、LINE、複製流程 | 防假綠測試通過 |
 | 個資保護防回歸 | 禁止 fetch 外部 POST、XMLHttpRequest、sendBeacon；fetch 只允許本地靜態資源（cases.json） | 已驗證 |
 
+## 2026-08-17 交叉複驗（Claude）
+
+跨 5 個 Campcool 站的橫向盤點，本站的部分。
+
+### 發現
+
+**先講對的部分**：Manus 第二輪的 GA4 ID 一致性斷言**寫法是正確的**，
+而且是同一套 validate 模板在 5 個 repo 裡處理得最好的一份——
+`sitemap ↔ noindex` 的雙向規則（第 47–52 行明確要求轉跳頁必須 noindex
+且必須不在 sitemap）在 leakdoctor 的同一支腳本裡是漏掉的。
+
+> 附帶紀錄一個複驗時的誤判，避免下一個人重蹈：第一次測 GA4 斷言時我用
+> 寬鬆的 `/G-[A-Z0-9]+/` 去破壞 analytics.js，validate 沒反應，一度誤判
+> 斷言失效。實際原因是**檔案第 5 行的註解裡有 `G-XXXXXXXXXX` 佔位字串
+> 排在真 ID 前面**，被改到的是那個。破壞點必須鎖定 `GA4_ID:` 常數本身。
+
+**找到的兩個問題**：
+
+1. **`site-check.yml` 有兩個零斷言步驟**，會顯示綠勾但不檢查任何東西：
+   - Whitespace check 結尾是 `|| true`，永遠通過
+   - Mobile viewport check 整步只有一行 `echo`，印出「請人工驗證」
+
+   效果是讓 workflow 看起來涵蓋得比實際多。
+
+2. **`validate-site.mjs` 的結尾摘要宣稱範圍大於實際**。原本是一行
+   `Validated N HTML files, inline scripts, JSON-LD, canonicals, sitemap,
+   local-only booking, and brand-promise markers.`——列了 7 個涵蓋領域卻只給
+   一個分母（HTML 檔數），讀起來像每項都掃過同樣廣度。實際上「品牌承諾」
+   只讀 index.html、「GA4 不送個資」只讀 analytics.js，各只有 1 個檔。
+
+### 變更
+
+| 項目 | 內容 |
+|---|---|
+| 移除零斷言步驟 | 刪掉上述兩個假動作，改補一個真的防假綠步驟（破壞 `GA4_ID` 常數 → 確認 validate exit 1 → 還原重跑） |
+| 逐項回報掃描範圍 | 每項檢查改用 `scanned()` 回報實際分母，結尾逐條印出（見下方輸出樣本） |
+| 品牌事實全站漂移偵測 | **新增**。原本只驗首頁有沒有那 6 項承諾；新增全站掃描電話／LINE 帳號／統編，任何一處不等於唯一來源即報錯 |
+
+**品牌承諾的擴大方式刻意不是「要求 10 頁都有那 6 項」**——那是錯的方向。
+`calculator.html` 不需要「絕不現場加價」、`privacy`／`terms` 不需要完整承諾組，
+硬性要求只會逼人塞無意義文字。真正的跨頁風險是「有寫但寫錯」：改電話只改一半、
+複製舊頁帶到別的 LINE ID、統編打錯一碼。所以新增的是漂移偵測，形狀與 Manus
+先前寫對的 GA4 ID 一致性相同——定義唯一來源，掃全站找不一致。
+
+實測命中：177 處電話、9 處 LINE 帳號、5 處統編，全站 10/10 個 HTML。
+
+兩個誤報來源已處理：`index.html` 的 `#bk-phone` 用 `0912-345-678` 當
+placeholder 示範（已排除 placeholder 屬性）；`@context`／`@keyframes` 等
+CSS at-rule 與 JSON-LD 保留字長得像 LINE ID（已列 allowlist）。
+
+防假綠實測四種情境：塞入 `0987-654-321` → exit 1、塞入 `@999zzzzz` → exit 1、
+統編改 `60214470` → exit 1、placeholder 塞假號碼 → exit 0（正確不誤報）。
+
+現在 validate 通過時的輸出：
+
+```
+✅ 全部通過。各項檢查的實際掃描範圍：
+  · canonical：10 個 HTML
+  · JSON-LD 有效性：21 個 ld+json 區塊
+  · 內嵌 JS 語法：12 個 inline script 區塊
+  · sitemap 對應：10 個 HTML ↔ 14 個 <loc>
+  · 本機收單防回歸：8/10 個 HTML（privacy/terms 豁免）
+  · GA4 不送個資：僅 analytics.js 1 個檔，6 個禁用欄位名
+  · 品牌承諾（存在）：僅 index.html 1 個檔，6 項必要文字
+  · 品牌事實（漂移）：10/10 個 HTML 全掃，命中 177 處電話、9 處 LINE、5 處統編
+  · GA4 ID 一致性：9 個 HTML 內共 9 處 gtag config
+  · 承接管道覆蓋：9/10 個 HTML
+  · 試算閉環：僅 calculator.html 1 個檔，4 個必要標記
+  · 服務區事實：9 個公開 HTML 合併後比對
+```
+
+### 後續接手注意事項（本輪新增）
+
+9. **斷言的 `ok()`／`scanned()` 訊息必須寫出實際掃描範圍與分母**，不得只寫
+   「完成」或「全域」。有取樣上限就寫出上限。這條規則同時套用在 campcool /
+   leakdoctor / TITAN-STAR，2026-08-17 光靠印分母就在四個 repo 各找出一個
+   隱形的覆蓋落差。新增檢查時請沿用 `scanned()`。
+10. **兩條窄斷言的邊界已標註但未擴大**（原始碼有 ⚠️ 註解）：
+    - 「品牌承諾」只讀 `index.html`——其他頁若出現矛盾的價格或承諾抓不到
+    - 「GA4 不送個資」只讀 `analytics.js`——事件若散到 inline script 就管不到
+
+    這是**已知範圍**不是疏漏。要擴大是另一個決定，動手前先確認需求。
+11. **CI 步驟不可以只有 `echo` 或結尾掛 `|| true`**。那種步驟會顯示綠勾卻不
+    斷言任何事，比沒有更糟——它讓 workflow 看起來涵蓋得比實際多。
+    需要人工驗證的項目請寫進本檔守則，不要偽裝成 CI 步驟。
+12. **本站的 CI 不是門禁**。`site-check.yml` 是 `on: push`，與 GitHub Pages
+    的分支部署**並行**跑，擋不住壞版本上線，只是事後多一個紅叉。
+    這是刻意接受的取捨（2026-08-17 業主決定，理由是變動頻率低、
+    改成 Actions 部署反而多一層可能壞掉的東西），**不是待修項目**。
+    若要改成真門禁，做法見 `campcool/.github/workflows/deploy.yml`。
+
 ## 2026-08-16 滿分制迭代（Manus 第二輪）
 
 ### 現況
