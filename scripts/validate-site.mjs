@@ -139,8 +139,58 @@ const brandPromises = [
 for (const required of brandPromises) {
   if (!homepage.includes(required)) errors.push('index.html missing required text: ' + required);
 }
-// ⚠️ 只讀 index.html 一個檔。其餘頁面若出現矛盾的價格或承諾，這條抓不到。
-scanned('品牌承諾', '僅 index.html 1 個檔，' + brandPromises.length + ' 項必要文字');
+scanned('品牌承諾（存在）', '僅 index.html 1 個檔，' + brandPromises.length + ' 項必要文字。'
+  + '刻意不要求其他頁面全部具備——calculator/privacy/terms 本來就不需要完整承諾組；'
+  + '跨頁的部分改由下面的「品牌事實（漂移）」負責');
+
+// ── 品牌事實全站防漂移 ────────────────────────────────────────
+// 上面那條只讀 index.html。真正的跨頁風險不是「別的頁面沒寫承諾」，
+// 而是「別的頁面寫了但寫錯」——改電話只改一半、複製舊頁時帶到別的 LINE ID、
+// 統編打錯一碼。這些單看首頁完全抓不到。
+// 形狀與 GA4 ID 一致性相同：定義唯一來源，掃全站找不一致。
+const BRAND_PHONE = '0988145875';       // 顯示格式 0988-145-875
+const BRAND_LINE_OA = '@117adltu';
+const BRAND_TAX_ID = '60214473';
+// CSS at-rule 與 JSON-LD 保留字長得像 LINE ID（都是 @ 開頭），需排除
+const AT_TOKEN_ALLOWLIST = new Set([
+  '@context', '@keyframes', '@media', '@supports', '@import', '@charset',
+  '@layer', '@container', '@graph', '@property', '@namespace', '@font',
+]);
+let driftFiles = 0;
+let phoneHits = 0;
+let lineHits = 0;
+let taxHits = 0;
+for (const file of htmlFiles) {
+  const relative = path.relative(root, file).replaceAll('\\', '/');
+  const raw = fs.readFileSync(file, 'utf8');
+  driftFiles++;
+  // 表單的示範號碼不算（index.html #bk-phone 用 0912-345-678 當 placeholder）
+  const html = raw.replace(/placeholder=["'][^"']*["']/gi, '');
+
+  for (const m of html.matchAll(/09\d{2}-?\d{3}-?\d{3}/g)) {
+    phoneHits++;
+    if (m[0].replace(/-/g, '') !== BRAND_PHONE) {
+      errors.push(relative + ': 出現非官方電話 "' + m[0] + '"（唯一官方號碼為 0988-145-875）');
+    }
+  }
+  for (const m of html.matchAll(/@[0-9a-z]{5,12}\b/gi)) {
+    const token = m[0].toLowerCase();
+    if (AT_TOKEN_ALLOWLIST.has(token)) continue;
+    lineHits++;
+    if (token !== BRAND_LINE_OA) {
+      errors.push(relative + ': 出現非官方 LINE 帳號 "' + m[0] + '"（唯一官方帳號為 ' + BRAND_LINE_OA + '）');
+    }
+  }
+  for (const m of html.matchAll(/統一?編號[^0-9]{0,10}(\d{8})/g)) {
+    taxHits++;
+    if (m[1] !== BRAND_TAX_ID) {
+      errors.push(relative + ': 統編 "' + m[1] + '" 與官方值 ' + BRAND_TAX_ID + ' 不符');
+    }
+  }
+}
+scanned('品牌事實（漂移）', driftFiles + '/' + htmlFiles.length + ' 個 HTML 全掃，命中 '
+  + phoneHits + ' 處電話、' + lineHits + ' 處 LINE 帳號、' + taxHits + ' 處統編，各需等於唯一來源'
+  + '（form placeholder 已排除）');
 // GA4 ID 全站一致性：所有 inline gtag config 的測量 ID 必須等於 analytics.js 的來源 ID
 // 防止改動時 inline script 與分析檔漂移成兩個測量 ID
 const ga4Source = analytics.match(/GA4_ID:\s*['"](G-[A-Z0-9]+)['"]/);
