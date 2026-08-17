@@ -17,7 +17,21 @@ function walk(dir) {
 walk(root);
 const errors = [];
 const warnings = [];
+
+// ── 斷言撰寫規則 ─────────────────────────────────────────────
+// 每一項檢查都必須用 scanned() 回報它「實際」掃了什麼、掃了幾個，
+// 不得只說「已驗證」。原本的結尾摘要列了 7 個涵蓋領域卻只給一個分母
+// （HTML 檔數），讀起來像全都掃過同樣廣度，但其中「品牌承諾」只讀
+// index.html 一個檔、「GA4 不送個資」只讀 analytics.js 一個檔。
+//
+// 這條規則來自 2026-08-16 的三次漏判（詳見 leakdoctor 的同名腳本檔頭）：
+// 斷言宣稱「全域」但實際只讀單一檔案，因為分母沒印出來，寫的人與看的人
+// 都沒發現。把分母印出來，範圍不符當場就會看出來。
+const checks = [];
+const scanned = (what, detail) => checks.push('  · ' + what + '：' + detail);
 const scriptRe = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi;
+let jsonLdBlocks = 0;
+let inlineJsBlocks = 0;
 for (const file of htmlFiles) {
   const relative = path.relative(root, file).replaceAll('\\', '/');
   const html = fs.readFileSync(file, 'utf8');
@@ -31,14 +45,19 @@ for (const file of htmlFiles) {
     const body = match[2].trim();
     if (!body || /\bsrc\s*=/.test(attrs)) continue;
     if (/application\/ld\+json/i.test(attrs)) {
+      jsonLdBlocks++;
       try { JSON.parse(body); }
       catch (error) { errors.push(relative + ': invalid JSON-LD: ' + error.message); }
       continue;
     }
+    inlineJsBlocks++;
     try { new Function(body); }
     catch (error) { errors.push(relative + ': invalid inline JavaScript: ' + error.message); }
   }
 }
+scanned('canonical', htmlFiles.length + ' 個 HTML 各需絕對 canonical 指向 0988145875.com.tw');
+scanned('JSON-LD 有效性', jsonLdBlocks + ' 個 ld+json 區塊解析');
+scanned('內嵌 JS 語法', inlineJsBlocks + ' 個 inline script 區塊（有 src 的外部檔不計）');
 // sitemap.xml 必須涵蓋全部公開 HTML 頁面與 llms.txt
 // index.html 對應根路徑（/）；noindex 轉跳頁（hsinchu.html） intentionally excluded
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
@@ -57,11 +76,14 @@ for (const file of htmlFiles) {
 for (const name of ['llms.txt']) {
   if (!sitemap.includes(name)) errors.push('sitemap.xml missing: ' + name);
 }
+scanned('sitemap 對應', htmlFiles.length + ' 個 HTML ↔ ' + (sitemap.match(/<loc>/g) || []).length + ' 個 <loc>，轉跳頁 hsinchu.html 另驗 noindex 且不得入 sitemap');
 // 個資保護防回歸：詢價流程必須維持「本機整理＋LINE 送出」，不得出現後端收件
+let localOnlyScanned = 0;
 for (const file of htmlFiles) {
   const relative = path.relative(root, file).replaceAll('\\', '/');
   if (relative === 'privacy.html' || relative === 'terms.html') continue;
   const html = fs.readFileSync(file, 'utf8');
+  localOnlyScanned++;
   for (const forbidden of [
     'action="https://',
     'XMLHttpRequest',
@@ -84,45 +106,58 @@ for (const file of htmlFiles) {
     }
   }
 }
+scanned('本機收單防回歸', localOnlyScanned + '/' + htmlFiles.length + ' 個 HTML（privacy/terms 豁免），各檢 3 個後端收件樣式 + fetch 外部/POST');
+
 // GA4 不送個資：分析檔不得出現個資欄位名稱
 const analytics = fs.readFileSync(path.join(root, 'analytics.js'), 'utf8');
 try { new Function(analytics); }
 catch (error) { errors.push('analytics.js invalid JavaScript: ' + error.message); }
-for (const forbidden of [
+const piiFields = [
   'customer_name',
   'customer_phone',
   'user_name',
   'user_phone',
   'lead_form',
   'gtag(\'event\', \'generate_lead\'',
-]) {
+];
+for (const forbidden of piiFields) {
   if (analytics.includes(forbidden)) errors.push('analytics.js sends PII-like field to GA4: ' + forbidden);
 }
+// ⚠️ 只讀 analytics.js 一個檔。若日後把事件散到 inline script，這條就管不到了。
+scanned('GA4 不送個資', '僅 analytics.js 1 個檔，' + piiFields.length + ' 個禁用欄位名');
+
 // 品牌承諾文字防回歸（改價格、承諾、統編、地址前必須先向負責人確認）
 const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-for (const required of [
+const brandPromises = [
   '估多少收多少',
   '絕不現場加價',
   '60214473',
   '0988-145-875',
   '@117adltu',
   '複製',
-]) {
+];
+for (const required of brandPromises) {
   if (!homepage.includes(required)) errors.push('index.html missing required text: ' + required);
 }
+// ⚠️ 只讀 index.html 一個檔。其餘頁面若出現矛盾的價格或承諾，這條抓不到。
+scanned('品牌承諾', '僅 index.html 1 個檔，' + brandPromises.length + ' 項必要文字');
 // GA4 ID 全站一致性：所有 inline gtag config 的測量 ID 必須等於 analytics.js 的來源 ID
 // 防止改動時 inline script 與分析檔漂移成兩個測量 ID
 const ga4Source = analytics.match(/GA4_ID:\s*['"](G-[A-Z0-9]+)['"]/);
 if (!ga4Source) errors.push('analytics.js GA4_ID constant not found');
 else {
   const ga4Id = ga4Source[1];
+  let ga4Files = 0;
+  let ga4Configs = 0;
   for (const file of htmlFiles) {
     const relative = path.relative(root, file).replaceAll('\\', '/');
     if (relative === 'hsinchu.html') continue;
     const html = fs.readFileSync(file, 'utf8');
+    ga4Files++;
     const configRe = /gtag\(['"]config['"],\s*['"](G-[A-Z0-9]+)['"]/g;
     let cMatch;
     while ((cMatch = configRe.exec(html))) {
+      ga4Configs++;
       if (cMatch[1] !== ga4Id) {
         errors.push(relative + ': inline GA4 config ID ("' + cMatch[1] + '") differs from analytics.js source ("' + ga4Id + '")');
       }
@@ -132,26 +167,34 @@ else {
       errors.push(relative + ': placeholder G-XXXXXXXXXX ID in live inline script');
     }
   }
+  scanned('GA4 ID 一致性', ga4Files + ' 個 HTML 內共 ' + ga4Configs + ' 處 gtag config，來源 ID = ' + ga4Id + '（取自 analytics.js 的 GA4_ID 常數）');
 }
 // 每個公開頁必須至少有一個有效承接管道（LINE 官方帳號入口或官方電話），訪客不會無處可去
 const ctaLineRe = /https?:\/\/line\.me\/R\/[a-z]+\/@117adltu|@117adltu/i;
 const ctaTelRe = /href=["']tel:0988145875["']/i;
+let ctaScanned = 0;
 for (const file of htmlFiles) {
   const relative = path.relative(root, file).replaceAll('\\', '/');
   if (relative === 'hsinchu.html') continue;
   const html = fs.readFileSync(file, 'utf8');
+  ctaScanned++;
   if (!ctaLineRe.test(html) && !ctaTelRe.test(html)) {
     errors.push(relative + ': page has no LINE or phone CTA — every public page must offer a contact path');
   }
 }
+scanned('承接管道覆蓋', ctaScanned + '/' + htmlFiles.length + ' 個 HTML 各需至少 1 個 LINE 或電話 CTA（hsinchu.html 轉跳頁豁免）');
 // calculator 試算閉環：結果區塊必須同時具備「回帶估算結果」與「電話直撥」兩個 CTA
 const calcHtml = htmlFiles
   .filter((file) => path.relative(root, file).replaceAll('\\', '/') === 'calculator.html')
   .map((file) => fs.readFileSync(file, 'utf8'))[0];
 if (calcHtml) {
-  for (const required of ['estimate-booking-link', 'qcta-tel', 'tel:0988145875', 'quick-cta']) {
+  const loopMarkers = ['estimate-booking-link', 'qcta-tel', 'tel:0988145875', 'quick-cta'];
+  for (const required of loopMarkers) {
     if (!calcHtml.includes(required)) errors.push('calculator.html missing booking-loop CTA: ' + required);
   }
+  scanned('試算閉環', '僅 calculator.html 1 個檔，' + loopMarkers.length + ' 個必要標記');
+} else {
+  scanned('試算閉環', '⚠️ 找不到 calculator.html，本項未執行');
 }
 // 服務區事實：只能出現經確認的五個服務區（基隆、台北、新北、桃園、宜蘭）
 // 新竹服務已取消（見 hsinchu.html），出現「新竹」服務文案即視為回歸
@@ -168,10 +211,13 @@ const offerRe = /(新竹|hsinchu)[^<>]{0,60}(清潔|服務|區)[^<>]{0,30}/i;
 if (offerRe.test(publicHtml) && !honestRe.test(publicHtml)) {
   errors.push('public HTML still offers Hsinchu service copy — Hsinchu service was cancelled');
 }
+scanned('服務區事實', (htmlFiles.length - 1) + ' 個公開 HTML 合併後比對（hsinchu.html 排除），禁止新竹「提供服務」文案');
+
 if (errors.length) {
   console.error(errors.join('\n'));
+  console.error('\n❌ ' + errors.length + ' 項失敗。本次各項檢查的實際掃描範圍：\n' + checks.join('\n'));
   process.exitCode = 1;
 } else {
-  const msg = 'Validated ' + htmlFiles.length + ' HTML files, inline scripts, JSON-LD, canonicals, sitemap, local-only booking, and brand-promise markers.';
-  console.log(msg + (warnings.length ? '\nWARNINGS:\n' + warnings.join('\n') : ''));
+  console.log('✅ 全部通過。各項檢查的實際掃描範圍：\n' + checks.join('\n'));
+  if (warnings.length) console.log('\nWARNINGS:\n' + warnings.join('\n'));
 }
