@@ -1,5 +1,17 @@
 # 潔美淨網站 AI 維護說明
 
+## 2026-08-21 Pages 部署門禁更新（Codex）
+
+依 `Campcool/AI-skill` 的跨倉庫優化專案 P0-1，將 `.github/workflows/site-check.yml`
+從純 Site check 升級為 `Validate and deploy to GitHub Pages`。
+
+- PR 仍只跑既有 `analytics.js` 語法檢查、`validate-site.mjs` 與 GA4 防假綠。
+- main push 時必須先通過同一組檢查，才執行 `actions/deploy-pages`。
+- 2026-08-17 曾記錄「本站 CI 不是門禁」為當時接受的取捨；本次是使用者依跨倉庫 P0 專案重新啟動的部署門禁調整，等於用新決策覆蓋舊取捨。
+- 此變更需搭配 GitHub Pages 設定從 legacy branch deploy 改為 GitHub Actions workflow；合併後再切換 Pages source。
+
+本輪只改部署 workflow 與交接文件，未改價格、電話、LINE、服務區、GA4 或網站內容。
+
 ## 專案定位
 
 - 品牌：潔美淨清潔社
