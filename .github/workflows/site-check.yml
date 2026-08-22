@@ -41,6 +41,8 @@ jobs:
           fi
           mv analytics.js.bak analytics.js
           node scripts/validate-site.mjs
+      - name: Pages artifact excludes internal docs
+        run: bash scripts/prepare-pages-artifact.sh
 
   deploy:
     if: github.event_name != 'pull_request'
@@ -52,8 +54,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Prepare public artifact
+        run: bash scripts/prepare-pages-artifact.sh
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -1,5 +1,13 @@
 # 潔美淨網站 AI 維護說明
 
+## 2026-08-24 Pages artifact 公開範圍收斂（Codex）
+
+實測 `https://0988145875.com.tw/AI-README.md` 為 HTTP 200。新增
+`scripts/prepare-pages-artifact.sh`，PR check 與 deploy 都以明確公開白名單建立 `_site`；
+未列入白名單的維護文件與廣告投放資料預設不發佈。本 PR 只改 Actions artifact 內容；
+本站 Pages `build_type` 目前仍為 `legacy`，因此合併後線上發佈內容不會改變，必須另外把
+Pages Source 切到 GitHub Actions 才會生效。本輪未改價格、電話、LINE、服務區、GA4 或網站內容。
+
 ## 2026-08-24 UI/UX 窄螢幕優化（Codex，待審查）
 
 - 分支：`codex/ui-polish-cleaning-2026-08-24`，從遠端 `main` 的 `3c20b61` 開出；不得未經使用者同意合併。
