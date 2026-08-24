@@ -43,6 +43,16 @@ jobs:
           node scripts/validate-site.mjs
       - name: Pages artifact excludes internal docs
         run: bash scripts/prepare-pages-artifact.sh
+      - name: 防假綠：案例圖缺檔時 artifact 門禁必須失敗
+        run: |
+          mv cases/case01-before.jpg cases/case01-before.jpg.gate-test
+          if bash scripts/prepare-pages-artifact.sh >/dev/null 2>&1; then
+            mv cases/case01-before.jpg.gate-test cases/case01-before.jpg
+            echo "::error::artifact 門禁未抓到 cases.json 引用的缺檔案例圖"
+            exit 1
+          fi
+          mv cases/case01-before.jpg.gate-test cases/case01-before.jpg
+          bash scripts/prepare-pages-artifact.sh
 
   deploy:
     if: github.event_name != 'pull_request'

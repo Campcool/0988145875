@@ -23,6 +23,7 @@ readonly -a public_rules=(
   '/*.jpg'
   '/*.webp'
   '/cases.json'
+  '/cases/'
   '/cases/*.jpg'
   '/cases/*.webp'
   '/robots.txt'
@@ -67,6 +68,27 @@ for denied in "${denied_paths[@]}"; do
     exit 1
   fi
 done
+
+case_asset_count=0
+while IFS= read -r asset; do
+  case_asset_count=$((case_asset_count + 1))
+  case "$asset" in
+    cases/*.jpg|cases/*.webp) ;;
+    *)
+      echo "::error title=Cases artifact invalid::cases.json references unexpected path: $asset"
+      exit 1
+      ;;
+  esac
+  if [ ! -f "$output_dir/$asset" ]; then
+    echo "::error title=Cases artifact incomplete::$asset is referenced by cases.json but missing from $output_dir"
+    exit 1
+  fi
+done < <(sed -nE 's/^[[:space:]]*"(before|after)"[[:space:]]*:[[:space:]]*"([^"]+)".*/\2/p' cases.json)
+
+if [ "$case_asset_count" -eq 0 ]; then
+  echo "::error title=Cases artifact invalid::cases.json did not yield any before/after assets"
+  exit 1
+fi
 
 echo "Public Pages artifact ready: $(find "$output_dir" -type f | wc -l | tr -d ' ') files"
 find "$output_dir" -type f -print | sort

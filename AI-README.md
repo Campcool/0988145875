@@ -8,6 +8,10 @@
 本站 Pages `build_type` 目前仍為 `legacy`，因此合併後線上發佈內容不會改變，必須另外把
 Pages Source 切到 GitHub Actions 才會生效。本輪未改價格、電話、LINE、服務區、GA4 或網站內容。
 
+覆審補正：`cases.json` 是首頁執行期資料，所引用的 `cases/*.jpg` 必須一併公開。
+artifact 腳本現在逐一核對 before/after 路徑，CI 會刻意移走一張案例圖，確認缺檔時門禁確實失敗。
+本次只修打包與門禁，未修改案例文字或照片。
+
 ## 2026-08-24 UI/UX 窄螢幕優化（Codex，待審查）
 
 - 分支：`codex/ui-polish-cleaning-2026-08-24`，從遠端 `main` 的 `3c20b61` 開出；不得未經使用者同意合併。
