@@ -1,5 +1,13 @@
 # 潔美淨網站 AI 維護說明
 
+## 2026-08-24 UI/UX 窄螢幕優化（Codex，待審查）
+
+- 分支：`codex/ui-polish-cleaning-2026-08-24`，從遠端 `main` 的 `3c20b61` 開出；不得未經使用者同意合併。
+- `max-width: 380px` 時，預約表單的 `.bk-grid` 從雙欄改為單欄，處理 125% 縮放下有效 312px viewport 的欄位擠壓。
+- 首頁流程標題與 FAQ 問題由 13／13.5px 提升到 16px，恢復標題層級與繁中可讀性。
+- 未改價格、電話、LINE、服務區、GA4、案例或照片。
+- 驗證：`node scripts/validate-site.mjs`、`node --check analytics.js`、`git diff --check` 全綠；327x675（有效內容寬 312px）實際渲染為單欄、無水平溢位，console 無 error/warning。
+
 ## 2026-08-21 Pages 部署門禁更新（Codex）
 
 依 `Campcool/AI-skill` 的跨倉庫優化專案 P0-1，將 `.github/workflows/site-check.yml`
