@@ -1,5 +1,11 @@
 # 潔美淨網站 AI 維護說明
 
+## 2026-08-25 GitHub Actions Node 24 runtime（Codex）
+
+依 GitHub 官方各 Action 的 `action.yml` 實際 runtime，將 workflow 升至 `checkout@v7`、
+`setup-node@v7`、`configure-pages@v6`、`upload-pages-artifact@v5`、`deploy-pages@v5`。
+網站執行用 Node 版本仍為 22；本輪未改價格、電話、LINE、服務區、GA4、案例、照片或網站內容。
+
 ## 2026-08-24 Pages artifact 公開範圍收斂（Codex）
 
 實測 `https://0988145875.com.tw/AI-README.md` 為 HTTP 200。新增
