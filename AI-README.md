@@ -13,6 +13,12 @@
 - 實際視覺覆核尺寸：320×700、390×844、840×900、1280×720、1720×900；已檢查首頁、服務精準定位、預約深連結、價格頁籤、案例雙欄與關於頁，瀏覽器 console 無 error／warning。程式門禁以 `node scripts/validate-site.mjs`、`node --check analytics.js`、`git diff --check` 為準。
 - 本輪依 `D:\AI-Skill\ai-skills\SKILL.md` 路由使用兩項主技能：`uiux-design` 用於先審計後實作、轉換層級、漸進展開、響應式與無障礙覆核；`media-production-video-image` 用於 E 版人物圖用途構圖、機械裁切、JPEG／WebP 壓縮與輸出檢查。
 
+### 2026-09-03 服務圖示視覺補強（Codex）
+
+- 新增七張透明背景服務插圖，只替換服務手風琴內原本的 emoji：居家、社區、裝潢細清、店面辦公室、收納、退租入住與大掃除。
+- 圖片統一輸出 192×192 PNG／WebP；HTML 優先載入 WebP、PNG 作備援，並使用 lazy loading。導覽、電話、LINE 與價格頁籤等功能性圖示保持不變，避免裝飾干擾操作辨識。
+- `scripts/prepare-pages-artifact.sh` 已將 `service-icons/` 納入公開白名單，並把七組 PNG／WebP 共 14 個檔案全部列為必要部署檔，避免 CI 通過但正式站缺圖。
+
 ## 2026-08-25 GitHub Actions Node 24 runtime（Codex）
 
 依 GitHub 官方各 Action 的 `action.yml` 實際 runtime，將 workflow 升至 `checkout@v7`、

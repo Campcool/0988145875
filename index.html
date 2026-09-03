@@ -607,10 +607,12 @@ select:focus-visible, textarea:focus-visible {
   padding: 16px; cursor: pointer;
 }
 .svc-head-ico {
-  width: 50px; height: 50px; flex-shrink: 0; border-radius: 14px;
+  width: 58px; height: 58px; flex-shrink: 0; border-radius: 14px;
   background: linear-gradient(135deg, rgba(79,195,247,0.14), rgba(128,203,196,0.14));
-  display: flex; align-items: center; justify-content: center; font-size: 24px;
+  display: flex; align-items: center; justify-content: center; padding: 4px; overflow: hidden;
 }
+.svc-head-ico picture { width: 100%; height: 100%; display: block; }
+.svc-head-ico img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .svc-head-text { flex: 1; }
 .svc-head-text h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
 .svc-head-text .price-tag {
@@ -1238,6 +1240,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   .svc-hero p, .case-hero p, .price-hero p { font-size: 16px; }
   .svc-list { max-width: 860px; }
   .svc-head { padding: 18px 22px; }
+  .svc-head-ico { width: 64px; height: 64px; }
   .svc-body { padding: 0 22px 22px; }
   .svc-head-text h3 { font-size: 18px; }
   #photoCasesList {
@@ -2220,7 +2223,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 ══════════════════════════════ -->
 <div id="page-services" class="page">
   <div class="svc-hero">
-    <h2>🧹 服務項目</h2>
+    <h2>服務項目</h2>
     <p>點選各項服務查看詳細說明<br>所有服務均可 LINE 或電話免費諮詢</p>
   </div>
 
@@ -2230,7 +2233,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <!-- 1. 居家清潔 -->
       <div class="svc-item open" id="service-home" onclick="toggleSvc(this)">
         <div class="svc-head">
-          <div class="svc-head-ico">🏠</div>
+          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/home.webp" type="image/webp"><img src="service-icons/home.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
           <div class="svc-head-text">
             <h3>居家清潔</h3>
             <span class="price-tag">$2,500 / 4小時</span>
@@ -2252,7 +2255,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <!-- 2. 社區清潔 -->
       <div class="svc-item" id="service-community" onclick="toggleSvc(this)">
         <div class="svc-head">
-          <div class="svc-head-ico">🏢</div>
+          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/community.webp" type="image/webp"><img src="service-icons/community.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
           <div class="svc-head-text">
             <h3>社區清潔</h3>
             <span class="price-tag">依現場估價</span>
@@ -2275,7 +2278,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <!-- 3. 裝潢後清潔 -->
       <div class="svc-item" id="service-renovation" onclick="toggleSvc(this)">
         <div class="svc-head">
-          <div class="svc-head-ico">🏗</div>
+          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/renovation.webp" type="image/webp"><img src="service-icons/renovation.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
           <div class="svc-head-text">
             <h3>裝潢後清潔</h3>
             <span class="price-tag">$400–$1,000 / 坪</span>
@@ -2298,7 +2301,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <!-- 4. 店面、辦公室清潔 -->
       <div class="svc-item" id="service-business" onclick="toggleSvc(this)">
         <div class="svc-head">
-          <div class="svc-head-ico">🏪</div>
+          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/business.webp" type="image/webp"><img src="service-icons/business.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
           <div class="svc-head-text">
             <h3>店面・辦公室清潔</h3>
             <span class="price-tag">依現場估價</span>
@@ -2321,7 +2324,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <!-- 5. 收納整理 -->
       <div class="svc-item" id="service-organizing" onclick="toggleSvc(this)">
         <div class="svc-head">
-          <div class="svc-head-ico">📦</div>
+          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/organizing.webp" type="image/webp"><img src="service-icons/organizing.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
           <div class="svc-head-text">
             <h3>收納整理</h3>
             <span class="price-tag">依需求估價</span>
@@ -2344,7 +2347,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <!-- 6. 退租・入住清潔 -->
       <div class="svc-item" id="service-move" onclick="toggleSvc(this)">
         <div class="svc-head">
-          <div class="svc-head-ico">🚪</div>
+          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/move.webp" type="image/webp"><img src="service-icons/move.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
           <div class="svc-head-text">
             <h3>退租・入住清潔</h3>
             <span class="price-tag">依現場估價</span>
@@ -2367,7 +2370,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <!-- 7. 大掃除 -->
       <div class="svc-item" id="service-deep" onclick="toggleSvc(this)">
         <div class="svc-head">
-          <div class="svc-head-ico">🪟</div>
+          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/deep.webp" type="image/webp"><img src="service-icons/deep.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
           <div class="svc-head-text">
             <h3>大掃除</h3>
             <span class="price-tag">包工估價・不加價</span>
