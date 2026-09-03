@@ -142,7 +142,7 @@ select:focus-visible, textarea:focus-visible {
   display: flex; align-items: center; justify-content: center;
   background: transparent; color: var(--mid);
   font-size: clamp(15px, 1.25vw, 17px); font-weight: 700; line-height: 1;
-  letter-spacing: 0.08em; white-space: nowrap;
+  letter-spacing: 0; white-space: nowrap;
   cursor: pointer;
   transition: color 0.18s, background-color 0.18s;
 }
@@ -224,7 +224,7 @@ select:focus-visible, textarea:focus-visible {
   display: inline-block;
   background: linear-gradient(90deg, var(--sky), var(--mint));
   color: #0F3D3A; padding: 4px 12px; border-radius: 10px;
-  font-size: 13px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 9px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0; margin-bottom: 9px;
 }
 .stitle {
   font-family: 'Noto Serif TC', serif;
@@ -314,10 +314,7 @@ select:focus-visible, textarea:focus-visible {
   width: 100%; box-sizing: border-box;
 }
 .hero::before {
-  content: ''; position: absolute; top: -60px; right: -50px;
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(79,195,247,0.16), transparent 70%);
-  border-radius: 50%; pointer-events: none;
+  content: none;
 }
 .hero-inner {
   max-width: 460px; margin: 0 auto;
@@ -340,7 +337,7 @@ select:focus-visible, textarea:focus-visible {
   font-family: 'Noto Serif TC', serif;
   font-size: clamp(27px, 8vw, 34px);
   font-weight: 900; line-height: 1.3; color: var(--ink); margin-bottom: 10px;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 .hero h1 em { color: var(--blue); font-style: normal; border-bottom: 3px solid var(--accent); }
 .hero-sub {
@@ -381,10 +378,10 @@ select:focus-visible, textarea:focus-visible {
   box-shadow: 0 4px 14px rgba(6,199,85,0.27);
 }
 .hbtn-calc {
-  background: var(--blue); color: white;
+  background: white; color: var(--blue);
   border: 2px solid var(--blue); border-radius: 28px;
   padding: 13px 18px; min-height: 50px; font-size: 14px; font-weight: 700;
-  box-shadow: 0 4px 14px rgba(2,136,209,0.25);
+  box-shadow: none;
   display: flex; align-items: center; justify-content: center; gap: 6px;
   text-decoration: none; white-space: nowrap;
 }
@@ -433,6 +430,94 @@ select:focus-visible, textarea:focus-visible {
 .qcard-desc { font-size: 14px; color: var(--soft); line-height: 1.6; }
 .qcard-arrow { font-size: 13px; color: var(--blue); font-weight: 700; margin-top: auto; }
 
+/* Homepage conversion path */
+.service-choice-grid {
+  display: grid; grid-template-columns: 1fr; gap: 12px;
+  max-width: 460px; margin: 0 auto;
+}
+.service-choice {
+  width: 100%; min-height: 124px; padding: 18px;
+  border: 1.5px solid rgba(79,195,247,0.22); border-radius: 8px;
+  background: white; color: var(--ink); text-align: left; cursor: pointer;
+  display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; align-items: start;
+  font-family: inherit; transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.service-choice:hover { border-color: var(--blue); box-shadow: var(--sh); transform: translateY(-2px); }
+.service-choice-kicker { font-size: 13px; font-weight: 700; color: var(--blue); }
+.service-choice h3 { font-size: 20px; line-height: 1.35; }
+.service-choice-price { color: var(--green); font-size: 15px; font-weight: 900; white-space: nowrap; }
+.service-choice p { grid-column: 1 / -1; color: var(--soft); font-size: 14px; line-height: 1.65; }
+.service-choice-action { grid-column: 1 / -1; color: var(--blue); font-size: 14px; font-weight: 700; }
+.service-more {
+  max-width: 460px; margin: 14px auto 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+.service-more button {
+  min-height: 48px; padding: 10px 12px; border: 1px solid rgba(79,195,247,.24);
+  border-radius: 8px; background: #F8FCFE; color: var(--ink);
+  font: 700 14px/1.4 'Noto Sans TC', sans-serif; cursor: pointer;
+}
+.service-help {
+  max-width: 460px; margin: 18px auto 0; padding-top: 16px;
+  border-top: 1px solid rgba(79,195,247,.2); text-align: center;
+  font-size: 14px; color: var(--mid); line-height: 1.6;
+}
+.service-help a { color: var(--green); font-weight: 900; text-underline-offset: 3px; }
+.proof-layout { max-width: 980px; margin: 0 auto; display: grid; gap: 18px; }
+.proof-case { min-width: 0; }
+.proof-review {
+  background: var(--ink); color: white; border-radius: 8px; padding: 22px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.proof-review .testi-stars { margin-bottom: 12px; }
+.proof-review blockquote { font-size: 17px; line-height: 1.8; font-weight: 700; }
+.proof-review cite { margin-top: 16px; font-size: 14px; color: rgba(255,255,255,.72); font-style: normal; }
+.proof-review a { margin-top: 18px; color: var(--sky); font-size: 14px; font-weight: 700; }
+.home-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.home-case-item { position: relative; overflow: hidden; border-radius: 8px; background: #E9F1F4; }
+.home-case-item img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.home-case-label {
+  position: absolute; left: 8px; top: 8px; color: white; font-size: 14px;
+  font-weight: 900; padding: 6px 11px; border-radius: 999px; background: rgba(26,35,50,.88);
+}
+.home-case-item.is-after .home-case-label { background: #047A36; }
+.proof-actions { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+.text-action {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+  color: var(--blue); font-size: 14px; font-weight: 900; text-decoration: none;
+}
+.text-action.primary { background: var(--blue); color: white; padding: 10px 18px; border-radius: 24px; }
+
+.info-disclosure, .bk-form-disclosure {
+  max-width: 620px; margin: 18px auto 0; border-top: 1px solid rgba(79,195,247,.26);
+}
+.info-disclosure > summary, .bk-form-disclosure > summary {
+  min-height: 52px; padding: 14px 4px; cursor: pointer; list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  color: var(--blue); font-size: 15px; font-weight: 900;
+}
+.info-disclosure > summary::-webkit-details-marker,
+.bk-form-disclosure > summary::-webkit-details-marker { display: none; }
+.info-disclosure > summary::after, .bk-form-disclosure > summary::after {
+  content: '+'; width: 30px; height: 30px; flex: 0 0 30px; border-radius: 50%;
+  display: grid; place-items: center; background: #EAF7FD; color: var(--blue); font-size: 21px;
+}
+.info-disclosure[open] > summary::after, .bk-form-disclosure[open] > summary::after { content: '−'; }
+.info-disclosure .geo-answer-grid { padding-top: 10px; }
+.bk-form-disclosure .bk-form { margin-top: 8px; }
+.mini-faq-item { padding: 0; overflow: hidden; }
+.mini-faq-item summary {
+  min-height: 52px; padding: 14px 46px 14px 14px; cursor: pointer; list-style: none;
+  position: relative; color: var(--ink); font-size: 15px; font-weight: 700; line-height: 1.5;
+}
+.mini-faq-item summary::-webkit-details-marker { display: none; }
+.mini-faq-item summary::after {
+  content: '+'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--blue); font-size: 22px;
+}
+.mini-faq-item[open] summary::after { content: '−'; }
+.mini-faq-item p { padding: 0 14px 16px; }
+
 /* Steps on home */
 .steps { display: flex; flex-direction: column; gap: 11px; max-width: 460px; margin: 0 auto; }
 .step {
@@ -460,7 +545,7 @@ select:focus-visible, textarea:focus-visible {
   background: white;
   border: 1.5px solid rgba(79,195,247,0.16);
   border-radius: var(--r);
-  padding: 14px;
+  padding: 0;
   box-shadow: 0 2px 8px rgba(79,195,247,0.06);
 }
 .mini-faq-item h3 {
@@ -514,6 +599,7 @@ select:focus-visible, textarea:focus-visible {
   background: white; border-radius: var(--r);
   border: 1.5px solid rgba(79,195,247,0.16);
   overflow: hidden; transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
+  scroll-margin-top: 88px;
 }
 .svc-item:hover { box-shadow: var(--sh); transform: translateY(-2px); }
 .svc-head {
@@ -629,10 +715,7 @@ select:focus-visible, textarea:focus-visible {
   position: relative; overflow: hidden;
 }
 .about-hero::before {
-  content: ''; position: absolute; top: -40px; right: -40px;
-  width: 180px; height: 180px;
-  background: radial-gradient(circle, rgba(79,195,247,0.18), transparent 70%);
-  border-radius: 50%;
+  content: none;
 }
 .about-brand {
   width: 90px; height: 90px; border-radius: 20px; margin: 0 auto 14px;
@@ -657,7 +740,7 @@ select:focus-visible, textarea:focus-visible {
 .info-row { display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; border-bottom: 1px solid rgba(79,195,247,0.10); }
 .info-row:last-child { border-bottom: none; }
 .info-ico { font-size: 24px; flex-shrink: 0; margin-top: 1px; }
-.info-label { font-size: 13px; color: var(--soft); margin-bottom: 4px; font-weight: 600; letter-spacing: 0.3px; }
+.info-label { font-size: 13px; color: var(--soft); margin-bottom: 4px; font-weight: 600; letter-spacing: 0; }
 .info-val { font-size: clamp(14px, 4.2vw, 18px); color: var(--ink); font-weight: 700; line-height: 1.5; }
 .info-val a { color: var(--blue); text-decoration: none; }
 .promise-grid {
@@ -890,7 +973,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   border: 1.5px solid rgba(79,195,247,0.16);
   box-shadow: 0 2px 8px rgba(79,195,247,0.07);
 }
-.testi-stars { color: #FBBF24; font-size: 16px; margin-bottom: 8px; letter-spacing: 2px; }
+.testi-stars { color: #FBBF24; font-size: 16px; margin-bottom: 8px; letter-spacing: 0; }
 .testi-text {
   font-size: 14px; color: var(--mid); line-height: 1.75; margin-bottom: 10px;
   border-left: 3px solid rgba(79,195,247,0.30); padding-left: 10px;
@@ -940,7 +1023,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   width: 100%; padding: 10px 12px;
   min-height: 48px;
   border: 1.5px solid rgba(79,195,247,0.28);
-  border-radius: 10px; font-size: 14px;
+  border-radius: 10px; font-size: 16px;
   font-family: 'Noto Sans TC', sans-serif;
   color: var(--ink); background: white; outline: none;
   transition: border-color 0.18s; box-sizing: border-box;
@@ -1110,6 +1193,17 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   .promise-bar { order: initial; grid-column: 1; grid-row: 3; font-size: 15px; }
   .home-case-grid { max-width: 860px !important; gap: 18px !important; }
   .home-case-grid img { height: 360px !important; }
+  .service-choice-grid {
+    max-width: var(--content);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .service-choice { min-height: 210px; padding: 24px; }
+  .service-more { max-width: 980px; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+  .service-help { max-width: 980px; }
+  .proof-layout { grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr); align-items: stretch; }
+  .proof-review { padding: 32px; }
+  .proof-review blockquote { font-size: 20px; }
   .quick-grid {
     max-width: var(--content);
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1132,10 +1226,49 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     gap: 16px;
   }
   .testi-card, .step, .mini-faq-item, .geo-answer { padding: 20px; }
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mini-faq-item { padding: 0; }
+  .info-disclosure { max-width: 980px; }
   .bk-form, .bk-quick, .bk-trust-row, .bk-form-divider, .bk-confirm { max-width: 620px; }
   .bk-quick { grid-template-columns: 1.1fr 1fr; }
   .bk-form { padding: 28px; }
   #booking-section, #booking-form { scroll-margin-top: 88px; }
+  .svc-hero, .case-hero, .price-hero { padding: 46px 24px 38px; }
+  .svc-hero h2, .case-hero h2, .price-hero h2 { font-size: 36px; }
+  .svc-hero p, .case-hero p, .price-hero p { font-size: 16px; }
+  .svc-list { max-width: 860px; }
+  .svc-head { padding: 18px 22px; }
+  .svc-body { padding: 0 22px 22px; }
+  .svc-head-text h3 { font-size: 18px; }
+  #photoCasesList {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px;
+  }
+  .photo-case-card { margin-bottom: 0; }
+  .photo-cases-title, .photo-cases-desc, .no-photo-hint { max-width: 1000px; margin-left: auto; margin-right: auto; }
+  .price-type-tabs, .ptab-wrap, .ptab-note, .tab-switch, .hour-grid { max-width: 900px; }
+  .hour-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .price-cards { max-width: 980px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .promise-box, .faq-list { max-width: 860px; }
+  .about-info-card, .contact-card { max-width: 860px; }
+  .contact-card { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 28px; }
+  .contact-row:last-child { grid-column: 1 / -1; }
+  .promise-grid { max-width: 980px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .area-grid { max-width: 980px; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .area-note { max-width: 860px; }
+}
+
+@media (min-width: 840px) and (max-width: 1023px) {
+  .hero { padding: 56px 24px 48px; }
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
+    column-gap: 28px;
+  }
+  .hero h1 { font-size: 38px; }
+  .hero-sub { font-size: 15px; }
+  .hero-photo { height: 470px; }
+  .hero-stats { margin-top: 18px; }
+  .stat-n { font-size: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1744,93 +1877,83 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     </div>
   </div>
 
-  <!-- 真實案例前後對比 -->
-  <div class="sec sec-bg-cream">
+  <!-- 先選服務與價格 -->
+  <section class="sec sec-bg-white" aria-labelledby="home-service-title">
     <div class="sh">
-      <span class="slabel">真實案例</span>
-      <h2 class="stitle">清潔前後，看得見的差別</h2>
-      <p class="sdesc">基隆中正區・浴廁深度清潔實例</p>
+      <span class="slabel">先選需求</span>
+      <h2 class="stitle" id="home-service-title">你想清哪一種？</h2>
+      <p class="sdesc">先看常見服務與起價，再決定要試算或傳照片</p>
     </div>
-    <div class="home-case-grid" style="max-width:460px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-      <div style="position:relative;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(26,35,50,.12);">
-        <picture>
-          <source srcset="home-case01-before.webp" type="image/webp">
-          <img src="home-case01-before.jpg" alt="基隆中正區浴廁清潔前" width="480" height="640" loading="lazy" decoding="async" style="width:100%;height:220px;object-fit:cover;display:block;">
-        </picture>
-        <span style="position:absolute;left:8px;top:8px;background:rgba(26,35,50,.82);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">清潔前</span>
-      </div>
-      <div style="position:relative;border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(26,35,50,.12);">
-        <picture>
-          <source srcset="home-case01-after.webp" type="image/webp">
-          <img src="home-case01-after.jpg" alt="基隆中正區浴廁清潔後" width="480" height="640" loading="lazy" decoding="async" style="width:100%;height:220px;object-fit:cover;display:block;">
-        </picture>
-        <span style="position:absolute;left:8px;top:8px;background:var(--green);color:#fff;font-size:13px;font-weight:700;padding:4px 10px;border-radius:20px;">清潔後</span>
-      </div>
+    <div class="service-choice-grid">
+      <button class="service-choice" type="button" onclick="showService('service-home')">
+        <span class="service-choice-kicker">日常維持</span><span class="service-choice-price">4 小時 $2,500 起</span>
+        <h3>居家清潔</h3>
+        <p>廚房、浴室、客廳與臥室依時數安排，師傅自備工具到府。</p>
+        <span class="service-choice-action">看清潔範圍 →</span>
+      </button>
+      <button class="service-choice" type="button" onclick="showService('service-renovation')">
+        <span class="service-choice-kicker">完工交屋</span><span class="service-choice-price">每坪 $400–$1,000</span>
+        <h3>裝潢後細清</h3>
+        <p>依粉塵、櫃體與施工殘留評估，確認現場後提供明確報價。</p>
+        <span class="service-choice-action">看估價方式 →</span>
+      </button>
+      <button class="service-choice" type="button" onclick="showService('service-deep')">
+        <span class="service-choice-kicker">一次深清</span><span class="service-choice-price">包工估價</span>
+        <h3>大掃除</h3>
+        <p>重點區域、家具移動與洗窗先確認，談好的清潔細項照約定完成。</p>
+        <span class="service-choice-action">看服務細項 →</span>
+      </button>
     </div>
-    <div style="text-align:center;margin-top:18px;">
-      <a href="#" onclick="showPage('cases');return false;" style="display:inline-flex;align-items:center;gap:6px;min-height:44px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:11px 22px;border-radius:24px;box-shadow:0 4px 14px rgba(2,136,209,.25);">看更多真實案例 →</a>
+    <div class="service-more" aria-label="其他清潔服務">
+      <button type="button" onclick="showService('service-move')">退租・入住 →</button>
+      <button type="button" onclick="showService('service-community')">社區清潔 →</button>
+      <button type="button" onclick="showService('service-business')">店面・辦公室 →</button>
+      <button type="button" onclick="showService('service-organizing')">收納整理 →</button>
     </div>
-  </div>
+    <p class="service-help">還不確定怎麼選？<a href="#booking-section">直接傳照片給師傅判斷</a></p>
+  </section>
 
-  <!-- 快速選服務 -->
-  <div class="sec sec-bg-white">
+  <!-- 真實成果與顧客回饋 -->
+  <section class="sec sec-bg-cream" aria-labelledby="home-proof-title">
     <div class="sh">
-      <span class="slabel">服務項目</span>
-      <h2 class="stitle">7大清潔服務</h2>
-      <p class="sdesc">點選服務了解詳情與報價說明</p>
+      <span class="slabel">真實成果</span>
+      <h2 class="stitle" id="home-proof-title">先看做完的差別</h2>
+      <p class="sdesc">基隆中正區浴廁深度清潔實例與顧客回饋</p>
     </div>
-    <div class="quick-grid">
-      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看居家清潔服務">
-        <div class="qcard-ico">🏠</div>
-        <div class="qcard-title">居家清潔</div>
-        <div class="qcard-desc">計時制，$2,500 / 4小時，師傅到府</div>
-        <div class="qcard-arrow">了解更多 →</div>
-      </div>
-      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看社區清潔服務">
-        <div class="qcard-ico">🏢</div>
-        <div class="qcard-title">社區清潔</div>
-        <div class="qcard-desc">公共區域、走廊、停車場、大廳</div>
-        <div class="qcard-arrow">了解更多 →</div>
-      </div>
-      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看裝潢後清潔服務">
-        <div class="qcard-ico">🏗</div>
-        <div class="qcard-title">裝潢後清潔</div>
-        <div class="qcard-desc">新成屋、中古屋裝修後細清</div>
-        <div class="qcard-arrow">了解更多 →</div>
-      </div>
-      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看店面與辦公室清潔服務">
-        <div class="qcard-ico">🏪</div>
-        <div class="qcard-title">店面・辦公室</div>
-        <div class="qcard-desc">開幕清潔、定期維護、全室清潔</div>
-        <div class="qcard-arrow">了解更多 →</div>
-      </div>
-      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看收納整理服務">
-        <div class="qcard-ico">📦</div>
-        <div class="qcard-title">收納整理</div>
-        <div class="qcard-desc">空間規劃整理，讓家更好用</div>
-        <div class="qcard-arrow">了解更多 →</div>
-      </div>
-      <div class="quick-card" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看退租與入住清潔服務">
-        <div class="qcard-ico">🚪</div>
-        <div class="qcard-title">退租・入住</div>
-        <div class="qcard-desc">退押金清潔、入住前全室清潔</div>
-        <div class="qcard-arrow">了解更多 →</div>
-      </div>
-      <div class="quick-card quick-card-wide" role="button" tabindex="0" onclick="showPage('services')" aria-label="查看大掃除服務">
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div class="qcard-ico" style="flex-shrink:0;">🪟</div>
-          <div>
-            <div class="qcard-title">大掃除</div>
-            <div class="qcard-desc">含移動家具、水管洗窗，包工估價不加價</div>
+    <div class="proof-layout">
+      <div class="proof-case">
+        <div class="home-case-grid">
+          <div class="home-case-item">
+            <picture>
+              <source srcset="home-case01-before.webp" type="image/webp">
+              <img src="home-case01-before.jpg" alt="基隆中正區浴廁清潔前" width="480" height="640" loading="lazy" decoding="async">
+            </picture>
+            <span class="home-case-label">清潔前</span>
           </div>
-          <div class="qcard-arrow" style="margin-left:auto;flex-shrink:0;">了解 →</div>
+          <div class="home-case-item is-after">
+            <picture>
+              <source srcset="home-case01-after.webp" type="image/webp">
+              <img src="home-case01-after.jpg" alt="基隆中正區浴廁清潔後" width="480" height="640" loading="lazy" decoding="async">
+            </picture>
+            <span class="home-case-label">清潔後</span>
+          </div>
+        </div>
+        <div class="proof-actions">
+          <a class="text-action primary" href="#" onclick="showPage('cases');return false;">看更多真實案例</a>
+          <a class="text-action" href="#booking-section">傳我的現場照片 →</a>
         </div>
       </div>
+      <aside class="proof-review" aria-label="Google 顧客評論">
+        <div class="testi-stars" aria-label="五星評論">★★★★★</div>
+        <blockquote>「專業快速又清潔超乾淨的！老闆娘誠信正直，很放心把家交給她。」</blockquote>
+        <cite>薛詠婷・居家清潔・Google 評論</cite>
+        <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">查看 Google 4.7 星評價 →</a>
+      </aside>
     </div>
-  </div>
+  </section>
 
   <!-- 顧客見證 -->
-  <div class="sec sec-bg-cream">
+  <div class="sec sec-bg-cream" hidden>
     <div class="sh">
       <span class="slabel">顧客見證</span>
       <h2 class="stitle">真實顧客好評</h2>
@@ -1880,24 +2003,21 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   <div class="sec sec-bg-grad">
     <div class="sh">
       <span class="slabel">服務流程</span>
-      <h2 class="stitle">4步驟透明搞定</h2>
+      <h2 class="stitle">三步驟，清楚到完工</h2>
+      <p class="sdesc">每一步都知道接下來會發生什麼</p>
     </div>
     <div class="steps">
-      <div class="step"><div class="step-n">1</div><div class="step-t"><h3>LINE 或電話說明需求</h3><p>告知類型、地址、空間狀況，可傳照片，即可獲得初步說明。</p></div></div>
-      <div class="step"><div class="step-n">2</div><div class="step-t"><h3>到府現場估價</h3><p>大掃除與裝潢細清建議現場評估，依汙染程度、坪數、櫃體給出明確總價。</p></div></div>
-      <div class="step"><div class="step-n">3</div><div class="step-t"><h3>確認細項・開工</h3><p>雙方確認清潔細項與價格後開工，估多少收多少，即使估錯也做完。</p></div></div>
-      <div class="step"><div class="step-n">4</div><div class="step-t"><h3>完工驗收・滿意付款</h3><p>清潔完成業主確認，滿意再付款，有遺漏當場補做。</p></div></div>
+      <div class="step"><div class="step-n">1</div><div class="step-t"><h3>傳照片與基本需求</h3><p>告知服務類型、地區、坪數與希望時間，先由 LINE 初步判斷。</p></div></div>
+      <div class="step"><div class="step-n">2</div><div class="step-t"><h3>確認範圍與報價</h3><p>需要時到府評估；雙方確認清潔細項、總價與日期後再安排。</p></div></div>
+      <div class="step"><div class="step-n">3</div><div class="step-t"><h3>到府清潔與驗收</h3><p>依約完成清潔，現場確認成果；談好的細項不任意追加費用。</p></div></div>
     </div>
   </div>
 
   <!-- AI / Search answer blocks -->
-  <div class="sec sec-bg-white">
-    <div class="sh">
-      <span class="slabel">快速判斷</span>
-      <h2 class="stitle">找雙北基隆清潔公司<br>先看這 4 點</h2>
-      <p class="sdesc">服務範圍、價格、報價方式與店家資訊一次看清楚</p>
-    </div>
-    <div class="geo-answer-grid">
+  <div class="sec sec-bg-white" style="padding-top:24px;padding-bottom:24px;">
+    <details class="info-disclosure">
+      <summary>想先了解店家、地區與報價方式</summary>
+      <div class="geo-answer-grid">
       <div class="geo-answer">
         <h3>潔美淨清潔社是誰？</h3>
         <p><strong>潔美淨清潔社</strong>是基隆合法立案清潔店家，統一編號 60214473，由基隆中正區出發，提供居家清潔、裝潢後細清、大掃除、退租入住與店面辦公室清潔。</p>
@@ -1914,7 +2034,8 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
         <h3>為什麼適合先用 LINE 詢價？</h3>
         <p>客戶可先用費用試算器帶出估價範圍，再到 LINE 傳照片、坪數、地區與希望時間。師傅會依照片初估，必要時到府確認；確認後採「估多少收多少」原則，不任意現場加價。</p>
       </div>
-    </div>
+      </div>
+    </details>
   </div>
 
   <!-- 線上預約 -->
@@ -1943,8 +2064,9 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <span>可開發票</span>
       <span>不亂加價</span>
     </div>
-    <div class="bk-form-divider" aria-hidden="true"><span>或填寫完整需求</span></div>
-    <div id="bk-form-wrap">
+    <details class="bk-form-disclosure" id="booking-form-details">
+      <summary>想一次整理完整需求？展開表單</summary>
+      <div id="bk-form-wrap">
       <form class="bk-form" id="booking-form" tabindex="-1" aria-labelledby="booking-form-title" onsubmit="submitBookingForm(event)">
         <h3 class="bk-form-title" id="booking-form-title">填寫預約需求</h3>
         <p class="bk-form-intro">填寫基本資料後，系統會整理成 LINE 訊息，由您確認後送出。</p>
@@ -1997,7 +2119,8 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
           整理需求並開啟 LINE
         </button>
       </form>
-    </div>
+      </div>
+    </details>
     <div id="bk-confirm" class="bk-confirm">
       <div style="font-size:44px;margin-bottom:10px;">✅</div>
       <h4>需求已整理完成！</h4>
@@ -2022,22 +2145,22 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <p class="sdesc">價格、工具、排程與報價方式先說清楚</p>
     </div>
     <div class="mini-faq">
-      <div class="mini-faq-item">
-        <h3>Q：居家清潔費用怎麼算？</h3>
+      <details class="mini-faq-item">
+        <summary>居家清潔費用怎麼算？</summary>
         <p>A：基本方案為 4 小時 $2,500 起，適合一般住家維持清潔。坪數較大、廚房浴室需深清或需要加時，會在預約前先確認。</p>
-      </div>
-      <div class="mini-faq-item">
-        <h3>Q：需要自己準備清潔工具嗎？</h3>
+      </details>
+      <details class="mini-faq-item">
+        <summary>需要自己準備清潔工具嗎？</summary>
         <p>A：不用。師傅會自備清潔工具、吸塵器、清潔劑與耗材，若家中有特殊材質可先在 LINE 說明。</p>
-      </div>
-      <div class="mini-faq-item">
-        <h3>Q：裝潢細清或大掃除可以先報價嗎？</h3>
+      </details>
+      <details class="mini-faq-item">
+        <summary>裝潢細清或大掃除可以先報價嗎？</summary>
         <p>A：可以先傳地址、坪數、現場照片與需求。污染較重或範圍較大時，會建議到府確認後再給正式報價。</p>
-      </div>
-      <div class="mini-faq-item">
-        <h3>Q：會不會到現場才加價？</h3>
+      </details>
+      <details class="mini-faq-item">
+        <summary>會不會到現場才加價？</summary>
         <p>A：不會任意加價。包工項目會先確認範圍與總價，施工中以談好的內容完成，這也是潔美淨的主要承諾。</p>
-      </div>
+      </details>
     </div>
   </div>
 
@@ -2105,7 +2228,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     <div class="svc-list">
 
       <!-- 1. 居家清潔 -->
-      <div class="svc-item open" onclick="toggleSvc(this)">
+      <div class="svc-item open" id="service-home" onclick="toggleSvc(this)">
         <div class="svc-head">
           <div class="svc-head-ico">🏠</div>
           <div class="svc-head-text">
@@ -2127,7 +2250,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       </div>
 
       <!-- 2. 社區清潔 -->
-      <div class="svc-item" onclick="toggleSvc(this)">
+      <div class="svc-item" id="service-community" onclick="toggleSvc(this)">
         <div class="svc-head">
           <div class="svc-head-ico">🏢</div>
           <div class="svc-head-text">
@@ -2150,7 +2273,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       </div>
 
       <!-- 3. 裝潢後清潔 -->
-      <div class="svc-item" onclick="toggleSvc(this)">
+      <div class="svc-item" id="service-renovation" onclick="toggleSvc(this)">
         <div class="svc-head">
           <div class="svc-head-ico">🏗</div>
           <div class="svc-head-text">
@@ -2173,7 +2296,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       </div>
 
       <!-- 4. 店面、辦公室清潔 -->
-      <div class="svc-item" onclick="toggleSvc(this)">
+      <div class="svc-item" id="service-business" onclick="toggleSvc(this)">
         <div class="svc-head">
           <div class="svc-head-ico">🏪</div>
           <div class="svc-head-text">
@@ -2196,7 +2319,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       </div>
 
       <!-- 5. 收納整理 -->
-      <div class="svc-item" onclick="toggleSvc(this)">
+      <div class="svc-item" id="service-organizing" onclick="toggleSvc(this)">
         <div class="svc-head">
           <div class="svc-head-ico">📦</div>
           <div class="svc-head-text">
@@ -2219,7 +2342,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       </div>
 
       <!-- 6. 退租・入住清潔 -->
-      <div class="svc-item" onclick="toggleSvc(this)">
+      <div class="svc-item" id="service-move" onclick="toggleSvc(this)">
         <div class="svc-head">
           <div class="svc-head-ico">🚪</div>
           <div class="svc-head-text">
@@ -2242,7 +2365,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       </div>
 
       <!-- 7. 大掃除 -->
-      <div class="svc-item" onclick="toggleSvc(this)">
+      <div class="svc-item" id="service-deep" onclick="toggleSvc(this)">
         <div class="svc-head">
           <div class="svc-head-ico">🪟</div>
           <div class="svc-head-text">
@@ -2862,6 +2985,9 @@ function prefersReducedMotion() {
 }
 
 function showPage(id, moveFocus = true, resetScroll = true) {
+  if (resetScroll && /^#booking-(section|form)$/.test(window.location.hash) && history.replaceState) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.bnav-tab, .dnav-btn').forEach(t => {
     t.classList.remove('active');
@@ -2887,6 +3013,25 @@ function showPage(id, moveFocus = true, resetScroll = true) {
   }
 }
 
+function showService(serviceId) {
+  showPage('services', false, false);
+  var target = document.getElementById(serviceId);
+  if (!target) return;
+  document.querySelectorAll('.svc-item').forEach(function(item) {
+    var isTarget = item === target;
+    item.classList.toggle('open', isTarget);
+    item.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
+  });
+  window.setTimeout(function() {
+    target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+    var heading = target.querySelector('h3');
+    if (heading) {
+      heading.setAttribute('tabindex', '-1');
+      heading.focus({ preventScroll: true });
+    }
+  }, 120);
+}
+
 function goBooking(targetId = 'booking-section') {
   showPage('home', false, false);
   document.querySelectorAll('.bnav-tab, .dnav-btn').forEach(t => {
@@ -2901,6 +3046,10 @@ function goBooking(targetId = 'booking-section') {
   setTimeout(function() {
     var target = document.getElementById(targetId) || document.getElementById('booking-section');
     if (target) {
+      if (target.id === 'booking-form') {
+        var formDetails = document.getElementById('booking-form-details');
+        if (formDetails) formDetails.open = true;
+      }
       target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
       var focusTarget = target.id === 'booking-form' ? target : target.querySelector('h2, h3');
       if (focusTarget) focusTarget.focus({ preventScroll: true });
