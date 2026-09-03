@@ -37,7 +37,7 @@ readonly -a required_paths=(
   'index.html'
   'CNAME'
   'analytics.js'
-  'og-cleaning-v3.jpg'
+  'og-cleaning-v4.jpg'
   'cases.json'
   'robots.txt'
   'sitemap.xml'
