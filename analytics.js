@@ -155,12 +155,10 @@
     line: function (params) {
       track('line_click', Object.assign({ contact_method: 'line' }, params || {}), CFG.CONV_LINE);
     },
+    // A browser-prepared message is not a received or qualified lead.
+    // Keep CONV_FORM for account review; never send it from a click or local form.
     form: function (params) {
-      track('booking_form_submit', Object.assign({
-        contact_method: 'line',
-        value: 1.0,
-        currency: 'TWD'
-      }, params || {}), CFG.CONV_FORM);
+      track('quote_prepared', Object.assign({ contact_method: 'line' }, params || {}));
     },
     calc: function (params) {
       track('calculator_used', Object.assign({ engagement_type: 'pricing_calculator' }, params || {}), CFG.CONV_CALCULATOR);
@@ -192,7 +190,11 @@
     if (href.indexOf('tel:') === 0) {
       window.jmjTrack.phone(params);
     } else if (href.indexOf('line.me') !== -1 || href.indexOf('line://') === 0) {
+      params.cta_context = anchor.dataset.lineContext || (anchor.hasAttribute('data-line-photo') ? 'photo_quote' : 'direct_line');
       window.jmjTrack.line(params);
+      if (anchor.hasAttribute('data-line-photo') || anchor.classList.contains('bk-quick-photo')) {
+        window.jmjTrack.event('photo_quote_click', { contact_method: 'line', cta_context: 'photo_quote' });
+      }
     } else if (href.indexOf('maps.app.goo.gl') !== -1 || href.indexOf('google.com/maps') !== -1) {
       window.jmjTrack.event('map_click', params);
     } else if (href.indexOf('facebook.com') !== -1) {
