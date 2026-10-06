@@ -3061,7 +3061,7 @@ function goBooking(targetId = 'booking-section') {
     bookTab.classList.add('active');
     bookTab.setAttribute('aria-current', 'location');
   }
-  setTimeout(function() {
+  // Reveal and focus synchronously; a delayed focus can steal the first input.
     var target = document.getElementById(targetId) || document.getElementById('booking-section');
     if (target) {
       if (target.id === 'booking-form') {
@@ -3072,7 +3072,6 @@ function goBooking(targetId = 'booking-section') {
       var focusTarget = target.id === 'booking-form' ? target : target.querySelector('h2, h3');
       if (focusTarget) focusTarget.focus({ preventScroll: true });
     }
-  }, 120);
 }
 
 function handleBookingAnchor() {
@@ -3111,9 +3110,10 @@ function prefillBookingFromQuery() {
   var privateKeys = ['area', 'service', 'size', 'time', 'note', 'estimate_low', 'estimate_high'];
   var hadPrivateQuery = privateKeys.some(function(key) { return params.has(key); });
   if (hadPrivateQuery && history.replaceState) {
-    privateKeys.forEach(function(key) { params.delete(key); });
-    var cleanedQuery = params.toString();
-    history.replaceState(null, '', (cleanedQuery ? '?' + cleanedQuery : '/') + (window.location.hash || ''));
+    var publicParams = new URLSearchParams(window.location.search);
+    privateKeys.forEach(function(key) { publicParams.delete(key); });
+    var cleanedQuery = publicParams.toString();
+    history.replaceState(null, '', window.location.pathname + (cleanedQuery ? '?' + cleanedQuery : '') + (window.location.hash || ''));
   }
 }
 
