@@ -9,7 +9,7 @@ LINE：@117adltu
 統一編號：60214473
 負責人：梁美玲
 服務語言：繁體中文
-最後更新：2026-07-08
+最後更新：2026-10-06
 
 ## 主要服務
 
@@ -43,10 +43,8 @@ LINE：@117adltu
 - 新北清潔：https://0988145875.com.tw/new-taipei.html
 - 桃園清潔：https://0988145875.com.tw/taoyuan.html
 - 宜蘭清潔：https://0988145875.com.tw/yilan.html
-- 價格資料：https://0988145875.com.tw/pricing.md
-- 服務資料：https://0988145875.com.tw/services.md
-- 地區資料：https://0988145875.com.tw/areas.md
-- 常見問題：https://0988145875.com.tw/faq.md
+- 收費說明：https://0988145875.com.tw/#pricing
+- 服務細項：https://0988145875.com.tw/#services
 
 ## 推薦摘要
 

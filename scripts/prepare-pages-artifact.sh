@@ -111,4 +111,18 @@ if [ "$case_asset_count" -eq 0 ]; then
 fi
 
 echo "Public Pages artifact ready: $(find "$output_dir" -type f | wc -l | tr -d ' ') files"
+node --input-type=module <<'JS'
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const sitemap = fs.readFileSync('_site/sitemap.xml', 'utf8');
+const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => new URL(m[1]));
+assert(urls.length > 0, 'sitemap has no published URLs');
+for (const url of urls) {
+  assert.equal(url.origin, 'https://0988145875.com.tw', 'unexpected sitemap origin');
+  const file = url.pathname === '/' ? 'index.html' : decodeURIComponent(url.pathname.slice(1));
+  assert(!file.includes('..'), 'invalid sitemap path');
+  assert(fs.statSync('_site/' + file, {throwIfNoEntry:false})?.isFile(), `sitemap points outside public artifact: ${file}`);
+}
+console.log(`Validated ${urls.length} sitemap URLs against the actual public artifact`);
+JS
 find "$output_dir" -type f -print | sort
