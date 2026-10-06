@@ -1,0 +1,39 @@
+/* 2026-10-06: a quiet blue / warm paper system across the public site. */
+:root { --blue:#075378; --dark:#152f40; --mid:#435a66; --green:#047a36; --cream:#faf7f0; }
+body { background:#faf7f0; }
+.top-bar { background:#fffdf8; border-bottom:1px solid #deded4; box-shadow:none; }
+.top-btns .tbtn-book { background:#075378; color:white; border-radius:8px; }
+.desktop-nav .dnav-btn { border:0; border-radius:0; background:transparent; color:#435a66; }
+.desktop-nav .dnav-btn.active { color:#075378; background:transparent; border-bottom:3px solid #075378; }
+.hero { background:#faf7f0; padding:40px 20px; border-bottom:1px solid #deded4; }
+.hero-badge { background:transparent; border:0; border-radius:0; border-left:3px solid #b48a4c; padding:0 0 0 10px; color:#435a66; }
+.hero h1 { font-size:clamp(30px,4.2vw,58px); line-height:1.3; letter-spacing:-.04em; }
+.hero h1 em { color:#075378; border:0; font-style:normal; }
+.hero-sub { color:#435a66; font-size:16px; line-height:1.9; }
+.hero-proof span { border-radius:4px; background:#e9eef0; border:0; color:#254958; }
+.hero-btns a { border-radius:8px; box-shadow:none; min-height:52px; }
+.hero-photo { border-radius:4px 40px 4px 4px; box-shadow:none; height:250px; object-fit:cover; }
+.hero-stats { background:transparent; border-top:1px solid #d6dace; border-bottom:1px solid #d6dace; border-radius:0; }
+.stat-n { color:#075378; }
+.promise-bar { border:0; border-left:3px solid #b48a4c; background:#eee9dc; border-radius:0; color:#254958; text-align:left; }
+.sec { padding-top:48px; padding-bottom:48px; }
+.slabel { background:transparent; border:0; border-radius:0; color:#075378; padding:0; letter-spacing:.12em; }
+.stitle { color:#152f40; }
+.service-choice { border-radius:10px; box-shadow:none; border-color:#d6dace; border-top:3px solid #075378; }
+.service-choice-price { color:#075378; }
+.bk-form,.bk-quick,.photo-case-card,.review-card { border-radius:10px; box-shadow:none; }
+.bk-submit,.bk-line-btn,.bk-copy { border-radius:8px; }
+.bk-msg-box { user-select:text; white-space:pre-wrap; overflow-wrap:anywhere; }
+.bk-confirm { scroll-margin-top:100px; }
+.bk-confirm:focus { outline:3px solid #b45309; outline-offset:4px; }
+.bottom-nav { background:#fffdf8; border-top:1px solid #d6dace; box-shadow:none; }
+.bnav-tab.active { background:#e9eef0; border-color:transparent; color:#075378; }
+.svc-hero,.case-hero,.price-hero,.about-hero { background:#eee9dc; }
+@media(min-width:840px) {
+  .hero { padding:60px 24px; }
+  .hero-inner { grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:24px 56px; }
+  .hero-photo { height:490px; }
+  .hero-media { grid-row:1 / 4; }
+  .hero-sub { font-size:18px; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }

@@ -43,6 +43,19 @@ jobs:
           node scripts/validate-site.mjs
       - name: Pages artifact excludes internal docs
         run: bash scripts/prepare-pages-artifact.sh
+      - name: Install fixed browser test dependencies
+        run: npm ci
+      - name: Install browser engines
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Public artifact browser regression
+        run: npm run test:browser
+      - name: Preserve browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cleaning-browser-evidence
+          path: browser-results
+          retention-days: 14
       - name: 防假綠：案例圖缺檔時 artifact 門禁必須失敗
         run: |
           mv cases/case01-before.jpg cases/case01-before.jpg.gate-test

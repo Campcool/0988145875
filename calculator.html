@@ -174,6 +174,7 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
 .qcta-tel{background:white;color:var(--blue);border:2px solid var(--blue);border-radius:28px;padding:11px;min-height:48px;font-size:14px;font-weight:700;font-family:'Noto Sans TC',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
+<link rel="stylesheet" href="redesign.css">
 </head>
 <body>
 
@@ -235,7 +236,7 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
           <button class="step-btn" onclick="adjustSize(5)" type="button" aria-label="增加 5 坪">＋</button>
         </div>
         <div class="size-input-wrap">
-          <input class="calc-input" type="number" id="size-input" value="20" min="5" max="500" inputmode="numeric" aria-describedby="size-note" placeholder="坪數" oninput="syncSize(this.value)">
+          <input class="calc-input" type="number" id="size-input" value="20" min="1" max="500" inputmode="numeric" aria-describedby="size-note" placeholder="坪數" oninput="syncSize(this.value)">
         </div>
       </div>
       <p class="size-note" id="size-note">一般 2 房 2 廳約 25–35 坪｜3 房 2 廳約 35–50 坪</p>
@@ -578,6 +579,7 @@ function renderExtras(cfg) {
     btn.setAttribute('aria-pressed', 'false');
     btn.innerHTML = ex.label + '<br><small style="font-size:13px;color:var(--soft)">+$' + ex.add[0] + '~' + ex.add[1] + '</small>';
     btn.onclick = function() {
+      document.getElementById('result-box').classList.remove('show');
       if (activeExtras[ex.id]) {
         delete activeExtras[ex.id];
         btn.classList.remove('active');
@@ -593,7 +595,7 @@ function renderExtras(cfg) {
 }
 
 function adjustSize(delta) {
-  currentSize = Math.min(500, Math.max(5, currentSize + delta));
+  currentSize = Math.min(500, Math.max(1, currentSize + delta));
   document.getElementById('size-display').textContent = currentSize;
   document.getElementById('size-input').value = currentSize;
   document.getElementById('result-box').classList.remove('show');
@@ -617,12 +619,12 @@ function updateEstimateBookingLink(cfg, size, totalLo, totalHi) {
   if (!link) return;
   var params = new URLSearchParams();
   params.set('service', cfg.label);
-  params.set('size', size + '坪');
+  params.set('size', size + (currentSvc === 'sofa' ? '組件／坪' : '坪'));
   params.set('estimate_low', totalLo);
   params.set('estimate_high', totalHi);
   params.set('source', 'calculator');
   params.set('note', '我已使用費用試算器，估算範圍約 ' + formatMoney(totalLo) + ' ~ ' + formatMoney(totalHi) + '，請協助確認正式報價。');
-  link.href = '/?' + params.toString() + '#booking-section';
+  link.href = '/?' + params.toString() + '#booking-form';
   link.onclick = function() {
     if (window.jmjTrack) {
       jmjTrack.event('estimate_booking_click', {
@@ -637,7 +639,7 @@ function updateEstimateBookingLink(cfg, size, totalLo, totalHi) {
 
 function calculate() {
   var size = parseInt(document.getElementById('size-input').value, 10);
-  if (isNaN(size) || size < 1) { alert('請輸入有效坪數'); return; }
+  if (isNaN(size) || size < 1 || size > 500) { alert('請輸入 1–500 的有效數量'); return; }
   currentSize = Math.min(500, Math.max(1, size));
   document.getElementById('size-display').textContent = currentSize;
 
@@ -649,7 +651,7 @@ function calculate() {
   var totalLo = r.lo + extraLo;
   var totalHi = r.hi + extraHi;
 
-  document.getElementById('result-svc-tag').textContent = cfg.label + '・' + currentSize + ' 坪';
+  document.getElementById('result-svc-tag').textContent = cfg.label + '・' + currentSize + (currentSvc === 'sofa' ? ' 組件／坪' : ' 坪');
   document.getElementById('result-range').textContent = formatMoney(totalLo) + ' ~ ' + formatMoney(totalHi);
   document.getElementById('result-unit').textContent = cfg.unit;
   document.getElementById('result-detail').innerHTML = cfg.detail(currentSize, r)

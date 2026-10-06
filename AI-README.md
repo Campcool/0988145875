@@ -1,5 +1,20 @@
 # 潔美淨網站 AI 維護說明
 
+## 2026-10-06 改版與詢價流程（Codex）
+
+- 基準 main `48f49cd44687ae764c9f91791e6028230cff7a88`，已核對既有部署與中央交接；原生架構、價格、案例、電話、LINE、Google 評分、服務區與退出新竹規則沿用。業主已授權本輪 PR 合併與既有 Pages 部署。
+- 首屏、服務卡、試算及所有公開地區頁統一暖白／深藍視覺，`redesign.css` 納入公開產物白名單；既有生成式夫妻形象圖僅衍生 480px WebP，不冒充新實拍。
+- 試算 1–500 坪、沙發組件單位、加購後清除舊結果、預填深連結統一至 `#booking-form`。私有 query 在 Google 標籤之前移除，僅一次性記憶體預填，未寫 localStorage。
+- 「整理需求」只顯示本機確認內容，保留修改欄位，不自動複製或延遲跳頁；「開啟 LINE 確認傳送」才開 OA 預填連結，仍需客戶確認送出。複製權限失敗不顯示成功，改選取文字提示手動複製。
+- 照片入口：`photo_quote_click`＋`line_click`；空白直接 LINE：僅 `line_click`；整理非空需求：`quote_prepared`（同內容本次頁面不重複）；正式 LINE 按鈕：一次 `line_click`。不把整理或照片點擊送為 Ads CONV_FORM，不宣稱已收件／有效 lead，也不送人為 TWD 1 元。原 label 留作後台確認參考；Ads Primary 定義仍需帳號驗證。
+- 事件僅欄位存在布林值，不傳姓名電話備註與估价明細。瀏覽器測試阻擋第三方，不污染分析、不送 LINE 或實際訂單。
+- 新增固定 Playwright 1.63.0 lockfile 與產物回歸：三引擎 × 375／768／1440，試算→預填→整理→複製拒絕備援→LINE、去重／XSS、空白入口、服務鍵盤及案例滑桿；既有防假綠與公開白名單保留。
+- 本機靜態門禁及 Chromium 三寬度通過；CI 三引擎／合併／正式站證據見中央 `CLEANING-DELIVERY-2026-10-06.md`，不得將尚未完成的查核當已驗。
+- 待辦與未驗：Ads Primary／GA4 報表和 DebugView、真實客服收件、真機與 LINE webview、實際轉換／營收變化。回復基準同上，以 revert 重跑門禁及部署。
+- 三引擎 CI 初輪 WebKit 768 抓到深連結延遲 focus 干擾第一欄輸入；改為同步展開與定位，新增第一欄值與非私有 UTM 保留驗證，完整新 head 回歸結果見中央證據。
+- GA4 enhanced outbound 可能收完整 link_url；确认 CTA 的 DOM href 保持不帶顧客資料的 OA 入口，只在客戶實際點擊時建立私有預填導航，瀏覽器斷言所有可見連結不含測試電話。[官方 link_url 說明](https://support.google.com/analytics/answer/13784088?hl=en)。
+
+
 ## 2026-09-03 轉換路徑與閱讀節奏優化（Codex，已完成／已部署）
 
 - 工作分支：`codex/conversion-ui-20260903`；轉換路徑、E 版人物主圖與服務插圖已合併至 `main` 並完成 Pages 部署。
