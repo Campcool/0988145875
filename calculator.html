@@ -23,14 +23,14 @@ window.__JMJ_ADS_CONFIGURED = true;
 <meta property="og:title" content="清潔費用試算｜潔美淨清潔社">
 <meta property="og:description" content="輸入坪數+服務類型，即時顯示估價範圍。免費 LINE 諮詢確認正式報價。">
 <meta property="og:url" content="https://0988145875.com.tw/calculator.html">
-<meta property="og:image" content="https://0988145875.com.tw/og-cleaning-v4.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="潔美淨清潔社老闆夫妻與居家清潔專業設備">
+<meta property="og:image" content="https://0988145875.com.tw/cases/case07-after.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="960">
+<meta property="og:image:alt" content="潔美淨清潔社基隆仁愛區廚房清潔後紀錄">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="清潔費用試算｜潔美淨清潔社">
 <meta name="twitter:description" content="輸入坪數+服務類型即時顯示估價。居家/裝潢/大掃除/退租。基隆台北新北桃園宜蘭。">
-<meta name="twitter:image" content="https://0988145875.com.tw/og-cleaning-v4.jpg">
+<meta name="twitter:image" content="https://0988145875.com.tw/cases/case07-after.jpg">
 <meta name="theme-color" content="#0369A1">
 <meta name="robots" content="index,follow">
 <meta name="geo.region" content="TW-KEE">
@@ -176,18 +176,18 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
 </style>
 <link rel="stylesheet" href="redesign.css">
 </head>
-<body>
+<body class="content-site calculator-site">
 
 <header class="topbar">
   <a href="/">
     <img src="logo.png" alt="潔美淨清潔社" width="32" height="32">
     <span class="topbar-name">潔美淨清潔社</span>
   </a>
-  <a class="topbar-tel" href="tel:0988145875">📞 來電</a>
+  <a class="topbar-tel" href="tel:0988145875"> 來電</a>
 </header>
 
 <div class="hero">
-  <div class="hero-badge">🧮 免費費用試算</div>
+  <div class="hero-badge"> 免費費用試算</div>
   <h1>清潔費用<em>即時試算</em><br>輸入坪數馬上看估價</h1>
   <p class="hero-sub">選擇服務類型・輸入坪數，立即顯示估價範圍<br>確認報價請 LINE 或來電，估多少收多少絕不加價</p>
 </div>
@@ -206,22 +206,22 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
       <p class="calc-label" id="service-type-label">① 選擇服務類型</p>
       <div class="svc-btns" role="group" aria-labelledby="service-type-label">
         <button class="svc-btn active" type="button" aria-pressed="true" data-svc="home" onclick="selectSvc(this,'home')">
-          <span class="svc-btn-ico" aria-hidden="true">🏠</span>居家清潔
+          <span class="svc-btn-ico" aria-hidden="true"></span>居家清潔
         </button>
         <button class="svc-btn" type="button" aria-pressed="false" data-svc="deep" onclick="selectSvc(this,'deep')">
-          <span class="svc-btn-ico" aria-hidden="true">🪟</span>大掃除・定期深清
+          <span class="svc-btn-ico" aria-hidden="true"></span>大掃除・定期深清
         </button>
         <button class="svc-btn" type="button" aria-pressed="false" data-svc="reno" onclick="selectSvc(this,'reno')">
-          <span class="svc-btn-ico" aria-hidden="true">🏗</span>裝潢後細清
+          <span class="svc-btn-ico" aria-hidden="true"></span>裝潢後細清
         </button>
         <button class="svc-btn" type="button" aria-pressed="false" data-svc="move" onclick="selectSvc(this,'move')">
-          <span class="svc-btn-ico" aria-hidden="true">🚪</span>退租・入住清潔
+          <span class="svc-btn-ico" aria-hidden="true"></span>退租・入住清潔
         </button>
         <button class="svc-btn" type="button" aria-pressed="false" data-svc="office" onclick="selectSvc(this,'office')">
-          <span class="svc-btn-ico" aria-hidden="true">🏢</span>店面・辦公室
+          <span class="svc-btn-ico" aria-hidden="true"></span>店面・辦公室
         </button>
         <button class="svc-btn" type="button" aria-pressed="false" data-svc="sofa" onclick="selectSvc(this,'sofa')">
-          <span class="svc-btn-ico" aria-hidden="true">🛋</span>沙發・地毯清洗
+          <span class="svc-btn-ico" aria-hidden="true"></span>沙發・地毯清洗
         </button>
       </div>
     </div>
@@ -250,24 +250,24 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
       </div>
     </div>
 
-    <button class="calc-btn" type="button" onclick="calculate()"><span aria-hidden="true">🧮</span> 立即試算費用</button>
+    <button class="calc-btn" type="button" onclick="calculate()"><span aria-hidden="true"></span> 立即試算費用</button>
 
     <!-- Result -->
     <div class="result-box" id="result-box" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">
-      <div class="result-svc-tag" id="result-svc-tag">🏠 居家清潔</div>
+      <div class="result-svc-tag" id="result-svc-tag"> 居家清潔</div>
       <div class="result-range">
         <div class="result-min-max" id="result-range">$3,500 ~ $5,000</div>
         <div class="result-unit" id="result-unit">元（含工資＋耗材，不另收費）</div>
       </div>
       <div class="result-note-bar" id="result-note">
-        ⚠ 以上為估算範圍，實際報價以現場或照片評估為準。若現場確認無需加價，施工中也絕不追加。
+         以上為估算範圍，實際報價以現場或照片評估為準。若現場確認無需加價，施工中也絕不追加。
       </div>
       <div class="result-detail" id="result-detail"></div>
       <div class="quick-cta">
         <a class="qcta-line" id="estimate-booking-link" href="/#booking-section">
           傳送估算結果給師傅確認正式報價
         </a>
-        <a class="qcta-tel" href="tel:0988145875">📞 直接來電 0988-145-875</a>
+        <a class="qcta-tel" href="tel:0988145875"> 直接來電 0988-145-875</a>
       </div>
     </div>
 
@@ -285,7 +285,7 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
 
     <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid var(--sky);box-shadow:0 2px 8px rgba(79,195,247,.07)">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-        <span style="font-size:22px">🏠</span>
+        <span style="font-size:22px"></span>
         <strong style="font-size:14px;color:var(--ink)">居家清潔（按時計算）</strong>
       </div>
       <div style="font-size:13px;color:var(--mid);line-height:1.7">
@@ -298,7 +298,7 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
 
     <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid var(--mint);box-shadow:0 2px 8px rgba(79,195,247,.07)">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-        <span style="font-size:22px">🪟</span>
+        <span style="font-size:22px"></span>
         <strong style="font-size:14px;color:var(--ink)">大掃除・定期深清</strong>
       </div>
       <div style="font-size:13px;color:var(--mid);line-height:1.7">
@@ -311,7 +311,7 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
 
     <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid var(--accent);box-shadow:0 2px 8px rgba(79,195,247,.07)">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-        <span style="font-size:22px">🏗</span>
+        <span style="font-size:22px"></span>
         <strong style="font-size:14px;color:var(--ink)">裝潢後細清</strong>
       </div>
       <div style="font-size:13px;color:var(--mid);line-height:1.7">
@@ -324,7 +324,7 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
 
     <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid var(--green);box-shadow:0 2px 8px rgba(79,195,247,.07)">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-        <span style="font-size:22px">🚪</span>
+        <span style="font-size:22px"></span>
         <strong style="font-size:14px;color:var(--ink)">退租・入住清潔</strong>
       </div>
       <div style="font-size:13px;color:var(--mid);line-height:1.7">
@@ -337,7 +337,7 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
 
     <div style="background:white;border-radius:14px;padding:16px;border-left:4px solid #AB47BC;box-shadow:0 2px 8px rgba(79,195,247,.07)">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-        <span style="font-size:22px">🏢</span>
+        <span style="font-size:22px"></span>
         <strong style="font-size:14px;color:var(--ink)">店面・辦公室清潔</strong>
       </div>
       <div style="font-size:13px;color:var(--mid);line-height:1.7">
@@ -358,10 +358,10 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
     <h2 class="stitle">估多少・收多少<br>是我們對您的承諾</h2>
   </div>
   <div class="trust-row">
-    <div class="trust-chip"><span>📋</span><p>包工報價<br>不追加</p></div>
-    <div class="trust-chip"><span>🧴</span><p>自備工具<br>耗材</p></div>
-    <div class="trust-chip"><span>🔍</span><p>細節到位<br>完工驗收</p></div>
-    <div class="trust-chip"><span>📅</span><p>配合時程<br>彈性排班</p></div>
+    <div class="trust-chip"><span></span><p>包工報價<br>不追加</p></div>
+    <div class="trust-chip"><span></span><p>自備工具<br>耗材</p></div>
+    <div class="trust-chip"><span></span><p>細節到位<br>完工驗收</p></div>
+    <div class="trust-chip"><span></span><p>配合時程<br>彈性排班</p></div>
   </div>
 </section>
 
@@ -399,13 +399,13 @@ footer a{color:#7DD3FC;text-decoration:none;display:inline-flex;align-items:cent
     <a class="cta-line" href="/#booking-section">
       LINE 免費諮詢估價
     </a>
-    <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+    <a class="cta-tel" href="tel:0988145875"> 0988-145-875</a>
   </div>
 </div>
 
 <footer>
   <strong style="color:white">潔美淨清潔社</strong><br>
-  📞 <a href="tel:0988145875">0988-145-875</a>｜
+   <a href="tel:0988145875">0988-145-875</a>｜
   <a href="/#booking-section">LINE 免費諮詢</a><br>
   服務地區：基隆・台北・新北・桃園・宜蘭<br>
   <br>
