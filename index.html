@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta name="campcool-release" content="2026-10-06-cleaning-redesign">
+<meta name="campcool-release" content="2026-10-06-jmj-field-notes">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
@@ -37,7 +37,6 @@ window.__JMJ_ADS_CONFIGURED = true;
 <meta name="keywords" content="基隆清潔,基隆清潔公司,基隆居家清潔,台北清潔,新北清潔,桃園清潔,宜蘭清潔,宜蘭清潔公司,基隆中正區清潔,居家清潔,裝潢後清潔,裝潢細清,入住清潔,退租清潔,大掃除,社區清潔,店面清潔,辦公室清潔,收納整理,潔美淨,梁美玲">
 <link rel="canonical" href="https://0988145875.com.tw/">
 <link rel="alternate" type="text/plain" title="AI 可讀摘要" href="https://0988145875.com.tw/llms.txt">
-<link rel="alternate" type="text/markdown" title="清潔服務價格資料" href="https://0988145875.com.tw/pricing.md">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="潔美淨清潔社 | 基隆・台北・新北・桃園・宜蘭 居家・社區・裝潢・店面清潔">
@@ -45,15 +44,15 @@ window.__JMJ_ADS_CONFIGURED = true;
 <meta property="og:url" content="https://0988145875.com.tw/">
 <meta property="og:site_name" content="潔美淨清潔社">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://0988145875.com.tw/og-cleaning-v4.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="潔美淨清潔社老闆夫妻與居家清潔專業設備">
+<meta property="og:image" content="https://0988145875.com.tw/cases/case07-after.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="960">
+<meta property="og:image:alt" content="潔美淨清潔社基隆仁愛區廚房清潔後紀錄">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="潔美淨清潔社｜基隆・台北・新北・桃園・宜蘭 居家・店面・裝潢清潔">
 <meta name="twitter:description" content="基隆在地，服務基隆・台北・新北・桃園・宜蘭。估多少收多少，不加價。電話 0988-145-875">
-<meta name="twitter:image" content="https://0988145875.com.tw/og-cleaning-v4.jpg">
+<meta name="twitter:image" content="https://0988145875.com.tw/cases/case07-after.jpg">
 <!-- Mobile + GEO meta -->
 <meta name="theme-color" content="#0369A1">
 <meta name="robots" content="index,follow">
@@ -1316,8 +1315,8 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     "value": "60214473"
   },
   "image": [
-    "https://0988145875.com.tw/og-cleaning-v4.jpg",
-    "https://0988145875.com.tw/hero-photo.jpg",
+    "https://0988145875.com.tw/cases/case07-after.jpg",
+    "https://0988145875.com.tw/cases/case07-after.jpg",
     "https://0988145875.com.tw/home-case01-after.jpg"
   ],
   "logo": "https://0988145875.com.tw/logo.png",
@@ -1837,9 +1836,11 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 }
 </script>
 <link rel="stylesheet" href="redesign.css">
+<noscript><style>.page,.svc-body{display:block}.desktop-nav,.bottom-nav,.service-choice,.service-more,.float-group,.bk-form-disclosure{display:none}.price-section{display:block!important}.price-section[hidden]{display:block!important}</style></noscript>
 </head>
 <body>
 
+<noscript><p class="nojs-note">可直接閱讀服務與收費；<a href="https://line.me/R/ti/p/@117adltu">用 LINE 詢問</a> 或 <a href="tel:0988145875">撥打 0988-145-875</a>。案例照片需要 JavaScript 載入。</p></noscript>
 <!-- ══ TOP BAR ══ -->
 <header class="top-bar"><div class="top-bar-inner">
   <button class="tlogo" type="button" onclick="showPage('home')" aria-label="回到潔美淨首頁">
@@ -1847,11 +1848,11 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     <span class="tlogo-name">潔美淨清潔社</span>
   </button>
   <nav class="desktop-nav" aria-label="桌面主選單">
-    <button class="dnav-btn active" data-page="home" aria-current="page" onclick="showPage('home')">首頁</button>
-    <button class="dnav-btn" data-page="services" onclick="showPage('services')">服務</button>
-    <button class="dnav-btn" data-page="pricing" onclick="showPage('pricing')">收費</button>
-    <button class="dnav-btn" data-page="cases" onclick="showPage('cases')">案例</button>
-    <button class="dnav-btn" data-page="about" onclick="showPage('about')">關於</button>
+    <a class="dnav-btn active" data-page="home" aria-current="page" href="#home">首頁</a>
+    <a class="dnav-btn" data-page="services" href="#services">服務</a>
+    <a class="dnav-btn" data-page="pricing" href="#pricing">收費</a>
+    <a class="dnav-btn" data-page="cases" href="#cases">案例</a>
+    <a class="dnav-btn" data-page="about" href="#about">關於</a>
   </nav>
   <div class="top-btns">
     <button class="tbtn-book" onclick="goBooking()">LINE 詢價</button>
@@ -1864,17 +1865,13 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 ══════════════════════════════ -->
 <div id="page-home" class="page active">
   <!-- Hero -->
-  <div class="hero">
+  <div class="hero" id="home">
     <div class="hero-inner">
       <div class="hero-content">
         <div class="hero-badge">基隆在地｜雙北・桃園・宜蘭到府</div>
-        <h1>清潔大小事<br><em>先報價，做到驗收</em></h1>
-        <p class="hero-sub">居家清潔 4 小時 $2,500 起；裝潢細清、大掃除可先用 LINE 傳照片評估。合法立案、可開統一發票，談好的細項不任意現場加價。</p>
-        <div class="hero-proof">
-          <span>4小時 $2,500 起</span>
-          <span>可開統一發票</span>
-          <span>師傅自備工具</span>
-        </div>
+        <h1>家裡難清的地方，<br><em>我們來處理。</em></h1>
+        <p class="hero-sub">廚房油污、浴室水垢，或裝潢後留下的粉塵。先告訴我們哪裡需要清，再一起確認範圍、費用與到府時間。</p>
+<p class="hero-rate">居家清潔 <strong>4 小時 $2,500 起</strong><br>裝潢細清・大掃除依屋況估價</p>
         <div class="hero-btns">
           <a class="hbtn-line" href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%82%B3%E7%85%A7%E7%89%87%E8%AB%AE%E8%A9%A2%E6%B8%85%E6%BD%94%E4%BC%B0%E5%83%B9%E3%80%82" data-line-photo="true">
             LINE 傳照片估價
@@ -1882,25 +1879,60 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
           <a class="hbtn-calc" href="calculator.html?utm_source=site&utm_medium=hero&utm_campaign=quote_flow">先試算費用</a>
         </div>
       </div>
-      <picture class="hero-media">
-        <source srcset="hero-photo-small.webp 480w, hero-photo.webp 960w" sizes="(min-width: 840px) 45vw, 100vw" type="image/webp">
-        <img class="hero-photo" src="hero-photo.jpg" alt="潔美淨清潔社老闆夫妻與專業到府清潔裝備" width="960" height="870" fetchpriority="high" decoding="async">
-      </picture>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-n">300+</div><div class="stat-l">服務戶數</div></div>
-        <div class="stat"><div class="stat-n">Google 4.7★</div><div class="stat-l">好評評分</div></div>
-        <div class="stat"><div class="stat-n">不加價</div><div class="stat-l">承諾保證</div></div>
-      </div>
-      <div class="promise-bar">估價承諾：<strong>談好的清潔細項，就照約定完成</strong></div>
+<figure class="hero-media field-photo">
+        <picture><source srcset="cases/case07-after.webp" type="image/webp"><img class="hero-photo" src="cases/case07-after.jpg" alt="基隆仁愛區廚房清潔後的瓦斯爐與檯面" width="1280" height="960" fetchpriority="high" decoding="async"></picture>
+        <div class="field-before"><picture><source srcset="cases/case07-before.webp" type="image/webp"><img src="cases/case07-before.jpg" alt="同一廚房清潔前的油污" width="1280" height="960" decoding="async"></picture><span>清潔前</span></div>
+        <figcaption><span>基隆仁愛區 ／ 廚房清潔後</span><a href="#cases">看清潔案例 <span aria-hidden="true"></span></a></figcaption>
+      </figure>
+<div class="hero-note"><span>師傅自備工具・可開統一發票</span><span>談好的清潔細項，照約定完成。</span></div>
     </div>
   </div>
 
+  <!-- 案場紀錄與顧客回饋 -->
+  <section class="sec sec-bg-cream field-record" aria-labelledby="home-proof-title">
+    <div class="sh">
+      <span class="slabel">真實成果</span>
+      <h2 class="stitle" id="home-proof-title">清潔前後，放在一起看</h2>
+      <p class="sdesc">基隆中正區 ／ 浴廁深度清潔</p>
+    </div>
+    <div class="proof-layout">
+      <div class="proof-case">
+        <div class="home-case-grid">
+          <div class="home-case-item">
+            <picture>
+              <source srcset="home-case01-before.webp" type="image/webp">
+              <img src="home-case01-before.jpg" alt="基隆中正區浴廁清潔前" width="480" height="640" loading="lazy" decoding="async">
+            </picture>
+            <span class="home-case-label">清潔前</span>
+          </div>
+          <div class="home-case-item is-after">
+            <picture>
+              <source srcset="home-case01-after.webp" type="image/webp">
+              <img src="home-case01-after.jpg" alt="基隆中正區浴廁清潔後" width="480" height="640" loading="lazy" decoding="async">
+            </picture>
+            <span class="home-case-label">清潔後</span>
+          </div>
+        </div>
+        <div class="proof-actions">
+          <a class="text-action primary" href="#cases">查看全部清潔案例</a>
+          <a class="text-action" href="#booking-section">傳我的現場照片 →</a>
+        </div>
+      </div>
+      <aside class="proof-review" aria-label="Google 顧客評論">
+        <div class="testi-stars" aria-label="五星評論">★★★★★</div>
+        <blockquote>「專業快速又清潔超乾淨的！老闆娘誠信正直，很放心把家交給她。」</blockquote>
+        <cite>薛詠婷・居家清潔・Google 評論</cite>
+        <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">查看 Google 4.7 星評價 →</a>
+      </aside>
+    </div>
+  </section>
+
   <!-- 先選服務與價格 -->
-  <section class="sec sec-bg-white" aria-labelledby="home-service-title">
+  <section class="sec sec-bg-white service-index" aria-labelledby="home-service-title">
     <div class="sh">
       <span class="slabel">先選需求</span>
-      <h2 class="stitle" id="home-service-title">你想清哪一種？</h2>
-      <p class="sdesc">先看常見服務與起價，再決定要試算或傳照片</p>
+      <h2 class="stitle" id="home-service-title">依照屋況，選需要的清潔</h2>
+      <p class="sdesc">日常打掃、完工細清與整屋大掃除，安排方式不同。</p>
     </div>
     <div class="service-choice-grid">
       <button class="service-choice" type="button" onclick="showService('service-home')">
@@ -1931,98 +1963,12 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     <p class="service-help">還不確定怎麼選？<a href="#booking-section">直接傳照片給師傅判斷</a></p>
   </section>
 
-  <!-- 真實成果與顧客回饋 -->
-  <section class="sec sec-bg-cream" aria-labelledby="home-proof-title">
-    <div class="sh">
-      <span class="slabel">真實成果</span>
-      <h2 class="stitle" id="home-proof-title">先看做完的差別</h2>
-      <p class="sdesc">基隆中正區浴廁深度清潔實例與顧客回饋</p>
-    </div>
-    <div class="proof-layout">
-      <div class="proof-case">
-        <div class="home-case-grid">
-          <div class="home-case-item">
-            <picture>
-              <source srcset="home-case01-before.webp" type="image/webp">
-              <img src="home-case01-before.jpg" alt="基隆中正區浴廁清潔前" width="480" height="640" loading="lazy" decoding="async">
-            </picture>
-            <span class="home-case-label">清潔前</span>
-          </div>
-          <div class="home-case-item is-after">
-            <picture>
-              <source srcset="home-case01-after.webp" type="image/webp">
-              <img src="home-case01-after.jpg" alt="基隆中正區浴廁清潔後" width="480" height="640" loading="lazy" decoding="async">
-            </picture>
-            <span class="home-case-label">清潔後</span>
-          </div>
-        </div>
-        <div class="proof-actions">
-          <a class="text-action primary" href="#" onclick="showPage('cases');return false;">看更多真實案例</a>
-          <a class="text-action" href="#booking-section">傳我的現場照片 →</a>
-        </div>
-      </div>
-      <aside class="proof-review" aria-label="Google 顧客評論">
-        <div class="testi-stars" aria-label="五星評論">★★★★★</div>
-        <blockquote>「專業快速又清潔超乾淨的！老闆娘誠信正直，很放心把家交給她。」</blockquote>
-        <cite>薛詠婷・居家清潔・Google 評論</cite>
-        <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">查看 Google 4.7 星評價 →</a>
-      </aside>
-    </div>
-  </section>
-
-  <!-- 顧客見證 -->
-  <div class="sec sec-bg-cream" hidden>
-    <div class="sh">
-      <span class="slabel">顧客見證</span>
-      <h2 class="stitle">真實顧客好評</h2>
-      <p class="sdesc">每一則評論都是真實客戶的親身體驗</p>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">「店家打掃的很專業也很細心，因為是新買的房子，店家在打掃的過程中，還幫忙發現到一些瑕疵，實在是很感謝！」</p>
-        <div class="testi-author">
-          <div class="testi-avatar">強</div>
-          <div>
-            <div class="testi-name">強 lin</div>
-            <div class="testi-date">入住清潔・2025年11月</div>
-          </div>
-          <div class="testi-source">
-            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-            Google 評論
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">「專業快速又清潔超乾淨的！老闆娘誠信正直很放心把家交給她。」</p>
-        <div class="testi-author">
-          <div class="testi-avatar">薛</div>
-          <div>
-            <div class="testi-name">薛詠婷</div>
-            <div class="testi-date">居家清潔・2025年11月</div>
-          </div>
-          <div class="testi-source">
-            <svg width="14" height="14" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-            Google 評論
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="testi-more">
-      更多顧客評論請見
-      <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">Google 地圖評論頁 →</a>
-      &nbsp;・&nbsp;
-      <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">幫我們留個評論 ⭐</a>
-    </p>
-  </div>
-
   <!-- 流程 -->
-  <div class="sec sec-bg-grad">
+  <div class="sec sec-bg-grad arranging">
     <div class="sh">
       <span class="slabel">服務流程</span>
-      <h2 class="stitle">三步驟，清楚到完工</h2>
-      <p class="sdesc">每一步都知道接下來會發生什麼</p>
+      <h2 class="stitle">從詢問到清潔，怎麼安排？</h2>
+      <p class="sdesc">先確認，再到府。完成後一起看清潔結果。</p>
     </div>
     <div class="steps">
       <div class="step"><div class="step-n">1</div><div class="step-t"><h3>傳照片與基本需求</h3><p>告知服務類型、地區、坪數與希望時間，先由 LINE 初步判斷。</p></div></div>
@@ -2060,20 +2006,20 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   <div class="sec sec-bg-white" id="booking-section" aria-labelledby="booking-action-title">
     <div class="sh">
       <span class="slabel">LINE 詢價</span>
-      <h2 class="stitle" id="booking-action-title" tabindex="-1">先傳照片，最快取得初步估價</h2>
-      <p class="sdesc">直接開啟 LINE 傳現場照片，也可以先試算費用或填寫完整需求</p>
+      <h2 class="stitle" id="booking-action-title" tabindex="-1">把要清的地方拍給我們看</h2>
+      <p class="sdesc">拍一張空間全景，再拍需要處理的地方。附上地區、坪數與希望日期，方便一起確認。</p>
     </div>
     <div class="bk-quick" aria-label="快速預約入口">
       <a class="bk-quick-btn bk-quick-photo" href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%82%B3%E7%85%A7%E7%89%87%E8%AB%AE%E8%A9%A2%E6%B8%85%E6%BD%94%E4%BC%B0%E5%83%B9%E3%80%82" data-line-photo="true">
         <span class="bk-quick-heading">
           <img class="bk-line-icon" src="LINE_Brand_icon.png" alt="" width="1001" height="1000">
-          <strong>直接傳照片估價</strong>
-          <span class="bk-quick-badge">最快</span>
+          <strong>用 LINE 傳照片詢價</strong>
+
         </span>
-        <span>開啟 LINE，把現場照片傳給師傅初步評估</span>
+        <span>開啟對話後，再選取照片與傳送訊息</span>
       </a>
       <a class="bk-quick-btn bk-quick-calc" href="calculator.html?utm_source=site&utm_medium=booking_quick&utm_campaign=booking_flow">
-        <span class="bk-quick-heading"><strong>🧮 先試算費用</strong></span>
+        <span class="bk-quick-heading"><strong> 先試算費用</strong></span>
         <span>套用服務與坪數，試算後可帶回完整表單</span>
       </a>
     </div>
@@ -2086,7 +2032,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <summary>想一次整理完整需求？展開表單</summary>
       <div id="bk-form-wrap">
       <form class="bk-form" id="booking-form" tabindex="-1" aria-labelledby="booking-form-title" onsubmit="submitBookingForm(event)">
-        <h3 class="bk-form-title" id="booking-form-title">填寫預約需求</h3>
+        <h3 class="bk-form-title" id="booking-form-title">整理清潔需求</h3>
         <p class="bk-form-intro">填寫基本資料後，系統會整理成 LINE 訊息，由您確認後送出。</p>
         <div class="bk-row">
           <label for="bk-service">服務類型</label>
@@ -2140,17 +2086,17 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       </div>
     </details>
     <div id="bk-confirm" class="bk-confirm">
-      <div style="font-size:44px;margin-bottom:10px;">✅</div>
+      <div style="font-size:44px;margin-bottom:10px;"></div>
       <h4>需求已整理完成！</h4>
       <p>需求尚未送出。確認下方內容後，再到 LINE 傳送。</p>
       <div class="bk-next-note" id="bk-next-note" role="status">若 LINE 沒有自動開啟，請點「開啟 LINE 確認傳送」或直接複製訊息。</div>
       <div class="bk-msg-box" id="bk-msg-text" tabindex="0" aria-label="可選取的詢價訊息"></div>
       <div class="bk-actions">
-        <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn">📋 複製訊息</button>
+        <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn"> 複製訊息</button>
         <a class="bk-line-btn" href="https://line.me/R/ti/p/@117adltu" onclick="openBookingLine(event)">
           開啟 LINE 確認傳送
         </a>
-        <a class="bk-call-btn" href="tel:0988145875">📞 直接來電</a>
+        <a class="bk-call-btn" href="tel:0988145875"> 直接來電</a>
       </div>
       <p style="margin-top:14px;font-size:13px;"><a href="#" onclick="resetBookingForm();return false;" style="color:var(--blue);">重新填寫</a></p>
     </div>
@@ -2159,25 +2105,25 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   <div class="sec sec-bg-cream">
     <div class="sh">
       <span class="slabel">常見問題</span>
-      <h2 class="stitle">預約前最常問的事</h2>
+      <h2 class="stitle">詢問前，你可能想知道</h2>
       <p class="sdesc">價格、工具、排程與報價方式先說清楚</p>
     </div>
     <div class="mini-faq">
       <details class="mini-faq-item">
         <summary>居家清潔費用怎麼算？</summary>
-        <p>A：基本方案為 4 小時 $2,500 起，適合一般住家維持清潔。坪數較大、廚房浴室需深清或需要加時，會在預約前先確認。</p>
+        <p>基本方案為 4 小時 $2,500 起。坪數較大、廚房浴室需深清或需要加時，會在預約前先確認。<br><a href="#pricing" class="faq-action">查看收費方式 →</a></p>
       </details>
       <details class="mini-faq-item">
         <summary>需要自己準備清潔工具嗎？</summary>
-        <p>A：不用。師傅會自備清潔工具、吸塵器、清潔劑與耗材，若家中有特殊材質可先在 LINE 說明。</p>
+        <p>不用。師傅會自備清潔工具、吸塵器、清潔劑與耗材。若家中有特殊材質，請先告訴我們。<br><a href="#booking-section" class="faq-action">詢問清潔需求 →</a></p>
       </details>
       <details class="mini-faq-item">
         <summary>裝潢細清或大掃除可以先報價嗎？</summary>
-        <p>A：可以先傳地址、坪數、現場照片與需求。污染較重或範圍較大時，會建議到府確認後再給正式報價。</p>
+        <p>可以先傳地區、坪數、現場照片與需求。污染較重或範圍較大時，會建議到府確認後再給正式報價。<br><a href="#booking-section" class="faq-action">傳照片詢價 →</a></p>
       </details>
       <details class="mini-faq-item">
         <summary>會不會到現場才加價？</summary>
-        <p>A：不會任意加價。包工項目會先確認範圍與總價，施工中以談好的內容完成，這也是潔美淨的主要承諾。</p>
+        <p>包工項目先確認範圍與總價，施工依談好的內容完成，不任意加價。<br><a href="#services" class="faq-action">確認服務細項 →</a></p>
       </details>
     </div>
   </div>
@@ -2190,12 +2136,12 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <a class="cta-line" href="#booking-section">
         LINE 免費諮詢
       </a>
-      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+      <a class="cta-tel" href="tel:0988145875"> 0988-145-875</a>
     </div>
   </div>
 
   <!-- 服務地區 + 地圖 -->
-  <div class="sec sec-bg-cream">
+  <div class="sec sec-bg-cream region-index">
     <div class="sh">
       <span class="slabel">服務地區</span>
       <h2 class="stitle">服務範圍與據點</h2>
@@ -2208,28 +2154,26 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <a href="taoyuan.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;min-height:64px;"><span style="font-weight:700;color:var(--ink);font-size:14px;">桃園清潔</span><br><span style="font-size:13px;color:var(--soft);">桃園中壢平鎮</span></a>
       <a href="yilan.html" style="background:white;border:1.5px solid rgba(79,195,247,.18);border-radius:12px;padding:13px;text-decoration:none;display:block;min-height:64px;"><span style="font-weight:700;color:var(--ink);font-size:14px;">宜蘭清潔</span><br><span style="font-size:13px;color:var(--soft);">宜蘭羅東礁溪</span></a>
     </div>
-    <div style="max-width:460px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(79,195,247,.12);">
-      <iframe src="https://maps.google.com/maps?q=25.1318,121.7391&z=15&output=embed" width="100%" height="220" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="潔美淨清潔社・基隆據點位置"></iframe>
-    </div>
+<div class="home-address"><span>潔美淨清潔社・基隆據點<br>基隆市中正區義一路87號9樓之2</span><a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">開啟 Google 地圖 </a></div>
   </div>
 
   <footer>
     <div class="flogo">潔美淨清潔社</div>
     <div class="fdiv"></div>
-    <p>📍 基隆市中正區義一路87號9樓之2<br>
-    🗺 服務：基隆・台北・新北・桃園・宜蘭<br>
-    📞 <a href="tel:0988145875">0988-145-875</a>　💬 <a href="#booking-section">LINE 洽詢</a></p>
-    <p>📘 <a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank" rel="noopener noreferrer">Facebook 粉專</a>　📍 <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">Google 地圖</a></p>
+    <p> 基隆市中正區義一路87號9樓之2<br>
+     服務：基隆・台北・新北・桃園・宜蘭<br>
+     <a href="tel:0988145875">0988-145-875</a>　 <a href="#booking-section">LINE 洽詢</a></p>
+    <p> <a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank" rel="noopener noreferrer">Facebook 粉專</a>　 <a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">Google 地圖</a></p>
     <div class="fdiv"></div>
     <p style="font-size:13px;">地區頁面：<a href="keelung.html">基隆清潔</a>　<a href="taipei.html">台北清潔</a>　<a href="new-taipei.html">新北清潔</a>　<a href="taoyuan.html">桃園清潔</a>　<a href="yilan.html">宜蘭清潔</a></p>
     <p style="font-size:13px;"><a href="#about" onclick="showPage('about');return false;">關於我們</a>　<a href="calculator.html">費用估算器</a>　<a href="privacy.html">隱私權政策</a>　<a href="terms.html">服務條款</a></p>
-    <p style="font-size:13px;">🧮 <a href="calculator.html">清潔費用試算</a>　<a href="llms.txt">AI 可讀摘要</a>　<a href="pricing.md">價格資料</a></p>
+
     <div class="fdiv"></div>
     <p style="font-size:13px;opacity:0.9;line-height:1.8;">基隆服務區域：中正區、信義區、仁愛區、安樂區、暖暖區、七堵區，及鄰近汐止地區，均可到府清潔。</p>
-    <p style="font-size:13px;opacity:0.82;line-height:1.85;text-align:left;max-width:460px;margin:6px auto 0;">關於潔美淨清潔社：由負責人梁美玲於 2025 年在基隆市中正區依法設立（統一編號 60214473），提供居家清潔（4 小時 $2,500 起）、裝潢後細清（每坪 $400–$1,000）、大掃除、退租入住清潔、店面與辦公室清潔、社區清潔及收納整理共 7 大服務，服務範圍涵蓋基隆市、台北市、新北市、桃園市與宜蘭縣。Google 評分 4.7 星，師傅自備清潔工具到府，採包工報價，估多少收多少、絕不現場加價，並可開立統一發票。聯絡電話 0988-145-875。</p>
-    <p style="font-size:13px;opacity:0.78;margin-top:6px;">網站資料最後更新：2026-08-05</p>
+
+    <p style="font-size:13px;opacity:0.78;margin-top:6px;">網站更新：2026-10-06</p>
     <div class="fdiv"></div>
-    <p style="font-size:13px;opacity:0.78;">© 2025-2026 潔美淨清潔社</p>
+    <p style="font-size:13px;opacity:0.78;"> 2025-2026 潔美淨清潔社</p>
   </footer>
 </div>
 
@@ -2237,7 +2181,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
    PAGE: SERVICES（服務）
 ══════════════════════════════ -->
 <div id="page-services" class="page">
-  <div class="svc-hero">
+  <div class="svc-hero" id="services">
     <h2>服務項目</h2>
     <p>點選各項服務查看詳細說明<br>所有服務均可 LINE 或電話免費諮詢</p>
   </div>
@@ -2246,16 +2190,16 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     <div class="svc-list">
 
       <!-- 1. 居家清潔 -->
-      <div class="svc-item open" id="service-home" onclick="toggleSvc(this)">
-        <div class="svc-head">
-          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/home.webp" type="image/webp"><img src="service-icons/home.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
+      <div class="svc-item open" id="service-home" aria-expanded="true">
+        <button type="button" class="svc-head" onclick="toggleSvc(this.closest('.svc-item'))" aria-expanded="true" aria-controls="service-home-body">
+
           <div class="svc-head-text">
             <h3>居家清潔</h3>
             <span class="price-tag">$2,500 / 4小時</span>
           </div>
-          <span class="svc-arrow">▶</span>
-        </div>
-        <div class="svc-body">
+          <span class="svc-arrow"></span>
+        </button>
+        <div class="svc-body" id="service-home-body">
           <p>採計時制，基本4小時 $2,500，師傅自備清潔工具到府服務。超時部分依比例計算，可彈性搭配需求，也可依坪數包價，詳見報價頁。</p>
           <ul>
             <li>廚房：爐台、抽油煙機外部、流理台、磁磚擦拭</li>
@@ -2263,21 +2207,22 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>臥室、客廳：吸塵除塵、拖地、桌面擦拭</li>
             <li>玻璃窗（室內面）、門框、踢腳板</li>
           </ul>
-          <div class="svc-note"><strong>💡 建議：</strong>空間較大或污染較重可安排6～8小時，費用等比例計算。定期配合（週清/雙週清/月清）享優惠方案。</div>
+          <div class="svc-note"><strong> 建議：</strong>空間較大或污染較重可安排6～8小時，費用等比例計算。定期配合（週清/雙週清/月清）享優惠方案。</div>
+          <div class="service-actions"><a href="#booking-section">詢問這項服務 →</a><a href="#pricing">查看收費說明 →</a></div>
         </div>
       </div>
 
       <!-- 2. 社區清潔 -->
-      <div class="svc-item" id="service-community" onclick="toggleSvc(this)">
-        <div class="svc-head">
-          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/community.webp" type="image/webp"><img src="service-icons/community.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
+      <div class="svc-item" id="service-community" aria-expanded="false">
+        <button type="button" class="svc-head" onclick="toggleSvc(this.closest('.svc-item'))" aria-expanded="false" aria-controls="service-community-body">
+
           <div class="svc-head-text">
             <h3>社區清潔</h3>
             <span class="price-tag">依現場估價</span>
           </div>
-          <span class="svc-arrow">▶</span>
-        </div>
-        <div class="svc-body">
+          <span class="svc-arrow"></span>
+        </button>
+        <div class="svc-body" id="service-community-body">
           <p>針對公寓、大樓、社區等公共空間提供定期或單次清潔服務，維持社區整潔，提升居住品質。</p>
           <ul>
             <li>大廳、電梯間：地板清潔、牆面除塵、門把消毒</li>
@@ -2286,21 +2231,22 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>頂樓、屋頂：雜物清除、地板沖洗</li>
             <li>社區公佈欄、信箱區域清潔</li>
           </ul>
-          <div class="svc-note"><strong>💡 適合：</strong>管委會定期委託、社區換屆大掃除、新建案驗收前清潔。可簽訂定期合約，長期服務享優惠。</div>
+          <div class="svc-note"><strong> 適合：</strong>管委會定期委託、社區換屆大掃除、新建案驗收前清潔。可簽訂定期合約，長期服務享優惠。</div>
+          <div class="service-actions"><a href="#booking-section">詢問這項服務 →</a><a href="#pricing">查看收費說明 →</a></div>
         </div>
       </div>
 
       <!-- 3. 裝潢後清潔 -->
-      <div class="svc-item" id="service-renovation" onclick="toggleSvc(this)">
-        <div class="svc-head">
-          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/renovation.webp" type="image/webp"><img src="service-icons/renovation.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
+      <div class="svc-item" id="service-renovation" aria-expanded="false">
+        <button type="button" class="svc-head" onclick="toggleSvc(this.closest('.svc-item'))" aria-expanded="false" aria-controls="service-renovation-body">
+
           <div class="svc-head-text">
             <h3>裝潢後清潔</h3>
             <span class="price-tag">$400–$1,000 / 坪</span>
           </div>
-          <span class="svc-arrow">▶</span>
-        </div>
-        <div class="svc-body">
+          <span class="svc-arrow"></span>
+        </button>
+        <div class="svc-body" id="service-renovation-body">
           <p>新成屋裝潢完工或中古屋裝修後的專業細清，依現場汙染程度及系統櫃數量估價。一般裝潢場約 $400–$700/坪，烤漆場費用較高。</p>
           <ul>
             <li>地板：磁磚縫隙、超耐磨地板粉塵、矽利康殘留清除</li>
@@ -2309,21 +2255,22 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>衛浴：施工矽利康殘留、水垢、磁磚縫深清</li>
             <li>廚具：台面、內側、抽屜完整清潔</li>
           </ul>
-          <div class="svc-note"><strong>🎨 烤漆場特別說明：</strong>烤漆經過15道工序，表面精緻不耐刮，師傅全程使用全新拋棄式抹布與指定清潔劑，確保零刮傷，費用較一般場偏高。</div>
+          <div class="svc-note"><strong> 烤漆場特別說明：</strong>烤漆經過15道工序，表面精緻不耐刮，師傅全程使用全新拋棄式抹布與指定清潔劑，確保零刮傷，費用較一般場偏高。</div>
+          <div class="service-actions"><a href="#booking-section">詢問這項服務 →</a><a href="#pricing">查看收費說明 →</a></div>
         </div>
       </div>
 
       <!-- 4. 店面、辦公室清潔 -->
-      <div class="svc-item" id="service-business" onclick="toggleSvc(this)">
-        <div class="svc-head">
-          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/business.webp" type="image/webp"><img src="service-icons/business.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
+      <div class="svc-item" id="service-business" aria-expanded="false">
+        <button type="button" class="svc-head" onclick="toggleSvc(this.closest('.svc-item'))" aria-expanded="false" aria-controls="service-business-body">
+
           <div class="svc-head-text">
             <h3>店面・辦公室清潔</h3>
             <span class="price-tag">依現場估價</span>
           </div>
-          <span class="svc-arrow">▶</span>
-        </div>
-        <div class="svc-body">
+          <span class="svc-arrow"></span>
+        </button>
+        <div class="svc-body" id="service-business-body">
           <p>提供商業空間單次或定期清潔服務，可配合營業時間安排（下班後或假日施工），不影響正常營運。</p>
           <ul>
             <li>店面開幕前全室清潔，地板拋光、玻璃擦拭</li>
@@ -2332,21 +2279,22 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>玻璃外牆、招牌、門面維護清潔</li>
             <li>洗手間、共用區域定期消毒清潔</li>
           </ul>
-          <div class="svc-note"><strong>💡 適合：</strong>開幕清潔、搬遷前後清潔、定期維護。可依店面類型量身規劃清潔頻率與細項，歡迎 LINE 說明需求。</div>
+          <div class="svc-note"><strong> 適合：</strong>開幕清潔、搬遷前後清潔、定期維護。可依店面類型量身規劃清潔頻率與細項，歡迎 LINE 說明需求。</div>
+          <div class="service-actions"><a href="#booking-section">詢問這項服務 →</a><a href="#pricing">查看收費說明 →</a></div>
         </div>
       </div>
 
       <!-- 5. 收納整理 -->
-      <div class="svc-item" id="service-organizing" onclick="toggleSvc(this)">
-        <div class="svc-head">
-          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/organizing.webp" type="image/webp"><img src="service-icons/organizing.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
+      <div class="svc-item" id="service-organizing" aria-expanded="false">
+        <button type="button" class="svc-head" onclick="toggleSvc(this.closest('.svc-item'))" aria-expanded="false" aria-controls="service-organizing-body">
+
           <div class="svc-head-text">
             <h3>收納整理</h3>
             <span class="price-tag">依需求估價</span>
           </div>
-          <span class="svc-arrow">▶</span>
-        </div>
-        <div class="svc-body">
+          <span class="svc-arrow"></span>
+        </button>
+        <div class="svc-body" id="service-organizing-body">
           <p>不只是清潔，更幫您整理空間、規劃收納動線，讓家更好用、更好找、更好維持整潔。特別適合搬家前後、長期雜亂需要大整理的家庭。</p>
           <ul>
             <li>衣櫃整理：分類折疊、依季節歸位、舊物處理建議</li>
@@ -2355,21 +2303,22 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>嬰兒房、兒童房：玩具分類、安全收納規劃</li>
             <li>搬家整理：新家物品歸位、空間規劃建議</li>
           </ul>
-          <div class="svc-note"><strong>💡 搭配清潔更超值：</strong>收納整理可搭配居家清潔同日進行，整理完畢後立即清潔，一次完成讓家煥然一新。</div>
+          <div class="svc-note"><strong> 搭配清潔更超值：</strong>收納整理可搭配居家清潔同日進行，整理完畢後立即清潔，一次完成讓家煥然一新。</div>
+          <div class="service-actions"><a href="#booking-section">詢問這項服務 →</a><a href="#pricing">查看收費說明 →</a></div>
         </div>
       </div>
 
       <!-- 6. 退租・入住清潔 -->
-      <div class="svc-item" id="service-move" onclick="toggleSvc(this)">
-        <div class="svc-head">
-          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/move.webp" type="image/webp"><img src="service-icons/move.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
+      <div class="svc-item" id="service-move" aria-expanded="false">
+        <button type="button" class="svc-head" onclick="toggleSvc(this.closest('.svc-item'))" aria-expanded="false" aria-controls="service-move-body">
+
           <div class="svc-head-text">
             <h3>退租・入住清潔</h3>
             <span class="price-tag">依現場估價</span>
           </div>
-          <span class="svc-arrow">▶</span>
-        </div>
-        <div class="svc-body">
+          <span class="svc-arrow"></span>
+        </button>
+        <div class="svc-body" id="service-move-body">
           <p>租約結束前的退租清潔，或新居入住前的全室清潔，潔美淨都能配合時程到府服務，讓您順利退押、安心入住。</p>
           <ul>
             <li>退租清潔：依租約要求恢復原狀，目標通過房東驗收</li>
@@ -2378,21 +2327,22 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>窗戶、紗窗、冷氣出風口、燈具除塵</li>
             <li>可配合交屋、驗屋時程彈性排程</li>
           </ul>
-          <div class="svc-note"><strong>💡 退租提醒：</strong>建議提前 1～2 週預約，確保師傅排程充足。套房（10坪以下）約 $2,500–$4,000，整層依坪數估算。</div>
+          <div class="svc-note"><strong> 退租提醒：</strong>建議提前 1～2 週預約，確保師傅排程充足。套房（10坪以下）約 $2,500–$4,000，整層依坪數估算。</div>
+          <div class="service-actions"><a href="#booking-section">詢問這項服務 →</a><a href="#pricing">查看收費說明 →</a></div>
         </div>
       </div>
 
       <!-- 7. 大掃除 -->
-      <div class="svc-item" id="service-deep" onclick="toggleSvc(this)">
-        <div class="svc-head">
-          <div class="svc-head-ico" aria-hidden="true"><picture><source srcset="service-icons/deep.webp" type="image/webp"><img src="service-icons/deep.png" alt="" width="192" height="192" loading="lazy" decoding="async"></picture></div>
+      <div class="svc-item" id="service-deep" aria-expanded="false">
+        <button type="button" class="svc-head" onclick="toggleSvc(this.closest('.svc-item'))" aria-expanded="false" aria-controls="service-deep-body">
+
           <div class="svc-head-text">
             <h3>大掃除</h3>
             <span class="price-tag">包工估價・不加價</span>
           </div>
-          <span class="svc-arrow">▶</span>
-        </div>
-        <div class="svc-body">
+          <span class="svc-arrow"></span>
+        </button>
+        <div class="svc-body" id="service-deep-body">
           <p>大掃除工程量大，師傅需攜帶水管、梯子等重型設備並移動家具，建議以包工方式報總價，細項事先確認，施工中絕不追加費用。</p>
           <ul>
             <li>外推式窗戶：高壓水管清洗窗框、紗窗、玻璃</li>
@@ -2401,7 +2351,8 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>浴室水垢深層去除、磁磚縫隙刷洗</li>
             <li>頂板、燈具除塵、門框細縫、踢腳板全清</li>
           </ul>
-          <div class="svc-note"><strong>💡 估價說明：</strong>大掃除通常包工報總價，談好細項收多少就收多少。農曆年前45天為旺季，費用依牌價調漲20%，建議提早預約。</div>
+          <div class="svc-note"><strong> 估價說明：</strong>大掃除通常包工報總價，談好細項收多少就收多少。農曆年前45天為旺季，費用依牌價調漲20%，建議提早預約。</div>
+          <div class="service-actions"><a href="#booking-section">詢問這項服務 →</a><a href="#pricing">查看收費說明 →</a></div>
         </div>
       </div>
 
@@ -2415,7 +2366,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <a class="cta-line" href="#booking-section">
         LINE 詢問
       </a>
-      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+      <a class="cta-tel" href="tel:0988145875"> 0988-145-875</a>
     </div>
   </div>
 </div>
@@ -2423,9 +2374,9 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 <!-- ══════════════════════════════
    PAGE: CASES（案例）
 ══════════════════════════════ -->
-<div id="page-cases" class="page">
-  <div class="case-hero">
-    <h2>📸 清潔前後</h2>
+<div id="page-cases" class="page" data-route="cases">
+  <div class="case-hero" id="cases">
+    <h2> 清潔前後</h2>
     <p>真實到府清潔前後照片，直接看得見差異</p>
   </div>
 
@@ -2433,13 +2384,13 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 
     <!-- 📸 真實照片案例（前後對比）-->
     <div class="photo-cases-section" id="photoCases">
-      <h3 class="photo-cases-title">📸 清潔前後對比</h3>
+      <h3 class="photo-cases-title"> 清潔前後對比</h3>
       <p class="photo-cases-desc">左右拖曳滑桿，看看清潔前後的差異</p>
       <div id="photoCasesList">
         <!-- 照片案例由 cases.json 動態載入 -->
       </div>
       <div class="no-photo-hint" id="noPhotoHint">
-        🔜 更多真實案例照片持續更新中⋯<br>歡迎 <a href="#booking-section">LINE 洽詢</a> 了解更多
+         更多真實案例照片持續更新中⋯<br>歡迎 <a href="#booking-section">LINE 洽詢</a> 了解更多
       </div>
     </div>
   </div>
@@ -2451,7 +2402,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <a class="cta-line" href="#booking-section">
         LINE 傳照片詢問
       </a>
-      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+      <a class="cta-tel" href="tel:0988145875"> 0988-145-875</a>
     </div>
   </div>
 </div>
@@ -2460,18 +2411,18 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
    PAGE: PRICING（報價）
 ══════════════════════════════ -->
 <div id="page-pricing" class="page">
-  <div class="price-hero">
-    <h2>💰 收費說明</h2>
+  <div class="price-hero" id="pricing">
+    <h2> 收費說明</h2>
     <p>透明報價，估多少收多少<br>不現場加價，即使估錯也做完</p>
   </div>
 
   <!-- 分類 Tab -->
   <div class="sec sec-bg-white" style="padding-bottom:8px;">
     <div class="price-type-tabs" id="priceTypeTabs" role="tablist" aria-label="清潔服務收費分類">
-      <button class="ptype-tab on" id="ptab-home" role="tab" aria-selected="true" aria-controls="psec-home" onclick="switchPriceTab('home')"><span aria-hidden="true">🏠</span> 居家清潔</button>
-      <button class="ptype-tab" id="ptab-deep" role="tab" aria-selected="false" aria-controls="psec-deep" onclick="switchPriceTab('deep')"><span aria-hidden="true">🪟</span> 大掃除</button>
-      <button class="ptype-tab" id="ptab-reno" role="tab" aria-selected="false" aria-controls="psec-reno" onclick="switchPriceTab('reno')"><span aria-hidden="true">🏗</span> 裝潢細清</button>
-      <button class="ptype-tab" id="ptab-other" role="tab" aria-selected="false" aria-controls="psec-other" onclick="switchPriceTab('other')"><span aria-hidden="true">🚪</span> 其他</button>
+      <button class="ptype-tab on" id="ptab-home" role="tab" aria-selected="true" aria-controls="psec-home" onclick="switchPriceTab('home')"><span aria-hidden="true"></span> 居家清潔</button>
+      <button class="ptype-tab" id="ptab-deep" role="tab" aria-selected="false" aria-controls="psec-deep" onclick="switchPriceTab('deep')"><span aria-hidden="true"></span> 大掃除</button>
+      <button class="ptype-tab" id="ptab-reno" role="tab" aria-selected="false" aria-controls="psec-reno" onclick="switchPriceTab('reno')"><span aria-hidden="true"></span> 裝潢細清</button>
+      <button class="ptype-tab" id="ptab-other" role="tab" aria-selected="false" aria-controls="psec-other" onclick="switchPriceTab('other')"><span aria-hidden="true"></span> 其他</button>
     </div>
   </div>
 
@@ -2587,7 +2538,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     <!-- Tab 切換：一般 / 烤漆 -->
     <div class="tab-switch" id="renoSwitch" role="tablist" aria-label="裝潢細清場域類型">
       <button class="tab-sw-btn on" id="reno-tab-normal" role="tab" aria-selected="true" aria-controls="reno-normal" onclick="switchRenoTab('normal')">一般裝潢場</button>
-      <button class="tab-sw-btn" id="reno-tab-paint" role="tab" aria-selected="false" aria-controls="reno-paint" onclick="switchRenoTab('paint')"><span aria-hidden="true">🎨</span> 烤漆場</button>
+      <button class="tab-sw-btn" id="reno-tab-paint" role="tab" aria-selected="false" aria-controls="reno-paint" onclick="switchRenoTab('paint')"><span aria-hidden="true"></span> 烤漆場</button>
     </div>
 
     <div id="reno-normal" role="tabpanel" aria-labelledby="reno-tab-normal">
@@ -2616,7 +2567,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 
     <div id="reno-paint" role="tabpanel" aria-labelledby="reno-tab-paint" hidden style="display:none;">
       <div style="max-width:460px;margin:0 auto 12px;background:rgba(255,179,71,0.10);border:1.5px solid rgba(255,179,71,0.28);border-radius:12px;padding:12px 14px;">
-        <p style="font-size:14px;color:#78350F;line-height:1.7;"><strong>🎨 烤漆場說明：</strong>烤漆經過15道工序，表面精緻特殊。師傅全程使用全新拋棄式抹布與指定清潔劑，所有工具不重複使用，確保零刮傷。因耗材成本較高，費用比一般裝潢場高出約 30～50%。</p>
+        <p style="font-size:14px;color:#78350F;line-height:1.7;"><strong> 烤漆場說明：</strong>烤漆經過15道工序，表面精緻特殊。師傅全程使用全新拋棄式抹布與指定清潔劑，所有工具不重複使用，確保零刮傷。因耗材成本較高，費用比一般裝潢場高出約 30～50%。</p>
       </div>
       <div class="ptab-wrap">
         <table class="ptab">
@@ -2655,7 +2606,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 
       <div class="pc">
         <div class="pc-head">
-          <div class="pc-ico">🚪</div>
+          <div class="pc-ico"></div>
           <div class="pc-title"><h3>入住清潔</h3><span>中古屋・新屋入住前</span></div>
         </div>
         <div class="pc-price">現場估價</div>
@@ -2666,7 +2617,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 
       <div class="pc">
         <div class="pc-head">
-          <div class="pc-ico">🔑</div>
+          <div class="pc-ico"></div>
           <div class="pc-title"><h3>退租打掃</h3><span>租約結束・退押金前</span></div>
         </div>
         <div class="pc-price">現場估價</div>
@@ -2677,7 +2628,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 
       <div class="pc">
         <div class="pc-head">
-          <div class="pc-ico">📅</div>
+          <div class="pc-ico"></div>
           <div class="pc-title"><h3>定期打掃</h3><span>週清・雙週清・月清</span></div>
         </div>
         <div class="pc-price">長期優惠</div>
@@ -2690,13 +2641,13 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   </div>
 
   <!-- 承諾 -->
-  <div class="sec sec-bg-grad">
+  <div class="sec sec-bg-grad arranging">
     <div class="sh">
       <span class="slabel">報價承諾</span>
       <h2 class="stitle">我們的估價承諾</h2>
     </div>
     <div class="promise-box">
-      <h3>✅ 估多少、收多少</h3>
+      <h3> 估多少、收多少</h3>
       <p>大掃除與裝潢細清以包工方式報總價，雙方事先確認清潔細項與費用。<br><br>施工中不會追加任何費用。即使師傅低估了工程量，我們也會把談好的細項全部做完，不讓客戶承擔評估失誤的風險。<br><br>這是潔美淨在地經營最基本的誠信原則。</p>
     </div>
   </div>
@@ -2734,7 +2685,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <a class="cta-line" href="#booking-section">
         LINE 傳照片估價
       </a>
-      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+      <a class="cta-tel" href="tel:0988145875"> 0988-145-875</a>
     </div>
   </div>
 </div>
@@ -2743,7 +2694,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
    PAGE: ABOUT（關於我們）
 ══════════════════════════════ -->
 <div id="page-about" class="page">
-  <div class="about-hero">
+  <div class="about-hero" id="about">
     <div class="about-brand"><img src="logo.png" alt="潔美淨清潔社 Logo" width="78" height="78"></div>
     <h2>潔美淨清潔社</h2>
     <p class="tagline">基隆在地・雙北桃園宜蘭服務</p>
@@ -2767,7 +2718,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
         </div>
       </div>
       <div class="contact-row">
-        <div class="contact-ico c-tel">📞</div>
+        <div class="contact-ico c-tel"></div>
         <div class="contact-text">
           <h3>電話</h3>
           <p>0988-145-875</p>
@@ -2775,7 +2726,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
         </div>
       </div>
       <div class="contact-row">
-        <div class="contact-ico c-addr">📍</div>
+        <div class="contact-ico c-addr"></div>
         <div class="contact-text">
           <h3>地址</h3>
           <p style="font-size:13px;color:var(--ink);font-weight:600;">基隆市中正區義一路87號9樓之2</p>
@@ -2793,11 +2744,11 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <p class="sdesc">以基隆為核心，雙北、桃園與宜蘭均可預約</p>
     </div>
     <div class="area-grid">
-      <div class="area-tag"><span>⚓</span>基隆市</div>
-      <div class="area-tag"><span>🏙</span>台北市</div>
-      <div class="area-tag"><span>🌉</span>新北市</div>
-      <div class="area-tag"><span>🍑</span>桃園市</div>
-      <div class="area-tag"><span>🌊</span>宜蘭縣</div>
+      <div class="area-tag"><span></span>基隆市</div>
+      <div class="area-tag"><span></span>台北市</div>
+      <div class="area-tag"><span></span>新北市</div>
+      <div class="area-tag"><span></span>桃園市</div>
+      <div class="area-tag"><span></span>宜蘭縣</div>
     </div>
     <p class="area-note">其他縣市或離島地區如有需求，歡迎 LINE 詢問，<br>視距離另行評估是否可配合。</p>
   </div>
@@ -2810,32 +2761,32 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     </div>
     <div class="promise-grid">
       <div class="prom-card">
-        <div class="prom-ico-circle">📋</div>
+        <div class="prom-ico-circle"></div>
         <h3>估價透明不加價</h3>
         <p>現場評估給總價，施工中不追加，即使估錯也做完。</p>
       </div>
       <div class="prom-card">
-        <div class="prom-ico-circle">🧴</div>
+        <div class="prom-ico-circle"></div>
         <h3>自備全套設備</h3>
         <p>大掃除攜帶水管梯子，裝潢細清全程使用新工具、新抹布。</p>
       </div>
       <div class="prom-card">
-        <div class="prom-ico-circle">🔍</div>
+        <div class="prom-ico-circle"></div>
         <h3>細節到位</h3>
         <p>死角、溝縫、窗框逐一處理，不因看不見就略過。</p>
       </div>
       <div class="prom-card">
-        <div class="prom-ico-circle">📅</div>
+        <div class="prom-ico-circle"></div>
         <h3>彈性配合時程</h3>
         <p>可配合交屋、退租、開幕等特殊時程安排施工。</p>
       </div>
       <div class="prom-card">
-        <div class="prom-ico-circle">💬</div>
+        <div class="prom-ico-circle"></div>
         <h3>LINE 即時溝通</h3>
         <p>服務前後都可 LINE，有問必答，讓您安心委託。</p>
       </div>
       <div class="prom-card">
-        <div class="prom-ico-circle">🏠</div>
+        <div class="prom-ico-circle"></div>
         <h3>在地快速到府</h3>
         <p>基隆在地出發，雙北、桃園與宜蘭快速排程到府。</p>
       </div>
@@ -2850,56 +2801,56 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     </div>
     <div class="about-info-card">
       <div class="info-row">
-        <span class="info-ico">🏷</span>
+        <span class="info-ico"></span>
         <div>
           <div class="info-label">店家名稱</div>
           <div class="info-val">潔美淨清潔社</div>
         </div>
       </div>
       <div class="info-row">
-        <span class="info-ico">📍</span>
+        <span class="info-ico"></span>
         <div>
           <div class="info-label">地址</div>
           <div class="info-val">基隆市中正區義一路87號9樓之2</div>
         </div>
       </div>
       <div class="info-row">
-        <span class="info-ico">📞</span>
+        <span class="info-ico"></span>
         <div>
           <div class="info-label">電話</div>
           <div class="info-val"><a href="tel:0988145875">0988-145-875</a></div>
         </div>
       </div>
       <div class="info-row">
-        <span class="info-ico">💬</span>
+        <span class="info-ico"></span>
         <div>
           <div class="info-label">LINE 洽詢</div>
           <div class="info-val"><a href="#booking-section">LINE 官方帳號（點此加入）</a></div>
         </div>
       </div>
       <div class="info-row">
-        <span class="info-ico">📘</span>
+        <span class="info-ico"></span>
         <div>
           <div class="info-label">Facebook 粉專</div>
           <div class="info-val"><a href="https://www.facebook.com/share/1EzD6TjZww/" target="_blank" rel="noopener noreferrer">追蹤我們的 Facebook</a></div>
         </div>
       </div>
       <div class="info-row">
-        <span class="info-ico">📍</span>
+        <span class="info-ico"></span>
         <div>
           <div class="info-label">Google 地圖</div>
           <div class="info-val"><a href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer">查看 Google 評論・導航</a></div>
         </div>
       </div>
       <div class="info-row">
-        <span class="info-ico">🗺</span>
+        <span class="info-ico"></span>
         <div>
           <div class="info-label">服務範圍</div>
           <div class="info-val">基隆・台北・新北・桃園・宜蘭</div>
         </div>
       </div>
       <div class="info-row">
-        <span class="info-ico">🧹</span>
+        <span class="info-ico"></span>
         <div>
           <div class="info-label">服務項目</div>
           <div class="info-val">居家清潔・社區清潔・裝潢後清潔・店面辦公室清潔・收納整理・退租入住・大掃除</div>
@@ -2915,7 +2866,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <a class="cta-line" href="#booking-section">
         加入 LINE
       </a>
-      <a class="cta-tel" href="tel:0988145875">📞 0988-145-875</a>
+      <a class="cta-tel" href="tel:0988145875"> 0988-145-875</a>
     </div>
   </div>
 </div>
@@ -2925,19 +2876,17 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   <a class="fb fb-line" href="#booking-section" aria-label="使用 LINE 詢價" title="使用 LINE 詢價">
     <img src="LINE_Brand_icon.png" alt="" width="1001" height="1000">
   </a>
-  <a class="fb fb-tel" href="tel:0988145875" aria-label="撥打電話" title="撥打電話">📞</a>
-  <a class="fb fb-map" href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer" aria-label="Google 地圖" title="Google 地圖">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2.25c-3.73 0-6.75 3.02-6.75 6.75 0 5.08 6.14 11.97 6.4 12.26a.47.47 0 0 0 .7 0c.26-.29 6.4-7.18 6.4-12.26 0-3.73-3.02-6.75-6.75-6.75Zm0 9.4A2.65 2.65 0 1 1 12 6.35a2.65 2.65 0 0 1 0 5.3Z"/></svg>
-  </a>
+  <a class="fb fb-tel" href="tel:0988145875" aria-label="撥打電話" title="撥打電話">電話</a>
+  <a class="fb fb-map" href="https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9" target="_blank" rel="noopener noreferrer" aria-label="Google 地圖" title="Google 地圖">地圖</a>
 </div>
 
 <!-- BOTTOM NAV -->
 <nav class="bottom-nav" aria-label="主要導覽">
-  <button class="bnav-tab active" data-page="home" aria-current="page" onclick="showPage('home')"><span class="bi" aria-hidden="true">🏠</span>首頁</button>
-  <button class="bnav-tab" data-page="services" onclick="showPage('services')"><span class="bi" aria-hidden="true">🧹</span>服務</button>
-  <button class="bnav-tab" data-page="pricing" onclick="showPage('pricing')"><span class="bi" aria-hidden="true">💰</span>收費</button>
-  <button class="bnav-tab" data-page="cases" onclick="showPage('cases')"><span class="bi" aria-hidden="true">📋</span>案例</button>
-  <button class="bnav-tab bnav-book" data-page="booking" aria-controls="booking-section" onclick="goBooking()" style="color:var(--green);"><span class="bi" aria-hidden="true">💬</span>預約</button>
+  <a class="bnav-tab active" data-page="home" aria-current="page" href="#home">首頁</a>
+  <a class="bnav-tab" data-page="services" href="#services">服務</a>
+  <a class="bnav-tab" data-page="pricing" href="#pricing">收費</a>
+  <a class="bnav-tab" data-page="cases" href="#cases">案例</a>
+  <button class="bnav-tab bnav-book" data-page="booking" aria-controls="booking-section" onclick="goBooking()" style="color:var(--green);">詢價</button>
 </nav>
 
 <script>
@@ -3003,8 +2952,10 @@ function prefersReducedMotion() {
 }
 
 function showPage(id, moveFocus = true, resetScroll = true) {
-  if (resetScroll && /^#booking-(section|form)$/.test(window.location.hash) && history.replaceState) {
-    history.replaceState(null, '', window.location.pathname + window.location.search);
+  if (!document.getElementById('page-' + id)) return;
+  if (resetScroll && history.pushState) {
+    var nextHash = id === 'home' ? '' : '#' + id;
+    if (location.hash !== nextHash) history.pushState(null, '', location.pathname + location.search + nextHash);
   }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.bnav-tab, .dnav-btn').forEach(t => {
@@ -3035,10 +2986,12 @@ function showService(serviceId) {
   showPage('services', false, false);
   var target = document.getElementById(serviceId);
   if (!target) return;
+  if (location.hash !== '#' + serviceId) history.pushState(null, '', '#' + serviceId);
   document.querySelectorAll('.svc-item').forEach(function(item) {
     var isTarget = item === target;
     item.classList.toggle('open', isTarget);
     item.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
+    item.querySelector('.svc-head').setAttribute('aria-expanded', isTarget ? 'true' : 'false');
   });
   window.setTimeout(function() {
     target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
@@ -3052,6 +3005,7 @@ function showService(serviceId) {
 
 function goBooking(targetId = 'booking-section') {
   showPage('home', false, false);
+  if (location.hash !== '#' + targetId) history.pushState(null, '', '#' + targetId);
   document.querySelectorAll('.bnav-tab, .dnav-btn').forEach(t => {
     t.classList.remove('active');
     t.removeAttribute('aria-current');
@@ -3074,7 +3028,18 @@ function goBooking(targetId = 'booking-section') {
     }
 }
 
-function handleBookingAnchor() {
+function handleBookingAnchor(event) {
+  if (!location.hash && !event) return;
+  var route = window.location.hash.slice(1) || 'home';
+  if (/^service-/.test(route) && document.getElementById(route)) {
+    showService(route);
+    return;
+  }
+  if (['home', 'services', 'cases', 'pricing', 'about'].includes(route)) {
+    showPage(route, true, false);
+    window.scrollTo({ top:0, behavior:'auto' });
+    return;
+  }
   if (window.location.hash === '#booking-section') {
     goBooking('booking-section');
   } else if (window.location.hash === '#booking-form') {
@@ -3118,6 +3083,12 @@ function prefillBookingFromQuery() {
 }
 
 document.addEventListener('click', function(event) {
+  var routeLink = event.target.closest('a[href]');
+  if (routeLink && /^#(home|services|cases|pricing|about)$/.test(routeLink.getAttribute('href'))) {
+    event.preventDefault();
+    showPage(routeLink.getAttribute('href').slice(1));
+    return;
+  }
   var link = event.target.closest('a[href="#booking-section"], a[href="#booking-form"]');
   if (!link || link.classList.contains('bk-line-btn')) return;
   event.preventDefault();
@@ -3146,22 +3117,10 @@ document.addEventListener('click', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
   prefillBookingFromQuery();
   handleBookingAnchor();
-  document.querySelectorAll('.quick-card, .svc-item').forEach(function(el) {
-    if (el.classList.contains('svc-item')) {
-      el.setAttribute('role', 'button');
-      el.setAttribute('tabindex', '0');
-      el.setAttribute('aria-expanded', el.classList.contains('open') ? 'true' : 'false');
-      var serviceTitle = el.querySelector('.svc-head-text h3');
-      if (serviceTitle) el.setAttribute('aria-label', '查看' + serviceTitle.textContent.trim() + '服務說明');
-    }
-    el.addEventListener('keydown', function(event) {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      event.preventDefault();
-      el.click();
-    });
-  });
+
 });
 window.addEventListener('hashchange', handleBookingAnchor);
+window.addEventListener('popstate', handleBookingAnchor);
 
 // ── Service accordion ──
 function toggleSvc(el) {
@@ -3169,10 +3128,12 @@ function toggleSvc(el) {
   document.querySelectorAll('.svc-item').forEach(function(item) {
     item.classList.remove('open');
     item.setAttribute('aria-expanded', 'false');
+    item.querySelector('.svc-head').setAttribute('aria-expanded', 'false');
   });
   if (!isOpen) {
     el.classList.add('open');
     el.setAttribute('aria-expanded', 'true');
+    el.querySelector('.svc-head').setAttribute('aria-expanded', 'true');
   }
 }
 
