@@ -2007,7 +2007,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     <div class="sh">
       <span class="slabel">LINE 詢價</span>
       <h2 class="stitle" id="booking-action-title" tabindex="-1">把要清的地方拍給我們看</h2>
-      <p class="sdesc">拍一張空間全景，再拍需要處理的地方。附上地區、坪數與希望日期，方便一起確認。</p>
+      <p class="sdesc">拍一張空間全景，再拍需要處理的地方。告訴我們地區與希望日期；坪數不確定，也可以先說明空間大小。</p>
     </div>
     <div class="bk-quick" aria-label="快速預約入口">
       <a class="bk-quick-btn bk-quick-photo" href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%82%B3%E7%85%A7%E7%89%87%E8%AB%AE%E8%A9%A2%E6%B8%85%E6%BD%94%E4%BC%B0%E5%83%B9%E3%80%82" data-line-photo="true">
@@ -2033,9 +2033,9 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <div id="bk-form-wrap">
       <form class="bk-form" id="booking-form" tabindex="-1" aria-labelledby="booking-form-title" onsubmit="submitBookingForm(event)">
         <h3 class="bk-form-title" id="booking-form-title">整理清潔需求</h3>
-        <p class="bk-form-intro">填寫基本資料後，系統會整理成 LINE 訊息，由您確認後送出。</p>
+        <p class="bk-form-intro">至少填一項您已知道的資訊即可。姓名與電話可留到 LINE 再提供；整理後，由您確認內容再傳送。</p>
         <div class="bk-row">
-          <label for="bk-service">服務類型</label>
+          <label for="bk-service">服務類型（選填）</label>
           <select id="bk-service" autocomplete="off">
             <option value="">請選擇服務項目</option>
             <option>居家清潔（計時制）</option>
@@ -2052,30 +2052,30 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
         </div>
         <div class="bk-grid">
           <div class="bk-row">
-            <label for="bk-area">地區</label>
+            <label for="bk-area">地區（選填）</label>
             <input type="text" id="bk-area" placeholder="例：基隆中正區" autocomplete="address-level2">
           </div>
           <div class="bk-row">
-            <label for="bk-size">坪數</label>
+            <label for="bk-size">坪數（選填）</label>
             <input type="text" id="bk-size" placeholder="例：30坪" inputmode="decimal" autocomplete="off">
           </div>
         </div>
         <div class="bk-grid">
           <div class="bk-row">
-            <label for="bk-name">姓名</label>
+            <label for="bk-name">姓名（選填）</label>
             <input type="text" id="bk-name" placeholder="您的稱呼" autocomplete="name">
           </div>
           <div class="bk-row">
-            <label for="bk-phone">電話</label>
+            <label for="bk-phone">電話（選填）</label>
             <input type="tel" id="bk-phone" placeholder="0912-345-678" autocomplete="tel" inputmode="tel">
           </div>
         </div>
         <div class="bk-row">
-          <label for="bk-time">偏好服務時間</label>
+          <label for="bk-time">偏好服務時間（選填）</label>
           <input type="text" id="bk-time" placeholder="例：週六上午、盡快安排均可" autocomplete="off">
         </div>
         <div class="bk-row">
-          <label for="bk-note">其他說明</label>
+          <label for="bk-note">其他說明（選填）</label>
           <textarea id="bk-note" placeholder="描述現場狀況、特殊需求，可在 LINE 補傳照片⋯"></textarea>
         </div>
         <p class="bk-privacy">本站不會儲存這些欄位內容；先整理文字，確認後再點擊開啟 LINE，由您自行傳送。詳見<a href="privacy.html">隱私權政策</a>。</p>
@@ -2944,14 +2944,12 @@ function showService(serviceId) {
     item.setAttribute('aria-expanded', isTarget ? 'true' : 'false');
     item.querySelector('.svc-head').setAttribute('aria-expanded', isTarget ? 'true' : 'false');
   });
-  window.setTimeout(function() {
-    target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
-    var heading = target.querySelector('h3');
-    if (heading) {
-      heading.setAttribute('tabindex', '-1');
-      heading.focus({ preventScroll: true });
-    }
-  }, 120);
+  target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+  var heading = target.querySelector('h3');
+  if (heading) {
+    heading.setAttribute('tabindex', '-1');
+    heading.focus({ preventScroll: true });
+  }
 }
 
 function goBooking(targetId = 'booking-section') {
@@ -3230,6 +3228,16 @@ function resetBookingForm() {
               </div>
             </div>
           `;
+          const inquiry = document.createElement('a');
+          inquiry.className = 'case-inquiry';
+          inquiry.textContent = '用 LINE 詢問類似清潔 →';
+          inquiry.setAttribute('data-line-photo', 'true');
+          inquiry.dataset.lineContext = 'case_inquiry';
+          // Only public case information goes in this link; no customer fields.
+          const subject = c.title || '網站案例';
+          inquiry.href = 'https://line.me/R/oaMessage/@117adltu/?' + encodeURIComponent('您好，我看到「' + subject + '」的案例，想詢問類似清潔。我會補上現場照片、服務地區與希望日期。');
+          inquiry.setAttribute('aria-label', '用 LINE 詢問類似清潔：' + subject);
+          card.querySelector('.photo-case-info').appendChild(inquiry);
           container.appendChild(card);
         });
         // Init sliders
