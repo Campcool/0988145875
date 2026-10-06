@@ -1,7 +1,7 @@
 /* 2026-10-06 — Field notes: actual work, clear prices, quiet navigation. */
 :root{--paper:#f6f4ee;--surface:#fffefa;--blue:#244d58;--blue-hover:#163a43;--ink:#252e2c;--dark:#252e2c;--mid:#4c5955;--soft:#58635e;--cream:#f6f4ee;--warm:#efede4;--green:#176843;--green-hover:#0f5032;--rule:#d0d4ca;--focus:#9c4b16;--sh:none;--r:4px}
-body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',system-ui,sans-serif}
-h1,h2,h3,.stitle,.stat-n,.flogo,.tlogo-name{font-family:'Noto Sans TC',system-ui,sans-serif}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',system-ui,sans-serif}
+h1,h2,h3,.stitle,.stat-n,.flogo,.tlogo-name{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',system-ui,sans-serif}
 a{text-underline-offset:5px}
 .dnav-btn,.bnav-tab{text-decoration:none}
 .faq-action{display:inline-flex;align-items:center;min-height:44px;color:var(--blue);font-weight:700}
@@ -16,7 +16,7 @@ a{text-underline-offset:5px}
 .hero{background:var(--paper);border-bottom:1px solid var(--rule);padding:32px 20px 28px}
 .hero-inner{max-width:1120px}
 .hero-badge{border:0;background:none;border-radius:0;color:var(--mid);padding:0;font-size:13px;letter-spacing:.04em;margin-bottom:22px}
-.hero h1{font-family:'Noto Sans TC',system-ui,sans-serif;font-size:clamp(30px,7.8vw,52px);letter-spacing:-.025em;line-height:1.45;font-weight:700;color:var(--ink);margin-bottom:18px}
+.hero h1{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',system-ui,sans-serif;font-size:clamp(30px,7.8vw,52px);letter-spacing:-.025em;line-height:1.45;font-weight:700;color:var(--ink);margin-bottom:18px}
 .hero h1 em{font-style:normal;color:var(--blue);border:0}
 .hero-sub{font-size:16px;line-height:1.9;max-width:36em;margin-bottom:20px;color:var(--mid)}
 .hero-rate{font-size:14px;line-height:1.85;margin:0 0 20px;color:var(--mid)}
@@ -128,13 +128,16 @@ footer a{color:var(--blue)}
 .price-tag,.svc-note{border-radius:0;background:var(--paper);border-color:var(--rule)}
 .pc,.prom-card{border-radius:3px;box-shadow:none;background:var(--surface);border-color:var(--rule)}
 .pc-ico,.prom-ico-circle,.contact-ico:empty{display:none}
-.pc-price,.plan-time,.plan-cost{font-family:'Noto Sans TC',system-ui,sans-serif;color:var(--blue)}
+.pc-price,.plan-time,.plan-cost{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',system-ui,sans-serif;color:var(--blue)}
 .pc-head{background:var(--paper)}
 .svc-head h3{font-size:20px}
 .svc-head-ico,.promise-ico,.trust-chip>span,.svc-btn-ico{display:none}
 .svc-body{font-size:15px;line-height:1.9}
 .photo-case-info{padding:20px}
 .photo-case-info h3{font-size:19px}
+.photo-case-info h4{font-family:inherit;font-size:18px;line-height:1.55}
+.photo-cases-title,.bk-form-title{font-family:inherit}
+.case-inquiry{display:inline-flex;align-items:center;min-height:44px;margin-top:8px;color:var(--blue);font-size:15px;font-weight:700}
 .photo-case-info p{font-size:15px;line-height:1.8}
 .about-hero::before{content:none}
 .ptype-tab,.tab-sw-btn,.svc-btn,.calc-btn,.qcta-line,.qcta-tel,.topbar-tel{border-radius:3px;box-shadow:none}
@@ -144,7 +147,7 @@ footer a{color:var(--blue)}
 .nojs-note{padding:20px;color:var(--ink);font-size:15px}
 .content-site{max-width:none;padding-top:0}
 .content-site .topbar{padding:12px max(20px,calc((100% - 1000px)/2))}
-.topbar-name{font-family:'Noto Sans TC',system-ui,sans-serif;color:var(--ink)}
+.topbar-name{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',system-ui,sans-serif;color:var(--ink)}
 .content-site .hero{padding:40px max(20px,calc((100% - 1000px)/2));text-align:left}
 .content-site .hero h1{font-size:clamp(30px,4vw,44px)}
 .content-site .hero-btns{justify-content:flex-start}
