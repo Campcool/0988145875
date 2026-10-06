@@ -12,6 +12,7 @@
 - 本機靜態門禁及 Chromium 三寬度通過；CI 三引擎／合併／正式站證據見中央 `CLEANING-DELIVERY-2026-10-06.md`，不得將尚未完成的查核當已驗。
 - 待辦與未驗：Ads Primary／GA4 報表和 DebugView、真實客服收件、真機與 LINE webview、實際轉換／營收變化。回復基準同上，以 revert 重跑門禁及部署。
 - 三引擎 CI 初輪 WebKit 768 抓到深連結延遲 focus 干擾第一欄輸入；改為同步展開與定位，新增第一欄值與非私有 UTM 保留驗證，完整新 head 回歸結果見中央證據。
+- GA4 enhanced outbound 可能收完整 link_url；确认 CTA 的 DOM href 保持不帶顧客資料的 OA 入口，只在客戶實際點擊時建立私有預填導航，瀏覽器斷言所有可見連結不含測試電話。[官方 link_url 說明](https://support.google.com/analytics/answer/13784088?hl=en)。
 
 
 ## 2026-09-03 轉換路徑與閱讀節奏優化（Codex，已完成／已部署）

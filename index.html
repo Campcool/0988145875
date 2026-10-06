@@ -2147,7 +2147,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <div class="bk-msg-box" id="bk-msg-text" tabindex="0" aria-label="可選取的詢價訊息"></div>
       <div class="bk-actions">
         <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn">📋 複製訊息</button>
-        <a class="bk-line-btn" href="#booking-section">
+        <a class="bk-line-btn" href="https://line.me/R/ti/p/@117adltu" onclick="openBookingLine(event)">
           開啟 LINE 確認傳送
         </a>
         <a class="bk-call-btn" href="tel:0988145875">📞 直接來電</a>
@@ -3202,7 +3202,9 @@ function submitBookingForm(event) {
   confirm.setAttribute('tabindex', '-1');
   document.getElementById('bk-msg-text').textContent = window._bookingMsg;
   var lineBtn = confirm.querySelector('.bk-line-btn');
-  lineBtn.href = 'https://line.me/R/oaMessage/@117adltu/?' + encodeURIComponent(window._bookingMsg);
+  // Keep the visible href free of customer text: enhanced outbound measurement
+  // can collect link_url. Build the private OA URL only for explicit navigation.
+  lineBtn.href = 'https://line.me/R/ti/p/@117adltu';
   lineBtn.dataset.lineContext = 'prepared_quote';
   document.getElementById('bk-next-note').textContent = '需求已整理，尚未送出。請點「開啟 LINE 確認傳送」；也可複製或選取下方文字。';
   confirm.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
@@ -3214,6 +3216,14 @@ function submitBookingForm(event) {
     fields.forEach(function(key) { params['has_' + key] = Boolean(values[key]); });
     jmjTrack.form(params);
   }
+}
+function bookingLineUrl() {
+  return 'https://line.me/R/oaMessage/@117adltu/?' + encodeURIComponent(window._bookingMsg || '');
+}
+function openBookingLine(event) {
+  if (event.defaultPrevented) return;
+  event.preventDefault();
+  window.location.href = bookingLineUrl();
 }
 function setCopyDone() {
   var btn = document.getElementById('bk-copy-btn');
