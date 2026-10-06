@@ -124,6 +124,7 @@ footer a{color:var(--blue)}
 .svc-item.open .svc-arrow{transform:none}
 .service-actions{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:20px;border-top:1px solid var(--rule);padding-top:10px}
 .service-actions a{display:inline-flex;align-items:center;min-height:44px;font-size:15px;color:var(--blue);font-weight:700}
+.service-actions a[data-line-context="service_inquiry"]{color:var(--green)}
 .svc-body p{font-size:15px;line-height:1.9}
 .price-tag,.svc-note{border-radius:0;background:var(--paper);border-color:var(--rule)}
 .pc,.prom-card{border-radius:3px;box-shadow:none;background:var(--surface);border-color:var(--rule)}
