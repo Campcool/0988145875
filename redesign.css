@@ -58,7 +58,7 @@ a{text-underline-offset:5px}
 .proof-review a{color:var(--blue);min-height:44px;display:inline-flex;align-items:center;text-decoration:underline}
 .service-choice-grid{display:flex;flex-direction:column;gap:0;max-width:1000px;border-top:1px solid var(--rule)}
 .service-choice{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 14px;min-height:0;border:0;border-bottom:1px solid var(--rule);border-radius:0;background:transparent;padding:24px 0;box-shadow:none;text-align:left;transition:background-color .15s}
-.service-choice:hover{box-shadow:none;transform:none;background:var(--paper);border-color:var(--rule)}
+@media(hover:hover) and (pointer:fine){.service-choice:hover{box-shadow:none;transform:none;background:var(--paper);border-color:var(--rule)}}
 .service-choice h3{grid-column:1;grid-row:1;font-size:23px;font-weight:700}
 .service-choice-kicker{display:none}
 .service-choice-price{grid-column:2;grid-row:1;align-self:center;font-size:14px;color:var(--blue)}
@@ -206,3 +206,47 @@ footer a{color:var(--blue)}
 }
 @media(max-width:380px){.hero,.sec{padding-left:18px;padding-right:18px}.hero-btns a{padding:12px 13px}.service-choice h3{font-size:21px}.service-choice-price{font-size:13px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* 2026-10-14 — Pricing decisions have an adjacent, contextual inquiry. */
+.hero-next{font-size:14px;line-height:1.8;color:var(--mid);margin-top:14px;max-width:36em}
+.price-section .sh{margin-bottom:20px}
+.svc-note strong,.faq-q .ftag{color:#8a4808}
+footer p[style*="opacity"]{opacity:1!important}
+.price-type-tabs,.ptab-wrap,.ptab-note,.tab-switch,.hour-grid{max-width:1000px}
+.price-inquiry{max-width:1000px;margin:0 auto 28px;padding:20px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);display:grid;gap:12px;justify-items:start}
+.price-inquiry p{font-size:16px;line-height:1.8;color:var(--mid);margin:0;max-width:42em}
+.price-inquiry-link{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;background:var(--green);color:white;padding:12px 18px;border-radius:3px;text-decoration:none;font-weight:700;font-size:16px;touch-action:manipulation;transition:background-color 120ms ease-out}
+.price-inquiry-link:active{background:var(--green-hover)}
+.price-inquiry small{font-size:14px;line-height:1.7;color:var(--mid)}
+.price-inquiry-link:focus-visible,.ptab-wrap:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.pc .price-inquiry{margin:20px 0 0;border-bottom:0;padding-bottom:0}
+.price-subheading{max-width:1000px;margin:24px auto 14px;font-size:18px;color:var(--ink)}
+.hour-grid{gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.hc,.hc.feat{border:0;border-radius:0;background:transparent;box-shadow:none;text-align:left;padding:18px 12px}
+.hc+.hc{border-left:1px solid var(--rule)}
+.hc-hr,.hc-price{font-family:inherit;font-variant-numeric:tabular-nums}
+.hc-hr{font-size:18px}.hc-price{font-size:24px}.hc-label,.hc-note{font-size:14px;line-height:1.7}
+.ptab-wrap{border-radius:0;border-color:var(--rule);overscroll-behavior-x:contain}
+.ptab th{background:var(--blue);color:white}
+.ptab td{font-variant-numeric:tabular-nums}
+.price-type-tabs{border-color:var(--rule)}
+.ptype-tab{white-space:normal;overflow:visible;text-overflow:clip}
+.table-scroll-hint{max-width:1000px;margin:0 auto 12px;font-size:14px;line-height:1.7;color:var(--mid)}
+@media(hover:hover) and (pointer:fine){.price-inquiry-link:hover{background:var(--green-hover)}}
+@media(min-width:840px){
+  .price-inquiry{grid-template-columns:minmax(0,1fr) auto;column-gap:32px;align-items:center}
+  .price-inquiry small{grid-column:2}
+  .pc .price-inquiry{grid-template-columns:1fr}
+  .pc .price-inquiry small{grid-column:1}
+}
+@media(max-width:839px){
+  .hour-grid{grid-template-columns:1fr}
+  .hc,.hc.feat{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;padding:16px 0}
+  .hc+.hc{border-left:0;border-top:1px solid var(--rule)}
+  .hc-label{grid-column:1;grid-row:1;margin:0}
+  .hc-hr{grid-column:1;grid-row:2}
+  .hc-price{grid-column:2;grid-row:1/3;align-self:center}
+  .hc-note{grid-column:1/-1;margin:0}
+  #reno-normal .ptab{min-width:560px}
+  .hero-badge{margin-bottom:14px}
+}
