@@ -17,12 +17,19 @@ const deferredClipboard = page => page.evaluate(() => {
 })
 
 export async function checkP03(page, base, width, output, browser) {
+  let scenario = 0
+  const openForm = async () => {
+    // A same-URL goto is a hash navigation and retains the previous preview.
+    // Distinct public fixture queries ensure a fresh document for each scenario.
+    await page.goto(base + '/?p03-check=' + (++scenario) + '#booking-form')
+    await page.locator('#booking-form').waitFor()
+  }
   const sizes = [{width,height:900}]
   if (width === 375) sizes.push({width:320,height:900}, {width:390,height:844})
   if (width === 1440) sizes.push({width:1280,height:720})
   for (const size of sizes) {
     await page.setViewportSize(size)
-    await page.goto(base + '/#booking-form')
+    await openForm()
     const note = page.locator('#bk-next-note'), copy = page.locator('#bk-copy-btn')
     const fixture = '隔離P03長文字 ' + '浴室水垢與廚房油污先詢問，未知坪數稍後補充。'.repeat(12) + 'X'.repeat(160)
     await page.locator('#bk-note').fill(fixture)
@@ -92,7 +99,7 @@ export async function checkP03(page, base, width, output, browser) {
   await page.setViewportSize({width,height:900})
   // Both a late success and late rejection must leave a newer pending copy intact.
   for (const outcome of ['resolve','reject']) {
-    await page.goto(base + '/#booking-form')
+    await openForm()
     await page.locator('#bk-note').fill('隔離P03第一版')
     await page.locator('.bk-submit').click()
     await deferredClipboard(page)
@@ -120,7 +127,7 @@ export async function checkP03(page, base, width, output, browser) {
     assert.equal(await page.evaluate(() => document.activeElement.className), 'bk-line-btn', 'Current success also preserves a moved focus')
   }
   // A late result while editing cannot take focus or show stale confirmation.
-  await page.goto(base + '/#booking-form')
+  await openForm()
   await page.locator('#bk-note').fill('隔離P03編輯保留')
   await page.locator('.bk-submit').click()
   await deferredClipboard(page)
