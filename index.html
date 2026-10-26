@@ -1835,7 +1835,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   }
 }
 </script>
-<link rel="stylesheet" href="redesign.css">
+<link rel="stylesheet" href="redesign.css?v=20261026-p03">
 <noscript><style>.page,.svc-body{display:block}.desktop-nav,.bottom-nav,.service-choice,.service-more,.float-group,.bk-form-disclosure,.service-actions a[data-booking-service]{display:none}.price-section{display:block!important}.price-section[hidden]{display:block!important}</style></noscript>
 </head>
 <body>
@@ -2086,13 +2086,12 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       </div>
     </details>
     <div id="bk-confirm" class="bk-confirm">
-      <div style="font-size:44px;margin-bottom:10px;"></div>
       <h4>需求已整理完成！</h4>
       <p>需求尚未送出。確認下方內容後，再到 LINE 傳送。</p>
-      <div class="bk-next-note" id="bk-next-note" role="status">若 LINE 沒有自動開啟，請點「開啟 LINE 確認傳送」或直接複製訊息。</div>
+      <div class="bk-next-note" id="bk-next-note" role="status" aria-atomic="true" data-state="ready">需求尚未送出。請確認內容，再開啟 LINE；也可複製下方文字。</div>
       <div class="bk-msg-box" id="bk-msg-text" tabindex="0" aria-label="可選取的詢價訊息"></div>
       <div class="bk-actions">
-        <button class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn"> 複製訊息</button>
+        <button type="button" class="bk-copy" onclick="copyBookingMsg()" id="bk-copy-btn" aria-describedby="bk-next-note" aria-busy="false">複製訊息</button>
         <a class="bk-line-btn" href="https://line.me/R/ti/p/@117adltu" onclick="openBookingLine(event)">
           開啟 LINE 確認傳送
         </a>
@@ -3126,6 +3125,21 @@ function toggleSvc(el) {
 
 // ── Booking Form ──
 // All customer text stays in this page and the customer-selected LINE link.
+var bookingCopyTask = 0;
+var bookingCopyPending = false;
+function resetBookingCopyState() {
+  bookingCopyTask++; // Ignore a clipboard response belonging to a previous preview.
+  bookingCopyPending = false;
+  var btn = document.getElementById('bk-copy-btn');
+  btn.disabled = false;
+  btn.setAttribute('aria-busy', 'false');
+  btn.textContent = '複製訊息';
+}
+function bookingFeedback(state, text) {
+  var note = document.getElementById('bk-next-note');
+  note.dataset.state = state;
+  note.textContent = text;
+}
 function submitBookingForm(event) {
   event.preventDefault();
   var fields = ['service', 'area', 'size', 'name', 'phone', 'time', 'note'];
@@ -3136,6 +3150,7 @@ function submitBookingForm(event) {
     window.location.href = 'https://line.me/R/ti/p/@117adltu';
     return;
   }
+  resetBookingCopyState();
   window._bookingMsg = '您好，我想詢問清潔服務\n\n' +
     '📋 服務類型：' + (values.service || '未填寫') + '\n' +
     '📍 地區：' + (values.area || '未填寫') + '\n' +
@@ -3154,7 +3169,7 @@ function submitBookingForm(event) {
   // can collect link_url. Build the private OA URL only for explicit navigation.
   lineBtn.href = 'https://line.me/R/ti/p/@117adltu';
   lineBtn.dataset.lineContext = 'prepared_quote';
-  document.getElementById('bk-next-note').textContent = '需求已整理，尚未送出。請點「開啟 LINE 確認傳送」；也可複製或選取下方文字。';
+  bookingFeedback('ready', '需求已整理，尚未送出。請點「開啟 LINE 確認傳送」；也可複製或選取下方文字。');
   confirm.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
   confirm.focus({ preventScroll: true });
   if (window.jmjTrack && window._bookingTrackedMsg !== window._bookingMsg) {
@@ -3173,16 +3188,16 @@ function openBookingLine(event) {
   event.preventDefault();
   window.location.href = bookingLineUrl();
 }
-function setCopyDone() {
-  var btn = document.getElementById('bk-copy-btn');
-  if (btn) {
-    btn.textContent = '✅ 已複製';
-    setTimeout(function() { btn.textContent = '📋 複製訊息'; }, 2500);
-  }
-}
 async function copyBookingMsg(showFeedback) {
   var msg = window._bookingMsg || '';
-  if (!msg) return false;
+  if (!msg || bookingCopyPending) return false;
+  var task = ++bookingCopyTask;
+  var btn = document.getElementById('bk-copy-btn');
+  bookingCopyPending = true;
+  btn.disabled = true;
+  btn.setAttribute('aria-busy', 'true');
+  btn.textContent = '複製中…';
+  bookingFeedback('pending', '正在複製需求文字，尚未送出。');
   var copied = false;
   try {
     if (navigator.clipboard && window.isSecureContext) {
@@ -3190,6 +3205,9 @@ async function copyBookingMsg(showFeedback) {
       copied = true;
     }
   } catch (err) { /* Try the legacy fallback, then expose selectable text. */ }
+  // A pending permission prompt can settle after returning to edit or preparing
+  // a different message. Do not overwrite the new preview or move its focus.
+  if (task !== bookingCopyTask || msg !== window._bookingMsg) return false;
   if (!copied) {
     var ta = document.createElement('textarea');
     ta.value = msg;
@@ -3201,12 +3219,16 @@ async function copyBookingMsg(showFeedback) {
     try { copied = document.execCommand('copy') === true; } catch (err) {}
     ta.remove();
   }
-  var note = document.getElementById('bk-next-note');
+  bookingCopyPending = false;
+  btn.disabled = false;
+  btn.setAttribute('aria-busy', 'false');
   if (copied) {
-    if (showFeedback !== false) setCopyDone();
-    note.textContent = '需求已複製，尚未送出。請開啟 LINE，確認內容後自行傳送。';
+    btn.textContent = showFeedback === false ? '複製訊息' : '已複製，可再複製';
+    bookingFeedback('copied', '需求已複製，尚未送出。請開啟 LINE，確認內容後自行傳送。');
+    btn.focus({ preventScroll: true });
   } else {
-    note.textContent = '無法自動複製。可長按／選取下方文字手動複製，或直接開啟 LINE 使用預填內容；需求尚未送出。';
+    btn.textContent = '重試複製訊息';
+    bookingFeedback('manual', '無法自動複製。可長按／選取下方文字手動複製，或直接開啟 LINE 使用預填內容；需求尚未送出。');
     var box = document.getElementById('bk-msg-text');
     var range = document.createRange();
     range.selectNodeContents(box);
@@ -3218,6 +3240,8 @@ async function copyBookingMsg(showFeedback) {
   return copied;
 }
 function resetBookingForm() {
+  resetBookingCopyState();
+  window._bookingMsg = '';
   document.getElementById('bk-form-wrap').style.display = '';
   document.getElementById('bk-confirm').style.display = 'none';
   // Return to edit without losing the calculator or customer's typed fields.

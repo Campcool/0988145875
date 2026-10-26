@@ -1,4 +1,5 @@
 import { run, assert } from './browser-harness.mjs'
+import { checkP03 } from './p03-inquiry-check.mjs'
 
 const events = page => page.evaluate(() => Array.from(window.dataLayer || []).filter(x => x[0] === 'event').map(x => ({ name:x[1], params:x[2] })))
 await run(async (page, base, width, output, browser) => {
@@ -225,4 +226,5 @@ await run(async (page, base, width, output, browser) => {
   })
   assert.equal(log.filter(x => x.name === 'line_click').length, 1)
   assert.equal(log.filter(x => /quote_prepared|conversion/.test(x.name)).length, 0)
+  await checkP03(page, base, width, output, browser)
 }, ['/', '/calculator.html', '/taipei.html', '/new-taipei.html', '/taoyuan.html', '/keelung.html', '/yilan.html', '/privacy.html', '/terms.html'], '_site')
