@@ -85,6 +85,13 @@ export async function checkP03(page, base, width, output, browser) {
     assert(await contrast(page, '#bk-next-note') >= 4.5, 'Manual note contrast')
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'Long text must not overflow page')
     await page.screenshot({path:`${output}/${browser}-${size.width}-p03-copy-manual.png`})
+    if (browser === 'chromium' && size.width === width && [375,1440].includes(width)) {
+      // Small synthetic-fixture previews can also be reviewed through job logs
+      // when the reviewer cannot download the ZIP artifact. No real user data.
+      const preview = await page.locator('#bk-confirm').screenshot({type:'jpeg',quality:40})
+      const encoded = preview.toString('base64')
+      for (let i=0; i<encoded.length; i+=10000) console.log(`P03_VISUAL_${width}_${i/10000}:${encoded.slice(i,i+10000)}`)
+    }
     // The existing legacy fallback still reports success only on an actual true result.
     await page.evaluate(() => { document.execCommand = () => true })
     await copy.click()
