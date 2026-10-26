@@ -1,4 +1,5 @@
 import { run, assert } from './browser-harness.mjs'
+import { checkP03 } from './p03-inquiry-check.mjs'
 
 const events = page => page.evaluate(() => Array.from(window.dataLayer || []).filter(x => x[0] === 'event').map(x => ({ name:x[1], params:x[2] })))
 await run(async (page, base, width, output, browser) => {
@@ -215,6 +216,10 @@ await run(async (page, base, width, output, browser) => {
   const wasExpanded = await service.getAttribute('aria-expanded')
   await service.locator('.svc-head').focus(); await page.keyboard.press('Enter')
   assert.equal(await service.getAttribute('aria-expanded'), wasExpanded === 'true' ? 'false' : 'true')
+
+  // Keep the intentional empty-form external navigation last: its aborted
+  // navigation can otherwise interrupt the next same-tab fixture goto.
+  await checkP03(page, base, width, output, browser)
 
   await page.goto(base + '/?isolated=blank#booking-form')
   await page.waitForFunction(() => document.getElementById('booking-form-details').open)

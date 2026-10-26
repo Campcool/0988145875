@@ -11,12 +11,15 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  # PR checks must not queue behind unrelated or stalled validation runs.
+  # Production deployments remain serialized and are never cancelled by a PR.
+  group: pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -45,7 +48,20 @@ jobs:
         run: bash scripts/prepare-pages-artifact.sh
       - name: Install fixed browser test dependencies
         run: npm ci
+      - name: Use official Ubuntu mirror with bounded package downloads
+        run: |
+          sudo python3 - <<'PYTHON'
+          from pathlib import Path
+          for path in [Path('/etc/apt/apt-mirrors.txt'), Path('/etc/apt/sources.list'), *Path('/etc/apt/sources.list.d').glob('*.sources')]:
+              if path.is_file():
+                  original = path.read_text()
+                  updated = original.replace('http://azure.archive.ubuntu.com/ubuntu', 'https://archive.ubuntu.com/ubuntu').replace('https://azure.archive.ubuntu.com/ubuntu', 'https://archive.ubuntu.com/ubuntu')
+                  if updated != original:
+                      path.write_text(updated)
+          Path('/etc/apt/apt.conf.d/99-browser-downloads').write_text('Acquire::http::Timeout "30";\nAcquire::https::Timeout "30";\nAcquire::Retries "2";\n')
+          PYTHON
       - name: Install browser engines
+        timeout-minutes: 5
         run: npx playwright install --with-deps chromium firefox webkit
       - name: Public artifact browser regression
         run: npm run test:browser

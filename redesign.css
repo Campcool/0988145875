@@ -250,3 +250,18 @@ footer p[style*="opacity"]{opacity:1!important}
   #reno-normal .ptab{min-width:560px}
   .hero-badge{margin-bottom:14px}
 }
+
+/* 2026-10-26 — P03: clear actions and truthful local clipboard feedback.
+   Existing native components; no third-party component code imported. */
+.bk-submit,.bk-copy,.bk-line-btn,.bk-call-btn{min-height:48px;touch-action:manipulation;transition:background-color 120ms ease-out,color 120ms ease-out,border-color 120ms ease-out;box-shadow:none}
+.bk-submit:hover{transform:none;box-shadow:none}
+.bk-submit:active,.bk-line-btn:active{background:var(--green-hover)}
+.bk-copy:active,.bk-call-btn:active{background:var(--warm);border-color:var(--blue)}
+.bk-copy:disabled{opacity:1;cursor:wait;background:var(--warm);border-color:var(--blue);color:var(--blue)}
+.bk-submit:focus-visible,.bk-actions a:focus-visible,.bk-copy:focus-visible,.bk-msg-box:focus-visible,.bk-form-disclosure>summary:focus-visible,.ptype-tab:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+.bk-next-note{border:1px solid var(--rule);border-left:4px solid var(--blue);border-radius:3px;background:var(--surface);color:var(--ink);font-size:14px;line-height:1.8;text-align:left}
+.bk-next-note[data-state="copied"]{border-left-color:var(--green);background:#f0f6f1}
+.bk-next-note[data-state="manual"]{border-left-color:var(--focus);background:#fff7ed}
+.bk-msg-box{font-size:14px;line-height:1.8;border-color:var(--rule);border-radius:3px}
+@media(hover:hover) and (pointer:fine){.bk-copy:not(:disabled):hover,.bk-call-btn:hover{background:var(--warm);color:var(--blue);border-color:var(--blue)}.bk-submit:hover,.bk-line-btn:hover{background:var(--green-hover)}}
+@media(prefers-reduced-motion:reduce){.bk-submit,.bk-copy,.bk-line-btn,.bk-call-btn{transition:none}}
