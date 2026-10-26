@@ -47,12 +47,16 @@ export async function checkP03(page, base, width, output, browser) {
     }
     assert(await contrast(page, '#bk-next-note') >= 4.5, 'Ready note text contrast')
     assert(await contrast(page, '#bk-copy-btn') >= 4.5, 'Copy button contrast')
-    await copy.focus()
-    await page.keyboard.down('Space')
-    assert(await copy.evaluate(el => el.matches(':active')), 'Native pressed state')
-    assert(await copy.evaluate(el => getComputedStyle(el).backgroundColor === getComputedStyle(document.documentElement).getPropertyValue('--warm').trim() || getComputedStyle(el).backgroundColor === 'rgb(239, 237, 228)'))
+    // Keyboard :active differs across engines. Verify pointer feedback with a
+    // real pointer hold; exercise Space activation separately in the retry flow.
     await deferredClipboard(page)
-    await page.keyboard.up('Space')
+    await copy.scrollIntoViewIfNeeded()
+    const bounds = await copy.boundingBox()
+    await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2)
+    await page.mouse.down()
+    assert(await copy.evaluate(el => el.matches(':active')), 'Native pointer pressed state')
+    assert(await copy.evaluate(el => getComputedStyle(el).backgroundColor === getComputedStyle(document.documentElement).getPropertyValue('--warm').trim() || getComputedStyle(el).backgroundColor === 'rgb(239, 237, 228)'))
+    await page.mouse.up()
     await waitState(page, 'pending')
     assert(await copy.isDisabled())
     assert.equal(await copy.getAttribute('aria-busy'), 'true')
@@ -71,7 +75,8 @@ export async function checkP03(page, base, width, output, browser) {
     await page.screenshot({path:`${output}/${browser}-${size.width}-p03-copy-success.png`})
     // Refused Clipboard and refused legacy copy expose selectable text and retry.
     await page.evaluate(() => { navigator.clipboard.writeText = async () => { throw new Error('Isolated denied clipboard') }; document.execCommand = () => false })
-    await copy.click()
+    await copy.focus()
+    await page.keyboard.press('Space')
     await waitState(page, 'manual')
     assert.match(await copy.textContent(), /重試/)
     assert.equal(await copy.isDisabled(), false)
