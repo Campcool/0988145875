@@ -117,6 +117,7 @@ export async function checkP03(page, base, width, output, browser) {
     await page.evaluate(() => window.__p03Copies[1].resolve())
     await waitState(page, 'copied')
     assert((await page.evaluate(() => window.__p03Copies[1].text)).includes('第二版'))
+    assert.equal(await page.evaluate(() => document.activeElement.className), 'bk-line-btn', 'Current success also preserves a moved focus')
   }
   // A late result while editing cannot take focus or show stale confirmation.
   await page.goto(base + '/#booking-form')

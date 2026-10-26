@@ -3208,6 +3208,7 @@ async function copyBookingMsg(showFeedback) {
   // A pending permission prompt can settle after returning to edit or preparing
   // a different message. Do not overwrite the new preview or move its focus.
   if (task !== bookingCopyTask || msg !== window._bookingMsg) return false;
+  var previousFocus = document.activeElement;
   if (!copied) {
     var ta = document.createElement('textarea');
     ta.value = msg;
@@ -3225,7 +3226,10 @@ async function copyBookingMsg(showFeedback) {
   if (copied) {
     btn.textContent = showFeedback === false ? '複製訊息' : '已複製，可再複製';
     bookingFeedback('copied', '需求已複製，尚未送出。請開啟 LINE，確認內容後自行傳送。');
-    btn.focus({ preventScroll: true });
+    // Restore focus lost by disabling the copy button / legacy textarea only.
+    // A customer who moved to LINE while waiting keeps that focus.
+    if (previousFocus === btn || previousFocus === document.body) btn.focus({ preventScroll: true });
+    else if (document.activeElement !== previousFocus) previousFocus.focus({ preventScroll: true });
   } else {
     btn.textContent = '重試複製訊息';
     bookingFeedback('manual', '無法自動複製。可長按／選取下方文字手動複製，或直接開啟 LINE 使用預填內容；需求尚未送出。');
