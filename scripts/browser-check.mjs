@@ -217,6 +217,10 @@ await run(async (page, base, width, output, browser) => {
   await service.locator('.svc-head').focus(); await page.keyboard.press('Enter')
   assert.equal(await service.getAttribute('aria-expanded'), wasExpanded === 'true' ? 'false' : 'true')
 
+  // Keep the intentional empty-form external navigation last: its aborted
+  // navigation can otherwise interrupt the next same-tab fixture goto.
+  await checkP03(page, base, width, output, browser)
+
   await page.goto(base + '/?isolated=blank#booking-form')
   await page.waitForFunction(() => document.getElementById('booking-form-details').open)
   // Capture synchronously before location.href leaves the document.
@@ -226,5 +230,4 @@ await run(async (page, base, width, output, browser) => {
   })
   assert.equal(log.filter(x => x.name === 'line_click').length, 1)
   assert.equal(log.filter(x => /quote_prepared|conversion/.test(x.name)).length, 0)
-  await checkP03(page, base, width, output, browser)
 }, ['/', '/calculator.html', '/taipei.html', '/new-taipei.html', '/taoyuan.html', '/keelung.html', '/yilan.html', '/privacy.html', '/terms.html'], '_site')
