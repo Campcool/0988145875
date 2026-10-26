@@ -51,6 +51,7 @@ export async function checkP03(page, base, width, output, browser) {
     // real pointer hold; exercise Space activation separately in the retry flow.
     await deferredClipboard(page)
     await copy.scrollIntoViewIfNeeded()
+    await copy.focus()
     const bounds = await copy.boundingBox()
     await page.mouse.move(bounds.x + bounds.width / 2, bounds.y + bounds.height / 2)
     await page.mouse.down()
@@ -94,7 +95,8 @@ export async function checkP03(page, base, width, output, browser) {
     }
     // The existing legacy fallback still reports success only on an actual true result.
     await page.evaluate(() => { document.execCommand = () => true })
-    await copy.click()
+    await copy.focus()
+    await page.keyboard.press('Enter')
     await waitState(page, 'copied')
     assert.equal(await page.evaluate(() => document.activeElement.id), 'bk-copy-btn')
     await page.evaluate(() => { navigator.clipboard.writeText = async text => { window.__p03LastCopied = text } })
