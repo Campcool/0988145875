@@ -11,12 +11,15 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  # PR checks must not queue behind unrelated or stalled validation runs.
+  # Production deployments remain serialized and are never cancelled by a PR.
+  group: pages-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -46,6 +49,7 @@ jobs:
       - name: Install fixed browser test dependencies
         run: npm ci
       - name: Install browser engines
+        timeout-minutes: 5
         run: npx playwright install --with-deps chromium firefox webkit
       - name: Public artifact browser regression
         run: npm run test:browser
