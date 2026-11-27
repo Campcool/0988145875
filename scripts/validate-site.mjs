@@ -131,7 +131,7 @@ const homepage = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const brandPromises = [
   '估多少收多少',
   '絕不現場加價',
-  '60214473',
+  '61475587',
   '0988-145-875',
   '@117adltu',
   '複製',
@@ -150,7 +150,7 @@ scanned('品牌承諾（存在）', '僅 index.html 1 個檔，' + brandPromises
 // 形狀與 GA4 ID 一致性相同：定義唯一來源，掃全站找不一致。
 const BRAND_PHONE = '0988145875';       // 顯示格式 0988-145-875
 const BRAND_LINE_OA = '@117adltu';
-const BRAND_TAX_ID = '60214473';
+const BRAND_TAX_ID = '61475587';
 // CSS at-rule 與 JSON-LD 保留字長得像 LINE ID（都是 @ 開頭），需排除
 const AT_TOKEN_ALLOWLIST = new Set([
   '@context', '@keyframes', '@media', '@supports', '@import', '@charset',
