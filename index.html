@@ -1300,7 +1300,10 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+  "@type": [
+    "LocalBusiness",
+    "HomeAndConstructionBusiness"
+  ],
   "@id": "https://0988145875.com.tw/#business",
   "name": "潔美淨清潔社",
   "alternateName": [
@@ -1417,10 +1420,9 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       "encodingFormat": "text/plain"
     },
     {
-      "@type": "DigitalDocument",
-      "name": "潔美淨清潔社服務與價格資料",
-      "url": "https://0988145875.com.tw/pricing.md",
-      "encodingFormat": "text/markdown"
+      "@type": "WebPage",
+      "name": "清潔服務收費說明",
+      "url": "https://0988145875.com.tw/#pricing"
     }
   ],
   "hasMap": "https://maps.app.goo.gl/aFbQDumNNoQnSZ2b9",
@@ -1440,44 +1442,6 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       "name": "清潔服務預約需求"
     }
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.7",
-    "bestRating": "5",
-    "worstRating": "1",
-    "ratingCount": "3",
-    "reviewCount": "3"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "強lin"
-      },
-      "datePublished": "2025-11-15",
-      "reviewBody": "店家打掃的很專業也很細心，因為是新買的房子，店家在打掃的過程中，還幫忙發現到一些瑕疵，實在是很感謝！",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      }
-    },
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "薛詠婷"
-      },
-      "datePublished": "2025-11-20",
-      "reviewBody": "專業快速又清潔超乾淨的！老闆娘誠信正直很放心把家交給她。",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      }
-    }
-  ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "潔美淨清潔服務項目",
@@ -1654,7 +1618,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       "name": "台北或新北居家清潔費用大概多少？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "台北、新北居家清潔費用依坪數與時間計算，基本方案為 4 小時 $2,500，適合 15–20 坪住宅。超過 20 坪每增加 1 小時加收 $450–$600。潔美淨清潔社從基隆出發服務台北市及新北市全區，師傅自備所有工具與清潔藥劑，不另收材料費。"
+        "text": "台北、新北居家清潔費用依坪數與時間計算，基本方案為 4 小時 $2,500，適合 15–20 坪住宅。超過 20 坪每增加 1 小時加收 $625。潔美淨清潔社從基隆出發服務台北市及新北市全區，師傅自備所有工具與清潔藥劑，不另收材料費。"
       }
     },
     {
@@ -1807,9 +1771,13 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   "url": "https://0988145875.com.tw/",
   "name": "潔美淨清潔社｜基隆・台北・新北 居家・社區・裝潢・店面清潔",
   "description": "潔美淨清潔社，基隆在地合法清潔公司，提供居家、裝潢後、大掃除、退租入住、店面辦公室清潔。估多少收多少，絕不現場加價。",
-  "dateModified": "2026-07-30",
-  "isPartOf": { "@id": "https://0988145875.com.tw/#website" },
-  "about": { "@id": "https://0988145875.com.tw/#business" },
+  "dateModified": "2026-11-27",
+  "isPartOf": {
+    "@id": "https://0988145875.com.tw/#website"
+  },
+  "about": {
+    "@id": "https://0988145875.com.tw/#business"
+  },
   "inLanguage": "zh-TW",
   "hasPart": [
     {
@@ -1823,14 +1791,21 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       "url": "https://0988145875.com.tw/llms.txt"
     },
     {
-      "@type": "DigitalDocument",
-      "name": "清潔服務價格資料",
-      "url": "https://0988145875.com.tw/pricing.md"
+      "@type": "WebPage",
+      "name": "清潔服務收費說明",
+      "url": "https://0988145875.com.tw/#pricing"
     }
   ],
   "speakable": {
     "@type": "SpeakableSpecification",
-    "cssSelector": [".hero-badge", ".hero h1", ".hero-sub", ".geo-answer p", ".stitle", ".faq-a"]
+    "cssSelector": [
+      ".hero-badge",
+      ".hero h1",
+      ".hero-sub",
+      ".geo-answer p",
+      ".stitle",
+      ".faq-a"
+    ]
   }
 }
 </script>
@@ -1914,6 +1889,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
         <span class="service-choice-action">看服務細項 →</span>
       </button>
     </div>
+<nav class="service-topic-links" aria-label="獨立服務說明"><a href="/home-cleaning.html">居家清潔範圍與費用</a><a href="/post-renovation-cleaning.html">裝潢細清範圍與費用</a><a href="/move-in-out-cleaning.html">退租入住範圍與費用</a></nav>
     <div class="service-more" aria-label="其他清潔服務">
       <button type="button" onclick="showService('service-move')">退租・入住 →</button>
       <button type="button" onclick="showService('service-community')">社區清潔 →</button>

@@ -265,3 +265,5 @@ footer p[style*="opacity"]{opacity:1!important}
 .bk-msg-box{font-size:14px;line-height:1.8;border-color:var(--rule);border-radius:3px}
 @media(hover:hover) and (pointer:fine){.bk-copy:not(:disabled):hover,.bk-call-btn:hover{background:var(--warm);color:var(--blue);border-color:var(--blue)}.bk-submit:hover,.bk-line-btn:hover{background:var(--green-hover)}}
 @media(prefers-reduced-motion:reduce){.bk-submit,.bk-copy,.bk-line-btn,.bk-call-btn{transition:none}}
+
+.service-topic-links{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-top:1.25rem}.service-topic-links a{display:inline-flex;align-items:center;min-height:44px;color:#075d7d;text-decoration:underline;text-underline-offset:.2em}

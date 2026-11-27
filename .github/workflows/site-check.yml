@@ -45,7 +45,9 @@ jobs:
           mv analytics.js.bak analytics.js
           node scripts/validate-site.mjs
       - name: Pages artifact excludes internal docs
-        run: bash scripts/prepare-pages-artifact.sh
+        run: |
+          bash scripts/prepare-pages-artifact.sh
+          node scripts/check-search.mjs _site
       - name: Install fixed browser test dependencies
         run: npm ci
       - name: Use official Ubuntu mirror with bounded package downloads
@@ -94,7 +96,9 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/configure-pages@v6
       - name: Prepare public artifact
-        run: bash scripts/prepare-pages-artifact.sh
+        run: |
+          bash scripts/prepare-pages-artifact.sh
+          node scripts/check-search.mjs _site
       - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
