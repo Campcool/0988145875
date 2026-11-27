@@ -3,6 +3,17 @@ import { checkP03 } from './p03-inquiry-check.mjs'
 
 const events = page => page.evaluate(() => Array.from(window.dataLayer || []).filter(x => x[0] === 'event').map(x => ({ name:x[1], params:x[2] })))
 await run(async (page, base, width, output, browser) => {
+  for (const slug of ['home-cleaning', 'post-renovation-cleaning', 'move-in-out-cleaning']) {
+    await page.goto(`${base}/${slug}.html`)
+    assert.equal(await page.locator('h1').count(), 1)
+    const detail = page.locator('details').first()
+    await detail.locator('summary').focus(); await page.keyboard.press('Enter')
+    assert.equal(await detail.getAttribute('open'), '')
+    await page.locator('.hero [data-line-context="service_detail"]').click()
+    const log = await events(page)
+    assert.equal(log.filter(x => x.name === 'line_click').length, 1)
+    assert.equal(log.filter(x => /quote_prepared|conversion/.test(x.name)).length, 0)
+  }
   await page.goto(base + '/')
   assert.equal(await page.locator('.hero-photo').getAttribute('src'), 'cases/case07-after.jpg')
   assert.equal(await page.locator('.field-before img').getAttribute('src'), 'cases/case07-before.jpg')
@@ -230,4 +241,4 @@ await run(async (page, base, width, output, browser) => {
   })
   assert.equal(log.filter(x => x.name === 'line_click').length, 1)
   assert.equal(log.filter(x => /quote_prepared|conversion/.test(x.name)).length, 0)
-}, ['/', '/calculator.html', '/taipei.html', '/new-taipei.html', '/taoyuan.html', '/keelung.html', '/yilan.html', '/privacy.html', '/terms.html'], '_site')
+}, ['/', '/calculator.html', '/taipei.html', '/new-taipei.html', '/taoyuan.html', '/keelung.html', '/yilan.html', '/privacy.html', '/terms.html', '/home-cleaning.html', '/post-renovation-cleaning.html', '/move-in-out-cleaning.html'], '_site')
