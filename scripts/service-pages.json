@@ -1,6 +1,10 @@
 [
   {
     "slug": "home-cleaning",
+    "priceSummary": "4 小時 $2,500 起",
+    "priceTab": "home",
+    "imageWidth": 480,
+    "imageHeight": 640,
     "name": "居家清潔",
     "title": "居家清潔費用與服務範圍｜基隆・雙北到府打掃｜潔美淨",
     "description": "潔美淨居家清潔基本方案4小時2,500元起，服務基隆、台北、新北、桃園與宜蘭。了解廚房浴室打掃範圍、計時與包價差異，傳照片確認正式報價。",
@@ -31,6 +35,10 @@
   },
   {
     "slug": "post-renovation-cleaning",
+    "priceSummary": "每坪 $400–$1,000，最低 $6,000 起",
+    "priceTab": "reno",
+    "imageWidth": 1280,
+    "imageHeight": 960,
     "name": "裝潢後清潔",
     "title": "裝潢後細清費用｜每坪400至1,000元・最低6,000元起｜潔美淨",
     "description": "基隆、雙北、桃園與宜蘭裝潢後清潔：參考每坪400至1,000元，最低6,000元起。依粉塵、櫃體與施工殘留確認範圍，查看準備資料與正式估價方式。",
@@ -61,6 +69,10 @@
   },
   {
     "slug": "move-in-out-cleaning",
+    "priceSummary": "依坪數、髒污與點交需求估價",
+    "priceTab": "other",
+    "imageWidth": 960,
+    "imageHeight": 1280,
     "name": "退租入住清潔",
     "title": "退租入住清潔｜點交與搬家前後打掃｜基隆・雙北潔美淨",
     "description": "退租點交、搬入前或家具搬出後的清潔，先確認廚房浴室、地面與家電需求。潔美淨服務基隆、雙北、桃園及宜蘭，依照片及現場範圍報價。",

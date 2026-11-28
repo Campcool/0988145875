@@ -27,6 +27,10 @@ jobs:
           node-version: 22
       - name: Node syntax check
         run: node --check analytics.js
+      - name: Generated service pages match the reviewed source
+        run: |
+          node scripts/generate-service-pages.mjs
+          git diff --exit-code -- home-cleaning.html post-renovation-cleaning.html move-in-out-cleaning.html
       - name: Site validation (canonical, JSON-LD, sitemap, local-only booking, brand promises)
         run: node scripts/validate-site.mjs
       # 防假綠：故意破壞 GA4 ID，確認 validate 真的會擋。
