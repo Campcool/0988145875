@@ -162,6 +162,7 @@ await run(async (page, base, width, output, browser) => {
   const plain = await nojs.newPage()
   await plain.goto(base + '/')
   assert.equal(await plain.locator('.price-inquiry-link').count(), 6)
+  assert.equal(await plain.locator('.service-choice').first().isVisible(),false,'no inert JS-only card action without JS')
   for (const link of await plain.locator('.price-inquiry-link').all()) assert(await link.isVisible())
   await plain.locator('.field-photo a').click()
   assert.equal(new URL(plain.url()).hash, '#cases')
