@@ -1,5 +1,6 @@
 import { run, assert } from './browser-harness.mjs'
 import { checkP03 } from './p03-inquiry-check.mjs'
+import { checkVisitorJourney } from './visitor-journey-check.mjs'
 
 const events = page => page.evaluate(() => Array.from(window.dataLayer || []).filter(x => x[0] === 'event').map(x => ({ name:x[1], params:x[2] })))
 await run(async (page, base, width, output, browser) => {
@@ -161,6 +162,7 @@ await run(async (page, base, width, output, browser) => {
   const plain = await nojs.newPage()
   await plain.goto(base + '/')
   assert.equal(await plain.locator('.price-inquiry-link').count(), 6)
+  assert.equal(await plain.locator('.service-choice').first().isVisible(),false,'no inert JS-only card action without JS')
   for (const link of await plain.locator('.price-inquiry-link').all()) assert(await link.isVisible())
   await plain.locator('.field-photo a').click()
   assert.equal(new URL(plain.url()).hash, '#cases')
@@ -230,6 +232,7 @@ await run(async (page, base, width, output, browser) => {
 
   // Keep the intentional empty-form external navigation last: its aborted
   // navigation can otherwise interrupt the next same-tab fixture goto.
+  await checkVisitorJourney(page, base, width, output, browser)
   await checkP03(page, base, width, output, browser)
 
   await page.goto(base + '/?isolated=blank#booking-form')

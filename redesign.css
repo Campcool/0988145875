@@ -267,3 +267,46 @@ footer p[style*="opacity"]{opacity:1!important}
 @media(prefers-reduced-motion:reduce){.bk-submit,.bk-copy,.bk-line-btn,.bk-call-btn{transition:none}}
 
 .service-topic-links{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-top:1.25rem}.service-topic-links a{display:inline-flex;align-items:center;min-height:44px;color:#075d7d;text-decoration:underline;text-underline-offset:.2em}
+
+/* 2026-11-28 — C2 content/action separation, adapted from Uiverse.io by
+   andrew-demchenk0 (hungry-cobra-76). See THIRD-PARTY-NOTICES.txt.
+   Scoped to the homepage service index; no hover-only content or fixed card height. */
+.service-index .service-choice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;border:0;max-width:1000px;margin:auto}
+.service-index .service-choice-card{display:flex;flex-direction:column;min-width:0;background:var(--surface);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.service-index .service-card-photo{display:block;width:100%;height:180px;object-fit:contain;background:var(--paper)}
+.service-index .service-card-content{display:flex;flex-direction:column;gap:16px;padding:24px 20px;flex:1}
+.service-index .service-card-heading{display:flex;flex-direction:column;gap:10px;min-width:0}
+.service-index .service-card-kicker{font-size:.875rem;line-height:1.6;color:var(--blue);font-weight:700;margin:0}
+.service-index .service-choice-card h3{font-size:1.4rem;line-height:1.5;margin:0}
+.service-index .service-card-description{font-size:1rem;line-height:1.85;color:var(--mid);margin:0}
+.service-index .service-card-price{font-size:1.125rem;line-height:1.7;color:var(--blue);font-variant-numeric:tabular-nums}
+.service-index .service-choice-card .service-choice{display:flex;align-items:center;min-height:52px;width:100%;border:0;border-top:1px solid var(--rule);border-radius:0;padding:14px 20px;background:var(--blue);color:white;font-family:inherit;font-size:1rem;font-weight:700;line-height:1.6;text-align:left;cursor:pointer;margin:0;box-shadow:none;transition:background-color 120ms}
+.service-index .service-choice:focus-visible{outline:3px solid #fff;outline-offset:-5px;box-shadow:inset 0 0 0 7px var(--focus)}
+.service-index .service-topic-links{max-width:1000px;margin:24px auto 0;padding:20px 0;border-bottom:1px solid var(--rule)}
+.service-index .service-topic-links p{flex-basis:100%;font-size:.875rem;line-height:1.7;color:var(--mid);margin:0}
+.service-index .service-topic-links a,.service-index .service-more button,.service-index .service-help{font-size:1rem;line-height:1.8}
+@media(hover:hover) and (pointer:fine){.service-index .service-choice-card .service-choice:hover{background:var(--blue-hover);transform:none;box-shadow:none}}
+@media(max-width:839px){
+  .service-index .service-choice-grid{grid-template-columns:1fr;gap:16px}
+  .service-index .service-choice-card{display:grid;grid-template-columns:104px minmax(0,1fr);align-items:start}
+  .service-index .service-card-photo{grid-column:1;grid-row:1;height:100%;min-height:132px;max-height:176px;padding:12px;align-self:stretch}
+  .service-index .service-card-content{display:contents}
+  .service-index .service-card-heading{grid-column:2;grid-row:1;padding:18px 18px 16px;gap:7px}
+  .service-index .service-choice-card h3{font-size:1.25rem}
+  .service-index .service-card-description{grid-column:1/-1;padding:0 18px 18px}
+  .service-index .service-choice-card .service-choice{grid-column:1/-1;padding:12px 18px}
+}
+
+/* Fixed header clearance applies to native fragment loads as well as SPA clicks. */
+:root{--jmj-header-height:56px}
+#home,#services,#pricing,#cases,#about,#main-content,#home-service-title,.price-section,#booking-followup{scroll-margin-top:calc(var(--jmj-header-height) + 16px)}
+.jmj-skip{position:fixed;z-index:10000;left:1rem;top:-6rem;min-height:48px;padding:12px 18px;background:var(--blue);color:white;font-weight:700}
+.jmj-skip:focus{top:.5rem}
+.booking-followup{max-width:1000px;margin:24px auto;border-block:1px solid var(--rule);color:var(--ink);text-align:left}
+.booking-followup summary{font-size:1rem;line-height:1.8;min-height:48px;padding:18px 0;cursor:pointer;font-weight:700}
+.booking-followup>div{padding:0 0 18px}
+.booking-followup p{font-size:1rem;line-height:1.85;margin:0 0 12px;color:var(--mid)}
+.booking-followup a{display:inline-flex;align-items:center;min-height:48px;margin-right:20px;font-size:1rem;line-height:1.7;color:var(--blue);font-weight:700}
+.booking-followup :is(a,summary):focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+@media(min-width:840px){:root{--jmj-header-height:72px}}
+@media(prefers-reduced-motion:reduce){.service-index .service-choice-card .service-choice{transition:none}}

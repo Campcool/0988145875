@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta name="campcool-release" content="2026-10-06-jmj-field-notes">
+<meta name="campcool-release" content="2026-11-28-jmj-service-journey">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
@@ -1771,7 +1771,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   "url": "https://0988145875.com.tw/",
   "name": "潔美淨清潔社｜基隆・台北・新北 居家・社區・裝潢・店面清潔",
   "description": "潔美淨清潔社，基隆在地合法清潔公司，提供居家、裝潢後、大掃除、退租入住、店面辦公室清潔。估多少收多少，絕不現場加價。",
-  "dateModified": "2026-11-27",
+  "dateModified": "2026-11-28",
   "isPartOf": {
     "@id": "https://0988145875.com.tw/#website"
   },
@@ -1809,10 +1809,11 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
   }
 }
 </script>
-<link rel="stylesheet" href="redesign.css?v=20261026-p03">
-<noscript><style>.page,.svc-body{display:block}.desktop-nav,.bottom-nav,.service-choice,.service-more,.float-group,.bk-form-disclosure,.service-actions a[data-booking-service]{display:none}.price-section{display:block!important}.price-section[hidden]{display:block!important}</style></noscript>
+<link rel="stylesheet" href="redesign.css?v=20261128">
+<noscript><style>.page,.svc-body{display:block}.desktop-nav,.bottom-nav,.service-choice,.service-more,.float-group,.bk-form-disclosure,.service-actions a[data-booking-service]{display:none!important}.price-section{display:block!important}.price-section[hidden]{display:block!important}</style></noscript>
 </head>
 <body>
+<a class="jmj-skip" href="#main-content">跳到主要內容</a>
 
 <noscript><p class="nojs-note">可直接閱讀服務與收費；<a href="https://line.me/R/ti/p/@117adltu">用 LINE 詢問</a> 或 <a href="tel:0988145875">撥打 0988-145-875</a>。案例照片需要 JavaScript 載入。</p></noscript>
 <!-- ══ TOP BAR ══ -->
@@ -1837,6 +1838,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 <!-- ══════════════════════════════
    PAGE: HOME（首頁）
 ══════════════════════════════ -->
+<main id="main-content" tabindex="-1">
 <div id="page-home" class="page active">
   <!-- Hero -->
   <div class="hero" id="home">
@@ -1870,26 +1872,32 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <p class="sdesc">日常打掃、完工細清與整屋大掃除，安排方式不同。</p>
     </div>
     <div class="service-choice-grid">
-      <button class="service-choice" type="button" onclick="showService('service-home')">
-        <span class="service-choice-kicker">日常維持</span><span class="service-choice-price">4 小時 $2,500 起</span>
-        <h3>居家清潔</h3>
-        <p>廚房、浴室、客廳與臥室依時數安排，師傅自備工具到府。</p>
-        <span class="service-choice-action">看清潔範圍 →</span>
-      </button>
-      <button class="service-choice" type="button" onclick="showService('service-renovation')">
-        <span class="service-choice-kicker">完工交屋</span><span class="service-choice-price">每坪 $400–$1,000</span>
-        <h3>裝潢後細清</h3>
-        <p>依粉塵、櫃體與施工殘留評估，確認現場後提供明確報價。</p>
-        <span class="service-choice-action">看估價方式 →</span>
-      </button>
-      <button class="service-choice" type="button" onclick="showService('service-deep')">
-        <span class="service-choice-kicker">一次深清</span><span class="service-choice-price">包工估價</span>
-        <h3>大掃除</h3>
-        <p>重點區域、家具移動與洗窗先確認，談好的清潔細項照約定完成。</p>
-        <span class="service-choice-action">看服務細項 →</span>
-      </button>
+      <article class="service-choice-card">
+        <img class="service-card-photo" src="cases/case07-after.webp" alt="基隆仁愛區廚房清潔後實拍" width="1280" height="960" loading="lazy" decoding="async">
+        <div class="service-card-content">
+          <div class="service-card-heading"><p class="service-card-kicker">日常維持</p><h3>居家清潔</h3><strong class="service-card-price">4 小時 $2,500 起</strong></div>
+          <p class="service-card-description">廚房、浴室、客廳與臥室依時數安排，師傅自備工具到府。</p>
+        </div>
+        <button class="service-choice" type="button" onclick="showService('service-home')" aria-label="看清潔範圍：居家清潔">看清潔範圍</button>
+      </article>
+      <article class="service-choice-card">
+        <img class="service-card-photo" src="cases/case02-after.webp" alt="台北內湖店面裝潢細清完工實拍" width="1280" height="960" loading="lazy" decoding="async">
+        <div class="service-card-content">
+          <div class="service-card-heading"><p class="service-card-kicker">完工交屋</p><h3>裝潢後細清</h3><strong class="service-card-price">每坪 $400–$1,000</strong></div>
+          <p class="service-card-description">依粉塵、櫃體與施工殘留評估，確認現場後提供明確報價。</p>
+        </div>
+        <button class="service-choice" type="button" onclick="showService('service-renovation')" aria-label="看估價方式：裝潢後細清">看估價方式</button>
+      </article>
+      <article class="service-choice-card">
+        <img class="service-card-photo" src="cases/case01-after.webp" alt="基隆中正區浴廁清潔後實拍" width="960" height="1280" loading="lazy" decoding="async">
+        <div class="service-card-content">
+          <div class="service-card-heading"><p class="service-card-kicker">一次深清</p><h3>大掃除</h3><strong class="service-card-price">包工估價</strong></div>
+          <p class="service-card-description">重點區域、家具移動與洗窗先確認，談好的清潔細項照約定完成。</p>
+        </div>
+        <button class="service-choice" type="button" onclick="showService('service-deep')" aria-label="看服務細項：大掃除">看服務細項</button>
+      </article>
     </div>
-<nav class="service-topic-links" aria-label="獨立服務說明"><a href="/home-cleaning.html">居家清潔範圍與費用</a><a href="/post-renovation-cleaning.html">裝潢細清範圍與費用</a><a href="/move-in-out-cleaning.html">退租入住範圍與費用</a></nav>
+<nav class="service-topic-links" aria-label="獨立服務說明"><p>想先讀完整說明？</p><a href="/home-cleaning.html">居家清潔範圍與費用</a><a href="/post-renovation-cleaning.html">裝潢細清範圍與費用</a><a href="/move-in-out-cleaning.html">退租入住範圍與費用</a></nav>
     <div class="service-more" aria-label="其他清潔服務">
       <button type="button" onclick="showService('service-move')">退租・入住 →</button>
       <button type="button" onclick="showService('service-community')">社區清潔 →</button>
@@ -2003,6 +2011,10 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
       <span>可開發票</span>
       <span>不亂加價</span>
     </div>
+    <details class="booking-followup" id="booking-followup">
+      <summary>已預約或已服務？改期、補充需求與驗收事項</summary>
+      <div><p>想改期或補充需求，請盡早回到原 LINE 對話，說明原服務日期與希望調整的內容，再由雙方確認安排。</p><p>完工時請現場確認成果；約定範圍內如有遺漏，請立即提出。後續有疑問，也可附上原服務資訊與照片，接續原對話確認。</p><a href="https://line.me/R/ti/p/@117adltu" data-line-context="service_followup">聯絡原 LINE 對話</a><a href="tel:0988145875">0988-145-875</a><a href="terms.html">查看改期與驗收說明</a></div>
+    </details>
     <details class="bk-form-disclosure" id="booking-form-details">
       <summary>想一次整理完整需求？展開表單</summary>
       <div id="bk-form-wrap">
@@ -2145,7 +2157,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
     <div class="fdiv"></div>
     <p style="font-size:13px;opacity:0.9;line-height:1.8;">基隆服務區域：中正區、信義區、仁愛區、安樂區、暖暖區、七堵區，及鄰近汐止地區，均可到府清潔。</p>
 
-    <p style="font-size:13px;opacity:0.78;margin-top:6px;">網站更新：2026-10-14</p>
+    <p style="font-size:13px;opacity:0.78;margin-top:6px;">網站更新：2026-11-28</p>
     <div class="fdiv"></div>
     <p style="font-size:13px;opacity:0.78;">© 2025-2026 潔美淨清潔社</p>
   </footer>
@@ -2175,7 +2187,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>玻璃窗（室內面）、門框、踢腳板</li>
           </ul>
           <div class="svc-note"><strong> 建議：</strong>空間較大或污染較重可安排6～8小時，費用等比例計算。定期配合（週清/雙週清/月清）享優惠方案。</div>
-          <div class="service-actions"><a href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E3%80%8C%E5%B1%85%E5%AE%B6%E6%B8%85%E6%BD%94%E3%80%8D%E3%80%82%E6%88%91%E6%9C%83%E8%A3%9C%E4%B8%8A%E7%8F%BE%E5%A0%B4%E7%85%A7%E7%89%87%E3%80%81%E6%9C%8D%E5%8B%99%E5%9C%B0%E5%8D%80%E8%88%87%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%9C%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E7%A2%BA%E8%AA%8D%E6%B8%85%E6%BD%94%E7%AF%84%E5%9C%8D%E8%88%87%E8%B2%BB%E7%94%A8%E3%80%82" data-line-photo="true" data-line-context="service_inquiry">用 LINE 詢問 →</a><a href="#booking-form" data-booking-service="居家清潔">先整理需求 →</a><a href="#pricing">查看收費說明 →</a></div>
+          <div class="service-actions"><a href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E3%80%8C%E5%B1%85%E5%AE%B6%E6%B8%85%E6%BD%94%E3%80%8D%E3%80%82%E6%88%91%E6%9C%83%E8%A3%9C%E4%B8%8A%E7%8F%BE%E5%A0%B4%E7%85%A7%E7%89%87%E3%80%81%E6%9C%8D%E5%8B%99%E5%9C%B0%E5%8D%80%E8%88%87%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%9C%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E7%A2%BA%E8%AA%8D%E6%B8%85%E6%BD%94%E7%AF%84%E5%9C%8D%E8%88%87%E8%B2%BB%E7%94%A8%E3%80%82" data-line-photo="true" data-line-context="service_inquiry">用 LINE 詢問 →</a><a href="#booking-form" data-booking-service="居家清潔">先整理需求 →</a><a href="#psec-home">查看收費說明 →</a></div>
         </div>
       </div>
 
@@ -2209,7 +2221,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>廚具：台面、內側、抽屜完整清潔</li>
           </ul>
           <div class="svc-note"><strong> 烤漆場特別說明：</strong>烤漆經過15道工序，表面精緻不耐刮，師傅全程使用全新拋棄式抹布與指定清潔劑，確保零刮傷，費用較一般場偏高。</div>
-          <div class="service-actions"><a href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E3%80%8C%E8%A3%9D%E6%BD%A2%E5%BE%8C%E6%B8%85%E6%BD%94%E3%80%8D%E3%80%82%E6%88%91%E6%9C%83%E8%A3%9C%E4%B8%8A%E7%8F%BE%E5%A0%B4%E7%85%A7%E7%89%87%E3%80%81%E6%9C%8D%E5%8B%99%E5%9C%B0%E5%8D%80%E8%88%87%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%9C%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E7%A2%BA%E8%AA%8D%E6%B8%85%E6%BD%94%E7%AF%84%E5%9C%8D%E8%88%87%E8%B2%BB%E7%94%A8%E3%80%82" data-line-photo="true" data-line-context="service_inquiry">用 LINE 詢問 →</a><a href="#booking-form" data-booking-service="裝潢後清潔">先整理需求 →</a><a href="#pricing">查看收費說明 →</a></div>
+          <div class="service-actions"><a href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E3%80%8C%E8%A3%9D%E6%BD%A2%E5%BE%8C%E6%B8%85%E6%BD%94%E3%80%8D%E3%80%82%E6%88%91%E6%9C%83%E8%A3%9C%E4%B8%8A%E7%8F%BE%E5%A0%B4%E7%85%A7%E7%89%87%E3%80%81%E6%9C%8D%E5%8B%99%E5%9C%B0%E5%8D%80%E8%88%87%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%9C%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E7%A2%BA%E8%AA%8D%E6%B8%85%E6%BD%94%E7%AF%84%E5%9C%8D%E8%88%87%E8%B2%BB%E7%94%A8%E3%80%82" data-line-photo="true" data-line-context="service_inquiry">用 LINE 詢問 →</a><a href="#booking-form" data-booking-service="裝潢後清潔">先整理需求 →</a><a href="#psec-reno">查看收費說明 →</a></div>
         </div>
       </div>
 
@@ -2260,7 +2272,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>可配合交屋、驗屋時程彈性排程</li>
           </ul>
           <div class="svc-note"><strong> 退租提醒：</strong>建議提前 1～2 週預約，確保師傅排程充足。套房（10坪以下）約 $2,500–$4,000，整層依坪數估算。</div>
-          <div class="service-actions"><a href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E3%80%8C%E9%80%80%E7%A7%9F%E3%83%BB%E5%85%A5%E4%BD%8F%E6%B8%85%E6%BD%94%E3%80%8D%E3%80%82%E6%88%91%E6%9C%83%E8%A3%9C%E4%B8%8A%E7%8F%BE%E5%A0%B4%E7%85%A7%E7%89%87%E3%80%81%E6%9C%8D%E5%8B%99%E5%9C%B0%E5%8D%80%E8%88%87%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%9C%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E7%A2%BA%E8%AA%8D%E6%B8%85%E6%BD%94%E7%AF%84%E5%9C%8D%E8%88%87%E8%B2%BB%E7%94%A8%E3%80%82" data-line-photo="true" data-line-context="service_inquiry">用 LINE 詢問 →</a><a href="#booking-form" data-booking-service="退租・入住清潔">先整理需求 →</a><a href="#pricing">查看收費說明 →</a></div>
+          <div class="service-actions"><a href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E3%80%8C%E9%80%80%E7%A7%9F%E3%83%BB%E5%85%A5%E4%BD%8F%E6%B8%85%E6%BD%94%E3%80%8D%E3%80%82%E6%88%91%E6%9C%83%E8%A3%9C%E4%B8%8A%E7%8F%BE%E5%A0%B4%E7%85%A7%E7%89%87%E3%80%81%E6%9C%8D%E5%8B%99%E5%9C%B0%E5%8D%80%E8%88%87%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%9C%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E7%A2%BA%E8%AA%8D%E6%B8%85%E6%BD%94%E7%AF%84%E5%9C%8D%E8%88%87%E8%B2%BB%E7%94%A8%E3%80%82" data-line-photo="true" data-line-context="service_inquiry">用 LINE 詢問 →</a><a href="#booking-form" data-booking-service="退租・入住清潔">先整理需求 →</a><a href="#psec-other">查看收費說明 →</a></div>
         </div>
       </div>
 
@@ -2277,7 +2289,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
             <li>頂板、燈具除塵、門框細縫、踢腳板全清</li>
           </ul>
           <div class="svc-note"><strong> 估價說明：</strong>大掃除通常包工報總價，談好細項收多少就收多少。農曆年前45天為旺季，費用依牌價調漲20%，建議提早預約。</div>
-          <div class="service-actions"><a href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E3%80%8C%E5%A4%A7%E6%8E%83%E9%99%A4%E3%80%8D%E3%80%82%E6%88%91%E6%9C%83%E8%A3%9C%E4%B8%8A%E7%8F%BE%E5%A0%B4%E7%85%A7%E7%89%87%E3%80%81%E6%9C%8D%E5%8B%99%E5%9C%B0%E5%8D%80%E8%88%87%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%9C%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E7%A2%BA%E8%AA%8D%E6%B8%85%E6%BD%94%E7%AF%84%E5%9C%8D%E8%88%87%E8%B2%BB%E7%94%A8%E3%80%82" data-line-photo="true" data-line-context="service_inquiry">用 LINE 詢問 →</a><a href="#booking-form" data-booking-service="大掃除">先整理需求 →</a><a href="#pricing">查看收費說明 →</a></div>
+          <div class="service-actions"><a href="https://line.me/R/oaMessage/@117adltu/?%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%A9%A2%E5%95%8F%E3%80%8C%E5%A4%A7%E6%8E%83%E9%99%A4%E3%80%8D%E3%80%82%E6%88%91%E6%9C%83%E8%A3%9C%E4%B8%8A%E7%8F%BE%E5%A0%B4%E7%85%A7%E7%89%87%E3%80%81%E6%9C%8D%E5%8B%99%E5%9C%B0%E5%8D%80%E8%88%87%E5%B8%8C%E6%9C%9B%E6%97%A5%E6%9C%9F%EF%BC%8C%E8%AB%8B%E5%8D%94%E5%8A%A9%E7%A2%BA%E8%AA%8D%E6%B8%85%E6%BD%94%E7%AF%84%E5%9C%8D%E8%88%87%E8%B2%BB%E7%94%A8%E3%80%82" data-line-photo="true" data-line-context="service_inquiry">用 LINE 詢問 →</a><a href="#booking-form" data-booking-service="大掃除">先整理需求 →</a><a href="#psec-deep">查看收費說明 →</a></div>
         </div>
       </div>
 
@@ -2827,6 +2839,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 </div>
 
 <!-- FLOATING BTNS -->
+</main>
 <div class="float-group">
   <a class="fb fb-line" href="#booking-section" aria-label="使用 LINE 詢價" title="使用 LINE 詢價">
     <img src="LINE_Brand_icon.png" alt="" width="1001" height="1000">
@@ -2846,7 +2859,7 @@ footer a { color: var(--sky); text-decoration: none; display: inline-flex; align
 
 <script>
 // ── Price type tabs ──
-function switchPriceTab(id) {
+function switchPriceTab(id, syncHash = true) {
   document.querySelectorAll('.price-section').forEach(s => {
     s.classList.remove('on');
     s.hidden = true;
@@ -2861,6 +2874,9 @@ function switchPriceTab(id) {
     t.setAttribute('aria-selected', String(selected));
     t.tabIndex = selected ? 0 : -1;
   });
+  if (syncHash && /^#psec-(home|deep|reno|other)$/.test(location.hash)) {
+    history.replaceState(null, '', location.pathname + location.search + '#psec-' + id);
+  }
 }
 
 // ── Reno sub-tabs (normal vs paint) ──
@@ -2932,7 +2948,7 @@ function showPage(id, moveFocus = true, resetScroll = true) {
     const heading = page.querySelector('h1, h2');
     if (heading) {
       heading.setAttribute('tabindex', '-1');
-      window.setTimeout(() => heading.focus({ preventScroll: true }), prefersReducedMotion() ? 0 : 220);
+      heading.focus({ preventScroll: true });
     }
   }
 }
@@ -2975,8 +2991,9 @@ function goBooking(targetId = 'booking-section') {
         var formDetails = document.getElementById('booking-form-details');
         if (formDetails) formDetails.open = true;
       }
+      if (target.tagName === 'DETAILS') target.open = true;
       target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
-      var focusTarget = target.id === 'booking-form' ? target : target.querySelector('h2, h3');
+      var focusTarget = target.id === 'booking-form' ? target : target.querySelector('h2, h3, summary');
       if (focusTarget) focusTarget.focus({ preventScroll: true });
     }
 }
@@ -2984,6 +3001,15 @@ function goBooking(targetId = 'booking-section') {
 function handleBookingAnchor(event) {
   if (!location.hash && !event) return;
   var route = window.location.hash.slice(1) || 'home';
+  if (/^psec-(home|deep|reno|other)$/.test(route)) {
+    showPage('pricing', false, false);
+    switchPriceTab(route.slice(5), false);
+    var pricePanel = document.getElementById(route);
+    pricePanel.setAttribute('tabindex', '-1');
+    pricePanel.focus({preventScroll:true});
+    pricePanel.scrollIntoView({block:'start', behavior:'auto'});
+    return;
+  }
   if (/^service-/.test(route) && document.getElementById(route)) {
     showService(route);
     return;
@@ -2997,6 +3023,8 @@ function handleBookingAnchor(event) {
     goBooking('booking-section');
   } else if (window.location.hash === '#booking-form') {
     goBooking('booking-form');
+  } else if (window.location.hash === '#booking-followup') {
+    goBooking('booking-followup');
   }
 }
 
@@ -3037,12 +3065,18 @@ function prefillBookingFromQuery() {
 
 document.addEventListener('click', function(event) {
   var routeLink = event.target.closest('a[href]');
+  if (routeLink && /^#psec-(home|deep|reno|other)$/.test(routeLink.getAttribute('href'))) {
+    event.preventDefault();
+    if (location.hash !== routeLink.getAttribute('href')) history.pushState(null, '', routeLink.getAttribute('href'));
+    handleBookingAnchor();
+    return;
+  }
   if (routeLink && /^#(home|services|cases|pricing|about)$/.test(routeLink.getAttribute('href'))) {
     event.preventDefault();
     showPage(routeLink.getAttribute('href').slice(1));
     return;
   }
-  var link = event.target.closest('a[href="#booking-section"], a[href="#booking-form"]');
+  var link = event.target.closest('a[href="#booking-section"], a[href="#booking-form"], a[href="#booking-followup"]');
   if (!link || link.classList.contains('bk-line-btn')) return;
   event.preventDefault();
   if (window.jmjTrack) {
@@ -3051,7 +3085,7 @@ document.addEventListener('click', function(event) {
       cta_class: link.className ? String(link.className).slice(0, 80) : ''
     });
   }
-  var targetId = link.getAttribute('href') === '#booking-form' ? 'booking-form' : 'booking-section';
+  var targetId = link.getAttribute('href').slice(1);
   var service = link.getAttribute('data-booking-service');
   var serviceField = document.getElementById('bk-service');
   if (service && serviceField && !serviceField.value) {
@@ -3076,6 +3110,12 @@ document.addEventListener('click', function(event) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
+  var topBar = document.querySelector('.top-bar');
+  function syncHeaderHeight() {
+    if (topBar) document.documentElement.style.setProperty('--jmj-header-height', topBar.getBoundingClientRect().height + 'px');
+  }
+  syncHeaderHeight();
+  if (topBar && window.ResizeObserver) new ResizeObserver(syncHeaderHeight).observe(topBar);
   prefillBookingFromQuery();
   handleBookingAnchor();
 
